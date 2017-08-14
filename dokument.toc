@@ -1,30 +1,31 @@
-\contentsline {section}{\numberline {1}Wst\IeC {\k e}p}{5}
-\contentsline {section}{\numberline {2}Wymagania funkcjonalne i niefunkcjonalne}{6}
-\contentsline {section}{\numberline {3}Systemy podobne}{7}
-\contentsline {paragraph}{skupi\IeC {\'c} si\IeC {\k e} na tym i\IeC {\.z} systemy nie pozwalaj\IeC {\k a} na personalizacje interfejsu dla u\IeC {\.z}ytkownika}{7}
-\contentsline {section}{\numberline {4}Wyb\IeC {\'o}r technologi}{8}
-\contentsline {subsection}{\numberline {4.1}J\IeC {\k e}zyk programowania Scala}{8}
-\contentsline {subsection}{\numberline {4.2}System zarz\IeC {\k a}dzania baz\IeC {\k a} danych PostgreSQL}{8}
-\contentsline {subsection}{\numberline {4.3}Platforma programistyczna Play}{8}
-\contentsline {section}{\numberline {5}Przypadki u\IeC {\.z}ycia}{9}
-\contentsline {subsection}{\numberline {5.1}Autoryzacja}{9}
-\contentsline {subsubsection}{\numberline {5.1.1}Role}{9}
-\contentsline {subsubsection}{\numberline {5.1.2}Rejestracja u\IeC {\.z}ytkownika}{9}
-\contentsline {subsubsection}{\numberline {5.1.3}Logowanie u\IeC {\.z}ytkownika}{9}
-\contentsline {subsection}{\numberline {5.2}Przegl\IeC {\k a}danie danych z sekwencjownowania DNA}{9}
-\contentsline {subsubsection}{\numberline {5.2.1}Widok listy dost\IeC {\k e}pnych pr\IeC {\'o}bek}{9}
-\contentsline {subsubsection}{\numberline {5.2.2}Ekran dost\IeC {\k e}pnych genom\IeC {\'o}w}{9}
-\contentsline {subsubsection}{\numberline {5.2.3}Filtrowanie danych}{9}
-\contentsline {subsection}{\numberline {5.3}Panel administratora}{9}
-\contentsline {subsubsection}{\numberline {5.3.1}Zarz\IeC {\k a}dzanie filtrami}{9}
-\contentsline {subsubsection}{\numberline {5.3.2}Zarz\IeC {\k a}dzanie rolami u\IeC {\.z}ytkownik\IeC {\'o}w}{9}
-\contentsline {subsubsection}{\numberline {5.3.3}Zarz\IeC {\k a}dzanie widoczno\IeC {\'s}ci\IeC {\k a} pr\IeC {\'o}bek dla u\IeC {\.z}ytkownik\IeC {\'o}w}{9}
-\contentsline {section}{\numberline {6}Schemat bazy danych}{10}
-\contentsline {section}{\numberline {7}Opis implementacji}{11}
-\contentsline {section}{\numberline {8}Bezpiecze\IeC {\'n}stwo aplikacji}{12}
-\contentsline {subsection}{\numberline {8.1}Niebezpiecze\IeC {\'n}stwa}{12}
-\contentsline {subsection}{\numberline {8.2}Wykorzystanie protoko\IeC {\l }u https}{12}
-\contentsline {subsection}{\numberline {8.3}}{12}
-\contentsline {section}{\numberline {9}Testy oraz wydajno\IeC {\'s}\IeC {\'c}}{13}
-\contentsline {section}{\numberline {10}Wnioski i podsumowania}{14}
-\contentsline {section}{Literatura}{14}
+\contentsline {section}{\numberline {1}Wst\IeC {\k e}p}{6}
+\contentsline {subsection}{\numberline {1.1}Motywacja}{6}
+\contentsline {subsection}{\numberline {1.2}Cel pracy}{6}
+\contentsline {section}{\numberline {2}\leavevmode {\color {red}Podstawy teoretyczne}}{7}
+\contentsline {section}{\numberline {3}Wymagania funkcjonalne i niefunkcjonalne}{8}
+\contentsline {section}{\numberline {4}Istniej\IeC {\k a}ce rozwi\IeC {\k a}zania}{9}
+\contentsline {section}{\numberline {5}Wyb\IeC {\'o}r technologi}{10}
+\contentsline {subsection}{\numberline {5.1}J\IeC {\k e}zyk programowania Scala}{10}
+\contentsline {subsection}{\numberline {5.2}System zarz\IeC {\k a}dzania baz\IeC {\k a} danych PostgreSQL}{10}
+\contentsline {subsection}{\numberline {5.3}Platforma programistyczna Play}{10}
+\contentsline {section}{\numberline {6}Przypadki u\IeC {\.z}ycia}{11}
+\contentsline {subsection}{\numberline {6.1}Autoryzacja}{11}
+\contentsline {subsubsection}{\numberline {6.1.1}Role}{11}
+\contentsline {subsubsection}{\numberline {6.1.2}Rejestracja u\IeC {\.z}ytkownika}{11}
+\contentsline {subsubsection}{\numberline {6.1.3}Logowanie u\IeC {\.z}ytkownika}{11}
+\contentsline {subsection}{\numberline {6.2}Przegl\IeC {\k a}danie danych z sekwencjownowania DNA}{11}
+\contentsline {subsubsection}{\numberline {6.2.1}Widok listy dost\IeC {\k e}pnych pr\IeC {\'o}bek}{11}
+\contentsline {subsubsection}{\numberline {6.2.2}Ekran dost\IeC {\k e}pnych genom\IeC {\'o}w}{11}
+\contentsline {subsubsection}{\numberline {6.2.3}Filtrowanie danych}{11}
+\contentsline {subsection}{\numberline {6.3}Panel administratora}{11}
+\contentsline {subsubsection}{\numberline {6.3.1}Zarz\IeC {\k a}dzanie filtrami}{11}
+\contentsline {subsubsection}{\numberline {6.3.2}Zarz\IeC {\k a}dzanie rolami u\IeC {\.z}ytkownik\IeC {\'o}w}{11}
+\contentsline {subsubsection}{\numberline {6.3.3}Zarz\IeC {\k a}dzanie widoczno\IeC {\'s}ci\IeC {\k a} pr\IeC {\'o}bek dla u\IeC {\.z}ytkownik\IeC {\'o}w}{11}
+\contentsline {section}{\numberline {7}Schemat bazy danych}{12}
+\contentsline {section}{\numberline {8}Opis implementacji}{13}
+\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{14}
+\contentsline {subsection}{\numberline {9.1}Niebezpiecze\IeC {\'n}stwa}{14}
+\contentsline {subsection}{\numberline {9.2}Wykorzystanie protoko\IeC {\l }u https}{14}
+\contentsline {section}{\numberline {10}Testy oraz wydajno\IeC {\'s}\IeC {\'c}}{15}
+\contentsline {section}{\numberline {11}Wnioski i podsumowania}{16}
+\contentsline {section}{Literatura}{16}

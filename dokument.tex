@@ -15,6 +15,7 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage[titletoc, title]{appendix}
 \usepackage{chngcntr}
+\usepackage{color}
 
 \renewcommand\familydefault{\sfdefault} 
 \usepackage[T1]{fontenc}
@@ -48,18 +49,51 @@
  
 \newpage
 \section{Wstęp}  
+
+
+
+%Wraz z rozwojem technik uzyskiwania danych z sekwencjonawania DNA, powstało wymaganie stworzenia
+%aplikacji, która w prosty i intuicyjny sposób umożliwi lekarzom oraz analitykom analizę ludzkich %genomów.
+
+%W celu osiągnięcia wyżej przedstawionego celu, na Wydziale Elektroniki i Technik Informacyjnych Politechniki Warszawskiej oraz w Warszawskim Instytucie Matki i Dziecka rozpoczeła się praca nad systemem, którego owa praca inżynierska jest częścią.
+
+\subsection{Motywacja}  
+
+\subsection{Cel pracy} 
+\newpage
+\section{\textcolor{red}{Podstawy teoretyczne}}  
+
+\textit{Czy jest sens pisać o tym? 
+1-2 strony o tym czym jest DNA, genomy, kodony, jak zmiana w DNA może wpływać na organizm i dlaczego warto zajmować się badaniem DNA}
 \newpage
 \section{Wymagania funkcjonalne i niefunkcjonalne}  
+\textit{
+Opisanie o wymaganiu dostępu do próbek oraz transkryptów, 
+filtracji, zapisywaniu wyboru filtrów,
+wyboru widocznych kolumn, sortowania, filtrowania pobranych już danych.\newline
+Parę wymagań niefukcjonalnych jak dostęp wielu użytkowników na raz, czas odpowiedzi itp.}
 \newpage
-\section{Systemy podobne}  
-\paragraph{skupić się na tym iż systemy nie pozwalają na personalizacje interfejsu dla użytkownika}
+\section{Istniejące rozwiązania}  
+
+Exac broad institute, Exac Harvard  
+Skupić się na tym iż systemy nie pozwalają na personalizacje interfejsu dla użytkownika.
+Harvard udostępnia REST API nieprzyjazne użytkownikowi \newline
+\textcolor{red}{\textbf{Czy dodać tu zdjęcia z tych aplikacji?}}
+
 \newpage
 \section{Wybór technologi}
 \subsection{Język programowania Scala}
+\textit{zalety i wady}
 \subsection{System zarządzania bazą danych PostgreSQL}  
+\textit{zalety i wady}
 \subsection{Platforma programistyczna Play}
+\textit{zalety i wady, trochę więcej o aplikacjach przeglądarkowych i dlaczego z tej technologi chcemy korzystać}
+
 \newpage
 \section{Przypadki użycia}
+
+\textit{Opis każdej funkcjonalności oraz zdjęcia. }
+\textcolor{red}{Czy skupić się bardziej na opisie działania aplikacji czy raczej implementacji?}
 
 \subsection{Autoryzacja}
 \subsubsection{Role}
@@ -75,17 +109,24 @@
 \subsubsection{Zarządzanie filtrami}
 \subsubsection{Zarządzanie rolami użytkowników}
 \subsubsection{Zarządzanie widocznością próbek dla użytkowników}
+
 \newpage
 \section{Schemat bazy danych}
+\textcolor{red}{
+Schemat jest bardzo duży, może załączyć w częściach w dodatku i odsyłać tam czytelnika?
+}
+
 \newpage
 \section{Opis implementacji}  
+\textcolor{red}{
+Czy nie połączyć opisu implementacji razem z przypadkami użycia?
+Kolejno opisując użycie aplikacji mógłbym opisać jak to się odbywa w kodzie.
+}
 \newpage
 \section{Bezpieczeństwo aplikacji}  
 \subsection{Niebezpieczeństwa}
 \subsection{Wykorzystanie protokołu https}
-
-\subsection{}
-
+\textit{Opisać jak od strony bardziej technicznej odbywa się zabezpieczanie haseł użytkownika (sól, sha512) }
 \newpage
 \section{Testy oraz wydajność}  
 \newpage

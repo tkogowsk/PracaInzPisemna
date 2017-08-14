@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.8)  9 AUG 2017 22:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.8)  14 AUG 2017 21:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -627,27 +627,27 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 )) (./dokument.aux)
 \openout1 = `dokument.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 36.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 35.
+(Font)              scaled to size 11.39996pt on input line 36.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -728,13 +728,13 @@ File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf used on input line
- 36.
+ 37.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf used on input line
- 36.
+ 37.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
 <pierwsza_strona/pierwsza_strona.pdf, id=4, page=1, 597.23125pt x 845.1575pt>
@@ -742,76 +742,76 @@ File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf, page 1>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf, page1 used on inp
-ut line 36.
+ut line 37.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf, page 1>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf, page1 used on inp
-ut line 36.
+ut line 37.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf, page 1>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf, page1 used on inp
-ut line 36.
+ut line 37.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf, page 1>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf, page1 used on inp
-ut line 36.
+ut line 37.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf, page 1>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf, page1 used on inp
-ut line 36.
+ut line 37.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [1
 
  <./pierwsza_strona/pierwsza_strona.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 16.41594pt on input line 39.
+(Font)              scaled to size 16.41594pt on input line 40.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 39.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 40.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 16.41594pt on input line 39.
+(Font)              scaled to size 16.41594pt on input line 40.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 <obrazy/oswiadczenie.pdf, id=27, 597.31157pt x 844.83629pt>
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 45.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 46.
 (pdftex.def)             Requested size: 597.3101pt x 844.83423pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
  <use obrazy/oswiadczenie.pdf>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 45.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 46.
 (pdftex.def)             Requested size: 597.3101pt x 844.83423pt.
 
 <obrazy/oswiadczenie.pdf, id=30, page=1, 597.31157pt x 844.83629pt>
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 45.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 46.
 (pdftex.def)             Requested size: 597.3101pt x 844.83423pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
  <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 45.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 46.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 45.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 46.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
  <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 45.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 46.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 45.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 46.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
  [3 <./obrazy/oswiadczenie.pdf>]
 (./dokument.toc
@@ -819,58 +819,70 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 11.39996pt on input line 1.
-LaTeX Font Info:    Try loading font information for OML+plm on input line 6.
+LaTeX Font Info:    Try loading font information for OML+plm on input line 2.
  (/usr/share/texlive/texmf-dist/tex/latex/polski/omlplm.fd
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMS+plsy on input line 6.
+LaTeX Font Info:    Try loading font information for OMS+plsy on input line 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/polski/omsplsy.fd
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMX+plex on input line 6.
+LaTeX Font Info:    Try loading font information for OMX+plex on input line 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/polski/omxplex.fd
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 6.
+(Font)              <12> on input line 2.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 6.
+(Font)              <8> on input line 2.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 6.
-)
+(Font)              <6> on input line 2.
+ [4])
 \tf@toc=\write3
 \openout3 = `dokument.toc'.
 
- [4] [5] [6]
-[7]
+ [5]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 13.67995pt on input line 58.
+(Font)              scaled to size 13.67995pt on input line 60.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 58.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 60.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 13.67995pt on input line 58.
- [8] [9] [10] [11] [12] [13] [14]
+(Font)              scaled to size 13.67995pt on input line 60.
+ [6]
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 67.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 11.39996pt on input line 67.
 
-LaTeX Warning: Empty `thebibliography' environment on input line 97.
+[7] [8]
+Overfull \hbox (5.43796pt too wide) in paragraph at lines 78--82
+\T1/phv/m/n/12 zwa-la-j¡ na per-so-na-li-za-cje in-ter-fej-su dla u»yt-kow-ni-k
+a. Ha-rvard udo-st¦p-nia REST
+ []
 
-[15] [16] (./dokument.aux) ) 
+[9] [10] [11] [12] [13] [14] [15] [16]
+
+LaTeX Warning: Empty `thebibliography' environment on input line 138.
+
+[17] [18] (./dokument.aux) ) 
 Here is how much of TeX's memory you used:
- 7163 strings out of 493029
- 102172 string characters out of 6136235
- 177496 words of memory out of 5000000
- 10551 multiletter control sequences out of 15000+600000
- 22943 words of font info for 36 fonts, out of 8000000 for 9000
+ 7169 strings out of 493029
+ 102241 string characters out of 6136235
+ 178496 words of memory out of 5000000
+ 10555 multiletter control sequences out of 15000+600000
+ 25959 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,18n,43p,264b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,18n,43p,272b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base
 /8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on dokument.pdf (17 pages, 452562 bytes).
+r/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on dokument.pdf (19 pages, 464520 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 99 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
