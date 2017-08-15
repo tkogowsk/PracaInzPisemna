@@ -82,10 +82,85 @@ Harvard udostępnia REST API nieprzyjazne użytkownikowi \newline
 
 \newpage
 \section{Wybór technologi}
+
+Platforma klastrowego przetwarzania danych - Apache Spark\cite{spark}, z którą współpracować będzie aplikacja, została stworzona oraz udostępnia interfejs programistyczny w języku Scala.
+Naturalnym przez to wydało się wybranie tego języka programowania do stworzenia przeglądarki danych.
+
+  
 \subsection{Język programowania Scala}
-\textit{zalety i wady}
-\subsection{System zarządzania bazą danych PostgreSQL}  
-\textit{zalety i wady}
+W aplikacji użyto języka Scala w wersji 2.11.7 \cite{jezykScala}. Jest to język programowania powstały w 2001 roku pod kierownictwem Martina Odersky'ego w Lozannie.
+Działa na Wirtualnej Maszynie Javy a do 2012 roku wspierała platformę .NET opracowaną przez firmę Microsoft. Język ten nadaje się równie dobrze do krótkich, zwartych skryptów  wywoływanych podobnie do skryptów języka Python jak i do tworzenia wydajnych, ogromnych, bezpiecznych systemów sieciowych.
+
+Jest językiem łączącym cechy języków funkcyjnych oraz obiektowych. 
+Nie jest jednak obligatoryjny fukncyjny styl programowania, do którego nie jest przyzwyczajona większość programistów.
+ Scala w swoim założeniu nawiązuje do minimalizmu składni Lispa to znaczy że nie opiera się na składni a na funkcjach bibliotecznych. Nazwa ma podkreślić skalowalność języka, dzieje się tak dzięki możliwości tworzenia dodatkowych typów i struktur wyglądających jak nowa składnia języka.
+Zaletą języka jest również to że dzięki kompatybilności z językiem Java mamy możliwość wykorzystania każdej lini kodu napisanej w owym języku.
+
+\subsection{System zarządzania bazą danych}  
+Zadanie stworzenia bazy danych przechowującej informacje konfiguracyjne, dane użytkowników oraz o użytkownikach było 
+dużą częścią tworzenia systemu i
+wymagało wybrania odpowiedniego systemu zarządania bazą danych.
+Model bazodanowy został zaprojektowany w modelu opartym na relacyjnej organizacji danych, przez co wybór ograniczył się do
+darmowych technologii realizujących relacyjne bazy danych.
+
+\newpage
+Biorąc pod uwagę powyższe kryteria, można porównać najpopularniejsze systemami, są nimi\cite{porownanieBaz}: 
+ \begin{itemize}
+  \item MqSQL
+  \item SQLite
+  \item PostgreSQL
+\end{itemize}
+
+\subsubsection{MySQL}
+\paragraph{Zalety}
+\begin{itemize}
+\item{proste i łatwe w obsłudze}
+\item{wysoki poziom bezpieczeństwa}
+\end{itemize}
+\paragraph{Wady}
+\begin{itemize}
+\item{nie realizuje w pełni standardu SQL}
+\item{problematyczny jednoczesny zapis i odczyt}
+\end{itemize}
+\subsubsection{SQLite}
+\paragraph{Zalety}
+\begin{itemize}
+\item{zgodny ze standardem SQL}
+\item{przenośny dzięki oparciu bazy o jeden plik}
+\end{itemize}
+\paragraph{Wady}
+\begin{itemize}
+\item{brak zarządzania użytkownikami i dostępami do danych}
+\end{itemize}
+
+\subsubsection{PostgreSQL}
+\paragraph{Zalety}
+\begin{itemize}
+\item{zgodny ze standardem SQL}
+\item{wsparcie dla współbieżności}
+\item{pełne wsparcie dla transakcji}
+\end{itemize}
+\paragraph{Wady}
+\begin{itemize}
+\item{słaba wydajność}
+\item{trudność instalacji dla początkujących użytkowników}
+\end{itemize}
+
+\subsubsection{Uzasadnienie wyboru PostgreSQL}
+Po analizie ostateczny wybór systemem padł na PostgreSQL.
+To otwarte i darmowe oprogramowanie posiada bardzo dużą społeczność, której wiedza jest łatwo dostępna w internecie 
+i posiada wiele narzędzi i bibliotek przeznaczonych do pracy z owym systemem. 
+Istotny wpływ na decyzje miała również łatwość integracji PostgreSQL na inne systemy.  
+
+\subsection{Slick}  
+Pracę z bazą danych po stronie serwera aplikacyjnego 
+znacznie ułatwia oprogramowanie pozwalające na odwzorowanie obiektowo-relacyjne tabel bazodanowych na obiekty języka programowania.
+Dzięki tej technice programista może traktować obiekty bazodanowe jak elementy kolekcji czy pola obiektów.
+
+Takim narzędziem jest stworzone przez firmę Lightbend, Inc. 
+oprogramowanie Slick\cite{slick} pozwalające na pełną kontrolę nad bazą danych oraz pisanie klasycznych zapytań SQL.
+
+
 \subsection{Platforma programistyczna Play}
 \textit{zalety i wady, trochę więcej o aplikacjach przeglądarkowych i dlaczego z tej technologi chcemy korzystać}
 
@@ -135,6 +210,22 @@ Kolejno opisując użycie aplikacji mógłbym opisać jak to się odbywa w kodzi
 \addcontentsline{toc}{section}{Literatura}
 \newpage
 \begin{thebibliography}{99}
+
+\bibitem{jezykScala}
+École Polytechnique Fédérale - Scala documentation,
+Available at: http://docs.scala-lang.org/ (Accessed: 10 August 2017).
+
+\bibitem{spark}
+The Apache Software Foundation - Apache Spark Available at: https://spark.apache.org/ (Accessed: 10 August 2017).
+
+\bibitem{porownanieBaz}
+Hostovita sp. z o.o. - Porównanie relacyjnych SZBD: SQLite, MySQL, PostgreSQL
+Available at:
+https://hostovita.pl/blog/porownanie-relacyjnych-systemow-zarzadzania-bazami-danych-sqlite-mysql-postgresql/ (Accessed: 10 August 2017).
+
+\bibitem{slick}
+Lightbend, Inc Slick documentation. Available at:
+http://slick.lightbend.com/docs/ (Accessed: 10 August 2017).
 \end{thebibliography}
 
 \newpage
