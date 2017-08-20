@@ -4,42 +4,45 @@
 \contentsline {section}{\numberline {2}\leavevmode {\color {red}Podstawy teoretyczne}}{7}
 \contentsline {section}{\numberline {3}Wymagania funkcjonalne i niefunkcjonalne}{8}
 \contentsline {subsection}{\numberline {3.1}Wymagania funkcjonalne}{8}
-\contentsline {section}{\numberline {4}Istniej\IeC {\k a}ce rozwi\IeC {\k a}zania}{12}
-\contentsline {section}{\numberline {5}Wyb\IeC {\'o}r technologi}{13}
-\contentsline {subsection}{\numberline {5.1}J\IeC {\k e}zyk programowania Scala}{13}
-\contentsline {subsection}{\numberline {5.2}System zarz\IeC {\k a}dzania baz\IeC {\k a} danych}{13}
-\contentsline {subsubsection}{\numberline {5.2.1}MySQL}{14}
-\contentsline {paragraph}{Zalety}{14}
-\contentsline {paragraph}{Wady}{14}
-\contentsline {subsubsection}{\numberline {5.2.2}SQLite}{14}
-\contentsline {paragraph}{Zalety}{14}
-\contentsline {paragraph}{Wady}{14}
-\contentsline {subsubsection}{\numberline {5.2.3}PostgreSQL}{14}
-\contentsline {paragraph}{Zalety}{14}
-\contentsline {paragraph}{Wady}{15}
-\contentsline {subsubsection}{\numberline {5.2.4}Uzasadnienie wyboru PostgreSQL}{15}
-\contentsline {subsection}{\numberline {5.3}Slick}{15}
-\contentsline {subsection}{\numberline {5.4}Aplikacja przegl\IeC {\k a}darkowa}{15}
-\contentsline {paragraph}{Zalety aplikacji internetowych}{15}
-\contentsline {paragraph}{Platforma programistyczna Play}{16}
-\contentsline {section}{\numberline {6}Przypadki u\IeC {\.z}ycia}{17}
-\contentsline {subsection}{\numberline {6.1}Autoryzacja}{17}
-\contentsline {subsubsection}{\numberline {6.1.1}Role}{17}
-\contentsline {subsubsection}{\numberline {6.1.2}Rejestracja u\IeC {\.z}ytkownika}{17}
-\contentsline {subsubsection}{\numberline {6.1.3}Logowanie u\IeC {\.z}ytkownika}{17}
-\contentsline {subsection}{\numberline {6.2}Przegl\IeC {\k a}danie danych z sekwencjownowania DNA}{17}
-\contentsline {subsubsection}{\numberline {6.2.1}Widok listy dost\IeC {\k e}pnych pr\IeC {\'o}bek}{17}
-\contentsline {subsubsection}{\numberline {6.2.2}Ekran dost\IeC {\k e}pnych genom\IeC {\'o}w}{17}
-\contentsline {subsubsection}{\numberline {6.2.3}Filtrowanie danych}{17}
-\contentsline {subsection}{\numberline {6.3}Panel administratora}{17}
-\contentsline {subsubsection}{\numberline {6.3.1}Zarz\IeC {\k a}dzanie filtrami}{17}
-\contentsline {subsubsection}{\numberline {6.3.2}Zarz\IeC {\k a}dzanie rolami u\IeC {\.z}ytkownik\IeC {\'o}w}{17}
-\contentsline {subsubsection}{\numberline {6.3.3}Zarz\IeC {\k a}dzanie widoczno\IeC {\'s}ci\IeC {\k a} pr\IeC {\'o}bek dla u\IeC {\.z}ytkownik\IeC {\'o}w}{17}
-\contentsline {section}{\numberline {7}Schemat bazy danych}{18}
-\contentsline {section}{\numberline {8}Opis implementacji}{19}
-\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{20}
-\contentsline {subsection}{\numberline {9.1}Niebezpiecze\IeC {\'n}stwa}{20}
-\contentsline {subsection}{\numberline {9.2}Wykorzystanie protoko\IeC {\l }u https}{20}
-\contentsline {section}{\numberline {10}Testy oraz wydajno\IeC {\'s}\IeC {\'c}}{21}
-\contentsline {section}{\numberline {11}Wnioski i podsumowania}{22}
-\contentsline {section}{Literatura}{22}
+\contentsline {subsection}{\numberline {3.2}Wymagania niefunkcjonalne}{9}
+\contentsline {section}{\numberline {4}Istniej\IeC {\k a}ce rozwi\IeC {\k a}zania}{10}
+\contentsline {section}{\numberline {5}Wyb\IeC {\'o}r technologi}{11}
+\contentsline {subsection}{\numberline {5.1}J\IeC {\k e}zyk programowania Scala}{11}
+\contentsline {subsection}{\numberline {5.2}System zarz\IeC {\k a}dzania baz\IeC {\k a} danych}{11}
+\contentsline {subsubsection}{\numberline {5.2.1}MySQL}{12}
+\contentsline {paragraph}{Zalety}{12}
+\contentsline {paragraph}{Wady}{12}
+\contentsline {subsubsection}{\numberline {5.2.2}SQLite}{12}
+\contentsline {paragraph}{Zalety}{12}
+\contentsline {paragraph}{Wady}{12}
+\contentsline {subsubsection}{\numberline {5.2.3}PostgreSQL}{12}
+\contentsline {paragraph}{Zalety}{12}
+\contentsline {paragraph}{Wady}{13}
+\contentsline {subsubsection}{\numberline {5.2.4}Uzasadnienie wyboru PostgreSQL}{13}
+\contentsline {subsection}{\numberline {5.3}Slick}{13}
+\contentsline {subsection}{\numberline {5.4}Aplikacja przegl\IeC {\k a}darkowa}{13}
+\contentsline {paragraph}{Zalety aplikacji internetowych}{13}
+\contentsline {paragraph}{Platforma programistyczna Play}{14}
+\contentsline {section}{\numberline {6}Przypadki u\IeC {\.z}ycia}{15}
+\contentsline {subsection}{\numberline {6.1}Autoryzacja}{15}
+\contentsline {subsubsection}{\numberline {6.1.1}Role}{15}
+\contentsline {subsubsection}{\numberline {6.1.2}Rejestracja i logowanie u\IeC {\.z}ytkownika}{15}
+\contentsline {paragraph}{Rejestracja}{15}
+\contentsline {paragraph}{Logowanie}{15}
+\contentsline {subsection}{\numberline {6.2}Przegl\IeC {\k a}danie danych z sekwencjownowania DNA}{15}
+\contentsline {paragraph}{Ekran dost\IeC {\k e}pnych genom\IeC {\'o}w}{16}
+\contentsline {paragraph}{\leavevmode {\color {red} Tabela - lepsza nazwa? Czy pokaza\IeC {\'c} tylko jedno zdj\IeC {\k e}cie ca\IeC {\l }ej strony?} }{17}
+\contentsline {paragraph}{Ustawianie widoczno\IeC {\'s}ci kolumn}{18}
+\contentsline {paragraph}{Filtrowanie danych}{19}
+\contentsline {subsection}{\numberline {6.3}Panel administratora}{19}
+\contentsline {paragraph}{Zarz\IeC {\k a}dzanie filtrami}{19}
+\contentsline {paragraph}{Zarz\IeC {\k a}dzanie rolami u\IeC {\.z}ytkownik\IeC {\'o}w}{19}
+\contentsline {paragraph}{Zarz\IeC {\k a}dzanie widoczno\IeC {\'s}ci\IeC {\k a} pr\IeC {\'o}bek dla u\IeC {\.z}ytkownik\IeC {\'o}w}{19}
+\contentsline {section}{\numberline {7}Schemat bazy danych}{20}
+\contentsline {section}{\numberline {8}Opis implementacji}{21}
+\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{22}
+\contentsline {subsection}{\numberline {9.1}Niebezpiecze\IeC {\'n}stwa}{22}
+\contentsline {subsection}{\numberline {9.2}Wykorzystanie protoko\IeC {\l }u https}{22}
+\contentsline {section}{\numberline {10}Testy oraz wydajno\IeC {\'s}\IeC {\'c}}{23}
+\contentsline {section}{\numberline {11}Wnioski i podsumowania}{24}
+\contentsline {section}{Literatura}{24}

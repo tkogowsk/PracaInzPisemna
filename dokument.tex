@@ -114,14 +114,18 @@ Po zakończeniu analizy zostały określone następujące funkcjonalności. Apli
  \item daje możliwość zakrycia na stronie aplikacji części danych	
  \end{enumerate}
  
-\newpage
-Funkcjonalności umożliwiająca wprowadzanie wcześniej zdefiniowanych filtrów wymusiła stworzenie
-trzeciej klasy użytkowników, to jest administratorów, którzy będą zarządzać dostępem do próbek dla 
-użytkowników oraz będą wprowadzali plik zmieniający strukturę filtrów.
+Funkcjonalności umożliwiająca wprowadzanie wcześniej zdefiniowanych filtrów spowodowała stworzenie
+trzeciej klasy użytkowników, to jest administratorów, którzy będą zarządzali strukturą filtrów poprzez wprowadzenie odpowiedniego pliku z specjalnie przygotowanego panelu administracyjnego
+oraz będą zarządzać dostępem do próbek dla użytkowników.
 
-\newpage
-\textit{
-Parę wymagań niefukcjonalnych jak dostęp wielu użytkowników na raz, czas odpowiedzi itp.}
+\subsection{Wymagania niefunkcjonalne}
+ \begin{enumerate}[1)]
+  \item szyfruje wysyłane dane między klientem a serwerem za pomocą HTTPS,
+  \item wykorzystuje funkcję SHA-512 do zabezpieczenia hasła użytkownika,
+  \item korzysta z "soli" przy wyliczaniu funkcji skrótu,
+  %Parę wymagań niefukcjonalnych jak dostęp wielu użytkowników na raz, czas odpowiedzi itp.}
+ \end{enumerate}
+
 \newpage
 \section{Istniejące rozwiązania}  
 
@@ -246,18 +250,79 @@ która na celu ma przyśpieszyć pracę programisty dzięki:
 
 \subsection{Autoryzacja}
 \subsubsection{Role}
-\subsubsection{Rejestracja użytkownika}
-\subsubsection{Logowanie użytkownika}
-
+\subsubsection{Rejestracja i logowanie użytkownika}
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{obrazy/aplikacja/login.png}
+  \caption{Okno logowania i rejestracji}
+  \label{fig:loginpic}
+\end{figure}
+  \paragraph{Rejestracja}
+  \paragraph{Logowanie}
+  
 \subsection{Przeglądanie danych z sekwencjownowania DNA}
-\subsubsection{Widok listy dostępnych próbek}
-\subsubsection{Ekran dostępnych genomów}
-\subsubsection{Filtrowanie danych}
+Po zalogowaniu się do aplikacji przed użytkownikiem pojawia się główna część aplikacji pozwalająca Mu 
+na dostęp do próbek oraz pracę z nimi. Zaimplementowano funkcjonalność sesji pozwalającącej na 
+wykorzystywanie guzika "wstecz" przeglądarki oraz odświeżania strony bez potrzeby ponownego
+logowania się.
+ 
+\newpage
+\paragraph{Ekran dostępnych genomów}
+Każda próbka dostępna w bazie danych posiada indywidualny identyfikator pozwalający na 
+rozróżnienie jej od innych próbek. Owy identyfikator jest ciągiem znaków, który wyświetlany jest 
+alfabetycznie posortowanej liście. Użytkownik widzi tylko próbki udostępnione Mu przez administratora
+i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie w identyfikator próki,
+co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA. 
+\newline
+ 
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{obrazy/aplikacja/sample_list.png}
+  \caption{Lista próbek}
+  \label{fig:sample_listpic}
+\end{figure}
+
+\newpage
+\paragraph{\textcolor{red}{
+Tabela - lepsza nazwa? Czy pokazać tylko jedno zdjęcie całej strony?}
+}
+Przechodzą na stronę z danymi dla konkretnej próbki, użytkownikowi wyświetla się 
+tabela z danymi. Największy narzut czasowy na ładowanie się strony ma rysowanie listy
+danych. Długi czas pełnego załadowania się strony i łatwo zauważalne zawieszanie się przeglądarki
+zostały zniwelowane poprzez wprowadzenie paginacji zwanej też stronicowaniem.
+Maksymalna ilość pokazywanych wierszy została ograniczona do 300 i wprowadzono dodatkowy 
+element widoczny w lewym dolnym rogu rysunku numer \ref{fig:table1pic}, który umożliwia 
+użytkownikowi poruszanie się po kolejnych stronach tabelki zmniejszając narzut 
+pamięci operacyjnej wymaganej do wygenerowania całości tabeli.  
+
+Ważną funkcjonalnością z punktu widzenia użytkownika jest możliwość filtracji pobranych już wierszy
+z bazy danych. W celu zwiększenia możliwości wyszukiwania, każda kolumna posiada oddzielne pole 
+filtrujące, umożliwiając na zawężanie zbioru danych po każdej kolumnie. Element odpowiadający
+za stronicowanie poprawnie zmniejsza ilość dostępnych stron przy dynamicznym zmniejszaniu się
+wyświetlanych danych.
+Dodatkową opcją zmieniającą wyświetlane dane po stronie przeglądarki jest 
+funkcjonalność sortowania rosnąco bądź malejąco jednej kolumny. Służy do tego strzałka po
+lewej stronie od nazwy kolumny, kliknięcie w ikonkę bądź nazwę kolumny zmienia sortowanie.
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{obrazy/aplikacja/table1.png}
+  \caption{Tabela z danymi z sekwencjonowania DNA}
+  \label{fig:table1pic}
+\end{figure}
+
+\newpage
+\paragraph{Ustawianie widoczności kolumn}
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{obrazy/aplikacja/visible_columns.png}
+  \caption{Lista próbek}
+  \label{fig:visible_columnspic}
+\end{figure}
+\newpage
+
+\paragraph{Filtrowanie danych}
 
 \subsection{Panel administratora}
-\subsubsection{Zarządzanie filtrami}
-\subsubsection{Zarządzanie rolami użytkowników}
-\subsubsection{Zarządzanie widocznością próbek dla użytkowników}
+\paragraph{Zarządzanie filtrami}
+\paragraph{Zarządzanie rolami użytkowników}
+\paragraph{Zarządzanie widocznością próbek dla użytkowników}
 
 \newpage
 \section{Schemat bazy danych}
