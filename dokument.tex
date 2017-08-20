@@ -67,10 +67,60 @@
 1-2 strony o tym czym jest DNA, genomy, kodony, jak zmiana w DNA może wpływać na organizm i dlaczego warto zajmować się badaniem DNA}
 \newpage
 \section{Wymagania funkcjonalne i niefunkcjonalne}  
+
+%Opisanie o wymaganiu dostępu do próbek oraz transkryptów, 
+%filtracji, zapisywaniu wyboru filtrów,
+%wyboru widocznych kolumn, sortowania, filtrowania pobranych już danych.
+
+Określenie funkcjonalności dostępnych w budowanej aplikacji, rozpoczęto od określenia 
+rodzajów użytkowników, którzy mają korzystać z oprogramowania tak by jak najlepiej dostosować
+system do ich potrzeb, przyśpieszyć dostęp do danych.
+
+Pierwszą grupą docelową są lekarze, którzy będą poszukiwali
+możliwych chorób powiązanych z wariantem pacjenta, by wykryć niebezpieczeństwa
+i móc jak nawcześniej przeciwdziałać chorobom. 
+Na dane będą patrzeć w kontekście jednego badanego pacjenta i należy umożliwić Im łatwe 
+ich rozróżnienie genotypów. 
+
+Drugim typem są analitycy, którzy będą analizować dane i zadawać 
+odwrotne pytania, czyli będą starać się znaleźć warianty, które mogą być odpowiedzialne
+za konkretną chorobę. 
+
+Inną istotną kwestią wziętą pod uwagę był typ i wielkość danych, jakie mają być wyświetlane klientom.
+W trakcie projektowania architektury jako dane przykładowe zostały wybrane dane dla przykładowego transkryptu dostępne w aplikacji Exac \cite{exac}. Dane te posiadały 36 kolumn i oczywistym wydało się że obie grupy użytkowników będzie interesowała tylko część informacji o genotypie i należało by umożliwić im filtrację oraz zakrywanie niepotrzebnych danych. 
+Jedna próbka liczyła sobie więcej niż 340000 wiersze co wymogło zaproponowanie 
+funkcjonalności umożliwiającen na poprawne i intuicyjne filtrowanie danych 
+tak by klient otrzymywał tylko interesujące go rekordy.
+
+\subsection{Wymagania funkcjonalne}
+Po zakończeniu analizy zostały określone następujące funkcjonalności. Aplikacja:
+
+ \begin{enumerate}[1)]
+ \item ma wygodny, prosty interfejs użytkownika,
+ \item rejestruje użytkowników,
+ \item autoryzuje użytkowników,
+ \item umożliwia wybór próbki do analizy,
+ \item pozwala na wprowadzenie wcześniej zdefiniowanych filtrów z panelu administratora,
+ \item wyświetla dane z sekwencjonowania DNA dla konkretnej próbki,
+ \item filtruje dane po stronie serwera i wysła je klientowi,
+ \item zlicza ilość danych przy zadanych filtrach i informuje klienta o wyniku,
+ \item umożliwia zmianę wartości filtrów,
+ \item pozwala na wyłączenie z filtracji dowolnej części filtrów,
+ \item zapisuje wartości filtrów oddzielnie dla każdego użytkownika,
+ \item sortuje dane po stronie klienta,
+ \item filtruje dane po stronie klienta,
+ \item udostępnia administratorowi możliwość zmiany dostępu do próbek 
+ każdego użytkownika
+ \item daje możliwość zakrycia na stronie aplikacji części danych	
+ \end{enumerate}
+ 
+\newpage
+Funkcjonalności umożliwiająca wprowadzanie wcześniej zdefiniowanych filtrów wymusiła stworzenie
+trzeciej klasy użytkowników, to jest administratorów, którzy będą zarządzać dostępem do próbek dla 
+użytkowników oraz będą wprowadzali plik zmieniający strukturę filtrów.
+
+\newpage
 \textit{
-Opisanie o wymaganiu dostępu do próbek oraz transkryptów, 
-filtracji, zapisywaniu wyboru filtrów,
-wyboru widocznych kolumn, sortowania, filtrowania pobranych już danych.\newline
 Parę wymagań niefukcjonalnych jak dostęp wielu użytkowników na raz, czas odpowiedzi itp.}
 \newpage
 \section{Istniejące rozwiązania}  
@@ -192,7 +242,6 @@ która na celu ma przyśpieszyć pracę programisty dzięki:
 \newpage
 \section{Przypadki użycia}
 
-\textit{Opis każdej funkcjonalności oraz zdjęcia. }
 \textcolor{red}{Czy skupić się bardziej na opisie działania aplikacji czy raczej implementacji?}
 
 \subsection{Autoryzacja}
@@ -215,6 +264,11 @@ która na celu ma przyśpieszyć pracę programisty dzięki:
 \textcolor{red}{
 Schemat jest bardzo duży, może załączyć w częściach w dodatku i odsyłać tam czytelnika?
 }
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{obrazy/database.png}
+  \caption{Schamat bazy danych}
+  \label{fig:bazadanych}
+\end{figure}
 
 \newpage
 \section{Opis implementacji}  
@@ -242,6 +296,10 @@ Available at: http://docs.scala-lang.org/ (Accessed: 10 August 2017).
 
 \bibitem{spark}
 The Apache Software Foundation - Apache Spark Available at: https://spark.apache.org/ (Accessed: 10 August 2017).
+
+\bibitem{exac}
+Exac Browser Data - Exome Aggregation Consortium  
+Available at: http://exac.broadinstitute.org/ (Accessed: 10 August 2017).
 
 \bibitem{porownanieBaz}
 Hostovita sp. z o.o. - Porównanie relacyjnych SZBD: SQLite, MySQL, PostgreSQL

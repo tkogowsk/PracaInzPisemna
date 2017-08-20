@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.8)  15 AUG 2017 20:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.8)  20 AUG 2017 18:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -856,78 +856,85 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 11.39996pt on input line 67.
 
-[7] [8]
-Overfull \hbox (5.43796pt too wide) in paragraph at lines 78--82
+[7] [8] [9] [10] [11]
+Overfull \hbox (5.43796pt too wide) in paragraph at lines 128--132
 \T1/phv/m/n/12 zwa-la-j¡ na per-so-na-li-za-cje in-ter-fej-su dla u»yt-kow-ni-k
 a. Ha-rvard udo-st¦p-nia REST
  []
 
-[9] [10]
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 109.
+[12] [13]
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 159.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 109.
- [11]
-Overfull \hbox (5.26842pt too wide) in paragraph at lines 165--167
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 159.
+ [14]
+Overfull \hbox (5.26842pt too wide) in paragraph at lines 215--217
 []\T1/phv/m/n/12 Bior¡c pod uwa-g¦ wy-ma-ga-nia klien-tów oraz ró»-no-rod-no±¢ 
 u»y-wa-nych przez
  []
 
-[12] [13] [14] [15] [16] [17] [18] [19]
-Underfull \hbox (badness 1194) in paragraph at lines 240--242
+[15] [16] [17] <obrazy/database.png, id=83, 1434.86063pt x 606.76688pt>
+File: obrazy/database.png Graphic file (type png)
+
+<use obrazy/database.png>
+Package pdftex.def Info: obrazy/database.png used on input line 268.
+(pdftex.def)             Requested size: 390.0pt x 164.92175pt.
+ [18 <./obrazy/database.png (PNG copy)>] [19] [20]
+[21] [22]
+Underfull \hbox (badness 1194) in paragraph at lines 294--296
 []\T1/phv/m/n/12 École Po-ly-tech-ni-que Fédéra-le - Sca-la do-cu-men-ta-tion, 
 Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 3514) in paragraph at lines 244--245
+Underfull \hbox (badness 3514) in paragraph at lines 298--299
 []\T1/phv/m/n/12 The Apa-che So-ftwa-re Fo-un-da-tion - Apa-che Spark Ava-ila-b
 le at:
  []
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 247--250
+Underfull \hbox (badness 1286) in paragraph at lines 305--308
 []\T1/phv/m/n/12 Hostovita sp. z o.o. - Po-rów-na-nie re-la-cyj-nych SZBD: SQLi
 -te, My-
  []
 
 
-Underfull \hbox (badness 3668) in paragraph at lines 247--250
+Underfull \hbox (badness 3668) in paragraph at lines 305--308
 \T1/phv/m/n/12 SQL, Post-gre-SQL Ava-ila-ble at: https://hostovita.pl/blog/poro
 wnanie-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--250
+Underfull \hbox (badness 10000) in paragraph at lines 305--308
 \T1/phv/m/n/12 relacyjnych-systemow-zarzadzania-bazami-danych-sqlite-mysql-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--254
+Underfull \hbox (badness 10000) in paragraph at lines 310--312
 []\T1/phv/m/n/12 Lightbend, Inc Slick do-cu-men-ta-tion. Ava-ila-ble at:
  []
 
-[20] [21] (./dokument.aux) ) 
+[23] [24] (./dokument.aux) ) 
 Here is how much of TeX's memory you used:
- 7197 strings out of 493029
- 102669 string characters out of 6136235
- 178508 words of memory out of 5000000
- 10580 multiletter control sequences out of 15000+600000
+ 7218 strings out of 493029
+ 103019 string characters out of 6136235
+ 178520 words of memory out of 5000000
+ 10599 multiletter control sequences out of 15000+600000
  26216 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,18n,43p,335b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,18n,43p,401b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base
 /8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on dokument.pdf (22 pages, 479412 bytes).
+Output written on dokument.pdf (25 pages, 662491 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 123 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
