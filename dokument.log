@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.8)  20 AUG 2017 21:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.8)  23 AUG 2017 22:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -886,83 +886,124 @@ u»y-wa-nych przez
 File: obrazy/aplikacja/login.png Graphic file (type png)
 
 <use obrazy/aplikacja/login.png>
-Package pdftex.def Info: obrazy/aplikacja/login.png used on input line 255.
+Package pdftex.def Info: obrazy/aplikacja/login.png used on input line 265.
 (pdftex.def)             Requested size: 390.0pt x 114.9188pt.
  [15 <./obrazy/aplikacja/login.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 270--276
+Underfull \hbox (badness 10000) in paragraph at lines 280--286
 
  []
 
-<obrazy/aplikacja/sample_list.png, id=78, 401.5pt x 331.2375pt>
+<obrazy/aplikacja/sample_list.png, id=78, 388.45125pt x 253.94875pt>
 File: obrazy/aplikacja/sample_list.png Graphic file (type png)
 
 <use obrazy/aplikacja/sample_list.png>
-Package pdftex.def Info: obrazy/aplikacja/sample_list.png used on input line 27
+Package pdftex.def Info: obrazy/aplikacja/sample_list.png used on input line 28
 8.
-(pdftex.def)             Requested size: 390.0pt x 321.77002pt.
+(pdftex.def)             Requested size: 390.0pt x 254.96722pt.
  [16 <./obrazy/aplikacja/sample_list.png>] <obrazy/aplikacja/table1.png, id=82,
  1615.03375pt x 876.27374pt>
 File: obrazy/aplikacja/table1.png Graphic file (type png)
 
 <use obrazy/aplikacja/table1.png>
-Package pdftex.def Info: obrazy/aplikacja/table1.png used on input line 306.
+Package pdftex.def Info: obrazy/aplikacja/table1.png used on input line 301.
 (pdftex.def)             Requested size: 390.0pt x 211.60696pt.
- [17 <./obrazy/aplikacja/table1.png>]
-<obrazy/aplikacja/visible_columns.png, id=86, 580.1675pt x 393.47pt>
+
+Overfull \hbox (3.27298pt too wide) in paragraph at lines 319--324
+\T1/phv/m/n/12 nej te» stro-ni-co-wa-niem. Mak-sy-mal-na ilo±¢ po-ka-zy-wa-nych
+ wier-szy zo-sta-ªa ogra-
+ []
+
+[17 <./obrazy/aplikacja/table1.png>] [18]
+Overfull \hbox (2.59993pt too wide) in paragraph at lines 337--346
+\T1/phv/m/n/12 lumn, po-ro-wa-dz¡-ca do przed-sta-wia-nie wie-lu in-for-ma-cji 
+nie po-trzeb-nych wszyst-
+ []
+
+<obrazy/aplikacja/visible_columns.png, id=90, 580.1675pt x 393.47pt>
 File: obrazy/aplikacja/visible_columns.png Graphic file (type png)
 
 <use obrazy/aplikacja/visible_columns.png>
 Package pdftex.def Info: obrazy/aplikacja/visible_columns.png used on input lin
-e 316.
+e 349.
 (pdftex.def)             Requested size: 390.0pt x 264.50008pt.
- [18 <./obrazy/aplikacja/visible_columns.png>] [19] <obrazy/database.png, id=94
-, 1434.86063pt x 606.76688pt>
+ [19 <./obrazy/aplikacja/visible_columns.png>] <obrazy/aplikacja/filters.png, i
+d=94, 286.06876pt x 574.145pt>
+File: obrazy/aplikacja/filters.png Graphic file (type png)
+
+<use obrazy/aplikacja/filters.png>
+Package pdftex.def Info: obrazy/aplikacja/filters.png used on input line 370.
+(pdftex.def)             Requested size: 286.06805pt x 574.1436pt.
+
+
+LaTeX Warning: Float too large for page by 8.8185pt on input line 373.
+
+[20] [21 <./obrazy/aplikacja/filters.png>]
+<obrazy/aplikacja/admin.png, id=101, 990.70125pt x 253.94875pt>
+File: obrazy/aplikacja/admin.png Graphic file (type png)
+
+<use obrazy/aplikacja/admin.png>
+Package pdftex.def Info: obrazy/aplikacja/admin.png used on input line 382.
+(pdftex.def)             Requested size: 390.0pt x 99.96959pt.
+
+<obrazy/aplikacja/user_priviliges.png, id=102, 1010.77625pt x 518.93875pt>
+File: obrazy/aplikacja/user_priviliges.png Graphic file (type png)
+
+<use obrazy/aplikacja/user_priviliges.png>
+Package pdftex.def Info: obrazy/aplikacja/user_priviliges.png used on input lin
+e 396.
+(pdftex.def)             Requested size: 390.0pt x 200.2315pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[22 <./obrazy/aplikacja/admin.png>]
+<obrazy/database.png, id=106, 1434.86063pt x 606.76688pt>
 File: obrazy/database.png Graphic file (type png)
 
 <use obrazy/database.png>
-Package pdftex.def Info: obrazy/database.png used on input line 335.
+Package pdftex.def Info: obrazy/database.png used on input line 407.
 (pdftex.def)             Requested size: 390.0pt x 164.92175pt.
- [20 <./obrazy/database.png (PNG copy)>] [21] [22]
-[23] [24]
-Underfull \hbox (badness 1194) in paragraph at lines 361--363
+ [23 <./obrazy/aplikacja/user_priviliges.png>]
+[24 <./obrazy/database.png (PNG copy)>] [25] [26] [27]
+Underfull \hbox (badness 1194) in paragraph at lines 434--436
 []\T1/phv/m/n/12 École Po-ly-tech-ni-que Fédéra-le - Sca-la do-cu-men-ta-tion, 
 Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 3514) in paragraph at lines 365--366
+Underfull \hbox (badness 3514) in paragraph at lines 438--439
 []\T1/phv/m/n/12 The Apa-che So-ftwa-re Fo-un-da-tion - Apa-che Spark Ava-ila-b
 le at:
  []
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 372--375
+Underfull \hbox (badness 1286) in paragraph at lines 445--448
 []\T1/phv/m/n/12 Hostovita sp. z o.o. - Po-rów-na-nie re-la-cyj-nych SZBD: SQLi
 -te, My-
  []
 
 
-Underfull \hbox (badness 3668) in paragraph at lines 372--375
+Underfull \hbox (badness 3668) in paragraph at lines 445--448
 \T1/phv/m/n/12 SQL, Post-gre-SQL Ava-ila-ble at: https://hostovita.pl/blog/poro
 wnanie-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--375
+Underfull \hbox (badness 10000) in paragraph at lines 445--448
 \T1/phv/m/n/12 relacyjnych-systemow-zarzadzania-bazami-danych-sqlite-mysql-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 377--379
+Underfull \hbox (badness 10000) in paragraph at lines 450--452
 []\T1/phv/m/n/12 Lightbend, Inc Slick do-cu-men-ta-tion. Ava-ila-ble at:
  []
 
-[25] [26] (./dokument.aux) ) 
+[28] [29] (./dokument.aux) ) 
 Here is how much of TeX's memory you used:
- 7243 strings out of 493029
- 103722 string characters out of 6136235
- 178556 words of memory out of 5000000
- 10619 multiletter control sequences out of 15000+600000
+ 7261 strings out of 493029
+ 104232 string characters out of 6136235
+ 178583 words of memory out of 5000000
+ 10634 multiletter control sequences out of 15000+600000
  26216 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,18n,43p,401b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -971,10 +1012,10 @@ Here is how much of TeX's memory you used:
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on dokument.pdf (27 pages, 751397 bytes).
+Output written on dokument.pdf (30 pages, 798494 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 81 compressed objects within 1 object stream
+ 145 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

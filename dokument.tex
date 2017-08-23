@@ -243,6 +243,16 @@ która na celu ma przyśpieszyć pracę programisty dzięki:
 \item wykorzystaniu technologii REST
 \end{itemize} 
   
+\paragraph{Platforma programistyczna Angular}
+Angular jest opracowaną przez Google biblioteką wspomagającą tworzenie 
+aplikacji przeglądarkowych na jednej stronie. Jej głównymi zaletami jest :
+\begin{itemize}
+\item odzielenie warstwy klienckiej od warstwy serwerowej
+\item oddzielenie manipulacji modelu dokumentu HTML od logiki aplikacji
+\item wykorzystaniu wzorca Model-Widok-Kontroler
+\item wykorzystaniu technologii REST
+\end{itemize} 
+    
 \newpage
 \section{Przypadki użycia}
 
@@ -256,16 +266,16 @@ która na celu ma przyśpieszyć pracę programisty dzięki:
   \caption{Okno logowania i rejestracji}
   \label{fig:loginpic}
 \end{figure}
-  \paragraph{Rejestracja}
-  \paragraph{Logowanie}
-  
+\paragraph{Rejestracja}
+\paragraph{Logowanie}
+
+\newpage  
 \subsection{Przeglądanie danych z sekwencjownowania DNA}
 Po zalogowaniu się do aplikacji przed użytkownikiem pojawia się główna część aplikacji pozwalająca Mu 
 na dostęp do próbek oraz pracę z nimi. Zaimplementowano funkcjonalność sesji pozwalającącej na 
 wykorzystywanie guzika "wstecz" przeglądarki oraz odświeżania strony bez potrzeby ponownego
 logowania się.
  
-\newpage
 \paragraph{Ekran dostępnych genomów}
 Każda próbka dostępna w bazie danych posiada indywidualny identyfikator pozwalający na 
 rozróżnienie jej od innych próbek. Owy identyfikator jest ciągiem znaków, który wyświetlany jest 
@@ -285,13 +295,33 @@ co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA
 Tabela - lepsza nazwa? Czy pokazać tylko jedno zdjęcie całej strony?}
 }
 Przechodzą na stronę z danymi dla konkretnej próbki, użytkownikowi wyświetla się 
-tabela z danymi. Największy narzut czasowy na ładowanie się strony ma rysowanie listy
-danych. Długi czas pełnego załadowania się strony i łatwo zauważalne zawieszanie się przeglądarki
-zostały zniwelowane poprzez wprowadzenie paginacji zwanej też stronicowaniem.
+tabela z danymi (Rysunek numer \ref{fig:table1pic}).
+
+\begin{figure}[h!]
+  \includegraphics[width=\linewidth]{obrazy/aplikacja/table1.png}
+  \caption{Tabela z danymi z sekwencjonowania DNA}
+  \label{fig:table1pic}
+\end{figure}
+
+Po zakończeniu implementacji wyświetlania tabeli z danymi z sekwencjonowania DNA,
+zauważono problemy z wydajnością.
+Długi czas tworzenia się elementów HTML tabeli i łatwo zauważalne zawieszanie się przeglądarki
+były elementami nie do przyjęcia dla codziennej pracy użytkownika.
+Pod obserwację wzięto:
+\begin{itemize}
+\item czas odpowiedzi serwera na zapytanie HTTP
+\item czas wygenerowania i wykonania zapytania SQL
+\item czas wygenerowania przez przeglądarkę elementów HTML tabeli
+\end{itemize} 
+Wykonane testy wykazały, że największy narzut czasowy na ładowanie się strony, miał ostatni 
+element to znaczy rysowanie tabeli przez przeglądarkę. 
+
+Obie te wady zostały zniwelowane poprzez wprowadzenie paginacji zwanej też stronicowaniem.
 Maksymalna ilość pokazywanych wierszy została ograniczona do 300 i wprowadzono dodatkowy 
 element widoczny w lewym dolnym rogu rysunku numer \ref{fig:table1pic}, który umożliwia 
 użytkownikowi poruszanie się po kolejnych stronach tabelki zmniejszając narzut 
 pamięci operacyjnej wymaganej do wygenerowania całości tabeli.  
+
 
 Ważną funkcjonalnością z punktu widzenia użytkownika jest możliwość filtracji pobranych już wierszy
 z bazy danych. W celu zwiększenia możliwości wyszukiwania, każda kolumna posiada oddzielne pole 
@@ -302,14 +332,19 @@ Dodatkową opcją zmieniającą wyświetlane dane po stronie przeglądarki jest
 funkcjonalność sortowania rosnąco bądź malejąco jednej kolumny. Służy do tego strzałka po
 lewej stronie od nazwy kolumny, kliknięcie w ikonkę bądź nazwę kolumny zmienia sortowanie.
 
-\begin{figure}[h!]
-  \includegraphics[width=\linewidth]{obrazy/aplikacja/table1.png}
-  \caption{Tabela z danymi z sekwencjonowania DNA}
-  \label{fig:table1pic}
-\end{figure}
-
 \newpage
 \paragraph{Ustawianie widoczności kolumn}
+Przejżystość danych i dostęp tylko do potrzebnych informacji jest kluczową wartością dla użytkowników.
+Mnogość kolumn, porowadząca do przedstawianie wielu informacji nie potrzebnych 
+wszystkim użytkownikom uniemożliwia osiągnięcie tego efektu. Wychodząc naprzeciw tym oczekiwaniom 
+zaimlementowano opcję umożliwiającą klientom aplikacji ukrywanie dowolnej kolumny.
+Po kliknięciu w specjalny guzik nad tabelą z danymi, wyskakuje okienko z listą kolumn,
+które użytkownik może odznaczyć co spowoduje zniknięcie z tabeli. Selekcja może być zapisana 
+w bazie danych tak by przy ponownym wejściu na tą stronę aplikacji, użytkownik nie musiał
+kolejny raz ukrywać nieinteresujących go kolumn. Po rejestracji użytkownik ma wybrane wszystkie
+kolumny i musi sam je odznaczyć.
+ 
+
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{obrazy/aplikacja/visible_columns.png}
   \caption{Lista próbek}
@@ -318,18 +353,57 @@ lewej stronie od nazwy kolumny, kliknięcie w ikonkę bądź nazwę kolumny zmie
 \newpage
 
 \paragraph{Filtrowanie danych}
+Rysunek numer \ref{fig:filterspic} przedstawia moduł filtrujący dane, znajdujący się w
+lewej części strony aplikacji.
 
+Filtrowanie  
+W górnej części panelu widoczne są przyciski z nazwami filtrów. Aktywny filtr
+wyróżnia się od zielonym kolorem od nieaktywnych szarych filtrów. 
+ 
+Za ustalanie struktury filtrów odpowiadają administratorzy i w podrozdziale im poświęconym
+opisane zostanie zarządzanie filtrami.
+
+% get all na dół
+
+\begin{figure}
+  \centering
+  \includegraphics{obrazy/aplikacja/filters.png}
+  \caption{Filtry}
+  \label{fig:filterspic}
+\end{figure}
+
+\newpage
 \subsection{Panel administratora}
+Użytkownik o roli administratora może wejść do oddzielnej strony aplikacji (rysunek \ref{fig:adminpic}), gdzie może przesłać plik o formacie xlsx o ustalonej strukturze
+i załadować nowe filtry. Ma też możliwość zmian widoczności próbek dla użytkowników oraz ich ról.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{obrazy/aplikacja/admin.png}
+  \caption{Część panelu administratora z listą użytkowników}
+  \label{fig:adminpic}
+\end{figure}
 \paragraph{Zarządzanie filtrami}
-\paragraph{Zarządzanie rolami użytkowników}
+
+
 \paragraph{Zarządzanie widocznością próbek dla użytkowników}
+Po wybraniu użytkownika z listy widocznej na rysuknu numer \ref{fig:adminpic}, 
+administratorowi ukazuje się lista wszystkich dostępnych próbek (rysunek numer \ref{fig:user_priviligespic}). Administrator zaznacza w przyciskach wyboru, które próbki będą dostępne 
+do wglądu wybranemu użytkownikowi. Po zarejestrowaniu się do aplikacji, użytkownik nie jest przypisany do żadnej próbki. 
+ 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\textwidth]{obrazy/aplikacja/user_priviliges.png}
+  \caption{Panel dostępności próbek dla użytkownika}
+  \label{fig:user_priviligespic}
+\end{figure}
 
 \newpage
 \section{Schemat bazy danych}
 \textcolor{red}{
 Schemat jest bardzo duży, może załączyć w częściach w dodatku i odsyłać tam czytelnika?
 }
-\begin{figure}[h!]
+\begin{figure}
   \includegraphics[width=\linewidth]{obrazy/database.png}
   \caption{Schamat bazy danych}
   \label{fig:bazadanych}
@@ -345,6 +419,7 @@ Kolejno opisując użycie aplikacji mógłbym opisać jak to się odbywa w kodzi
 \section{Bezpieczeństwo aplikacji}  
 \subsection{Niebezpieczeństwa}
 \subsection{Wykorzystanie protokołu https}
+\subsection{SQL injection}
 \textit{Opisać jak od strony bardziej technicznej odbywa się zabezpieczanie haseł użytkownika (sól, sha512) }
 \newpage
 \section{Testy oraz wydajność}  
