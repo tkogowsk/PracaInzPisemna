@@ -28,22 +28,20 @@
 \contentsline {subsection}{\numberline {6.1}Autoryzacja}{15}
 \contentsline {subsubsection}{\numberline {6.1.1}Role}{15}
 \contentsline {subsubsection}{\numberline {6.1.2}Rejestracja i logowanie u\IeC {\.z}ytkownika}{15}
-\contentsline {paragraph}{Rejestracja}{15}
-\contentsline {paragraph}{Logowanie}{15}
 \contentsline {subsection}{\numberline {6.2}Przegl\IeC {\k a}danie danych z sekwencjownowania DNA}{16}
 \contentsline {paragraph}{Ekran dost\IeC {\k e}pnych genom\IeC {\'o}w}{16}
-\contentsline {paragraph}{\leavevmode {\color {red} Tabela - lepsza nazwa? Czy pokaza\IeC {\'c} tylko jedno zdj\IeC {\k e}cie ca\IeC {\l }ej strony?} }{17}
+\contentsline {paragraph}{\leavevmode {\color {red} Tabela z danymi z sekwencjonowania DNA - lepsza nazwa? Czy pokaza\IeC {\'c} tylko jedno zdj\IeC {\k e}cie ca\IeC {\l }ej strony?} }{17}
 \contentsline {paragraph}{Ustawianie widoczno\IeC {\'s}ci kolumn}{19}
 \contentsline {paragraph}{Filtrowanie danych}{20}
 \contentsline {subsection}{\numberline {6.3}Panel administratora}{22}
 \contentsline {paragraph}{Zarz\IeC {\k a}dzanie filtrami}{22}
-\contentsline {paragraph}{Zarz\IeC {\k a}dzanie widoczno\IeC {\'s}ci\IeC {\k a} pr\IeC {\'o}bek dla u\IeC {\.z}ytkownik\IeC {\'o}w}{22}
-\contentsline {section}{\numberline {7}Schemat bazy danych}{23}
-\contentsline {section}{\numberline {8}Opis implementacji}{24}
-\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{25}
-\contentsline {subsection}{\numberline {9.1}Niebezpiecze\IeC {\'n}stwa}{25}
-\contentsline {subsection}{\numberline {9.2}Wykorzystanie protoko\IeC {\l }u https}{25}
-\contentsline {subsection}{\numberline {9.3}SQL injection}{25}
-\contentsline {section}{\numberline {10}Testy oraz wydajno\IeC {\'s}\IeC {\'c}}{26}
-\contentsline {section}{\numberline {11}Wnioski i podsumowania}{27}
-\contentsline {section}{Literatura}{27}
+\contentsline {paragraph}{Zarz\IeC {\k a}dzanie widoczno\IeC {\'s}ci\IeC {\k a} pr\IeC {\'o}bek dla u\IeC {\.z}ytkownik\IeC {\'o}w}{24}
+\contentsline {section}{\numberline {7}Schemat bazy danych}{25}
+\contentsline {section}{\numberline {8}Opis implementacji}{26}
+\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{27}
+\contentsline {subsection}{\numberline {9.1}Niebezpiecze\IeC {\'n}stwa}{27}
+\contentsline {subsection}{\numberline {9.2}Wykorzystanie protoko\IeC {\l }u https}{27}
+\contentsline {subsection}{\numberline {9.3}SQL injection}{27}
+\contentsline {section}{\numberline {10}Testy oraz wydajno\IeC {\'s}\IeC {\'c}}{28}
+\contentsline {section}{\numberline {11}Wnioski i podsumowania}{29}
+\contentsline {section}{Literatura}{29}

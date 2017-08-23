@@ -74,10 +74,10 @@
 
 Określenie funkcjonalności dostępnych w budowanej aplikacji, rozpoczęto od określenia 
 rodzajów użytkowników, którzy mają korzystać z oprogramowania tak by jak najlepiej dostosować
-system do ich potrzeb, przyśpieszyć dostęp do danych.
+system do ich potrzeb i przyśpieszyć ich pracę.
 
 Pierwszą grupą docelową są lekarze, którzy będą poszukiwali
-możliwych chorób powiązanych z wariantem pacjenta, by wykryć niebezpieczeństwa
+możliwych chorób powiązanych z wariantem pacjenta, aby wykryć niebezpieczeństwa
 i móc jak nawcześniej przeciwdziałać chorobom. 
 Na dane będą patrzeć w kontekście jednego badanego pacjenta i należy umożliwić Im łatwe 
 ich rozróżnienie genotypów. 
@@ -115,12 +115,13 @@ Po zakończeniu analizy zostały określone następujące funkcjonalności. Apli
  \end{enumerate}
  
 Funkcjonalności umożliwiająca wprowadzanie wcześniej zdefiniowanych filtrów spowodowała stworzenie
-trzeciej klasy użytkowników, to jest administratorów, którzy będą zarządzali strukturą filtrów poprzez wprowadzenie odpowiedniego pliku z specjalnie przygotowanego panelu administracyjnego
+specjalnej klasy użytkowników, to jest administratorów, którzy będą zarządzali strukturą filtrów poprzez wprowadzenie odpowiedniego pliku z specjalnie przygotowanego panelu administracyjnego
 oraz będą zarządzać dostępem do próbek dla użytkowników.
 
 \subsection{Wymagania niefunkcjonalne}
+Aplikacja:
  \begin{enumerate}[1)]
-  \item szyfruje wysyłane dane między klientem a serwerem za pomocą HTTPS,
+  \item szyfruje wysyłane dane między klientem a serwerem za pomocą protokołu HTTPS,
   \item wykorzystuje funkcję SHA-512 do zabezpieczenia hasła użytkownika,
   \item korzysta z "soli" przy wyliczaniu funkcji skrótu,
   %Parę wymagań niefukcjonalnych jak dostęp wielu użytkowników na raz, czas odpowiedzi itp.}
@@ -146,8 +147,8 @@ W aplikacji użyto języka Scala w wersji 2.11.7 \cite{jezykScala}. Jest to jęz
 Działa na Wirtualnej Maszynie Javy a do 2012 roku wspierała platformę .NET opracowaną przez firmę Microsoft. Język ten nadaje się równie dobrze do krótkich, zwartych skryptów  wywoływanych podobnie do skryptów języka Python jak i do tworzenia wydajnych, ogromnych, bezpiecznych systemów sieciowych.
 
 Jest językiem łączącym cechy języków funkcyjnych oraz obiektowych. 
-Nie jest jednak obligatoryjny fukncyjny styl programowania, do którego nie jest przyzwyczajona większość programistów.
- Scala w swoim założeniu nawiązuje do minimalizmu składni Lispa to znaczy że nie opiera się na składni a na funkcjach bibliotecznych. Nazwa ma podkreślić skalowalność języka, dzieje się tak dzięki możliwości tworzenia dodatkowych typów i struktur wyglądających jak nowa składnia języka.
+Nie jest jednak obligatoryjny funkcyjny styl programowania, do którego nie jest przyzwyczajona większość programistów.
+ Scala w swoim założeniu nawiązuje do minimalizmu składni Lispa to znaczy że nie opiera się na składni ale na funkcjach bibliotecznych. Nazwa ma podkreślić skalowalność języka, dzieje się tak dzięki możliwości tworzenia dodatkowych typów i struktur wyglądających jak nowa składnia języka.
 Zaletą języka jest również to że dzięki kompatybilności z językiem Java mamy możliwość wykorzystania każdej lini kodu napisanej w owym języku.
 
 \subsection{System zarządzania bazą danych}  
@@ -220,11 +221,11 @@ Biorąc pod uwagę wymagania klientów oraz różnorodność używanych przez ni
 oraz jednocześnie będący łatwy w utrzymaniu i rozwijaniu.
 
 \paragraph{Zalety aplikacji internetowych}
-Łatwość w dostępie do internetu, ilość urządzeń pozwalających na 
+Łatwość w dostępie do internetu i ilość urządzeń pozwalających na 
 korzystanie z przeglądarek internetowych pozwoliły 
 na rozwój aplikacji internetowych oraz ich rozpowrzechnienie.
 Łatwość w rozbudowie, zarządzaniu i 
-niskie ceny hostowania serwera aplikacyjnego spowodowały 
+niskie ceny wynajmowania serwera aplikacyjnego spowodowały 
 powstanie grupy platform programistycznych wspomagających ich budowę. 
 
 Narzędzia typu Ruby on Rails czy Spring Boot 
@@ -250,37 +251,41 @@ aplikacji przeglądarkowych na jednej stronie. Jej głównymi zaletami jest :
 \item odzielenie warstwy klienckiej od warstwy serwerowej
 \item oddzielenie manipulacji modelu dokumentu HTML od logiki aplikacji
 \item wykorzystaniu wzorca Model-Widok-Kontroler
-\item wykorzystaniu technologii REST
 \end{itemize} 
     
 \newpage
 \section{Przypadki użycia}
 
 \textcolor{red}{Czy skupić się bardziej na opisie działania aplikacji czy raczej implementacji?}
-
-\subsection{Autoryzacja}
+\subsection{Autoryzacja} 
 \subsubsection{Role}
+Administratorem nazywana jest osoba mająca dostęp do bazy danych aplikacji, ustalająca
+widoczne dla użytkowników próbki oraz zarządzająca strukturą filtrów. 
+Jednocześnie administrator ma takie same możliwości jak zwykły użytkownik, którymi są dostęp do określonych próbek, możliwość ich oglądania, filtrowania i  ukrywania kolumn. 
+Każdy użytkownik jest rozróżnialny w aplikacji dlatego wymagana jest wcześniejsza rejestracja.
+ 
 \subsubsection{Rejestracja i logowanie użytkownika}
+Poniższy rysunek pokazuje widok startowy aplikacji. W celu przejścia do 
+pozostałych funkcjonalności, użytkownik musi się zalogować lub zarejestrować, jeśli nie ma jeszcze 
+konta w aplikacji. Wskazane jest użycie szyfrowanego połączenia HTTPS, żeby uniknąć 
+kradzieży hasła.
+
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{obrazy/aplikacja/login.png}
   \caption{Okno logowania i rejestracji}
   \label{fig:loginpic}
 \end{figure}
-\paragraph{Rejestracja}
-\paragraph{Logowanie}
 
 \newpage  
 \subsection{Przeglądanie danych z sekwencjownowania DNA}
 Po zalogowaniu się do aplikacji przed użytkownikiem pojawia się główna część aplikacji pozwalająca Mu 
-na dostęp do próbek oraz pracę z nimi. Zaimplementowano funkcjonalność sesji pozwalającącej na 
-wykorzystywanie guzika "wstecz" przeglądarki oraz odświeżania strony bez potrzeby ponownego
-logowania się.
+na dostęp do próbek oraz pracę z nimi. 
  
 \paragraph{Ekran dostępnych genomów}
 Każda próbka dostępna w bazie danych posiada indywidualny identyfikator pozwalający na 
 rozróżnienie jej od innych próbek. Owy identyfikator jest ciągiem znaków, który wyświetlany jest 
 alfabetycznie posortowanej liście. Użytkownik widzi tylko próbki udostępnione Mu przez administratora
-i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie w identyfikator próki,
+i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie w identyfikator próbki,
 co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA. 
 \newline
  
@@ -292,10 +297,10 @@ co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA
 
 \newpage
 \paragraph{\textcolor{red}{
-Tabela - lepsza nazwa? Czy pokazać tylko jedno zdjęcie całej strony?}
+Tabela z danymi z sekwencjonowania DNA - lepsza nazwa? Czy pokazać tylko jedno zdjęcie całej strony?}
 }
-Przechodzą na stronę z danymi dla konkretnej próbki, użytkownikowi wyświetla się 
-tabela z danymi (Rysunek numer \ref{fig:table1pic}).
+Przechodzą na stronę z danymi dla konkretnej próbki, użytkownikowi prezentowane są 
+dane w postaci tabelarycznej (Rysunek numer \ref{fig:table1pic}).
 
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{obrazy/aplikacja/table1.png}
@@ -316,7 +321,7 @@ Pod obserwację wzięto:
 Wykonane testy wykazały, że największy narzut czasowy na ładowanie się strony, miał ostatni 
 element to znaczy rysowanie tabeli przez przeglądarkę. 
 
-Obie te wady zostały zniwelowane poprzez wprowadzenie paginacji zwanej też stronicowaniem.
+Wada ta została zniwelowana poprzez wprowadzenie paginacji zwanej też stronicowaniem.
 Maksymalna ilość pokazywanych wierszy została ograniczona do 300 i wprowadzono dodatkowy 
 element widoczny w lewym dolnym rogu rysunku numer \ref{fig:table1pic}, który umożliwia 
 użytkownikowi poruszanie się po kolejnych stronach tabelki zmniejszając narzut 
@@ -328,20 +333,20 @@ z bazy danych. W celu zwiększenia możliwości wyszukiwania, każda kolumna pos
 filtrujące, umożliwiając na zawężanie zbioru danych po każdej kolumnie. Element odpowiadający
 za stronicowanie poprawnie zmniejsza ilość dostępnych stron przy dynamicznym zmniejszaniu się
 wyświetlanych danych.
-Dodatkową opcją zmieniającą wyświetlane dane po stronie przeglądarki jest 
+Dodatkową opcją działającą po stronie przeglądarki jest 
 funkcjonalność sortowania rosnąco bądź malejąco jednej kolumny. Służy do tego strzałka po
 lewej stronie od nazwy kolumny, kliknięcie w ikonkę bądź nazwę kolumny zmienia sortowanie.
 
 \newpage
 \paragraph{Ustawianie widoczności kolumn}
 Przejżystość danych i dostęp tylko do potrzebnych informacji jest kluczową wartością dla użytkowników.
-Mnogość kolumn, porowadząca do przedstawianie wielu informacji nie potrzebnych 
+Mnogość kolumn, porowadząca do przedstawianie wielu informacji niepotrzebnych 
 wszystkim użytkownikom uniemożliwia osiągnięcie tego efektu. Wychodząc naprzeciw tym oczekiwaniom 
 zaimlementowano opcję umożliwiającą klientom aplikacji ukrywanie dowolnej kolumny.
 Po kliknięciu w specjalny guzik nad tabelą z danymi, wyskakuje okienko z listą kolumn,
 które użytkownik może odznaczyć co spowoduje zniknięcie z tabeli. Selekcja może być zapisana 
 w bazie danych tak by przy ponownym wejściu na tą stronę aplikacji, użytkownik nie musiał
-kolejny raz ukrywać nieinteresujących go kolumn. Po rejestracji użytkownik ma wybrane wszystkie
+kolejny raz ukrywać nieinteresujących go kolumn. Po rejestracji użytkownik ma widoczne wszystkie
 kolumny i musi sam je odznaczyć.
  
 
@@ -355,21 +360,49 @@ kolumny i musi sam je odznaczyć.
 \paragraph{Filtrowanie danych}
 Rysunek numer \ref{fig:filterspic} przedstawia moduł filtrujący dane, znajdujący się w
 lewej części strony aplikacji.
+Podstawowym elementem tworzącym filtr jest tak zwane "pole", odnosi się ono do jednej kolumny
+bazodanowej, z którą łączy ją relacja typu: 
 
-Filtrowanie  
-W górnej części panelu widoczne są przyciski z nazwami filtrów. Aktywny filtr
-wyróżnia się od zielonym kolorem od nieaktywnych szarych filtrów. 
- 
+\begin{itemize}
+\item mniejsze (less)
+\item większe (greater)
+\item mniejsze równe (less than)
+\item większe równe (greater than)
+\item równe (equals)
+\end{itemize} 
+
+Użytkownik wprowadza własną wartość do pola bądź wybiera ją z listy rozwijanej.   
+Dodatkową możliwością jest pole mające wartość domyślną ustaloną przez administratora. 
+Wartość każdego pola może być zapisane w bazie danych, zapis jest oddzielny, dla każdego 
+użytkownika, każdego filtru oraz każdej próbki.
+Grupa pól tworzy właściwy "filtr", który może być wyłączony z filtracji dzięki
+przyciskowi wyboru z etykietą "Inactive". Wizualnie filtr jest wyciemniony jak na przykładzie.
+Grupa filtrów tworzą tak zwane tabki, \textcolor{red}{zastanawia mnie użycie tu tego słowa, czy nie ma lepszej nazwy} które są oddzielnymi bytami w bazie danych, o własnych nazwach i filtrach.
+W górnej części panelu widoczne są przyciski z nazwami tabów. Aktywny tab
+wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym. 
+
+Filtrowanie odbywa się zgodnie z kolejnością aktywnych filtrów, to znaczy najpierw filtrujemy
+dane używając pól pierwszego aktywnego filtru, następnie te dane filtrujemy korzystając z drugiego i tak dalej.
+
+Przycisk z etykietą "Count" umożliwia policzenie ilości wierszy zwróconych przy zadanych wartościach pól. Pozwala to na sprawdzenie rozmiaru danych przed właściwym pobraniem całego zbioru danych.
+Efekt takiego działania przedstawia rysunek o numerze \ref{fig:countpic}.
+Można również pobrać wszystkie dane wybranej próbki za pomocą guzika z napisem "Get all".
 Za ustalanie struktury filtrów odpowiadają administratorzy i w podrozdziale im poświęconym
 opisane zostanie zarządzanie filtrami.
 
-% get all na dół
-
+\textcolor{red}{Guzik Get all przesunę na dół}
 \begin{figure}
   \centering
   \includegraphics{obrazy/aplikacja/filters.png}
   \caption{Filtry}
   \label{fig:filterspic}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{obrazy/aplikacja/count.png}
+  \caption{Wynik zliczania danych}
+  \label{fig:countpic}
 \end{figure}
 
 \newpage
@@ -383,9 +416,25 @@ i załadować nowe filtry. Ma też możliwość zmian widoczności próbek dla u
   \caption{Część panelu administratora z listą użytkowników}
   \label{fig:adminpic}
 \end{figure}
+
 \paragraph{Zarządzanie filtrami}
 
+Zmiana struktury filtrów odbywa się z panelu administratora poprzez wysłanie
+z przeglądarki na serwer plik arkusza kalkulacyjnego o ustalonym formacie. Przykładowe dane są widoczne na rysunku \ref{fig:input_filepic} W pierwszej kolumnie podaje się nazwę tabki, do której przypisywany
+jest filtr o nazwie z drugiej kolumny. W trzeciej kolumnie należy podać nazwę kolumny, do której
+odnosić się będzie pole filtru a następnie relację między wprowadzaną wartością a kolumną.
+Opcjonalnie może być podana domyślna wartość pola oraz kilka wartości odzielone przecinkami, między którymi użytkownik będzie mógł wybierać w aplikacji. Nazwy kolumn oraz relacje zostały są dostępne pod
+listą rozwijaną w arkuszu w celu ułatwienia pracy administratora. 
+Załadowanie pliku usuwa wcześniejsze filtry oraz zapisane wartości użytkowników. 
+ 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{obrazy/aplikacja/input_file.png}
+  \caption{Przykładowa zawartość pliku konfiguracyjnego dla filtrów}
+  \label{fig:input_filepic}
+\end{figure}
 
+\newpage
 \paragraph{Zarządzanie widocznością próbek dla użytkowników}
 Po wybraniu użytkownika z listy widocznej na rysuknu numer \ref{fig:adminpic}, 
 administratorowi ukazuje się lista wszystkich dostępnych próbek (rysunek numer \ref{fig:user_priviligespic}). Administrator zaznacza w przyciskach wyboru, które próbki będą dostępne 
@@ -412,15 +461,20 @@ Schemat jest bardzo duży, może załączyć w częściach w dodatku i odsyłać
 \newpage
 \section{Opis implementacji}  
 \textcolor{red}{
+Czy w ogóle opisywać implementację? Jeśli tak to jak dokładnie? 
 Czy nie połączyć opisu implementacji razem z przypadkami użycia?
 Kolejno opisując użycie aplikacji mógłbym opisać jak to się odbywa w kodzie.
 }
+
+%Zaimplementowano funkcjonalność sesji pozwalającącej na 
+%wykorzystywanie guzika "wstecz" przeglądarki oraz odświeżania strony bez potrzeby ponownego
+%logowania się. - opisać sesję w playu
 \newpage
 \section{Bezpieczeństwo aplikacji}  
 \subsection{Niebezpieczeństwa}
 \subsection{Wykorzystanie protokołu https}
 \subsection{SQL injection}
-\textit{Opisać jak od strony bardziej technicznej odbywa się zabezpieczanie haseł użytkownika (sól, sha512) }
+\textit{Opisać jak od strony bardziej technicznej odbywa się zabezpieczanie haseł użytkownika (sól, sha512), krótki opis jak slick oraz jdbc rozwiązuje problem sql injectoion  }
 \newpage
 \section{Testy oraz wydajność}  
 \newpage

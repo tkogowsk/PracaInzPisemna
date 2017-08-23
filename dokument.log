@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.8)  23 AUG 2017 22:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.8)  24 AUG 2017 01:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -856,28 +856,22 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 11.39996pt on input line 67.
 
-[7] [8]
-Overfull \hbox (0.49953pt too wide) in paragraph at lines 123--124
-[]\T1/phv/m/n/12 szyfruje wy-sy-ªa-ne da-ne mi¦-dzy klien-tem a ser-we-rem za p
-o-mo-c¡ HTTPS, 
- []
-
-[9]
-Overfull \hbox (5.43796pt too wide) in paragraph at lines 132--136
+[7] [8] [9]
+Overfull \hbox (5.43796pt too wide) in paragraph at lines 133--137
 \T1/phv/m/n/12 zwa-la-j¡ na per-so-na-li-za-cje in-ter-fej-su dla u»yt-kow-ni-k
 a. Ha-rvard udo-st¦p-nia REST
  []
 
 [10] [11]
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 163.
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 164.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 163.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 164.
  [12]
-Overfull \hbox (5.26842pt too wide) in paragraph at lines 219--221
+Overfull \hbox (5.26842pt too wide) in paragraph at lines 220--222
 []\T1/phv/m/n/12 Bior¡c pod uwa-g¦ wy-ma-ga-nia klien-tów oraz ró»-no-rod-no±¢ 
 u»y-wa-nych przez
  []
@@ -886,10 +880,10 @@ u»y-wa-nych przez
 File: obrazy/aplikacja/login.png Graphic file (type png)
 
 <use obrazy/aplikacja/login.png>
-Package pdftex.def Info: obrazy/aplikacja/login.png used on input line 265.
+Package pdftex.def Info: obrazy/aplikacja/login.png used on input line 274.
 (pdftex.def)             Requested size: 390.0pt x 114.9188pt.
  [15 <./obrazy/aplikacja/login.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 280--286
+Underfull \hbox (badness 10000) in paragraph at lines 285--291
 
  []
 
@@ -897,26 +891,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 280--286
 File: obrazy/aplikacja/sample_list.png Graphic file (type png)
 
 <use obrazy/aplikacja/sample_list.png>
-Package pdftex.def Info: obrazy/aplikacja/sample_list.png used on input line 28
-8.
+Package pdftex.def Info: obrazy/aplikacja/sample_list.png used on input line 29
+3.
 (pdftex.def)             Requested size: 390.0pt x 254.96722pt.
  [16 <./obrazy/aplikacja/sample_list.png>] <obrazy/aplikacja/table1.png, id=82,
  1615.03375pt x 876.27374pt>
 File: obrazy/aplikacja/table1.png Graphic file (type png)
 
 <use obrazy/aplikacja/table1.png>
-Package pdftex.def Info: obrazy/aplikacja/table1.png used on input line 301.
+Package pdftex.def Info: obrazy/aplikacja/table1.png used on input line 306.
 (pdftex.def)             Requested size: 390.0pt x 211.60696pt.
-
-Overfull \hbox (3.27298pt too wide) in paragraph at lines 319--324
-\T1/phv/m/n/12 nej te» stro-ni-co-wa-niem. Mak-sy-mal-na ilo±¢ po-ka-zy-wa-nych
- wier-szy zo-sta-ªa ogra-
- []
-
-[17 <./obrazy/aplikacja/table1.png>] [18]
-Overfull \hbox (2.59993pt too wide) in paragraph at lines 337--346
+ [17 <./obrazy/aplikacja/table1.png>] [18]
+Overfull \hbox (0.18315pt too wide) in paragraph at lines 342--351
 \T1/phv/m/n/12 lumn, po-ro-wa-dz¡-ca do przed-sta-wia-nie wie-lu in-for-ma-cji 
-nie po-trzeb-nych wszyst-
+nie-po-trzeb-nych wszyst-
  []
 
 <obrazy/aplikacja/visible_columns.png, id=90, 580.1675pt x 393.47pt>
@@ -924,86 +912,96 @@ File: obrazy/aplikacja/visible_columns.png Graphic file (type png)
 
 <use obrazy/aplikacja/visible_columns.png>
 Package pdftex.def Info: obrazy/aplikacja/visible_columns.png used on input lin
-e 349.
+e 354.
 (pdftex.def)             Requested size: 390.0pt x 264.50008pt.
  [19 <./obrazy/aplikacja/visible_columns.png>] <obrazy/aplikacja/filters.png, i
 d=94, 286.06876pt x 574.145pt>
 File: obrazy/aplikacja/filters.png Graphic file (type png)
 
 <use obrazy/aplikacja/filters.png>
-Package pdftex.def Info: obrazy/aplikacja/filters.png used on input line 370.
+Package pdftex.def Info: obrazy/aplikacja/filters.png used on input line 396.
 (pdftex.def)             Requested size: 286.06805pt x 574.1436pt.
 
 
-LaTeX Warning: Float too large for page by 8.8185pt on input line 373.
+LaTeX Warning: Float too large for page by 8.8185pt on input line 399.
 
-[20] [21 <./obrazy/aplikacja/filters.png>]
-<obrazy/aplikacja/admin.png, id=101, 990.70125pt x 253.94875pt>
+<obrazy/aplikacja/count.png, id=95, 277.035pt x 256.96pt>
+File: obrazy/aplikacja/count.png Graphic file (type png)
+
+<use obrazy/aplikacja/count.png>
+Package pdftex.def Info: obrazy/aplikacja/count.png used on input line 403.
+(pdftex.def)             Requested size: 277.03432pt x 256.95937pt.
+ [20] [21 <./obrazy/aplikacja/filters.png>]
+<obrazy/aplikacja/admin.png, id=102, 990.70125pt x 253.94875pt>
 File: obrazy/aplikacja/admin.png Graphic file (type png)
 
 <use obrazy/aplikacja/admin.png>
-Package pdftex.def Info: obrazy/aplikacja/admin.png used on input line 382.
+Package pdftex.def Info: obrazy/aplikacja/admin.png used on input line 415.
 (pdftex.def)             Requested size: 390.0pt x 99.96959pt.
+ [22 <./obrazy/aplikacja/count.png> <./obrazy/aplikacja/admin.png>]
+<obrazy/aplikacja/input_file.png, id=106, 612.2875pt x 244.915pt>
+File: obrazy/aplikacja/input_file.png Graphic file (type png)
 
-<obrazy/aplikacja/user_priviliges.png, id=102, 1010.77625pt x 518.93875pt>
+<use obrazy/aplikacja/input_file.png>
+Package pdftex.def Info: obrazy/aplikacja/input_file.png used on input line 432
+.
+(pdftex.def)             Requested size: 390.0pt x 155.99763pt.
+ [23 <./obrazy/aplikacja/input_file.png>]
+<obrazy/aplikacja/user_priviliges.png, id=110, 1010.77625pt x 518.93875pt>
 File: obrazy/aplikacja/user_priviliges.png Graphic file (type png)
 
 <use obrazy/aplikacja/user_priviliges.png>
 Package pdftex.def Info: obrazy/aplikacja/user_priviliges.png used on input lin
-e 396.
+e 445.
 (pdftex.def)             Requested size: 390.0pt x 200.2315pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[22 <./obrazy/aplikacja/admin.png>]
-<obrazy/database.png, id=106, 1434.86063pt x 606.76688pt>
+ [24 <./obrazy/aplikacja/user_priviliges.png>] <obrazy/database.png, id=115, 14
+34.86063pt x 606.76688pt>
 File: obrazy/database.png Graphic file (type png)
 
 <use obrazy/database.png>
-Package pdftex.def Info: obrazy/database.png used on input line 407.
+Package pdftex.def Info: obrazy/database.png used on input line 456.
 (pdftex.def)             Requested size: 390.0pt x 164.92175pt.
- [23 <./obrazy/aplikacja/user_priviliges.png>]
-[24 <./obrazy/database.png (PNG copy)>] [25] [26] [27]
-Underfull \hbox (badness 1194) in paragraph at lines 434--436
+ [25 <./obrazy/database.png (PNG copy)>] [26] [27]
+[28] [29]
+Underfull \hbox (badness 1194) in paragraph at lines 488--490
 []\T1/phv/m/n/12 École Po-ly-tech-ni-que Fédéra-le - Sca-la do-cu-men-ta-tion, 
 Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 3514) in paragraph at lines 438--439
+Underfull \hbox (badness 3514) in paragraph at lines 492--493
 []\T1/phv/m/n/12 The Apa-che So-ftwa-re Fo-un-da-tion - Apa-che Spark Ava-ila-b
 le at:
  []
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 445--448
+Underfull \hbox (badness 1286) in paragraph at lines 499--502
 []\T1/phv/m/n/12 Hostovita sp. z o.o. - Po-rów-na-nie re-la-cyj-nych SZBD: SQLi
 -te, My-
  []
 
 
-Underfull \hbox (badness 3668) in paragraph at lines 445--448
+Underfull \hbox (badness 3668) in paragraph at lines 499--502
 \T1/phv/m/n/12 SQL, Post-gre-SQL Ava-ila-ble at: https://hostovita.pl/blog/poro
 wnanie-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 445--448
+Underfull \hbox (badness 10000) in paragraph at lines 499--502
 \T1/phv/m/n/12 relacyjnych-systemow-zarzadzania-bazami-danych-sqlite-mysql-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 450--452
+Underfull \hbox (badness 10000) in paragraph at lines 504--506
 []\T1/phv/m/n/12 Lightbend, Inc Slick do-cu-men-ta-tion. Ava-ila-ble at:
  []
 
-[28] [29] (./dokument.aux) ) 
+[30] [31] (./dokument.aux) ) 
 Here is how much of TeX's memory you used:
- 7261 strings out of 493029
- 104232 string characters out of 6136235
- 178583 words of memory out of 5000000
- 10634 multiletter control sequences out of 15000+600000
+ 7272 strings out of 493029
+ 104549 string characters out of 6136235
+ 178602 words of memory out of 5000000
+ 10644 multiletter control sequences out of 15000+600000
  26216 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,18n,43p,401b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1012,10 +1010,10 @@ Here is how much of TeX's memory you used:
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on dokument.pdf (30 pages, 798494 bytes).
+Output written on dokument.pdf (32 pages, 833795 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
+ 154 PDF objects out of 1000 (max. 8388607)
+ 92 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
