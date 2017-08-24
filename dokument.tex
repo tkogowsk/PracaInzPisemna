@@ -152,8 +152,7 @@ Nie jest jednak obligatoryjny funkcyjny styl programowania, do którego nie jest
 Zaletą języka jest również to że dzięki kompatybilności z językiem Java mamy możliwość wykorzystania każdej lini kodu napisanej w owym języku.
 
 \subsection{System zarządzania bazą danych}  
-Zadanie stworzenia bazy danych przechowującej informacje konfiguracyjne, dane użytkowników oraz o użytkownikach było 
-dużą częścią tworzenia systemu i
+Zadanie stworzenia bazy danych przechowującej informacje konfiguracyjne, dane użytkowników oraz o użytkownikach było dużą częścią tworzenia systemu i
 wymagało wybrania odpowiedniego systemu zarządania bazą danych.
 Model bazodanowy został zaprojektowany w modelu opartym na relacyjnej organizacji danych, przez co wybór ograniczył się do
 darmowych technologii realizujących relacyjne bazy danych.
@@ -215,6 +214,11 @@ Dzięki tej technice programista może traktować obiekty bazodanowe jak element
 Takim narzędziem jest stworzone przez firmę Lightbend, Inc. 
 oprogramowanie Slick\cite{slick} pozwalające na pełną kontrolę nad bazą danych oraz pisanie klasycznych zapytań SQL.
 
+\subsection{JDBC}  
+\textcolor{red}{Dopytać się o SQL engine by uzasadnić użycie czystego jdbc}
+%Baza danych zawierająca dane o sekwencjonowaniu DNA jest kolumnowo zorientowaną bazą danych
+%opartą na systemie Apache Kudu \cite{kudu}. W przeciwieńswie do tradycyjnych systemów 
+%bazodanowych gdzie dane składowane są poziomo czyli wierszami, w kolumnowych systemach dane %przechowywane są pionowo - kolumnami.
 
 \subsection{Aplikacja przeglądarkowa}
 Biorąc pod uwagę wymagania klientów oraz różnorodność używanych przez nich urządzeń należało wybrać odpowiedni rodzaj aplikacji klienckiej pozwalający na spełnienie wszystkich wymagań funkcjonalnych naszych użytkowników 
@@ -390,7 +394,6 @@ Można również pobrać wszystkie dane wybranej próbki za pomocą guzika z nap
 Za ustalanie struktury filtrów odpowiadają administratorzy i w podrozdziale im poświęconym
 opisane zostanie zarządzanie filtrami.
 
-\textcolor{red}{Guzik Get all przesunę na dół}
 \begin{figure}
   \centering
   \includegraphics{obrazy/aplikacja/filters.png}
@@ -471,11 +474,29 @@ Kolejno opisując użycie aplikacji mógłbym opisać jak to się odbywa w kodzi
 %logowania się. - opisać sesję w playu
 \newpage
 \section{Bezpieczeństwo aplikacji}  
+Badania przeprowadzone przez firmę Norton by Symantec \cite{nortonSec}
+pokazują jak dużym zjawiskiem jest współdzielenie przez ludzi haseł między różnymi serwisami, czy to
+skrzynką mejlową, serwisem społecznościowym czy też kontem bankowym.
+Użytkownicy ufają twórcom aplikacji, iż dołożą wszelkich starań w celu zabezpieczenia ich 
+danych. 
 
-\subsection{Niebezpieczeństwa}
-\subsection{Wykorzystanie protokołu https}
-\subsection{SQL injection}
-\textit{Opisać jak od strony bardziej technicznej odbywa się zabezpieczanie haseł użytkownika (sól, sha512), krótki opis jak slick oraz jdbc rozwiązuje problem sql injectoion  }
+Do zapewnienia bezpieczeństwa haseł zostało zaimplementowane co następuje:
+\begin{itemize}
+\item{połączenia klienta z serwerem} - aplikacja została przygotowana do obsługi protokołu HTTPS,
+zapewniającym szyfrowane połączenie i ochronę danych autoryzacyjnych
+\item{przechowywanie hasła - baza danych przechowuje hasło przekształcone za pomocą funkcji mieszającej SHA-512, dla zwiększenia bezpieczeństwa wykorzystuje się wygenerowaną sól 
+}
+\end{itemize}
+
+\paragraph{SQL injection} Z kolei opublikowany w 2017 roku raport OWASP \cite{owasp}
+informuje iż najwięcej ataków na aplikacje internetowe odbywa się poprzez tak zwane "SQL injection (z ang.). 
+Opracowany system generował dynamicznie zapytania SQL przez co mógł być narażony na te niebezpieczeństwa i został odpowiednio zabezpieczony.
+Przed tymi zagrożeniami czychającymi na relacyjną bazę danych PostgreSQL chroni aplikację oprogramowanie Slick, które dynamicznie sprawdza typowanie i upewniając się, iż wprowadzone parametry
+zostaną wcześniej przekształcone na odpowiednie typy.
+Baza danych z danymi z sekwencjonowania DNA łączy się z serwerem za pomocą interfejsu JDBC,
+który udostępnia tą samą funkcjonalność poprzez wykorzystanie klasy PreparedStatement \cite{preparedStatement}.
+
+
 \newpage
 \section{Testy oraz wydajność}  
 \newpage
@@ -504,6 +525,22 @@ https://hostovita.pl/blog/porownanie-relacyjnych-systemow-zarzadzania-bazami-dan
 \bibitem{slick}
 Lightbend, Inc Slick documentation. Available at:
 http://slick.lightbend.com/docs/ (Accessed: 10 August 2017).
+
+\bibitem{kudu}
+The Apache Software Foundation - Apache Kudu
+https://kudu.apache.org/ (Accessed: 20 August 2017)
+\bibitem{nortonSec}
+Norton Cybersecurity Insigth Report 
+Available at: https://us.norton.com/norton-cybersecurity-insights-report-global (Accessed: 20 August 2017).
+
+\bibitem{owasp}
+OWASP Top 10 Application Security Risks - 2017 Available at: 
+https://www.owasp.org/index.php/Top\verb!_!10\verb!_!2017-Top\verb!_!10 (Accessed: 20 August 2017).
+
+\bibitem{preparedStatement}
+Oracle - Java™ Platform Standard Ed. 8 documentation
+https://docs.oracle.com/javase/8/docs/api/java/sql/PreparedStatement.html (Accessed: 20 August 2017).
+
 \end{thebibliography}
 
 \newpage
