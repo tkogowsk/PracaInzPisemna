@@ -365,7 +365,7 @@ kolumny i musi sam je odznaczyć.
 Rysunek numer \ref{fig:filterspic} przedstawia moduł filtrujący dane, znajdujący się w
 lewej części strony aplikacji.
 Podstawowym elementem tworzącym filtr jest tak zwane "pole", odnosi się ono do jednej kolumny
-bazodanowej, z którą łączy ją relacja typu: 
+bazodanowej, z którą łączy ją jedna z poniższych relacji: 
 
 \begin{itemize}
 \item mniejsze (less),
@@ -463,7 +463,7 @@ Schemat jest bardzo duży, może załączyć w częściach w dodatku i odsyłać
 
 Przed rozpoczęciem implementacji aplikacji przeglądarkowej zaprojektowano strukturę 
 relacyjnej bazy danych. Na rysunku nr \ref{fig:bazadanych} przedstawiono schemat stworzony
-w narzędziu pgModeler\cite{pgModeler}. Dzięki temu darmowemu narzędziu wygenerowany został
+w narzędziu pgModeler \cite{pgModeler}. Dzięki temu darmowemu narzędziu wygenerowany został
 skrypt tworzący bazę danych.  
 
 \paragraph{Dane o użytkowniku} Tabela "user" zawiera rekordy o użytkownikach. 
@@ -506,22 +506,45 @@ tych kolumn, służące do sprawdzania poprawności danych wejściowych od klien
 stronie prezentującej użytkownikowi dane o sekwencjonowaniu, odpowiada tabela 
 "user\verb!_!visible\verb!_!variant\verb!_!column". Zapisane w niej są:
 \begin{enumerate}[1)]
-\item identyfikator użytkownika ("user\verb!_!id")
-\item identyfikator kolumny wariantu ("variant\verb!_!column\verb!_!id")
+\item identyfikator użytkownika ("user\verb!_!id"),
+\item identyfikator kolumny wariantu ("variant\verb!_!column\verb!_!id"),
 \item dana typu boolowskiego ("visible") informująca o widoczności kolumny w następujący sposób:
 \begin{itemize}
-\item prawda - kolumna jest widoczna
-\item fałsz - kolumna nie jest widoczna
+\item prawda - kolumna jest widoczna,
+\item fałsz - kolumna nie jest widoczna,
 \end{itemize}
 \end{enumerate} 
 
+\paragraph{Przechowywanie schematu filtrów} W trakcie analizy wymagań i projektowaniu systemu wydzielono trzy odzielne obiekty tworzące moduł filtrujące dane, to znaczy taby, filtry i pola.
+Ułatwiło to zaprojektowanie odpowiednich encji bazodanowych.
 
+Tabela odpowiadająca tabie ("tab") poza identyfikatorem ("id") przechowuje również unikalną nazwę ("name") widoczną w górnej części panelu filtrującego. 
+Podobnie skonstruowana jest encja odpowiadająca jednemu filtrowi ("filter") z tą różnicą, 
+iż nazwa ("name") nie jest unikalna. 
 
+Encja będąca odpowiednikiem jednego pola ("field") również została dodana do schematu bazy danych,
+z następującymi kolumnami: 
+\begin{enumerate}[1)]
+\item identyfikator ("id"),
+\item identyfikator kolumny wariantu ("variant\verb!_!column\verb!_!id"), powiązanej z polem,
+\item relacja między polem a kolumną wariantu,
+\item opcjonalne wartości ukazywane użytkownikowi pod listą rozwijaną,
+\end{enumerate}
 
+\newpage
 
+Za łączenie wszystkich trzech wymienionych encji, odpowiada tabela 
+"tab\verb!_!field\verb!_!filter", posiadająca identyfikatory każdej z encji oraz
+domyślne wartości zadeklarowane przez administratora.
 
-
-
+\paragraph{Zapisywanie wartości filtrów dla użytkownika} 
+Ostatnią zaprojektowaną tabelą jest tabela "user\verb!_!smp\verb!_!tab",
+\textcolor{red}{
+ zmienić nazwę, niezgodna z nazewnictwem reszty tabel
+}
+Funkcjonalność zapisania wartości dla każdego pola filtru, oddzielnie dla każdej próbki
+jest zrealizowana poprzez przechowywanie identyfikatora tabki, filtru i pola elementu filtracji,
+razen z identyfikatorem próbki i wybraną wartością. 
 
 \newpage
 \section{Opis implementacji}  
@@ -608,6 +631,6 @@ Raphael A. Silva - pgModeler Available at: https://pgmodeler.com.br/
 (Accessed: 24 August 2017).
 \end{thebibliography}
 
-\newpage
-\section*{Wykaz rysunków i tabel} 
+%\newpage
+%\section*{Wykaz rysunków i tabel} 
 \end{document}
