@@ -110,8 +110,8 @@ Po zakończeniu analizy zostały określone następujące funkcjonalności. Apli
  \item sortuje dane po stronie klienta,
  \item filtruje dane po stronie klienta,
  \item udostępnia administratorowi możliwość zmiany dostępu do próbek 
- każdego użytkownika
- \item daje możliwość zakrycia na stronie aplikacji części danych	
+ każdego użytkownika,
+ \item daje możliwość zakrycia na stronie aplikacji części danych,	
  \end{enumerate}
  
 Funkcjonalności umożliwiająca wprowadzanie wcześniej zdefiniowanych filtrów spowodowała stworzenie
@@ -160,44 +160,44 @@ darmowych technologii realizujących relacyjne bazy danych.
 \newpage
 Biorąc pod uwagę powyższe kryteria, można porównać najpopularniejsze systemami, są nimi\cite{porownanieBaz}: 
  \begin{itemize}
-  \item MqSQL
-  \item SQLite
-  \item PostgreSQL
+  \item MqSQL,
+  \item SQLite,
+  \item PostgreSQL,
 \end{itemize}
 
 \subsubsection{MySQL}
 \paragraph{Zalety}
 \begin{itemize}
-\item{proste i łatwe w obsłudze}
-\item{wysoki poziom bezpieczeństwa}
+\item{proste i łatwe w obsłudze},
+\item{wysoki poziom bezpieczeństwa},
 \end{itemize}
 \paragraph{Wady}
 \begin{itemize}
-\item{nie realizuje w pełni standardu SQL}
-\item{problematyczny jednoczesny zapis i odczyt}
+\item{nie realizuje w pełni standardu SQL},
+\item{problematyczny jednoczesny zapis i odczyt},
 \end{itemize}
 \subsubsection{SQLite}
 \paragraph{Zalety}
 \begin{itemize}
-\item{zgodny ze standardem SQL}
-\item{przenośny dzięki oparciu bazy o jeden plik}
+\item{zgodny ze standardem SQL},
+\item{przenośny dzięki oparciu bazy o jeden plik},
 \end{itemize}
 \paragraph{Wady}
 \begin{itemize}
-\item{brak zarządzania użytkownikami i dostępami do danych}
+\item{brak zarządzania użytkownikami i dostępami do danych},
 \end{itemize}
 
 \subsubsection{PostgreSQL}
 \paragraph{Zalety}
 \begin{itemize}
-\item{zgodny ze standardem SQL}
-\item{wsparcie dla współbieżności}
-\item{pełne wsparcie dla transakcji}
+\item{zgodny ze standardem SQL},
+\item{wsparcie dla współbieżności},
+\item{pełne wsparcie dla transakcji},
 \end{itemize}
 \paragraph{Wady}
 \begin{itemize}
-\item{słaba wydajność}
-\item{trudność instalacji dla początkujących użytkowników}
+\item{słaba wydajność},
+\item{trudność instalacji dla początkujących użytkowników},
 \end{itemize}
 
 \subsubsection{Uzasadnienie wyboru PostgreSQL}
@@ -242,19 +242,19 @@ Platforma Play, stworzona w języku Scala jest środowiskiem
 do tworzenia aplikacji internetowych, 
 która na celu ma przyśpieszyć pracę programisty dzięki:
 \begin{itemize}
-\item strategii Konwencji Ponad Konfigurację
-\item przeładowywania i ponownej kompilacji plików po edycji
-\item wykorzystaniu wzorca Model-Widok-Kontroler
-\item wykorzystaniu technologii REST
+\item strategii Konwencji Ponad Konfigurację,
+\item przeładowywania i ponownej kompilacji plików po edycji,
+\item wykorzystaniu wzorca Model-Widok-Kontroler,
+\item wykorzystaniu technologii REST,
 \end{itemize} 
   
 \paragraph{Platforma programistyczna Angular}
 Angular jest opracowaną przez Google biblioteką wspomagającą tworzenie 
 aplikacji przeglądarkowych na jednej stronie. Jej głównymi zaletami jest :
 \begin{itemize}
-\item odzielenie warstwy klienckiej od warstwy serwerowej
-\item oddzielenie manipulacji modelu dokumentu HTML od logiki aplikacji
-\item wykorzystaniu wzorca Model-Widok-Kontroler
+\item odzielenie warstwy klienckiej od warstwy serwerowej,
+\item oddzielenie manipulacji modelu dokumentu HTML od logiki aplikacji,
+\item wykorzystaniu wzorca Model-Widok-Kontroler,
 \end{itemize} 
     
 \newpage
@@ -281,7 +281,7 @@ kradzieży hasła.
 \end{figure}
 
 \newpage  
-\subsection{Przeglądanie danych z sekwencjownowania DNA}
+\subsection{Przeglądanie danych z sekwencjownowania DNA} \label{sssec:dnaPage}
 Po zalogowaniu się do aplikacji przed użytkownikiem pojawia się główna część aplikacji pozwalająca Mu 
 na dostęp do próbek oraz pracę z nimi. 
  
@@ -318,9 +318,9 @@ Długi czas tworzenia się elementów HTML tabeli i łatwo zauważalne zawieszan
 były elementami nie do przyjęcia dla codziennej pracy użytkownika.
 Pod obserwację wzięto:
 \begin{itemize}
-\item czas odpowiedzi serwera na zapytanie HTTP
-\item czas wygenerowania i wykonania zapytania SQL
-\item czas wygenerowania przez przeglądarkę elementów HTML tabeli
+\item czas odpowiedzi serwera na zapytanie HTTP,
+\item czas wygenerowania i wykonania zapytania SQL,
+\item czas wygenerowania przez przeglądarkę elementów HTML tabeli,
 \end{itemize} 
 Wykonane testy wykazały, że największy narzut czasowy na ładowanie się strony, miał ostatni 
 element to znaczy rysowanie tabeli przez przeglądarkę. 
@@ -368,11 +368,11 @@ Podstawowym elementem tworzącym filtr jest tak zwane "pole", odnosi się ono do
 bazodanowej, z którą łączy ją relacja typu: 
 
 \begin{itemize}
-\item mniejsze (less)
-\item większe (greater)
-\item mniejsze równe (less than)
-\item większe równe (greater than)
-\item równe (equals)
+\item mniejsze (less),
+\item większe (greater),
+\item mniejsze równe (less than),
+\item większe równe (greater than),
+\item równe (equals),
 \end{itemize} 
 
 Użytkownik wprowadza własną wartość do pola bądź wybiera ją z listy rozwijanej.   
@@ -456,10 +456,72 @@ do wglądu wybranemu użytkownikowi. Po zarejestrowaniu się do aplikacji, użyt
 Schemat jest bardzo duży, może załączyć w częściach w dodatku i odsyłać tam czytelnika?
 }
 \begin{figure}
-  \includegraphics[width=\linewidth]{obrazy/database.png}
+  \includegraphics[width=\linewidth]{obrazy/aplikacja/database.png}
   \caption{Schamat bazy danych}
   \label{fig:bazadanych}
 \end{figure}
+
+Przed rozpoczęciem implementacji aplikacji przeglądarkowej zaprojektowano strukturę 
+relacyjnej bazy danych. Na rysunku nr \ref{fig:bazadanych} przedstawiono schemat stworzony
+w narzędziu pgModeler\cite{pgModeler}. Dzięki temu darmowemu narzędziu wygenerowany został
+skrypt tworzący bazę danych.  
+
+\paragraph{Dane o użytkowniku} Tabela "user" zawiera rekordy o użytkownikach. 
+Są to:
+\begin{enumerate}[1)]
+\item nazwy jakie wybrali przy rejestracji i jakimi posługują się w aplikacji ("name"),
+\item role jaką przydzielili im administratorzy systemu ("role"),
+\item sól użytą do wygenerowania skrótu i potrzebną do autoryzacji ("salt"),
+\item wynik funkcji skrótu z ich hasła ("hash"),
+\end{enumerate}
+
+\paragraph{Dane z sekwencjonowania DNA} Podczas trwania okresu implementacji systemu,
+przykładowe dane z serwisu Exac zostały załadowane do oddzielnej tabeli bazodanowej o nazwie "Genotype\verb!_!data\verb!_!JDBC". Mimo, iż owa tabela znajdowała się w tej samej bazie danych co 
+dane o filtrach czy użytkownikach, aplikacja łączyła się oddzielnym połączeniem. 
+Dodatkowo do pobierania danych wykorzystywała interfejs JDBC, tak by jak najlepiej
+symulować produkcyjne połączenie aplikacji, czyli połączenie do rozproszonej bazy danych.
+
+\paragraph{Sztuczne identyfikatory próbek} Do implementacji strony
+prezentującej dane użytkownikowi (podrozdział \ref{sssec:dnaPage}) planowano użyć 
+funkcjonalności platformy Angular, umożliwiającej przekazywanie parametrów 
+poprzez część adresu URL. Rozróżnianie próbek odbywa się względem ich nazw, które
+są dowolnymi ciągami znaków. Biorąc pod uwagę konieczność zabezpieczenia aplikacji przed 
+znakami specjalnymi, które mogłyby się pojawić w nazwie oraz potrzebę
+użycia identyfikatora próbki jako klucza obcego w części tabel systemu, postanowiono
+dodać dodatkową liczbową kolumnę ("fake\verb!_!id"), której wykorzystanie ułatwiło implementację systemu.
+
+\paragraph{Dostęp do próbek} W tabela "privilege" przechowywane są informacje o 
+dostępie użytkownika do danej próbki.
+
+\paragraph{Lista kolumn} System był projektowany z myślą by ograniczyć w przyszłości konieczność zmian 
+w kodzie aplikacji i by był konfigurowalny z jednego pliku dostępnego administratorowi.
+Z tym przeświadczeniem została dodana tabela "variant\verb!_!column", która będzie zawierać
+informacje o kolumnach tabeli z danymi DNA. Poza nazwami tych kolumn, które będą 
+wykorzystywane do generowania zapytać pobierających dane, w tej encji znajdują
+się nazwy wyświetlające się użytkownikowi aplikacji ("fe\verb!_!name") oraz informacje o typach
+tych kolumn, służące do sprawdzania poprawności danych wejściowych od klientów.
+
+\newpage
+\paragraph{Widoczność kolumn} Za składowanie informacji o widocznych kolumnach na
+stronie prezentującej użytkownikowi dane o sekwencjonowaniu, odpowiada tabela 
+"user\verb!_!visible\verb!_!variant\verb!_!column". Zapisane w niej są:
+\begin{enumerate}[1)]
+\item identyfikator użytkownika ("user\verb!_!id")
+\item identyfikator kolumny wariantu ("variant\verb!_!column\verb!_!id")
+\item dana typu boolowskiego ("visible") informująca o widoczności kolumny w następujący sposób:
+\begin{itemize}
+\item prawda - kolumna jest widoczna
+\item fałsz - kolumna nie jest widoczna
+\end{itemize}
+\end{enumerate} 
+
+
+
+
+
+
+
+
 
 \newpage
 \section{Opis implementacji}  
@@ -541,6 +603,9 @@ https://www.owasp.org/index.php/Top\verb!_!10\verb!_!2017-Top\verb!_!10 (Accesse
 Oracle - Java™ Platform Standard Ed. 8 documentation
 https://docs.oracle.com/javase/8/docs/api/java/sql/PreparedStatement.html (Accessed: 20 August 2017).
 
+\bibitem{pgModeler}
+Raphael A. Silva - pgModeler Available at: https://pgmodeler.com.br/
+(Accessed: 24 August 2017).
 \end{thebibliography}
 
 \newpage

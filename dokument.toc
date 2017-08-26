@@ -38,9 +38,15 @@
 \contentsline {paragraph}{Zarz\IeC {\k a}dzanie filtrami}{22}
 \contentsline {paragraph}{Zarz\IeC {\k a}dzanie widoczno\IeC {\'s}ci\IeC {\k a} pr\IeC {\'o}bek dla u\IeC {\.z}ytkownik\IeC {\'o}w}{24}
 \contentsline {section}{\numberline {7}Schemat bazy danych}{25}
-\contentsline {section}{\numberline {8}Opis implementacji}{26}
-\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{27}
-\contentsline {paragraph}{SQL injection}{27}
-\contentsline {section}{\numberline {10}Testy oraz wydajno\IeC {\'s}\IeC {\'c}}{28}
-\contentsline {section}{\numberline {11}Wnioski i podsumowania}{29}
-\contentsline {section}{Literatura}{29}
+\contentsline {paragraph}{Dane o u\IeC {\.z}ytkowniku}{25}
+\contentsline {paragraph}{Dane z sekwencjonowania DNA}{25}
+\contentsline {paragraph}{Sztuczne identyfikatory pr\IeC {\'o}bek}{26}
+\contentsline {paragraph}{Dost\IeC {\k e}p do pr\IeC {\'o}bek}{26}
+\contentsline {paragraph}{Lista kolumn}{26}
+\contentsline {paragraph}{Widoczno\IeC {\'s}\IeC {\'c} kolumn}{27}
+\contentsline {section}{\numberline {8}Opis implementacji}{28}
+\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{29}
+\contentsline {paragraph}{SQL injection}{29}
+\contentsline {section}{\numberline {10}Testy oraz wydajno\IeC {\'s}\IeC {\'c}}{30}
+\contentsline {section}{\numberline {11}Wnioski i podsumowania}{31}
+\contentsline {section}{Literatura}{31}
