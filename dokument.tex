@@ -58,6 +58,7 @@
 %W celu osiągnięcia wyżej przedstawionego celu, na Wydziale Elektroniki i Technik Informacyjnych Politechniki Warszawskiej oraz w Warszawskim Instytucie Matki i Dziecka rozpoczeła się praca nad systemem, którego owa praca inżynierska jest częścią.
 
 \subsection{Motywacja}  
+\newpage
 
 \subsection{Cel pracy} 
 \newpage
@@ -92,6 +93,7 @@ Jedna próbka liczyła sobie więcej niż 340000 wiersze co wymogło zaproponowa
 funkcjonalności umożliwiającen na poprawne i intuicyjne filtrowanie danych 
 tak by klient otrzymywał tylko interesujące go rekordy.
 
+\newpage
 \subsection{Wymagania funkcjonalne}
 Po zakończeniu analizy zostały określone następujące funkcjonalności. Aplikacja:
 
@@ -114,6 +116,8 @@ Po zakończeniu analizy zostały określone następujące funkcjonalności. Apli
  \item daje możliwość zakrycia na stronie aplikacji części danych,	
  \end{enumerate}
  
+\newpage
+
 Funkcjonalności umożliwiająca wprowadzanie wcześniej zdefiniowanych filtrów spowodowała stworzenie
 specjalnej klasy użytkowników, to jest administratorów, którzy będą zarządzali strukturą filtrów poprzez wprowadzenie odpowiedniego pliku z specjalnie przygotowanego panelu administracyjnego
 oraz będą zarządzać dostępem do próbek dla użytkowników.
@@ -124,16 +128,22 @@ Aplikacja:
   \item szyfruje wysyłane dane między klientem a serwerem za pomocą protokołu HTTPS,
   \item wykorzystuje funkcję SHA-512 do zabezpieczenia hasła użytkownika,
   \item korzysta z "soli" przy wyliczaniu funkcji skrótu,
+  \item wykorzystuje darmowe oprogramowanie,
+  \item korzysta z "soli" przy wyliczaniu funkcji skrótu,
+  \item odpowiada na zapytanie HTTP w mniej niż 10 sekund,
+
   %Parę wymagań niefukcjonalnych jak dostęp wielu użytkowników na raz, czas odpowiedzi itp.}
  \end{enumerate}
 
 \newpage
 \section{Istniejące rozwiązania}  
 
-Exac broad institute, Exac Harvard  
+\paragraph{Exac broad institute}
 Skupić się na tym iż systemy nie pozwalają na personalizacje interfejsu dla użytkownika.
-Harvard udostępnia REST API nieprzyjazne użytkownikowi \newline
-\textcolor{red}{\textbf{Czy dodać tu zdjęcia z tych aplikacji?}}
+\newpage
+\paragraph{Exac Harvard}
+Harvard udostępnia REST API nieprzyjazne użytkownikowi
+
 
 \newpage
 \section{Wybór technologi}
@@ -144,20 +154,22 @@ Naturalnym przez to wydało się wybranie tego języka programowania do stworzen
   
 \subsection{Język programowania Scala}
 W aplikacji użyto języka Scala w wersji 2.11.7 \cite{jezykScala}. Jest to język programowania powstały w 2001 roku pod kierownictwem Martina Odersky'ego w Lozannie.
-Działa na Wirtualnej Maszynie Javy a do 2012 roku wspierała platformę .NET opracowaną przez firmę Microsoft. Język ten nadaje się równie dobrze do krótkich, zwartych skryptów  wywoływanych podobnie do skryptów języka Python jak i do tworzenia wydajnych, ogromnych, bezpiecznych systemów sieciowych.
+Działa na Wirtualnej Maszynie Javy a do 2012 roku wspierała platformę .NET opracowaną przez firmę Microsoft. 
 
+Język ten nadaje się równie dobrze do krótkich, zwartych skryptów  wywoływanych podobnie do skryptów języka Python jak i do tworzenia wydajnych, ogromnych, bezpiecznych systemów sieciowych.
 Jest językiem łączącym cechy języków funkcyjnych oraz obiektowych. 
 Nie jest jednak obligatoryjny funkcyjny styl programowania, do którego nie jest przyzwyczajona większość programistów.
+
  Scala w swoim założeniu nawiązuje do minimalizmu składni Lispa to znaczy że nie opiera się na składni ale na funkcjach bibliotecznych. Nazwa ma podkreślić skalowalność języka, dzieje się tak dzięki możliwości tworzenia dodatkowych typów i struktur wyglądających jak nowa składnia języka.
 Zaletą języka jest również to że dzięki kompatybilności z językiem Java mamy możliwość wykorzystania każdej lini kodu napisanej w owym języku.
 
+\newpage
 \subsection{System zarządzania bazą danych}  
 Zadanie stworzenia bazy danych przechowującej informacje konfiguracyjne, dane użytkowników oraz o użytkownikach było dużą częścią tworzenia systemu i
 wymagało wybrania odpowiedniego systemu zarządania bazą danych.
 Model bazodanowy został zaprojektowany w modelu opartym na relacyjnej organizacji danych, przez co wybór ograniczył się do
 darmowych technologii realizujących relacyjne bazy danych.
 
-\newpage
 Biorąc pod uwagę powyższe kryteria, można porównać najpopularniejsze systemami, są nimi\cite{porownanieBaz}: 
  \begin{itemize}
   \item MqSQL,
@@ -257,6 +269,7 @@ aplikacji przeglądarkowych na jednej stronie. Jej głównymi zaletami jest :
 \item wykorzystaniu wzorca Model-Widok-Kontroler,
 \end{itemize} 
     
+\paragraph{Lodash}
 \newpage
 \section{Przypadki użycia}
 
@@ -291,8 +304,8 @@ rozróżnienie jej od innych próbek. Owy identyfikator jest ciągiem znaków, k
 alfabetycznie posortowanej liście. Użytkownik widzi tylko próbki udostępnione Mu przez administratora
 i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie w identyfikator próbki,
 co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA. 
-\newline
- 
+
+
 \begin{figure}[h!]
   \includegraphics[width=\linewidth]{obrazy/aplikacja/sample_list.png}
   \caption{Lista próbek}
@@ -330,7 +343,7 @@ Maksymalna ilość pokazywanych wierszy została ograniczona do 300 i wprowadzon
 element widoczny w lewym dolnym rogu rysunku numer \ref{fig:table1pic}, który umożliwia 
 użytkownikowi poruszanie się po kolejnych stronach tabelki zmniejszając narzut 
 pamięci operacyjnej wymaganej do wygenerowania całości tabeli.  
-
+\newline
 
 Ważną funkcjonalnością z punktu widzenia użytkownika jest możliwość filtracji pobranych już wierszy
 z bazy danych. W celu zwiększenia możliwości wyszukiwania, każda kolumna posiada oddzielne pole 
@@ -340,6 +353,13 @@ wyświetlanych danych.
 Dodatkową opcją działającą po stronie przeglądarki jest 
 funkcjonalność sortowania rosnąco bądź malejąco jednej kolumny. Służy do tego strzałka po
 lewej stronie od nazwy kolumny, kliknięcie w ikonkę bądź nazwę kolumny zmienia sortowanie.
+
+\begin{figure}[h]
+\centering
+  \includegraphics{obrazy/aplikacja/sortingAndSearch.png}
+  \caption{Sortowanie i filtrowanie pobranych już danych}
+  \label{fig:sortingAndSearchpic}
+\end{figure}
 
 \newpage
 \paragraph{Ustawianie widoczności kolumn}
@@ -352,15 +372,14 @@ które użytkownik może odznaczyć co spowoduje zniknięcie z tabeli. Selekcja 
 w bazie danych tak by przy ponownym wejściu na tą stronę aplikacji, użytkownik nie musiał
 kolejny raz ukrywać nieinteresujących go kolumn. Po rejestracji użytkownik ma widoczne wszystkie
 kolumny i musi sam je odznaczyć.
- 
 
-\begin{figure}[h!]
+\begin{figure}[h]
   \includegraphics[width=\linewidth]{obrazy/aplikacja/visible_columns.png}
-  \caption{Lista próbek}
+  \caption{Widoczne kolumny}
   \label{fig:visible_columnspic}
 \end{figure}
-\newpage
 
+\newpage
 \paragraph{Filtrowanie danych}
 Rysunek numer \ref{fig:filterspic} przedstawia moduł filtrujący dane, znajdujący się w
 lewej części strony aplikacji.
@@ -385,21 +404,26 @@ Grupa filtrów tworzą tak zwane tabki, \textcolor{red}{zastanawia mnie użycie 
 W górnej części panelu widoczne są przyciski z nazwami tabów. Aktywny tab
 wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym. 
 
-Filtrowanie odbywa się zgodnie z kolejnością aktywnych filtrów, to znaczy najpierw filtrujemy
-dane używając pól pierwszego aktywnego filtru, następnie te dane filtrujemy korzystając z drugiego i tak dalej.
-
-Przycisk z etykietą "Count" umożliwia policzenie ilości wierszy zwróconych przy zadanych wartościach pól. Pozwala to na sprawdzenie rozmiaru danych przed właściwym pobraniem całego zbioru danych.
-Efekt takiego działania przedstawia rysunek o numerze \ref{fig:countpic}.
-Można również pobrać wszystkie dane wybranej próbki za pomocą guzika z napisem "Get all".
-Za ustalanie struktury filtrów odpowiadają administratorzy i w podrozdziale im poświęconym
-opisane zostanie zarządzanie filtrami.
-
 \begin{figure}
   \centering
   \includegraphics{obrazy/aplikacja/filters.png}
   \caption{Filtry}
   \label{fig:filterspic}
 \end{figure}
+
+\newpage
+
+Filtrowanie odbywa się zgodnie z kolejnością aktywnych filtrów, to znaczy najpierw filtrujemy
+dane używając pól pierwszego aktywnego filtru, następnie te dane filtrujemy korzystając z drugiego i tak dalej. Ilustruje to przykład z rysunku numer \ref{fig:countpic}. Pierwszy filtr o nazwie "Filter 11" redukuje listę wyświetlanych wierszy do 20224. Była by to liczba widocznych wierszy przy deaktywacji pozostałych filtrów. Filtr "Filter 11" razem z drugim filtrem o nazwie "Filter 12"
+redukuja liczbę rekordów do 7424
+
+Przycisk z etykietą "Count" umożliwia policzenie ilości wierszy zwróconych przy zadanych wartościach pól. Pozwala to na sprawdzenie rozmiaru danych przed właściwym pobraniem całego zbioru danych.
+
+Można również pobrać wszystkie dane wybranej próbki za pomocą guzika z napisem "Get all".
+
+Za ustalanie struktury filtrów odpowiadają administratorzy i w podrozdziale im poświęconym
+opisane zostanie zarządzanie filtrami.
+
 
 \begin{figure}
   \centering
@@ -410,8 +434,12 @@ opisane zostanie zarządzanie filtrami.
 
 \newpage
 \subsection{Panel administratora}
-Użytkownik o roli administratora może wejść do oddzielnej strony aplikacji (rysunek \ref{fig:adminpic}), gdzie może przesłać plik o formacie xlsx o ustalonej strukturze
-i załadować nowe filtry. Ma też możliwość zmian widoczności próbek dla użytkowników oraz ich ról.
+Użytkownik o roli administratora może wejść do oddzielnej strony aplikacji (rysunek \ref{fig:adminpic}). Administratorowi prezentowana jest lista zarejestrowanych użytkowników wraz z ich rolami. Każdy element list jest hiperłączem prowadzącym
+do strony poświęconej konkretnemu użytkownikowi i jego uprawnieniom.
+
+Przycisk o etykiecie "Upload" służy administratorowi do zmiany struktury 
+filtrów, o czym będzie mowa w następnym paragrafie.
+
 
 \begin{figure}[h]
   \centering
@@ -420,11 +448,13 @@ i załadować nowe filtry. Ma też możliwość zmian widoczności próbek dla u
   \label{fig:adminpic}
 \end{figure}
 
+\newpage
 \paragraph{Zarządzanie filtrami}
 
 Zmiana struktury filtrów odbywa się z panelu administratora poprzez wysłanie
-z przeglądarki na serwer plik arkusza kalkulacyjnego o ustalonym formacie. Przykładowe dane są widoczne na rysunku \ref{fig:input_filepic} W pierwszej kolumnie podaje się nazwę tabki, do której przypisywany
-jest filtr o nazwie z drugiej kolumny. W trzeciej kolumnie należy podać nazwę kolumny, do której
+z przeglądarki na serwer plik arkusza kalkulacyjnego o ustalonym formacie. Przykładowe dane są widoczne na rysunku \ref{fig:input_filepic}.
+W pierwszej kolumnie podaje się nazwę tabki, do której przypisywany
+jest filtr o nazwie podanej w drugiej kolumnie. W trzeciej kolumnie należy podać nazwę kolumny, do której
 odnosić się będzie pole filtru a następnie relację między wprowadzaną wartością a kolumną.
 Opcjonalnie może być podana domyślna wartość pola oraz kilka wartości odzielone przecinkami, między którymi użytkownik będzie mógł wybierać w aplikacji. Nazwy kolumn oraz relacje zostały są dostępne pod
 listą rozwijaną w arkuszu w celu ułatwienia pracy administratora. 
@@ -441,7 +471,9 @@ Załadowanie pliku usuwa wcześniejsze filtry oraz zapisane wartości użytkowni
 \paragraph{Zarządzanie widocznością próbek dla użytkowników}
 Po wybraniu użytkownika z listy widocznej na rysuknu numer \ref{fig:adminpic}, 
 administratorowi ukazuje się lista wszystkich dostępnych próbek (rysunek numer \ref{fig:user_priviligespic}). Administrator zaznacza w przyciskach wyboru, które próbki będą dostępne 
-do wglądu wybranemu użytkownikowi. Po zarejestrowaniu się do aplikacji, użytkownik nie jest przypisany do żadnej próbki. 
+do wglądu wybranemu użytkownikowi. By zatwierdzić wybór należy kliknąć w 
+przycisk z etykietą "Save".
+Po zarejestrowaniu się do aplikacji, użytkownik nie jest przypisany do żadnej próbki. 
  
 \begin{figure}[h]
   \centering
@@ -452,14 +484,18 @@ do wglądu wybranemu użytkownikowi. Po zarejestrowaniu się do aplikacji, użyt
 
 \newpage
 \section{Schemat bazy danych}
-\textcolor{red}{
-Schemat jest bardzo duży, może załączyć w częściach w dodatku i odsyłać tam czytelnika?
-}
+
 \begin{figure}
   \includegraphics[width=\linewidth]{obrazy/aplikacja/database.png}
   \caption{Schamat bazy danych}
   \label{fig:bazadanych}
 \end{figure}
+
+\newpage
+
+\textcolor{red}{
+Schemat jest bardzo duży, może załączyć w częściach w dodatku i odsyłać tam czytelnika?
+}
 
 Przed rozpoczęciem implementacji aplikacji przeglądarkowej zaprojektowano strukturę 
 relacyjnej bazy danych. Na rysunku nr \ref{fig:bazadanych} przedstawiono schemat stworzony
@@ -491,7 +527,9 @@ użycia identyfikatora próbki jako klucza obcego w części tabel systemu, post
 dodać dodatkową liczbową kolumnę ("fake\verb!_!id"), której wykorzystanie ułatwiło implementację systemu.
 
 \paragraph{Dostęp do próbek} W tabela "privilege" przechowywane są informacje o 
-dostępie użytkownika do danej próbki.
+dostępie użytkownika do danej próbki. Brak rekordu wiążącego użytkownika z 
+daną próbką jest w aplikacji rozumiany jako brak dostępu do danej próbki,
+przez co po zarejestrowaniu się użytkownika, nie ma On dostępu do żadnej próbki,
 
 \paragraph{Lista kolumn} System był projektowany z myślą by ograniczyć w przyszłości konieczność zmian 
 w kodzie aplikacji i by był konfigurowalny z jednego pliku dostępnego administratorowi.
@@ -501,7 +539,6 @@ wykorzystywane do generowania zapytać pobierających dane, w tej encji znajduj�
 się nazwy wyświetlające się użytkownikowi aplikacji ("fe\verb!_!name") oraz informacje o typach
 tych kolumn, służące do sprawdzania poprawności danych wejściowych od klientów.
 
-\newpage
 \paragraph{Widoczność kolumn} Za składowanie informacji o widocznych kolumnach na
 stronie prezentującej użytkownikowi dane o sekwencjonowaniu, odpowiada tabela 
 "user\verb!_!visible\verb!_!variant\verb!_!column". Zapisane w niej są:
@@ -515,6 +552,7 @@ stronie prezentującej użytkownikowi dane o sekwencjonowaniu, odpowiada tabela
 \end{itemize}
 \end{enumerate} 
 
+\newpage
 \paragraph{Przechowywanie schematu filtrów} W trakcie analizy wymagań i projektowaniu systemu wydzielono trzy odzielne obiekty tworzące moduł filtrujące dane, to znaczy taby, filtry i pola.
 Ułatwiło to zaprojektowanie odpowiednich encji bazodanowych.
 
@@ -530,8 +568,6 @@ z następującymi kolumnami:
 \item relacja między polem a kolumną wariantu,
 \item opcjonalne wartości ukazywane użytkownikowi pod listą rozwijaną,
 \end{enumerate}
-
-\newpage
 
 Za łączenie wszystkich trzech wymienionych encji, odpowiada tabela 
 "tab\verb!_!field\verb!_!filter", posiadająca identyfikatory każdej z encji oraz
@@ -549,15 +585,17 @@ razen z identyfikatorem próbki i wybraną wartością.
 \newpage
 \section{Opis implementacji}  
 \textcolor{red}{
-Czy w ogóle opisywać implementację? Jeśli tak to jak dokładnie? 
-Czy nie połączyć opisu implementacji razem z przypadkami użycia?
-Kolejno opisując użycie aplikacji mógłbym opisać jak to się odbywa w kodzie.
+Opis struktury całego projektu
+\newline
+Opis sesji -  ciastka, guzik "wstecz" przeglądarki oraz odświeżania strony bez potrzeby ponownego logowania
+\newline
+Opis rejestracji (hash itp)
+\newline
+Opis autoryzacji - trait Secured - można napisać coś o https, wygenerowanym przez nich certyfikacie (screen czerwonego ekranu + 1 strona)
+\newline
+Upload i apache poi
 }
 
-%Zaimplementowano funkcjonalność sesji pozwalającącej na 
-%wykorzystywanie guzika "wstecz" przeglądarki oraz odświeżania strony bez potrzeby ponownego
-%logowania się. - opisać sesję w playu
-\newpage
 \section{Bezpieczeństwo aplikacji}  
 Badania przeprowadzone przez firmę Norton by Symantec \cite{nortonSec}
 pokazują jak dużym zjawiskiem jest współdzielenie przez ludzi haseł między różnymi serwisami, czy to
@@ -573,6 +611,7 @@ zapewniającym szyfrowane połączenie i ochronę danych autoryzacyjnych
 }
 \end{itemize}
 
+\newpage
 \paragraph{SQL injection} Z kolei opublikowany w 2017 roku raport OWASP \cite{owasp}
 informuje iż najwięcej ataków na aplikacje internetowe odbywa się poprzez tak zwane "SQL injection (z ang.). 
 Opracowany system generował dynamicznie zapytania SQL przez co mógł być narażony na te niebezpieczeństwa i został odpowiednio zabezpieczony.
@@ -581,9 +620,12 @@ zostaną wcześniej przekształcone na odpowiednie typy.
 Baza danych z danymi z sekwencjonowania DNA łączy się z serwerem za pomocą interfejsu JDBC,
 który udostępnia tą samą funkcjonalność poprzez wykorzystanie klasy PreparedStatement \cite{preparedStatement}.
 
-
 \newpage
 \section{Testy oraz wydajność}  
+\textcolor{red}{
+Opisać rysowanie się długie tabeli, 
+pokazać liczby, tabelka!
+}
 \newpage
 \section{Wnioski i podsumowania}  
 
