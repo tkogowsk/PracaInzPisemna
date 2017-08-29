@@ -49,9 +49,11 @@
 \contentsline {paragraph}{Widoczno\IeC {\'s}\IeC {\'c} kolumn}{33}
 \contentsline {paragraph}{Przechowywanie schematu filtr\IeC {\'o}w}{34}
 \contentsline {paragraph}{Zapisywanie warto\IeC {\'s}ci filtr\IeC {\'o}w dla u\IeC {\.z}ytkownika}{34}
-\contentsline {section}{\numberline {8}Opis implementacji}{35}
-\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{35}
-\contentsline {paragraph}{SQL injection}{36}
-\contentsline {section}{\numberline {10}Testy oraz wydajno\IeC {\'s}\IeC {\'c}}{37}
-\contentsline {section}{\numberline {11}Wnioski i podsumowania}{38}
-\contentsline {section}{Literatura}{38}
+\contentsline {section}{\numberline {8}Testy wydajno\IeC {\'s}ci}{35}
+\contentsline {paragraph}{Rozmiar przesy\IeC {\l }anych danych}{36}
+\contentsline {section}{\numberline {9}Opis implementacji}{40}
+\contentsline {section}{\numberline {10}Bezpiecze\IeC {\'n}stwo aplikacji}{40}
+\contentsline {paragraph}{SQL injection}{41}
+\contentsline {section}{\numberline {11}Wnioski i podsumowania}{42}
+\contentsline {section}{Literatura}{42}
+\contentsline {section}{Wykaz rysunk\IeC {\'o}w i tabel}{45}

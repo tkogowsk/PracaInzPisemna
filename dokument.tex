@@ -130,7 +130,6 @@ Aplikacja:
   \item korzysta z "soli" przy wyliczaniu funkcji skrótu,
   \item wykorzystuje darmowe oprogramowanie,
   \item korzysta z "soli" przy wyliczaniu funkcji skrótu,
-  \item odpowiada na zapytanie HTTP w mniej niż 10 sekund,
 
   %Parę wymagań niefukcjonalnych jak dostęp wielu użytkowników na raz, czas odpowiedzi itp.}
  \end{enumerate}
@@ -140,11 +139,20 @@ Aplikacja:
 
 \paragraph{Exac broad institute}
 Skupić się na tym iż systemy nie pozwalają na personalizacje interfejsu dla użytkownika.
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{obrazy/exac/broad.png}
+  \caption{Broad}
+  \label{fig:broadpic}
+\end{figure}
 \newpage
 \paragraph{Exac Harvard}
 Harvard udostępnia REST API nieprzyjazne użytkownikowi
 
-
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{obrazy/exac/harvard1.png}
+  \caption{Harvard}
+  \label{fig:harvardpic}
+\end{figure}
 \newpage
 \section{Wybór technologi}
 
@@ -583,6 +591,146 @@ jest zrealizowana poprzez przechowywanie identyfikatora tabki, filtru i pola ele
 razen z identyfikatorem próbki i wybraną wartością. 
 
 \newpage
+\section{Testy wydajności}  
+
+Dane używane podczas implementacji do sprawdzenia działania aplikacji pochodziły
+z Instututu Broad \cite{exac}.
+Do testów wybrano transkrypt ENST00000407236 \cite{testData},
+którego dane były dostępne w pliku CSV. Rozmiar danych wynosił 530 wierszy, każdy posiadający 37 atrybutów. Plik został załadowany do lokalnej bazy danych, do tabeli 
+"Genotype\verb!_!data\verb!_!JDBC".
+\textcolor{red}{Należy zaznaczyć, iż spodziewana ilość wierszy dla jednej próbki wynosi: XXXX}
+ W celu sprawdzenia zachowania się aplikacji 
+dla większych rozmiarów danych, postanowiono kilkakrotnie zmultiplikować
+ilość wierszy i zapisać je jako oddzielne próbki.
+
+Zaobserwowano dzięki temu brak płynności przy przewijaniu tabeli, tak zwane "zacinanie się" strony przeglądarki oraz nieakceptowalne wydłużenie się 
+czasu oczekiwania na wyrysowanie się wszystkich elementów. 
+W celu znalezienia przyczyny i poprawienia sprawności 
+wytypowano następujące elementy działania aplikacji podejrzewane o duże narzuty czasowe:
+
+\begin{itemize}
+\item wielkość przesyłanych danych
+\item czas trwania żądania HTTP
+\item czas generowania modelu w części klienckiej
+\item czas dodawania elementów do DOMu przeglądarki
+\end{itemize} 
+
+Środowisko testowe stanowił komputer typu laptop z 
+procesorem firmy Intel model i3-3110M wraz z 8 Gb pamięci operacyjnej.
+Wirtualna maszyna Javy, z której korzystała aplikacja posiadała stertę
+o wielkości 512 Mb z możliwością dynamicznego zwiększenia do maksymalnie 2 Gb.
+Przeglądarkami na których testowano aplikacje była przeglądarka 
+Google Chrome w wersji 60.0.3112.113 oraz Mozilla Firefox w wersji 55.0.2.
+Każdy przypadek był mierzony pięć razy.  
+
+\newpage
+\paragraph{Rozmiar przesyłanych danych}
+Rozmiar przesyłanych danych został jako pierwszy poddany analizie i
+ewentualnej optymalizacji, ponieważ może znacząco wpływać na pozostałe 
+obiekty badań.
+
+W tabeli numer \ref{table:requestSizeNoOpt} przedstawiono rozmiar 
+odpowiedzi HTTP względem rozmiaru wybranej próbki DNA.
+
+\begin{center}
+\begin{table} [H]
+\begin{tabular}{| p{4cm} | p{2.7cm} | p{2.7cm} | p{2.7cm}|}
+\hline
+& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+\hline
+rozmiar odpowiedzi HTTP& 3.5MB&37.3MB& 93.6MB\\ \hline  
+\end{tabular}
+
+\caption{Rozmiar odpowiedzi HTTP względem rozmiaru wybranej próbki DNA}
+\label{table:requestSizeNoOpt}
+\end{table}
+\end{center} 
+
+Dane wysyłane z serwera były to dane tekstowe w formacie JSON.
+Wysyłanymi model danych stanowiła lista obiektów DataRowDTO, 
+który odpowiadał jednemu wierszowi tabeli i gdzie każdy z nich zawierał listę obiektów DataCellDTO (pole o nazwie "row"). Zawartość tych obiektów stanowiła nazwa 
+odpowiadającej kolumny wiersza ("columnName") oraz wartość ("value").
+
+Dla zmniejszenia długości przesyłanego ciągu znaków, 
+zmieniono logikę po stronie JavaScript'owej tak by 
+można było wysyłać liczbowy identyfikator kolumny zamiast jej nazwy
+oraz zmieniono nazwy pól obiektów w następujący sposób:
+
+\begin{itemize}
+\item row -> r
+\item columnName -> id -> i
+\item value -> v
+\end{itemize}
+
+Zmiany rozmiaru wysyłanych danych prezentuje tabela numer \ref{table:requestSizeOpt}.
+
+\begin{center}
+\begin{table} [H]
+\begin{tabular}{| p{4cm} | p{2.7cm} | p{2.7cm} | p{2.7cm}|}
+\hline
+& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+\hline
+rozmiar odpowiedzi HTTP& 1.3MB&13.8MB& 34.2MB\\ \hline  
+\end{tabular}
+
+\caption{Rozmiar odpowiedzi HTTP względem rozmiaru wybranej próbki DNA po optymalizacji przesyłanego modelu}
+\label{table:requestSizeOpt}
+\end{table}
+\end{center} 
+
+
+
+
+
+\newpage
+Tabela \ref{table:httpRequestTime} przedstawia średni czas trwania 
+całego żądania HTTP oraz czas przetwarzania danych pobranych z bazy danych
+(w tym czas połączenia z bazą danych) względem rozmiaru danych.
+
+\begin{center}
+\begin{table} [H]
+\begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
+\hline
+& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+\hline
+czas trwania żądania HTTP& 5.66s & 9.54s & 19.21s \\ \hline  
+czas przetwarzania danych& 4856ms& 7882ms& 17379ms\\ \hline  
+\end{tabular}
+\caption{Czasy trwania żądania HTTP  oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych }
+\label{table:httpRequestTime}
+\end{table}
+\end{center} 
+
+Warto zwrócić uwagę jak dużą częścią całego żądania stanowił czas przetwarzania danych. Jak łatwo się domyślić, lokalna baza danych oraz przedewszystkim lokalny serwer będzie miał zdecydowanie lepsze wyniki od produkcyjnego serwera i należało 
+zająć się ograniczeniem czasu pracy serwera aplikacyjnego.
+W tym celu wykorzystano mechanizm pamięci podręcznej (z ang. cache).
+Oprogramowanie z którego skorzystano nazywa się Ehcache \cite{cache} i 
+zostało wybrane, ponieważ jest wspierane przez oprogramowanie Play
+i jednocześnie jest najczęściej wykorzystywaną implementacją pamięci podręcznej
+dla aplikacji w języku Java. Tabela 
+
+Tabela \ref{table:httpRequestTimeCache} przedstawia średni czas trwania 
+całego żądania HTTP oraz czas przetwarzania danych pobranych z bazy danych
+(w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu
+mechanizmu pamięci podręcznej.
+
+\begin{center}
+\begin{table} [H]
+\begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
+\hline
+& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+\hline
+czas trwania żądania HTTP& 0.615ms & 2.55s& 4.57s \\ \hline  
+czas przetwarzania danych& 147ms& 126ms& 163ms\\ \hline  
+\end{tabular}
+\caption{Czasy trwania żądania HTTP  oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu mechanizmu pamięci podręcznej}
+
+%\multicolumn{4}{|c|}{1920 rekordów}  \\
+\label{table:httpRequestTimeCache}
+\end{table}
+\end{center} 
+
+\newpage
 \section{Opis implementacji}  
 \textcolor{red}{
 Opis struktury całego projektu
@@ -621,12 +769,6 @@ Baza danych z danymi z sekwencjonowania DNA łączy się z serwerem za pomocą i
 który udostępnia tą samą funkcjonalność poprzez wykorzystanie klasy PreparedStatement \cite{preparedStatement}.
 
 \newpage
-\section{Testy oraz wydajność}  
-\textcolor{red}{
-Opisać rysowanie się długie tabeli, 
-pokazać liczby, tabelka!
-}
-\newpage
 \section{Wnioski i podsumowania}  
 
 \addcontentsline{toc}{section}{Literatura}
@@ -644,6 +786,13 @@ The Apache Software Foundation - Apache Spark Available at: https://spark.apache
 Exac Browser Data - Exome Aggregation Consortium  
 Available at: http://exac.broadinstitute.org/ (Accessed: 10 August 2017).
 
+\bibitem{testData}
+Exac Browser Data - Exome Aggregation Consortium  
+Available at: http://exac.broadinstitute.org/transcript/ENST00000407236 (Accessed: 10 August 2017).
+
+\bibitem{cache}
+Terracotta, Inc.[ - Ehcache 
+Available at: http://www.ehcache.org/ (Accessed: 10 August 2017).
 \bibitem{porownanieBaz}
 Hostovita sp. z o.o. - Porównanie relacyjnych SZBD: SQLite, MySQL, PostgreSQL
 Available at:
@@ -673,6 +822,10 @@ Raphael A. Silva - pgModeler Available at: https://pgmodeler.com.br/
 (Accessed: 24 August 2017).
 \end{thebibliography}
 
-%\newpage
-%\section*{Wykaz rysunków i tabel} 
+\newpage
+\section*{Wykaz rysunków i tabel}
+\addcontentsline{toc}{section}{Wykaz rysunków i tabel}
+\listoffigures
+\listoftables
+
 \end{document}
