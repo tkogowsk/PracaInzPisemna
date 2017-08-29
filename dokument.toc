@@ -51,6 +51,9 @@
 \contentsline {paragraph}{Zapisywanie warto\IeC {\'s}ci filtr\IeC {\'o}w dla u\IeC {\.z}ytkownika}{34}
 \contentsline {section}{\numberline {8}Testy wydajno\IeC {\'s}ci}{35}
 \contentsline {paragraph}{Rozmiar przesy\IeC {\l }anych danych}{36}
+\contentsline {paragraph}{Czas trwania \IeC {\.z}\IeC {\k a}dania HTTP}{37}
+\contentsline {paragraph}{Czas generowania modelu w cz\IeC {\k e}\IeC {\'s}ci klienckiej}{38}
+\contentsline {paragraph}{Czas dodawania element\IeC {\'o}w do DOMu przegl\IeC {\k a}darki przez platform\IeC {\k e} Angular}{38}
 \contentsline {section}{\numberline {9}Opis implementacji}{40}
 \contentsline {section}{\numberline {10}Bezpiecze\IeC {\'n}stwo aplikacji}{40}
 \contentsline {paragraph}{SQL injection}{41}

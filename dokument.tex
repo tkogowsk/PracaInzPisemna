@@ -129,7 +129,6 @@ Aplikacja:
   \item wykorzystuje funkcję SHA-512 do zabezpieczenia hasła użytkownika,
   \item korzysta z "soli" przy wyliczaniu funkcji skrótu,
   \item wykorzystuje darmowe oprogramowanie,
-  \item korzysta z "soli" przy wyliczaniu funkcji skrótu,
 
   %Parę wymagań niefukcjonalnych jak dostęp wielu użytkowników na raz, czas odpowiedzi itp.}
  \end{enumerate}
@@ -609,10 +608,10 @@ W celu znalezienia przyczyny i poprawienia sprawności
 wytypowano następujące elementy działania aplikacji podejrzewane o duże narzuty czasowe:
 
 \begin{itemize}
-\item wielkość przesyłanych danych
+\item rozmiar przesyłanych danych
 \item czas trwania żądania HTTP
 \item czas generowania modelu w części klienckiej
-\item czas dodawania elementów do DOMu przeglądarki
+\item czas dodawania elementów do DOMu przeglądarki przez platformę Angular
 \end{itemize} 
 
 Środowisko testowe stanowił komputer typu laptop z 
@@ -661,10 +660,7 @@ oraz zmieniono nazwy pól obiektów w następujący sposób:
 \item columnName -> id -> i
 \item value -> v
 \end{itemize}
-
 Zmiany rozmiaru wysyłanych danych prezentuje tabela numer \ref{table:requestSizeOpt}.
-
-\begin{center}
 \begin{table} [H]
 \begin{tabular}{| p{4cm} | p{2.7cm} | p{2.7cm} | p{2.7cm}|}
 \hline
@@ -672,23 +668,15 @@ Zmiany rozmiaru wysyłanych danych prezentuje tabela numer \ref{table:requestSiz
 \hline
 rozmiar odpowiedzi HTTP& 1.3MB&13.8MB& 34.2MB\\ \hline  
 \end{tabular}
-
 \caption{Rozmiar odpowiedzi HTTP względem rozmiaru wybranej próbki DNA po optymalizacji przesyłanego modelu}
 \label{table:requestSizeOpt}
 \end{table}
-\end{center} 
-
-
-
-
-
 \newpage
+\paragraph{Czas  trwania żądania HTTP}
 Tabela \ref{table:httpRequestTime} przedstawia średni czas trwania 
 całego żądania HTTP oraz czas przetwarzania danych pobranych z bazy danych
 (w tym czas połączenia z bazą danych) względem rozmiaru danych.
-
-\begin{center}
-\begin{table} [H]
+\begin{table}[H] 
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
 & 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
@@ -699,22 +687,18 @@ czas przetwarzania danych& 4856ms& 7882ms& 17379ms\\ \hline
 \caption{Czasy trwania żądania HTTP  oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych }
 \label{table:httpRequestTime}
 \end{table}
-\end{center} 
-
 Warto zwrócić uwagę jak dużą częścią całego żądania stanowił czas przetwarzania danych. Jak łatwo się domyślić, lokalna baza danych oraz przedewszystkim lokalny serwer będzie miał zdecydowanie lepsze wyniki od produkcyjnego serwera i należało 
 zająć się ograniczeniem czasu pracy serwera aplikacyjnego.
 W tym celu wykorzystano mechanizm pamięci podręcznej (z ang. cache).
 Oprogramowanie z którego skorzystano nazywa się Ehcache \cite{cache} i 
 zostało wybrane, ponieważ jest wspierane przez oprogramowanie Play
 i jednocześnie jest najczęściej wykorzystywaną implementacją pamięci podręcznej
-dla aplikacji w języku Java. Tabela 
+dla aplikacji w języku Java.  
 
 Tabela \ref{table:httpRequestTimeCache} przedstawia średni czas trwania 
 całego żądania HTTP oraz czas przetwarzania danych pobranych z bazy danych
 (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu
 mechanizmu pamięci podręcznej.
-
-\begin{center}
 \begin{table} [H]
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
@@ -725,10 +709,78 @@ czas przetwarzania danych& 147ms& 126ms& 163ms\\ \hline
 \end{tabular}
 \caption{Czasy trwania żądania HTTP  oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu mechanizmu pamięci podręcznej}
 
-%\multicolumn{4}{|c|}{1920 rekordów}  \\
 \label{table:httpRequestTimeCache}
 \end{table}
-\end{center} 
+
+\paragraph{Czas generowania modelu w części klienckiej} Pobrany obiekt typu JSON
+po zakończeniu zapytania HTTP był przekształcany do innej formy między innymi
+funkcje biblioteki Lodash. Poniżej w tabeli numer \ref{table:lodashTime} przedstawione są pomiary czasu przekształceń względem rozmiaru obiektu.
+
+\begin{table} [H]
+\begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
+\hline
+&  1.3MB&13.8MB& 34.2MB\\ 
+\hline
+przekształcenia modelu w przeglądarce& 105ms & 991ms& 2052ms\\ \hline  
+\end{tabular}
+\caption{Czasy przekształceń w przeglądarce klienckiej względem rozmiaru obiektu}
+\label{table:lodashTime}
+\end{table}
+Osiągnięte wyniki testów uznano za zadowalające i nie postanowiono 
+próbować optymalizować czasu wykonania owych operacji.
+
+\paragraph{Czas dodawania elementów do DOMu przeglądarki przez platformę Angular}
+Doświadczenie z oprogramowaniem Angular wskazywało, iż ten element może być odpowiedzialny za główny narzut czasowy przy generowanie się tabeli.
+Zdecydowano się wprowadzić element stronicujący prezentowane dane oraz 
+zmierzyć czas potrzebny na wygenerowanie się elementów zależnie od ilości 
+wizualnie dostępnych wierszy. W tabeli numer \ref{table:tableRender} przedstawione są 
+wyniki.
+
+\begin{table} [H]
+\begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
+\hline
+& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+\hline
+300 wierszy& 3806ms & 4329ms& 5783ms\\ \hline  
+1000 wierszy& 11.82s & 13.05s& 16.07s\\ \hline  
+5000 wierszy& 35403ms & ~4min& >5min\\ \hline  
+\end{tabular}
+\caption{Czasy dodawania elementów do DOMu HTML przez platformę Angular}
+\label{table:tableRender}
+\end{table}
+\newpage
+
+Powyższe wyniki najlepiej prezentują skalę problemu. Ostatecznie zaimplementowano
+stronicowanie z 300 wierszami, duży wpływ na tą decyzję miał również fakt, iż
+przy 1000 widocznych wierszach straty wydajności i brak płynności przy przewijaniu
+suwakiem widocznej tabelki uniemożliwiałyby efektywną pracę.
+
+\textcolor{red}{Opisać dirty-checking w angularze - powód takiego zachowania}
+
+
+
+Po zaimplementowaniu funkcjonalności ukrywania kolumn, ponowiono testy przy ukrytych 17 kolumnach. Angular zapewnia dwie dyrektywy, które można było zastosować przy tej funkcjonalności. Są to:
+\begin{itemize}
+\item ng-show bądź ng-hide - które ukrywają dany element poprzez style CSS
+\item ng-if - która nie dodaje elementu do DOMu przeglądarki
+\end{itemize}
+
+Poniższa tabela o numerze \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane z dyrektywą ng-if przy ukrytych 17 kolumnach.
+\begin{table} [H]
+\begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
+\hline
+& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+\hline
+300 wierszy& 3739ms& 4744ms& 5100ms\\ \hline  
+1000 wierszy& 10.86s & 15.69s& 18.93s\\ \hline  
+5000 wierszy& 19.61s& ~3min& >5min\\ \hline  
+\end{tabular}
+\caption{Czasy dodawania elementów do DOMu HTML przez platformę Angular}
+\label{table:tableRenderNgIf}
+\end{table}
+
+\textcolor{red}{Po wprowadzeniu wszystkich elementów optymalizacyjnych, średni czas 
+wyniósł: }
 
 \newpage
 \section{Opis implementacji}  
