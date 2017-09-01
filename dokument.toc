@@ -35,7 +35,7 @@
 \contentsline {subsubsection}{\numberline {6.1.2}Rejestracja i logowanie u\IeC {\.z}ytkownika}{19}
 \contentsline {subsection}{\numberline {6.2}Przegl\IeC {\k a}danie danych z sekwencjownowania DNA}{20}
 \contentsline {paragraph}{Ekran dost\IeC {\k e}pnych genom\IeC {\'o}w}{20}
-\contentsline {paragraph}{\leavevmode {\color {red} Tabela z danymi z sekwencjonowania DNA - lepsza nazwa? Czy pokaza\IeC {\'c} tylko jedno zdj\IeC {\k e}cie ca\IeC {\l }ej strony?} }{21}
+\contentsline {paragraph}{Tabela z danymi z sekwencjonowania DNA}{21}
 \contentsline {paragraph}{Ustawianie widoczno\IeC {\'s}ci kolumn}{23}
 \contentsline {paragraph}{Filtrowanie danych}{24}
 \contentsline {subsection}{\numberline {6.3}Panel administratora}{28}

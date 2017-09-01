@@ -39,12 +39,33 @@
 \pagenumbering{arabic}
 \newpage 
 \section*{Streszczenie}
+Wraz z rozwojem technologii umożliwiających tanie i efektywne
+pozyskiwanie danych z sekwencjonowania DNA, wzrosło zapotrzebowanie
+na stworzenie systemu umożliwiającego łatwy dostęp do danych pacjentów,
+w celu znalezienia genów odpowiedzialnych za ich choroby bądź w celu 
+określenia prawdopodobieństwa zachorowania w przyszłości. 
 
+Praca prezentuje interfejs do rozproszonej bazy danych posiadającej 
+dane z sekwencjonowania DNA. Aplikacja przeglądarkowa została opracowana
+w języku programowania Scala wraz z wykorzystaniem platformy programistycznej
+Play oraz platformy Angular. Opisany też jest schemat bazy danych 
+stworzonej za pomocą systemu zarządzania relacyjną bazą danych PostgreSQL, która 
+przechowującej filtry oraz dane o użytkownikach. 
+Poza przypadkami użycia przedstawione zostały także 
+elementy, które umożliwiły zmniejszenia czasu odpowiedzi serwera 
+aplikacyjnego na żądanie HTTP oraz sposób zabezpieczenia 
+haseł użytkowników razem z sposobem zarządzania sesją. 
+Cały system został zaprojektowany jako łatwy do rozbudowy.
 
-1. Streszczenie wstępu (2-3)
-2. metody (2-3)
-3. wyniki
-4. podsumowania
+\textbf{Słowa kluczowe:}
+\begin{itemize}
+\item DNA,
+\item Scala,
+\item medycyna,
+\item Play Framework,
+\item PostgreSQL,
+\item Angular,
+\end{itemize}
 \newpage 
 \section*{Abstract}
 
@@ -156,8 +177,9 @@ odwrotne pytania, czyli będą starać się znaleźć warianty, które mogą by�
 za konkretną chorobę. 
 
 Inną istotną kwestią wziętą pod uwagę był typ i wielkość danych, jakie mają być wyświetlane klientom.
-W trakcie projektowania architektury jako dane przykładowe zostały wybrane dane dla przykładowego transkryptu dostępne w aplikacji ExAC instututu Broad \cite{exac} \cite{exacCite}. Dane te posiadały 36 kolumn i oczywistym wydało się że obie grupy użytkowników będzie interesowała tylko część informacji o genotypie i należało by umożliwić im filtrację oraz zakrywanie niepotrzebnych danych. 
-Jedna próbka liczyła sobie więcej niż 340000 wiersze co wymogło zaproponowanie 
+W trakcie projektowania architektury jako dane przykładowe zostały wybrane dane dla przykładowego transkryptu dostępne w aplikacji ExAC instututu Broad \cite{exac} \cite{exacCite}. Dane te 
+podobnie jak te w rozproszonej bazie danych posiadały ponad 30 kolumn i oczywistym wydało się że obie grupy użytkowników będzie interesowała tylko część informacji o genotypie i należało by umożliwić im filtrację oraz zakrywanie niepotrzebnych danych. 
+Jedna próbki z docelowej bazy danych liczą sobie więcej niż 20000 wierszy co wymogło zaproponowanie 
 funkcjonalności umożliwiającen na poprawne i intuicyjne filtrowanie danych 
 tak by klient otrzymywał tylko interesujące go rekordy.
 
@@ -451,9 +473,7 @@ co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA
 \end{figure}
 
 \newpage
-\paragraph{\textcolor{red}{
-Tabela z danymi z sekwencjonowania DNA - lepsza nazwa? Czy pokazać tylko jedno zdjęcie całej strony?}
-}
+\paragraph{Tabela z danymi z sekwencjonowania DNA} 
 Przechodzą na stronę z danymi dla konkretnej próbki, użytkownikowi prezentowane są 
 dane w postaci tabelarycznej (Rysunek numer \ref{fig:table1pic}).
 
@@ -947,20 +967,35 @@ za tym idzie opis sesji i ciastek
 \newpage
 \section{Wnioski i podsumowania}  
 
-1. Zrobiono co trzeba było zrobić - działa to to i tamto.
+Zaimplementowany system spełnia założenia projektu - aplikacja
+umożliwia dostę po próbek DNA na żądanie, pozwala na filtracje danych
+i zapisywanie wartości w filtrach. 
+System umożliwia rozróżnianie różnych typów użytkowników 
+i ograniczenie dostępów do danych bądź funkcjonalności zależnie od ich
+roli.
+Dodatkowo dba o bezpieczeństwo
+tożsamości wszystkich użytkowników i przechowywanie ich haseł.
+Co więcej, udało się stworzyć
+architekturę pozwalającą na łatwą rozbudowę 
+i dodawanie nowych funkcjonalności. 
 
-2. Aplikacja jest łatwo rozszerzalna bo play.
-3. Po testach w instytucie matki i dziecka się okaże jak z wydajnością 
-i czy nie trzeba czegoś tam zboostować (niby że wiem co można by poprawić 
-- zmienić trochę model, wykorzystać cache przeglądarki czy nawet bazę danych
-przeglądarkową do pracy offline).
+Postarano się na zoptymalizowanie czasu odpowiedzi na zapytanie HTTPS,
+jednak prawdziewe testy, które odbędą się w Zakładzie Genetyki Medycznej Instytutu Matki i Dziecka w Warszawie odpowiedzą na pytanie czy 
+nie będzie potrzeby dalszych modyfikacji. Poza zmniejszeniem
+rozmiaru przesyłanych danych możliwe jest wykorzystanie pamięci podręcznej
+przeglądarki czy też bazy danych, które pojawiają się w przeglądarkach  \cite{w3cDatabase}.
 
+Rejestracja domeny, na której uruchominy będzie serwer,
+w urzędzie certyfikacji jest najważniejszym elementem,
+od którego należy rozpocząć prace w następnym etapie rozwoju systemu.
 
-W przyszłości:
-1. Certyfikat https.
-2. Umożliwić tworzenie własnych filtrów.
-3. Eksporty danych.
-4. Wykresiki.
+W tym samym czasie można również rozpocząć pracę nad kolejnymi funkcjonalnościami
+aplikacji. Przykładami takich usprawnień mogłyby być:
+\begin{itemize}
+\item umożliwienie tworzenie własnych paneli z filtrami,
+\item eksport przefiltrowanych danych do plików,
+\item dodanie wykresów ilustrujących dane,
+\end{itemize}
 
 \addcontentsline{toc}{section}{Literatura}
 \newpage
@@ -1046,6 +1081,11 @@ https://docs.oracle.com/javase/8/docs/api/java/sql/PreparedStatement.html (Acces
 \bibitem{pgModeler}
 Raphael A. Silva - pgModeler Available at: https://pgmodeler.com.br/
 (Accessed: 24 August 2017).
+
+\bibitem{w3cDatabase}
+World Wide Web Consortium - IndexedDB Available at: https://www.w3.org/TR/IndexedDB/
+(Accessed: 24 August 2017).
+
 \end{thebibliography}
 
 \newpage
