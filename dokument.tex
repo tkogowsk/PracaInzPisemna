@@ -16,6 +16,7 @@
 \usepackage[titletoc, title]{appendix}
 \usepackage{chngcntr}
 \usepackage{color}
+\usepackage{geometry}
 
 \renewcommand\familydefault{\sfdefault} 
 \usepackage[T1]{fontenc}
@@ -38,6 +39,12 @@
 \pagenumbering{arabic}
 \newpage 
 \section*{Streszczenie}
+
+
+1. Streszczenie wstępu (2-3)
+2. metody (2-3)
+3. wyniki
+4. podsumowania
 \newpage 
 \section*{Abstract}
 
@@ -50,32 +57,93 @@
 \newpage
 \section{Wstęp}  
 
+\subsection{Motywacja}
+W dzisiejszych czasach genetyka jest jednym z najważniejszych działów medycyny.
+Umiejętność znajdowania natury gnębiących ludzkość chorób
+czy to dziedzicznych czy cywilizacyjnych jest jednym z celów obecnie pracujących badaczy. Wczesne wykrywania chorób u ludzi czy też określanie
+prawdopodobieństwa wystąpienia choroby u pacjena może ocalić
+wiele istnień.
 
+Razem z rozwojem technologii umożliwiających tanie i efektywne
+pozyskiwanie danych z sekwencjonowania DNA, powstało wymaganie stworzenia
+systemów pozwalajacych na przechowywanie oraz analizowanie owych danych.
+Na świecie istnieje wiele udostępnionych społeczności naukowej baz danych,
+z wariantami dziesiątek tysięcy pacjentów. Co za tym idzie powstało 
+wiele systemów starających się umożliwić wygodne i efektywne 
+przeglądanie oraz analizowanie list wariantów i adnotacji.
+Jednak nie udało się stworzyć uniwersalnego narzędzia pozwalającego
+wszystkim lekarzom na efektywniejsze i szybsze znajdowanie
+genów odpowiedzialnych za choroby czy też mutacje.
 
-%Wraz z rozwojem technik uzyskiwania danych z sekwencjonawania DNA, powstało wymaganie stworzenia
-%aplikacji, która w prosty i intuicyjny sposób umożliwi lekarzom oraz analitykom analizę ludzkich %genomów.
-
-%W celu osiągnięcia wyżej przedstawionego celu, na Wydziale Elektroniki i Technik Informacyjnych Politechniki Warszawskiej oraz w Warszawskim Instytucie Matki i Dziecka rozpoczeła się praca nad systemem, którego owa praca inżynierska jest częścią.
-
-\subsection{Motywacja}  
-\newpage
-
+Dlatego na Wydziale Elektroniki i Technik Informacyjnych 
+oraz w Zakładzie Genetyki Medycznej Instytutu Matki i Dziecka w Warszawie
+powstał projekt mający na celu połączyć najnowsze technologie i 
+praktyki dotyczące rozproszonych baz danych wraz z wiedzą naukową
+lekarzy oraz biologów tak by stworzyć system umożliwiający 
+wspomaganie ich codziennej pracy.
+  
 \subsection{Cel pracy} 
-\newpage
-\section{\textcolor{red}{Podstawy teoretyczne}}  
+Projekt o którym mowa w tej pracy inżynierskiej jest 
+interfejsem użytkownika do opisanej wcześniej 
+rozproszonej bazy danych.
+Myślą przewodnią projektowania systemu było stworzenie aplikacji 
+prezentującej dane z sekwencjonowania DNA użytkownikowi, którą będzie 
+można spersonalizować i będzie łatwo konfigurowalna.
+Chciano także ograniczyć pracę administratora systemu do
+całkowitego minimum i zaimplementować tak strukturę projektu
+by rozwijanie go poprzez dodawanie nowych funkcjonalności było
+prowadzone niskim kosztem.
 
-\textit{Czy jest sens pisać o tym? 
-1-2 strony o tym czym jest DNA, genomy, kodony, jak zmiana w DNA może wpływać na organizm i dlaczego warto zajmować się badaniem DNA}
+Podczas projektowania aplikacji należało zwrócić uwagę na
+ilość i rodzaj danych co wymusiło zaprojektowanie specyficznego systemu
+filtrującego, w celu umożliwienia ograniczenia widocznych danych
+do tylko tych potrzebnych klientowi aplikacji.
+
+
+
+\newpage
+\section{Specyfika danych}  
+By lepiej zrozumieć osobliwość danych należy przedstawić pochodzenie i znaczenie danych uzyskanych z sekwencjonowania ludzkich genomów czyli ludzkiego materiału genetycznego.
+
+Pełną nazwą DNA jest kwas deoksyrybonukleinowy. Jest to związek organiczny,
+który u człowieka zlokalizowany jest w jądrach komórkowych.
+Jego struktura odpowiada między innymi za kodowanie ludzkich białek,
+które w naszym organiźmie pełnią wiele ważnych funkcji takich jak
+na przykład transport tlenu między tkankami naszego ciała za co 
+odpowiedzialna jest między innymi hemoglobina.
+Podstawowymi elementami budującymi nasz kod genetyczny są
+nukleotydy. Sposób w jaki są ustawione w sekwencji odpowiada
+za ostateczną budowę białka, których sumarycznie ludzkie DNA ma ich około 
+600 milionów. Cała ta sekwencja koduje 20-25 tysięcy białek.
+
+Określone miejsce w kodzie genetycznym, koduje określone białko
+i w tym miejscu można zaobserwować wiele wariantów to znaczy 
+genów, które różnią się co najmniej jednym nukleotydem.
+
+I ta właśnie różnica może spowodować poważne 
+zakłócenia w funkcjonowaniu naszego organizmu.
+I te właśnie warianty są elementami, które starają się badać
+lekarze poprzez wyszukiwanie tych, które mogą powodować choroby
+czy też mutacje.
+Podczas budowy białka następuje transkrypcja, czyli przepisanie DNA na RNA
+i wynik tej operacji konkretnego wariantu - tak zwany transkrypt był elementem bazy danych używanej przy implementacji systemu.
+ 
+Jeden wiersz w bazie danych (zwana również próbką) stanowi między innymi informacje o:
+\begin{itemize}
+\item chromosomie owego wariantu,
+\item pozycji, na której się różni dany wariant,
+\item referencyjnej wartości nukleotydu,
+\item wartości nukleotydu, na którą zmienił wariant,
+\item częstości występowania tego wariantu,
+\end{itemize}
+
+
+
 \newpage
 \section{Wymagania funkcjonalne i niefunkcjonalne}  
 
-%Opisanie o wymaganiu dostępu do próbek oraz transkryptów, 
-%filtracji, zapisywaniu wyboru filtrów,
-%wyboru widocznych kolumn, sortowania, filtrowania pobranych już danych.
-
 Określenie funkcjonalności dostępnych w budowanej aplikacji, rozpoczęto od określenia 
-rodzajów użytkowników, którzy mają korzystać z oprogramowania tak by jak najlepiej dostosować
-system do ich potrzeb i przyśpieszyć ich pracę.
+rodzajów użytkowników, którzy mają korzystać z oprogramowania tak by jak najlepiej dostosować system do ich potrzeb i przyśpieszyć ich pracę.
 
 Pierwszą grupą docelową są lekarze, którzy będą poszukiwali
 możliwych chorób powiązanych z wariantem pacjenta, aby wykryć niebezpieczeństwa
@@ -88,7 +156,7 @@ odwrotne pytania, czyli będą starać się znaleźć warianty, które mogą by�
 za konkretną chorobę. 
 
 Inną istotną kwestią wziętą pod uwagę był typ i wielkość danych, jakie mają być wyświetlane klientom.
-W trakcie projektowania architektury jako dane przykładowe zostały wybrane dane dla przykładowego transkryptu dostępne w aplikacji Exac \cite{exac}. Dane te posiadały 36 kolumn i oczywistym wydało się że obie grupy użytkowników będzie interesowała tylko część informacji o genotypie i należało by umożliwić im filtrację oraz zakrywanie niepotrzebnych danych. 
+W trakcie projektowania architektury jako dane przykładowe zostały wybrane dane dla przykładowego transkryptu dostępne w aplikacji ExAC instututu Broad \cite{exac} \cite{exacCite}. Dane te posiadały 36 kolumn i oczywistym wydało się że obie grupy użytkowników będzie interesowała tylko część informacji o genotypie i należało by umożliwić im filtrację oraz zakrywanie niepotrzebnych danych. 
 Jedna próbka liczyła sobie więcej niż 340000 wiersze co wymogło zaproponowanie 
 funkcjonalności umożliwiającen na poprawne i intuicyjne filtrowanie danych 
 tak by klient otrzymywał tylko interesujące go rekordy.
@@ -129,29 +197,95 @@ Aplikacja:
   \item wykorzystuje funkcję SHA-512 do zabezpieczenia hasła użytkownika,
   \item korzysta z "soli" przy wyliczaniu funkcji skrótu,
   \item wykorzystuje darmowe oprogramowanie,
-
-  %Parę wymagań niefukcjonalnych jak dostęp wielu użytkowników na raz, czas odpowiedzi itp.}
  \end{enumerate}
 
 \newpage
 \section{Istniejące rozwiązania}  
 
-\paragraph{Exac broad institute}
-Skupić się na tym iż systemy nie pozwalają na personalizacje interfejsu dla użytkownika.
+Wymaganie posiadania aplikacji umożliwiającej analizę danych z genomów 
+jest powszechnie znane od dłuższego czasu. Przez co powstało wiele rozwiązań,
+komercyjnych i niekomercyjnych, które starają się sprostać wymaganiom wszystkich użytkowników. W tej sekcji przedstawione zostaną najpopularniejsze opcje.
+
+\paragraph{Ingenuity Variant Analysis} Jednym z wiodących rozwiązań jest aplikacja Ingenuity Variant Analysis \cite{ingenuity} firmy Qiagen. To zaawansowane narzędzie
+poza wyświetlaniem danych wariantów, umożliwia między innymi:
+
+\begin{itemize}
+\item zaawansowane filtrowanie,
+\item eksporty wyników do plików,
+\item udostępnienie swojego raportu innemu użytkownikowi,
+\end{itemize} 
+  
+Jest to jednak oprogramowanie komercyjne co wykluczyło go z dalszych 
+rozważań.
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{obrazy/exac/ingenuity.jpg}
+  \caption{Ingenuity Variant Analysis \cite{ingenuity}}
+  \label{fig:ingenuitypic}
+\end{figure}
+\newpage
+
+\paragraph{ExAC Browser} ExAC Browser \cite{exac} \cite{exacCite} jest aplikacją, tworzoną przez koalicję badaczy i informatyków, w celu
+udostępnienia danych kodujących białka szerszemu gronu badaczy. 
+Dokonują tego poprzez harmonizację i agregację danych z wielu projektów.
+Jednymi z najmocniejszych zalet aplikacji jest prezentuja dane w postaci tabel, wykresów oraz umożliwianie eksportu danych.
+Mimo iż jest to wolne oprogramowanie, nie zdecydowano się na jego wykorzystanie
+ponieważ:
+\begin{enumerate}[1)]
+\item podczas rozważań oprogramowanie było dopiero w wersji beta, 
+\item brakowało funkcjonalności filtrowania danych transkryptu,
+\item brakowało rozróżnienia użytkowników a to powodowało:
+\begin{itemize}
+\item brak możliwości personalizacji aplikacji dla użytkownika,
+\item brak kontroli nad dostępami do próbek,
+\end{itemize}
+\end{enumerate}
+
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{obrazy/exac/broad.png}
   \caption{Broad}
   \label{fig:broadpic}
 \end{figure}
+
+%\paragraph{Exac Harvard} W kontekście aplikacji ExAC, warto wspomnieć 
+%o pracy badaczy z uniersytetu Harvarda , którzy stworzyli do niej REST'owy interfejs.
+
+
 \newpage
-\paragraph{Exac Harvard}
-Harvard udostępnia REST API nieprzyjazne użytkownikowi
+
+\paragraph{VCF-Miner}
+
+Od wielu lat dziesiątki instytucji postanowiło stworzyć własne aplikacje do przeglądania danych pochodzących z sekwencjonowania. Zatrzymać to zjawisko
+starali się twórcy VCF-Miner'a \cite{miner} \cite{minerArt} poprzez 
+stworzenia aplikacji pozwalającej na pracę z próbkami w formacie VCF \cite{vcfformat}. Jest to format pliku tekstowego używanego do przechowywania
+danych z sekwencjonowania DNA. 
+
+VCF-Miner'owi mimo swoich wielu zalet takich jak na przykład możliwość
+załadowania własnego pliku VCF, braku kilku istotnych z 
+punktu widzenia naszych użytkowników funkcjonalności, które zostały 
+zostały zaimplementowane w aplikacji, której dotyczy ta praca inżynierska.
+Są nimi:
+\begin{enumerate}[1)]
+\item brak predefiniowanych filtrów, 
+\item trudna w obsłudze filtracja danych, to znaczy: 
+\begin{itemize}
+\item brak możliwości fitracji pobranych już danych,   
+\item brak możliwości wyłączenia jednego filtru bez usuwania go w całości,
+\item możliwość usunięcia tylko ostatniego w kolejce filtru,
+\end{itemize}
+\item brak zapisu ukrytych kolumn - użytkownik przy każdej próbce
+musi ponownie ukrywać bądź odsłaniać interesujące go kolumny,
+\item brak ograniczanie dostępu do próbek - każdy użytkownik ma dostęp
+do wszystkich próbek,
+\end{enumerate}
 
 \begin{figure}[h]
-\includegraphics[width=\linewidth]{obrazy/exac/harvard1.png}
-  \caption{Harvard}
-  \label{fig:harvardpic}
+\includegraphics[width=\linewidth]{obrazy/exac/miner.png}
+  \caption{Miner}
+  \label{fig:minerpic}
 \end{figure}
+
+
 \newpage
 \section{Wybór technologi}
 
@@ -170,7 +304,6 @@ Nie jest jednak obligatoryjny funkcyjny styl programowania, do którego nie jest
  Scala w swoim założeniu nawiązuje do minimalizmu składni Lispa to znaczy że nie opiera się na składni ale na funkcjach bibliotecznych. Nazwa ma podkreślić skalowalność języka, dzieje się tak dzięki możliwości tworzenia dodatkowych typów i struktur wyglądających jak nowa składnia języka.
 Zaletą języka jest również to że dzięki kompatybilności z językiem Java mamy możliwość wykorzystania każdej lini kodu napisanej w owym języku.
 
-\newpage
 \subsection{System zarządzania bazą danych}  
 Zadanie stworzenia bazy danych przechowującej informacje konfiguracyjne, dane użytkowników oraz o użytkownikach było dużą częścią tworzenia systemu i
 wymagało wybrania odpowiedniego systemu zarządania bazą danych.
@@ -234,10 +367,9 @@ Takim narzędziem jest stworzone przez firmę Lightbend, Inc.
 oprogramowanie Slick\cite{slick} pozwalające na pełną kontrolę nad bazą danych oraz pisanie klasycznych zapytań SQL.
 
 \subsection{JDBC}  
-\textcolor{red}{Dopytać się o SQL engine by uzasadnić użycie czystego jdbc}
-%Baza danych zawierająca dane o sekwencjonowaniu DNA jest kolumnowo zorientowaną bazą danych
-%opartą na systemie Apache Kudu \cite{kudu}. W przeciwieńswie do tradycyjnych systemów 
-%bazodanowych gdzie dane składowane są poziomo czyli wierszami, w kolumnowych systemach dane %przechowywane są pionowo - kolumnami.
+Baza danych zawierająca dane o sekwencjonowaniu DNA jest kolumnowo zorientowaną bazą danych opartą na systemie Apache Kudu \cite{kudu}. W przeciwieńswie do tradycyjnych systemów bazodanowych gdzie dane składowane są poziomo czyli wierszami, w kolumnowych systemach dane przechowywane są pionowo - kolumnami.
+Kudu zajmuje się składowaniem danych, za wykonywanie zapytań SQL 
+odpowiada całkowicie zintegrowane z Kudu oprogramowanie Impala \cite{impala} \cite{impalaArt} udostępniająca interfejs JDBC.
 
 \subsection{Aplikacja przeglądarkowa}
 Biorąc pod uwagę wymagania klientów oraz różnorodność używanych przez nich urządzeń należało wybrać odpowiedni rodzaj aplikacji klienckiej pozwalający na spełnienie wszystkich wymagań funkcjonalnych naszych użytkowników 
@@ -276,11 +408,10 @@ aplikacji przeglądarkowych na jednej stronie. Jej głównymi zaletami jest :
 \item wykorzystaniu wzorca Model-Widok-Kontroler,
 \end{itemize} 
     
-\paragraph{Lodash}
+\paragraph{Lodash} Biblioteka Lodash \cite{lodash} jest zbiorem wielu użytecznych funkcji ułatwiających pracę z typami dostępnymi w języku Javascript. 
+  
 \newpage
 \section{Przypadki użycia}
-
-\textcolor{red}{Czy skupić się bardziej na opisie działania aplikacji czy raczej implementacji?}
 \subsection{Autoryzacja} 
 \subsubsection{Role}
 Administratorem nazywana jest osoba mająca dostęp do bazy danych aplikacji, ustalająca
@@ -407,8 +538,8 @@ Wartość każdego pola może być zapisane w bazie danych, zapis jest oddzielny
 użytkownika, każdego filtru oraz każdej próbki.
 Grupa pól tworzy właściwy "filtr", który może być wyłączony z filtracji dzięki
 przyciskowi wyboru z etykietą "Inactive". Wizualnie filtr jest wyciemniony jak na przykładzie.
-Grupa filtrów tworzą tak zwane tabki, \textcolor{red}{zastanawia mnie użycie tu tego słowa, czy nie ma lepszej nazwy} które są oddzielnymi bytami w bazie danych, o własnych nazwach i filtrach.
-W górnej części panelu widoczne są przyciski z nazwami tabów. Aktywny tab
+Grupa filtrów tworzą tak zwany panel, które są oddzielnymi bytami w bazie danych, o własnych nazwach i filtrach.
+W górnej części panelu widoczne są przyciski z nazwami paneli. Aktywny panel
 wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym. 
 
 \begin{figure}
@@ -460,7 +591,7 @@ filtrów, o czym będzie mowa w następnym paragrafie.
 
 Zmiana struktury filtrów odbywa się z panelu administratora poprzez wysłanie
 z przeglądarki na serwer plik arkusza kalkulacyjnego o ustalonym formacie. Przykładowe dane są widoczne na rysunku \ref{fig:input_filepic}.
-W pierwszej kolumnie podaje się nazwę tabki, do której przypisywany
+W pierwszej kolumnie podaje się nazwę panelu, do której przypisywany
 jest filtr o nazwie podanej w drugiej kolumnie. W trzeciej kolumnie należy podać nazwę kolumny, do której
 odnosić się będzie pole filtru a następnie relację między wprowadzaną wartością a kolumną.
 Opcjonalnie może być podana domyślna wartość pola oraz kilka wartości odzielone przecinkami, między którymi użytkownik będzie mógł wybierać w aplikacji. Nazwy kolumn oraz relacje zostały są dostępne pod
@@ -490,19 +621,16 @@ Po zarejestrowaniu się do aplikacji, użytkownik nie jest przypisany do żadnej
 \end{figure}
 
 \newpage
+\newgeometry{left=0.5cm,bottom=0.5cm, right=0.5cm, top=0.5cm}
 \section{Schemat bazy danych}
-
-\begin{figure}
-  \includegraphics[width=\linewidth]{obrazy/aplikacja/database.png}
+\begin{figure}[h!]
+  \includegraphics[width=\textwidth, height=0.9\textheight]{obrazy/aplikacja/database.png}
   \caption{Schamat bazy danych}
   \label{fig:bazadanych}
 \end{figure}
 
+\restoregeometry
 \newpage
-
-\textcolor{red}{
-Schemat jest bardzo duży, może załączyć w częściach w dodatku i odsyłać tam czytelnika?
-}
 
 Przed rozpoczęciem implementacji aplikacji przeglądarkowej zaprojektowano strukturę 
 relacyjnej bazy danych. Na rysunku nr \ref{fig:bazadanych} przedstawiono schemat stworzony
@@ -547,7 +675,7 @@ się nazwy wyświetlające się użytkownikowi aplikacji ("fe\verb!_!name") oraz
 tych kolumn, służące do sprawdzania poprawności danych wejściowych od klientów.
 
 \paragraph{Widoczność kolumn} Za składowanie informacji o widocznych kolumnach na
-stronie prezentującej użytkownikowi dane o sekwencjonowaniu, odpowiada tabela 
+stronie prezentującej użytkownikowi dane o sekwencjonowaniu, odpowiada tabela \newline
 "user\verb!_!visible\verb!_!variant\verb!_!column". Zapisane w niej są:
 \begin{enumerate}[1)]
 \item identyfikator użytkownika ("user\verb!_!id"),
@@ -560,10 +688,10 @@ stronie prezentującej użytkownikowi dane o sekwencjonowaniu, odpowiada tabela
 \end{enumerate} 
 
 \newpage
-\paragraph{Przechowywanie schematu filtrów} W trakcie analizy wymagań i projektowaniu systemu wydzielono trzy odzielne obiekty tworzące moduł filtrujące dane, to znaczy taby, filtry i pola.
+\paragraph{Przechowywanie schematu filtrów} W trakcie analizy wymagań i projektowaniu systemu wydzielono trzy odzielne obiekty tworzące moduł filtrujące dane, to znaczy panele, filtry i pola.
 Ułatwiło to zaprojektowanie odpowiednich encji bazodanowych.
 
-Tabela odpowiadająca tabie ("tab") poza identyfikatorem ("id") przechowuje również unikalną nazwę ("name") widoczną w górnej części panelu filtrującego. 
+Tabela odpowiadająca panelowi ("tab") poza identyfikatorem ("id") przechowuje również unikalną nazwę ("name") widoczną w górnej części panelu filtrującego. 
 Podobnie skonstruowana jest encja odpowiadająca jednemu filtrowi ("filter") z tą różnicą, 
 iż nazwa ("name") nie jest unikalna. 
 
@@ -586,18 +714,17 @@ Ostatnią zaprojektowaną tabelą jest tabela "user\verb!_!smp\verb!_!tab",
  zmienić nazwę, niezgodna z nazewnictwem reszty tabel
 }
 Funkcjonalność zapisania wartości dla każdego pola filtru, oddzielnie dla każdej próbki
-jest zrealizowana poprzez przechowywanie identyfikatora tabki, filtru i pola elementu filtracji,
+jest zrealizowana poprzez przechowywanie identyfikatora panelu, filtru i pola elementu filtracji,
 razen z identyfikatorem próbki i wybraną wartością. 
 
 \newpage
-\section{Testy wydajności}  
+\section{Wydajność aplikacji}  
 
 Dane używane podczas implementacji do sprawdzenia działania aplikacji pochodziły
-z Instututu Broad \cite{exac}.
+z Instututu Broad.
 Do testów wybrano transkrypt ENST00000407236 \cite{testData},
 którego dane były dostępne w pliku CSV. Rozmiar danych wynosił 530 wierszy, każdy posiadający 37 atrybutów. Plik został załadowany do lokalnej bazy danych, do tabeli 
-"Genotype\verb!_!data\verb!_!JDBC".
-\textcolor{red}{Należy zaznaczyć, iż spodziewana ilość wierszy dla jednej próbki wynosi: XXXX}
+"Genotype\verb!_!data\verb!_!JDBC". Należy zaznaczyć, iż spodziewana ilość wierszy dla jednej próbki wynosi około 20000.
  W celu sprawdzenia zachowania się aplikacji 
 dla większych rozmiarów danych, postanowiono kilkakrotnie zmultiplikować
 ilość wierszy i zapisać je jako oddzielne próbki.
@@ -671,23 +798,25 @@ rozmiar odpowiedzi HTTP& 1.3MB&13.8MB& 34.2MB\\ \hline
 \caption{Rozmiar odpowiedzi HTTP względem rozmiaru wybranej próbki DNA po optymalizacji przesyłanego modelu}
 \label{table:requestSizeOpt}
 \end{table}
+
 \newpage
 \paragraph{Czas  trwania żądania HTTP}
-Tabela \ref{table:httpRequestTime} przedstawia średni czas trwania 
-całego żądania HTTP oraz czas przetwarzania danych pobranych z bazy danych
-(w tym czas połączenia z bazą danych) względem rozmiaru danych.
+Poniżej w tabeli numer \ref{table:httpRequestTime} przedstawiany jest średni czas trwania całego żądania HTTP.
 \begin{table}[H] 
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
 & 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
 \hline
 czas trwania żądania HTTP& 5.66s & 9.54s & 19.21s \\ \hline  
-czas przetwarzania danych& 4856ms& 7882ms& 17379ms\\ \hline  
+czas przetwarzania danych na serwerze& 4856ms& 7882ms& 17379ms\\ \hline  
 \end{tabular}
-\caption{Czasy trwania żądania HTTP  oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych }
+\caption{Czasy trwania żądania HTTP  oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych. }
 \label{table:httpRequestTime}
 \end{table}
-Warto zwrócić uwagę jak dużą częścią całego żądania stanowił czas przetwarzania danych. Jak łatwo się domyślić, lokalna baza danych oraz przedewszystkim lokalny serwer będzie miał zdecydowanie lepsze wyniki od produkcyjnego serwera i należało 
+Warto zwrócić uwagę jak dużą częścią całego żądania stanowił czas przetwarzania danych. Oprócz pobrania danych z bazy danych, serwer również przygotowywał
+powstałe obiekty do wysłania. Przekształcał je do formatu JSON, przed wysłaniem
+klientowi.
+Jak łatwo się domyślić, lokalna baza danych oraz przedewszystkim lokalny serwer będzie miał zdecydowanie lepsze wyniki od produkcyjnego serwera i należało 
 zająć się ograniczeniem czasu pracy serwera aplikacyjnego.
 W tym celu wykorzystano mechanizm pamięci podręcznej (z ang. cache).
 Oprogramowanie z którego skorzystano nazywa się Ehcache \cite{cache} i 
@@ -755,9 +884,7 @@ stronicowanie z 300 wierszami, duży wpływ na tą decyzję miał również fakt
 przy 1000 widocznych wierszach straty wydajności i brak płynności przy przewijaniu
 suwakiem widocznej tabelki uniemożliwiałyby efektywną pracę.
 
-\textcolor{red}{Opisać dirty-checking w angularze - powód takiego zachowania}
-
-
+\textcolor{red}{Opisać dirty-checking w angularze 2-3 zdania - powód takiego zachowania}
 
 Po zaimplementowaniu funkcjonalności ukrywania kolumn, ponowiono testy przy ukrytych 17 kolumnach. Angular zapewnia dwie dyrektywy, które można było zastosować przy tej funkcjonalności. Są to:
 \begin{itemize}
@@ -783,19 +910,6 @@ Poniższa tabela o numerze \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane
 wyniósł: }
 
 \newpage
-\section{Opis implementacji}  
-\textcolor{red}{
-Opis struktury całego projektu
-\newline
-Opis sesji -  ciastka, guzik "wstecz" przeglądarki oraz odświeżania strony bez potrzeby ponownego logowania
-\newline
-Opis rejestracji (hash itp)
-\newline
-Opis autoryzacji - trait Secured - można napisać coś o https, wygenerowanym przez nich certyfikacie (screen czerwonego ekranu + 1 strona)
-\newline
-Upload i apache poi
-}
-
 \section{Bezpieczeństwo aplikacji}  
 Badania przeprowadzone przez firmę Norton by Symantec \cite{nortonSec}
 pokazują jak dużym zjawiskiem jest współdzielenie przez ludzi haseł między różnymi serwisami, czy to
@@ -810,10 +924,10 @@ zapewniającym szyfrowane połączenie i ochronę danych autoryzacyjnych
 \item{przechowywanie hasła - baza danych przechowuje hasło przekształcone za pomocą funkcji mieszającej SHA-512, dla zwiększenia bezpieczeństwa wykorzystuje się wygenerowaną sól 
 }
 \end{itemize}
+Opis implementacji tych funkcjonalności zostanie opisany w następnym rozdziale.
 
-\newpage
 \paragraph{SQL injection} Z kolei opublikowany w 2017 roku raport OWASP \cite{owasp}
-informuje iż najwięcej ataków na aplikacje internetowe odbywa się poprzez tak zwane "SQL injection (z ang.). 
+informuje iż najwięcej ataków na aplikacje internetowe odbywa się poprzez tak zwane SQL injection (z ang.). 
 Opracowany system generował dynamicznie zapytania SQL przez co mógł być narażony na te niebezpieczeństwa i został odpowiednio zabezpieczony.
 Przed tymi zagrożeniami czychającymi na relacyjną bazę danych PostgreSQL chroni aplikację oprogramowanie Slick, które dynamicznie sprawdza typowanie i upewniając się, iż wprowadzone parametry
 zostaną wcześniej przekształcone na odpowiednie typy.
@@ -821,11 +935,40 @@ Baza danych z danymi z sekwencjonowania DNA łączy się z serwerem za pomocą i
 który udostępnia tą samą funkcjonalność poprzez wykorzystanie klasy PreparedStatement \cite{preparedStatement}.
 
 \newpage
+
+\section{Opis implementacji}
+\textcolor{red}{
+Opis struktury całego projektu - foldery i co w nich się znajduje;
+po zdaniu o ciekawszych klasach narzędziowych
+\newline
+Opis autoryzacji(hash itp) - trait Secured - można napisać coś o https, wygenerowanym przez nich certyfikacie;
+za tym idzie opis sesji i ciastek
+}
+\newpage
 \section{Wnioski i podsumowania}  
+
+1. Zrobiono co trzeba było zrobić - działa to to i tamto.
+
+2. Aplikacja jest łatwo rozszerzalna bo play.
+3. Po testach w instytucie matki i dziecka się okaże jak z wydajnością 
+i czy nie trzeba czegoś tam zboostować (niby że wiem co można by poprawić 
+- zmienić trochę model, wykorzystać cache przeglądarki czy nawet bazę danych
+przeglądarkową do pracy offline).
+
+
+W przyszłości:
+1. Certyfikat https.
+2. Umożliwić tworzenie własnych filtrów.
+3. Eksporty danych.
+4. Wykresiki.
 
 \addcontentsline{toc}{section}{Literatura}
 \newpage
 \begin{thebibliography}{99}
+
+\bibitem{ingenuity}
+QIAGEN - Ingenuity Variant Analysis
+Available at: https://www.qiagenbioinformatics.com/products/ingenuity-variant-analysis/ (Accessed: 10 August 2017).
 
 \bibitem{jezykScala}
 École Polytechnique Fédérale - Scala documentation,
@@ -842,21 +985,52 @@ Available at: http://exac.broadinstitute.org/ (Accessed: 10 August 2017).
 Exac Browser Data - Exome Aggregation Consortium  
 Available at: http://exac.broadinstitute.org/transcript/ENST00000407236 (Accessed: 10 August 2017).
 
+\bibitem{exacCite}
+Lek, Monkol, et al. - Analysis of protein-coding genetic variation in 60,706 humans
+Available at: http://www.nature.com/nature/journal/v536/n7616/full/nature19057.html
+(Accessed: 10 August 2017).
+
+\bibitem{miner}
+Steven N. Hart, Patrick Duffy et al. - VCF-Miner 
+Available at: https://github.com/Steven-N-Hart/vcf-miner (Accessed: 10 August 2017).
+
+\bibitem{minerArt}
+Steven N. Hart, Patrick Duffy et al. - VCF-Miner: GUI-based application for mining variants and annotations stored in VCF files 
+Available at: https://academic.oup.com/bib/article-lookup/doi/10.1093/bib/bbv051 (Accessed: 10 August 2017).
+
+\bibitem{vcfformat}
+IGSR  - VCF (Variant Call Format) version 4.0
+Available at: http://www.internationalgenome.org/wiki/Analysis/vcf4.0/ (Accessed: 10 August 2017).
+
 \bibitem{cache}
-Terracotta, Inc.[ - Ehcache 
+Terracotta, Inc. - Ehcache 
 Available at: http://www.ehcache.org/ (Accessed: 10 August 2017).
+
 \bibitem{porownanieBaz}
 Hostovita sp. z o.o. - Porównanie relacyjnych SZBD: SQLite, MySQL, PostgreSQL
 Available at:
 https://hostovita.pl/blog/porownanie-relacyjnych-systemow-zarzadzania-bazami-danych-sqlite-mysql-postgresql/ (Accessed: 10 August 2017).
 
 \bibitem{slick}
-Lightbend, Inc Slick documentation. Available at:
+Lightbend, Inc - Slick documentation. Available at:
 http://slick.lightbend.com/docs/ (Accessed: 10 August 2017).
 
 \bibitem{kudu}
-The Apache Software Foundation - Apache Kudu
+The Apache Software Foundation - Apache Kudu Available at:
 https://kudu.apache.org/ (Accessed: 20 August 2017)
+
+\bibitem{impala}
+The Apache Software Foundation - Apache Impala Available at:
+https://impala.apache.org/(Accessed: 20 August 2017)
+
+\bibitem{impalaArt}
+Bittorf, M. K. A. B. V., et al. - Impala: A modern, open-source SQL engine for Hadoop.
+Available at: http://web.eecs.umich.edu/~mozafari/fall2015/eecs584/papers/impala.pdf (Accessed: 20 August 2017)
+
+\bibitem{lodash}
+JS Foundation - Lodash
+https://lodash.com/ (Accessed: 20 August 2017)
+
 \bibitem{nortonSec}
 Norton Cybersecurity Insigth Report 
 Available at: https://us.norton.com/norton-cybersecurity-insights-report-global (Accessed: 20 August 2017).

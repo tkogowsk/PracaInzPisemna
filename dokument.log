@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.27)  30 AUG 2017 01:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.27)  1 SEP 2017 21:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -618,6 +618,29 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 (/usr/share/texlive/texmf-dist/tex/latex/chngcntr/chngcntr.sty
 Package: chngcntr 2009/09/02 v1.0a change counter resetting
 )
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count118
+\Gm@cntv=\count119
+\c@Gm@tempcnt=\count120
+\Gm@bindingoffset=\dimen130
+\Gm@wd@mp=\dimen131
+\Gm@odd@mp=\dimen132
+\Gm@even@mp=\dimen133
+\Gm@layoutwidth=\dimen134
+\Gm@layoutheight=\dimen135
+\Gm@layouthoffset=\dimen136
+\Gm@layoutvoffset=\dimen137
+\Gm@dimlist=\toks27
+)
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
@@ -627,41 +650,41 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 )) (./dokument.aux)
 \openout1 = `dokument.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 36.
+(Font)              scaled to size 11.39996pt on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count118
-\scratchdimen=\dimen130
+\scratchcounter=\count121
+\scratchdimen=\dimen138
 \scratchbox=\box35
-\nofMPsegments=\count119
-\nofMParguments=\count120
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count121
-\MPscratchDim=\dimen131
-\MPnumerator=\count122
-\makeMPintoPDFobject=\count123
-\everyMPtoPDFconversion=\toks28
+\nofMPsegments=\count122
+\nofMParguments=\count123
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count124
+\MPscratchDim=\dimen139
+\MPnumerator=\count125
+\makeMPintoPDFobject=\count126
+\everyMPtoPDFconversion=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -706,7 +729,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count124
+\c@lstlisting=\count127
 \AtBeginShipoutBox=\box36
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/pdflscape.sty
@@ -716,25 +739,56 @@ Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
 Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
-
-(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-))
+)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(71.70166pt, 418.25368pt, 107.55254pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=-0.56833pt
+* \evensidemargin=35.28255pt
+* \topmargin=-7.86334pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=85.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 <pierwsza_strona/pierwsza_strona.pdf, id=1, 597.23125pt x 845.1575pt>
 File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf used on input line
- 37.
+ 38.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf used on input line
- 37.
+ 38.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 
 <pierwsza_strona/pierwsza_strona.pdf, id=4, page=1, 597.23125pt x 845.1575pt>
@@ -742,76 +796,76 @@ File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf, page 1>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf, page1 used on inp
-ut line 37.
+ut line 38.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf, page 1>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf, page1 used on inp
-ut line 37.
+ut line 38.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf, page 1>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf, page1 used on inp
-ut line 37.
+ut line 38.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf, page 1>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf, page1 used on inp
-ut line 37.
+ut line 38.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: pierwsza_strona/pierwsza_strona.pdf Graphic file (type pdf)
 
 <use pierwsza_strona/pierwsza_strona.pdf, page 1>
 Package pdftex.def Info: pierwsza_strona/pierwsza_strona.pdf, page1 used on inp
-ut line 37.
+ut line 38.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [1
 
  <./pierwsza_strona/pierwsza_strona.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 16.41594pt on input line 40.
+(Font)              scaled to size 16.41594pt on input line 41.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 40.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 41.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 16.41594pt on input line 40.
+(Font)              scaled to size 16.41594pt on input line 41.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 <obrazy/oswiadczenie.pdf, id=27, 597.31157pt x 844.83629pt>
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 46.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 53.
 (pdftex.def)             Requested size: 597.3101pt x 844.83423pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
  <use obrazy/oswiadczenie.pdf>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 46.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 53.
 (pdftex.def)             Requested size: 597.3101pt x 844.83423pt.
 
 <obrazy/oswiadczenie.pdf, id=30, page=1, 597.31157pt x 844.83629pt>
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 46.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 53.
 (pdftex.def)             Requested size: 597.3101pt x 844.83423pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
  <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 46.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 53.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 46.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 53.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
  <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 46.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 53.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 46.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 53.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
  [3 <./obrazy/oswiadczenie.pdf>]
 (./dokument.toc
@@ -851,63 +905,68 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 13.67995pt on input line 60.
  [6]
-[7]
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 68.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 11.39996pt on input line 68.
- [8] [9] [10] [11]
-<obrazy/exac/broad.png, id=63, 1237.62375pt x 969.6225pt>
-File: obrazy/exac/broad.png Graphic file (type png)
-
-<use obrazy/exac/broad.png>
-Package pdftex.def Info: obrazy/exac/broad.png used on input line 142.
-(pdftex.def)             Requested size: 390.0pt x 305.55106pt.
- [12 <./obrazy/exac/broad.png>]
-<obrazy/exac/harvard1.png, id=68, 1518.67375pt x 965.6075pt>
-File: obrazy/exac/harvard1.png Graphic file (type png)
-
-<use obrazy/exac/harvard1.png>
-Package pdftex.def Info: obrazy/exac/harvard1.png used on input line 151.
-(pdftex.def)             Requested size: 390.0pt x 247.97263pt.
- [13 <./obrazy/exac/harvard1.png>] [14]
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 182.
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 133.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 182.
- [15] [16]
-Overfull \hbox (5.26842pt too wide) in paragraph at lines 243--245
-[]\T1/phv/m/n/12 Bior¡c pod uwa-g¦ wy-ma-ga-nia klien-tów oraz ró»-no-rod-no±¢ 
-u»y-wa-nych przez
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 133.
+ [7] [8] [9] [10]
+<obrazy/exac/ingenuity.jpg, id=60, 1204.5pt x 716.6775pt>
+File: obrazy/exac/ingenuity.jpg Graphic file (type jpg)
+
+<use obrazy/exac/ingenuity.jpg>
+Package pdftex.def Info: obrazy/exac/ingenuity.jpg used on input line 222.
+(pdftex.def)             Requested size: 418.25368pt x 248.86154pt.
+ [11 <./obrazy/exac/ingenuity.jpg>]
+<obrazy/exac/broad.png, id=64, 1063.975pt x 560.0925pt>
+File: obrazy/exac/broad.png Graphic file (type png)
+
+<use obrazy/exac/broad.png>
+Package pdftex.def Info: obrazy/exac/broad.png used on input line 245.
+(pdftex.def)             Requested size: 418.25368pt x 220.17009pt.
+ [12 <./obrazy/exac/broad.png>]
+Overfull \hbox (1.89696pt too wide) in paragraph at lines 278--280
+[]\T1/phv/m/n/12 brak ogra-ni-cza-nie do-st¦-pu do pró-bek - ka»-dy u»yt-kow-ni
+k ma do-st¦p do wszyst-
  []
 
-[17] [18] <obrazy/aplikacja/login.png, id=89, 769.87625pt x 226.8475pt>
+<obrazy/exac/miner.png, id=69, 1926.19624pt x 988.69376pt>
+File: obrazy/exac/miner.png Graphic file (type png)
+
+<use obrazy/exac/miner.png>
+Package pdftex.def Info: obrazy/exac/miner.png used on input line 283.
+(pdftex.def)             Requested size: 418.25368pt x 214.6771pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[13] [14 <./obrazy/exac/miner.png>] [15] [16] [17] [18]
+<obrazy/aplikacja/login.png, id=89, 769.87625pt x 226.8475pt>
 File: obrazy/aplikacja/login.png Graphic file (type png)
 
 <use obrazy/aplikacja/login.png>
-Package pdftex.def Info: obrazy/aplikacja/login.png used on input line 298.
-(pdftex.def)             Requested size: 390.0pt x 114.9188pt.
+Package pdftex.def Info: obrazy/aplikacja/login.png used on input line 429.
+(pdftex.def)             Requested size: 418.25368pt x 123.24348pt.
  [19 <./obrazy/aplikacja/login.png>]
 <obrazy/aplikacja/sample_list.png, id=93, 576.1525pt x 409.53pt>
 File: obrazy/aplikacja/sample_list.png Graphic file (type png)
 
 <use obrazy/aplikacja/sample_list.png>
-Package pdftex.def Info: obrazy/aplikacja/sample_list.png used on input line 31
-7.
-(pdftex.def)             Requested size: 390.0pt x 277.22067pt.
+Package pdftex.def Info: obrazy/aplikacja/sample_list.png used on input line 44
+8.
+(pdftex.def)             Requested size: 418.25368pt x 297.30469pt.
  [20 <./obrazy/aplikacja/sample_list.png>] <obrazy/aplikacja/table1.png, id=97,
  1625.07124pt x 880.28876pt>
 File: obrazy/aplikacja/table1.png Graphic file (type png)
 
 <use obrazy/aplikacja/table1.png>
-Package pdftex.def Info: obrazy/aplikacja/table1.png used on input line 330.
-(pdftex.def)             Requested size: 390.0pt x 211.26018pt.
+Package pdftex.def Info: obrazy/aplikacja/table1.png used on input line 461.
+(pdftex.def)             Requested size: 418.25368pt x 226.55936pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--354
+Underfull \hbox (badness 10000) in paragraph at lines 479--485
 
  []
 
@@ -917,208 +976,291 @@ File: obrazy/aplikacja/sortingAndSearch.png Graphic file (type png)
 
 <use obrazy/aplikacja/sortingAndSearch.png>
 Package pdftex.def Info: obrazy/aplikacja/sortingAndSearch.png used on input li
-ne 366.
+ne 497.
 (pdftex.def)             Requested size: 239.89566pt x 147.55087pt.
  [22 <./obrazy/aplikacja/sortingAndSearch.png>]
-Overfull \hbox (0.18315pt too wide) in paragraph at lines 373--382
-\T1/phv/m/n/12 lumn, po-ro-wa-dz¡-ca do przed-sta-wia-nie wie-lu in-for-ma-cji 
-nie-po-trzeb-nych wszyst-
- []
-
 <obrazy/aplikacja/visible_columns.png, id=105, 890.32625pt x 522.95375pt>
 File: obrazy/aplikacja/visible_columns.png Graphic file (type png)
 
 <use obrazy/aplikacja/visible_columns.png>
 Package pdftex.def Info: obrazy/aplikacja/visible_columns.png used on input lin
-e 384.
-(pdftex.def)             Requested size: 390.0pt x 229.07098pt.
+e 515.
+(pdftex.def)             Requested size: 418.25368pt x 245.6686pt.
  [23 <./obrazy/aplikacja/visible_columns.png>] <obrazy/aplikacja/filters.png, i
 d=109, 289.08pt x 549.05125pt>
 File: obrazy/aplikacja/filters.png Graphic file (type png)
 
 <use obrazy/aplikacja/filters.png>
-Package pdftex.def Info: obrazy/aplikacja/filters.png used on input line 416.
+Package pdftex.def Info: obrazy/aplikacja/filters.png used on input line 547.
 (pdftex.def)             Requested size: 289.07928pt x 549.04991pt.
  [24] [25 <./obrazy/aplikacja/filters.png>]
 <obrazy/aplikacja/count.png, id=117, 294.09875pt x 665.48625pt>
 File: obrazy/aplikacja/count.png Graphic file (type png)
 
 <use obrazy/aplikacja/count.png>
-Package pdftex.def Info: obrazy/aplikacja/count.png used on input line 437.
+Package pdftex.def Info: obrazy/aplikacja/count.png used on input line 568.
 (pdftex.def)             Requested size: 294.09802pt x 665.48462pt.
 
 
-LaTeX Warning: Float too large for page by 100.15952pt on input line 440.
+LaTeX Warning: Float too large for page by 100.62932pt on input line 571.
 
 [26] [27 <./obrazy/aplikacja/count.png>]
 <obrazy/aplikacja/admin.png, id=124, 938.50626pt x 466.74374pt>
 File: obrazy/aplikacja/admin.png Graphic file (type png)
 
 <use obrazy/aplikacja/admin.png>
-Package pdftex.def Info: obrazy/aplikacja/admin.png used on input line 453.
-(pdftex.def)             Requested size: 390.0pt x 193.95143pt.
+Package pdftex.def Info: obrazy/aplikacja/admin.png used on input line 584.
+(pdftex.def)             Requested size: 418.25368pt x 208.00299pt.
  [28 <./obrazy/aplikacja/admin.png>]
 <obrazy/aplikacja/input_file.png, id=128, 612.2875pt x 244.915pt>
 File: obrazy/aplikacja/input_file.png Graphic file (type png)
 
 <use obrazy/aplikacja/input_file.png>
-Package pdftex.def Info: obrazy/aplikacja/input_file.png used on input line 472
+Package pdftex.def Info: obrazy/aplikacja/input_file.png used on input line 603
 .
-(pdftex.def)             Requested size: 390.0pt x 155.99763pt.
+(pdftex.def)             Requested size: 418.25368pt x 167.30235pt.
  [29 <./obrazy/aplikacja/input_file.png>]
 <obrazy/aplikacja/user_priviliges.png, id=132, 946.53625pt x 589.20125pt>
 File: obrazy/aplikacja/user_priviliges.png Graphic file (type png)
 
 <use obrazy/aplikacja/user_priviliges.png>
 Package pdftex.def Info: obrazy/aplikacja/user_priviliges.png used on input lin
-e 487.
-(pdftex.def)             Requested size: 390.0pt x 242.7608pt.
- [30 <./obrazy/aplikacja/user_priviliges.png>] <obrazy/aplikacja/database.png, 
-id=137, 1806.75pt x 789.95125pt>
+e 618.
+(pdftex.def)             Requested size: 418.25368pt x 260.35516pt.
+ [30 <./obrazy/aplikacja/user_priviliges.png>]
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(14.22636pt, 569.05515pt, 14.22636pt)
+* v-part:(T,H,B)=(14.22636pt, 816.59412pt, 14.22636pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=569.05515pt
+* \textheight=816.59412pt
+* \oddsidemargin=-58.04362pt
+* \evensidemargin=-58.04362pt
+* \topmargin=-95.04362pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=85.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ <obrazy/aplikacja/database.png, id=137, 789.95125pt x 1806.75pt>
 File: obrazy/aplikacja/database.png Graphic file (type png)
 
 <use obrazy/aplikacja/database.png>
-Package pdftex.def Info: obrazy/aplikacja/database.png used on input line 496.
-(pdftex.def)             Requested size: 390.0pt x 170.5112pt.
- [31 <./obrazy/aplikacja/database.png>]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 522.
+Package pdftex.def Info: obrazy/aplikacja/database.png used on input line 627.
+(pdftex.def)             Requested size: 569.05374pt x 734.92773pt.
+ [31
 
+ <./obrazy/aplikacja/database.png>]
+Overfull \hbox (14.47435pt too wide) in paragraph at lines 635--639
+[]\T1/phv/m/n/12 Przed roz-po-cz¦-ciem im-ple-men-ta-cji apli-ka-cji prze-gl¡-d
+ar-ko-wej za-pro-jek-to-wa-no struk-
+ []
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 650.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (4.18466pt too wide) in paragraph at lines 521--526
- \T1/phv/b/n/12 Da-ne z se-kwen-cjo-no-wa-nia DNA[] \T1/phv/m/n/12 Pod-czas trw
-a-nia okre-su im-ple-men-ta-cji sys-
+Overfull \hbox (5.13704pt too wide) in paragraph at lines 655--663
+ \T1/phv/b/n/12 Sztucz-ne iden-ty-fi-ka-to-ry pró-bek[] \T1/phv/m/n/12 Do im-pl
+e-men-ta-cji stro-ny pre-zen-tu-j¡-cej da-ne u»yt-
  []
 
-[32] [33]
-Overfull \hbox (53.17097pt too wide) in paragraph at lines 579--582
+
+Overfull \hbox (10.30133pt too wide) in paragraph at lines 655--663
+\T1/phv/m/n/12 kow-ni-ko-wi (pod-roz-dziaª 6.2[]) pla-no-wa-no u»y¢ funk-cjo-na
+l-no-±ci plat-for-my An-gu-lar, umo»-
+ []
+
+
+Overfull \hbox (11.66266pt too wide) in paragraph at lines 669--676
+\T1/phv/m/n/12 go ad-mi-ni-stra-to-ro-wi. Z tym prze-±wiad-cze-niem zo-sta-ªa d
+o-da-na ta-be-la "variant[]\T1/cmtt/m/n/12 _\T1/phv/m/n/12 column",
+ []
+
+[32
+
+] [33]
+Overfull \hbox (24.9173pt too wide) in paragraph at lines 707--710
 []\T1/phv/m/n/12 Za ª¡-cze-nie wszyst-kich trzech wy-mie-nio-nych en-cji, od-po
 -wia-da ta-be-la "tab[]\T1/cmtt/m/n/12 _\T1/phv/m/n/12 field[]\T1/cmtt/m/n/12 _
 \T1/phv/m/n/12 filter",
  []
 
-[34]
-Overfull \hbox (22.1722pt too wide) in paragraph at lines 595--604
-\T1/phv/m/n/12 po-cho-dzi-ªy z In-stu-tu-tu Bro-ad [[]]. Do te-stów wy-bra-no t
-rans-krypt ENST00000407236
- []
-
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 640--640
+[34] [35]
+Underfull \hbox (badness 10000) in paragraph at lines 767--767
 []\T1/phv/m/n/12 rozmiar od-po-wie-dzi
  []
 
 
-Overfull \hbox (2.27805pt too wide) in paragraph at lines 636--642
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 669--669
+Underfull \hbox (badness 10000) in paragraph at lines 796--796
 []\T1/phv/m/n/12 rozmiar od-po-wie-dzi
  []
 
-
-Overfull \hbox (2.27805pt too wide) in paragraph at lines 665--671
-[][] 
+[36]
+Underfull \hbox (badness 5681) in paragraph at lines 811--811
+\T1/phv/m/n/12 nia da-nych na
  []
 
-[36] [37]
-Underfull \hbox (badness 10000) in paragraph at lines 724--724
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 853--853
 []\T1/phv/m/n/12 przeksztaªcenia
  []
 
 [38] [39] [40] [41] [42]
-Underfull \hbox (badness 1194) in paragraph at lines 831--833
+Underfull \hbox (badness 10000) in paragraph at lines 970--972
+[]\T1/phv/m/n/12 QIAGEN - In-ge-nu-ity Va-riant Ana-ly-sis Ava-ila-ble at:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 970--972
+\T1/phv/m/n/12 https://www.qiagenbioinformatics.com/products/ingenuity-variant-
+analysis/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 974--976
 []\T1/phv/m/n/12 École Po-ly-tech-ni-que Fédéra-le - Sca-la do-cu-men-ta-tion, 
 Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 3514) in paragraph at lines 835--836
+Underfull \hbox (badness 10000) in paragraph at lines 978--979
 []\T1/phv/m/n/12 The Apa-che So-ftwa-re Fo-un-da-tion - Apa-che Spark Ava-ila-b
 le at:
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 842--844
+Underfull \hbox (badness 6110) in paragraph at lines 981--983
 []\T1/phv/m/n/12 Exac Brow-ser Da-ta - Exo-me Ag-gre-ga-tion Con-sor-tium Ava-i
-la-ble
+la-ble at:
  []
 
 
-Underfull \hbox (badness 2277) in paragraph at lines 842--844
-\T1/phv/m/n/12 at: http://exac.broadinstitute.org/transcript/ENST00000407236 (A
-c-ces-
+Underfull \hbox (badness 6110) in paragraph at lines 985--987
+[]\T1/phv/m/n/12 Exac Brow-ser Da-ta - Exo-me Ag-gre-ga-tion Con-sor-tium Ava-i
+la-ble at:
  []
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 849--852
-[]\T1/phv/m/n/12 Hostovita sp. z o.o. - Po-rów-na-nie re-la-cyj-nych SZBD: SQLi
--te, My-
+Underfull \hbox (badness 10000) in paragraph at lines 989--992
+[]\T1/phv/m/n/12 Lek, Mon-kol, et al. - Ana-ly-sis of protein-coding ge-
  []
 
 
-Underfull \hbox (badness 3668) in paragraph at lines 849--852
-\T1/phv/m/n/12 SQL, Post-gre-SQL Ava-ila-ble at: https://hostovita.pl/blog/poro
-wnanie-
+Underfull \hbox (badness 10000) in paragraph at lines 989--992
+\T1/phv/m/n/12 ne-tic va-ria-tion in 60,706 hu-mans Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 849--852
-\T1/phv/m/n/12 relacyjnych-systemow-zarzadzania-bazami-danych-sqlite-mysql-
+Underfull \hbox (badness 10000) in paragraph at lines 989--992
+\T1/phv/m/n/12 http://www.nature.com/nature/journal/v536/n7616/full/nature19057
+.html (Ac-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 854--856
-[]\T1/phv/m/n/12 Lightbend, Inc Slick do-cu-men-ta-tion. Ava-ila-ble at:
+Underfull \hbox (badness 10000) in paragraph at lines 994--996
+[]\T1/phv/m/n/12 Steven N. Hart, Pa-trick Duf-fy et al. - VCF-Miner Ava-ila-ble
+ at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 858--860
-[]\T1/phv/m/n/12 The Apa-che So-ftwa-re Fo-un-da-tion - Apa-che Ku-du
+Underfull \hbox (badness 1881) in paragraph at lines 998--1000
+[]\T1/phv/m/n/12 Steven N. Hart, Pa-trick Duf-fy et al. - VCF-Miner: GUI-based 
+ap-pli-ca-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 861--863
-[]\T1/phv/m/n/12 Norton Cy-ber-se-cu-ri-ty In-sigth Re-port Ava-ila-ble at:
+Underfull \hbox (badness 1852) in paragraph at lines 998--1000
+\T1/phv/m/n/12 tion for mi-ning va-riants and an-no-ta-tions sto-red in VCF fi-
+les Ava-ila-ble
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 861--863
-\T1/phv/m/n/12 https://us.norton.com/norton-cybersecurity-insights-report-globa
-l (Ac-
+Underfull \hbox (badness 3895) in paragraph at lines 998--1000
+\T1/phv/m/n/12 at: https://academic.oup.com/bib/article-lookup/doi/10.1093/bib/
+bbv051 (Ac-
  []
 
 
-Underfull \hbox (badness 2846) in paragraph at lines 865--867
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1004
+[]\T1/phv/m/n/12 IGSR - VCF (Va-riant Call For-mat) ver-sion 4.0 Ava-ila-ble at
+:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1004
+\T1/phv/m/n/12 http://www.internationalgenome.org/wiki/Analysis/vcf4.0/ (Ac-ces
+-sed: 10
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 1010--1013
+\T1/phv/m/n/12 zarzadzania-bazami-danych-sqlite-mysql-postgresql/ (Ac-ces-sed: 
+10 Au-gust
+ []
+
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 1015--1017
+[]\T1/phv/m/n/12 Lightbend, Inc - Slick do-cu-men-ta-tion. Ava-ila-ble at:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1019--1021
+[]\T1/phv/m/n/12 The Apa-che So-ftwa-re Fo-un-da-tion - Apa-che Ku-du Ava-ila-b
+le at:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1023--1025
+[]\T1/phv/m/n/12 The Apa-che So-ftwa-re Fo-un-da-tion - Apa-che Im-pa-la Ava-il
+a-ble at:
+ []
+
+
+Underfull \hbox (badness 6141) in paragraph at lines 1027--1029
+[]\T1/phv/m/n/12 Bittorf, M. K. A. B. V., et al. - Im-pa-la: A mo-dern, open-so
+urce
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1039--1041
 []\T1/phv/m/n/12 OWASP Top 10 Ap-pli-ca-tion Se-cu-ri-ty Ri-sks - 2017 Ava-ila-
 ble at:
  []
 
-
-Underfull \hbox (badness 2781) in paragraph at lines 865--867
-\T1/phv/m/n/12 https://www.owasp.org/index.php/Top[]\T1/cmtt/m/n/12 _\T1/phv/m/
-n/12 10[]\T1/cmtt/m/n/12 _\T1/phv/m/n/12 2017-Top[]\T1/cmtt/m/n/12 _\T1/phv/m/n
-/12 10 (Ac-ces-sed: 20
- []
-
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 869.
+(Font)              scaled to size 7.59998pt on input line 1043.
 
-Underfull \hbox (badness 10000) in paragraph at lines 869--871
+Underfull \hbox (badness 10000) in paragraph at lines 1043--1045
 []\T1/phv/m/n/12 Oracle - Java$[]$ Plat-form Stan-dard Ed. 8 do-cu-men-ta-tion
  []
 
 
-Overfull \hbox (10.39949pt too wide) in paragraph at lines 869--871
+Underfull \hbox (badness 10000) in paragraph at lines 1043--1045
 \T1/phv/m/n/12 https://docs.oracle.com/javase/8/docs/api/java/sql/PreparedState
 ment.html
  []
 
-[43] [44] (./dokument.lof)
+[44] (./dokument.lof)
 \tf@lof=\write4
 \openout4 = `dokument.lof'.
 
@@ -1126,26 +1268,25 @@ ment.html
 \tf@lot=\write5
 \openout5 = `dokument.lot'.
 
- [45] [46] (./dokument.aux) ) 
+ [45] (./dokument.aux) ) 
 Here is how much of TeX's memory you used:
- 7340 strings out of 493029
- 106083 string characters out of 6136234
- 179730 words of memory out of 5000000
- 10697 multiletter control sequences out of 15000+600000
- 29419 words of font info for 42 fonts, out of 8000000 for 9000
+ 7813 strings out of 493029
+ 112932 string characters out of 6136234
+ 191638 words of memory out of 5000000
+ 11163 multiletter control sequences out of 15000+600000
+ 26403 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,18n,43p,430b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-supe
-r-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf
-/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/he
-lvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro
-8a.pfb>
-Output written on dokument.pdf (47 pages, 1143398 bytes).
+ 38i,18n,43p,436b,427s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.
+enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
+c/uhvr8a.pfb>
+Output written on dokument.pdf (46 pages, 1400576 bytes).
 PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
- 130 compressed objects within 2 object streams
+ 206 PDF objects out of 1000 (max. 8388607)
+ 125 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 111 words of extra memory for PDF output out of 10000 (max. 10000000)
 
