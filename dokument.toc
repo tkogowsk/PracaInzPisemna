@@ -28,6 +28,7 @@
 \contentsline {paragraph}{Zalety aplikacji internetowych}{18}
 \contentsline {paragraph}{Platforma programistyczna Play}{18}
 \contentsline {paragraph}{Platforma programistyczna Angular}{18}
+\contentsline {paragraph}{ECMASCRIPT 6}{19}
 \contentsline {paragraph}{Lodash}{19}
 \contentsline {section}{\numberline {6}Przypadki u\IeC {\.z}ycia}{20}
 \contentsline {subsection}{\numberline {6.1}Autoryzacja}{20}
@@ -59,9 +60,12 @@
 \contentsline {paragraph}{SQL injection}{41}
 \contentsline {section}{\numberline {10}Cz\IeC {\k e}\IeC {\'s}ciowy opis implementacji}{42}
 \contentsline {subsection}{\numberline {10.1}Struktura folder\IeC {\'o}w}{42}
-\contentsline {subsection}{\numberline {10.2}Pliki konfiguracyjne}{42}
-\contentsline {subsubsection}{\numberline {10.2.1}Pliki napisane w j\IeC {\k e}zyku Scala}{43}
-\contentsline {subsection}{\numberline {10.3}Pliki cz\IeC {\k e}\IeC {\'s}ci klienckiej}{44}
-\contentsline {section}{\numberline {11}Wnioski i podsumowania}{45}
-\contentsline {section}{Literatura}{45}
-\contentsline {section}{Wykaz rysunk\IeC {\'o}w i tabel}{48}
+\contentsline {subsubsection}{\numberline {10.1.1}Pliki konfiguracyjne}{42}
+\contentsline {subsubsection}{\numberline {10.1.2}Pliki napisane w j\IeC {\k e}zyku Scala}{43}
+\contentsline {subsubsection}{\numberline {10.1.3}Pliki cz\IeC {\k e}\IeC {\'s}ci klienckiej}{44}
+\contentsline {subsection}{\numberline {10.2}Opis implementacji autoryzacji i sesji}{44}
+\contentsline {paragraph}{Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} przegl\IeC {\k a}darkowa}{44}
+\contentsline {paragraph}{Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} serwera}{45}
+\contentsline {section}{\numberline {11}Wnioski i podsumowania}{47}
+\contentsline {section}{Literatura}{47}
+\contentsline {section}{Wykaz rysunk\IeC {\'o}w i tabel}{51}

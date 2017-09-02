@@ -120,8 +120,6 @@ ilość i rodzaj danych co wymusiło zaprojektowanie specyficznego systemu
 filtrującego, w celu umożliwienia ograniczenia widocznych danych
 do tylko tych potrzebnych klientowi aplikacji.
 
-
-
 \newpage
 \section{Specyfika danych}  
 Celem zrozumienia osobliwości danych nalezy przedstawic ich pochodzenie 
@@ -214,7 +212,7 @@ oraz będą zarządzać dostępem do próbek dla użytkowników.
 Aplikacja:
  \begin{enumerate}[1)]
   \item szyfruje wysyłane dane między klientem a serwerem za pomocą protokołu HTTPS,
-  \item wykorzystuje funkcję SHA-512 do zabezpieczenia hasła użytkownika,
+  \item wykorzystuje funkcję SHA-512\cite{sha} do zabezpieczenia hasła użytkownika,
   \item korzysta z "soli" przy wyliczaniu funkcji skrótu,
   \item wykorzystuje darmowe oprogramowanie,
  \end{enumerate}
@@ -424,7 +422,10 @@ aplikacji przeglądarkowych na jednej stronie. Jej głównymi zaletami jest :
 \item oddzielenie manipulacji modelu dokumentu HTML od logiki aplikacji,
 \item wykorzystaniu wzorca Model-Widok-Kontroler,
 \end{itemize} 
-    
+
+\paragraph{ECMASCRIPT 6} Część przeglądarkowa została napisana z wykorzystaniem
+dodatkowych funkcjonalności języka Javascript w standardzie ECMAScript 2015 \cite{ecma}. 
+  
 \paragraph{Lodash} Biblioteka Lodash \cite{lodash} jest zbiorem wielu użytecznych funkcji ułatwiających pracę z typami dostępnymi w języku Javascript. 
   
 \newpage
@@ -661,7 +662,7 @@ Są to:
 \end{enumerate}
 
 \paragraph{Dane z sekwencjonowania DNA} Podczas trwania okresu implementacji systemu,
-przykładowe dane z serwisu Exac zostały załadowane do oddzielnej tabeli bazodanowej o nazwie "Genotype\verb!_!data\verb!_!JDBC". Mimo, iż owa tabela znajdowała się w tej samej bazie danych co 
+przykładowe dane z serwisu Exac zostały załadowane do oddzielnej tabeli bazodanowej o nazwie "transcript". Mimo, iż owa tabela znajdowała się w tej samej bazie danych co 
 dane o filtrach czy użytkownikach, aplikacja łączyła się oddzielnym połączeniem. 
 Dodatkowo do pobierania danych wykorzystywała interfejs JDBC, tak by jak najlepiej
 symulować produkcyjne połączenie aplikacji, czyli połączenie do rozproszonej bazy danych.
@@ -738,7 +739,7 @@ Dane używane podczas implementacji do sprawdzenia działania aplikacji pochodzi
 z Instututu Broad.
 Do testów wybrano transkrypt ENST00000407236 \cite{testData},
 którego dane były dostępne w pliku CSV. Rozmiar danych wynosił 530 wierszy, każdy posiadający 37 atrybutów. Plik został załadowany do lokalnej bazy danych, do tabeli 
-"Genotype\verb!_!data\verb!_!JDBC". Należy zaznaczyć, iż spodziewana ilość wierszy dla jednej próbki wynosi około 20000.
+"transcript". Należy zaznaczyć, iż spodziewana ilość wierszy dla jednej próbki wynosi około 20000.
  W celu sprawdzenia zachowania się aplikacji 
 dla większych rozmiarów danych, postanowiono kilkakrotnie zmultiplikować
 ilość wierszy i zapisać je jako oddzielne próbki.
@@ -898,8 +899,6 @@ stronicowanie z 300 wierszami, duży wpływ na tą decyzję miał również fakt
 przy 1000 widocznych wierszach straty wydajności i brak płynności przy przewijaniu
 suwakiem widocznej tabelki uniemożliwiałyby efektywną pracę.
 
-\textcolor{red}{Opisać dirty-checking w angularze 2-3 zdania - powód takiego zachowania}
-
 Po zaimplementowaniu funkcjonalności ukrykwania kolumn, ponowiono testy przy ukrytych 17 kolumnach. Angular zapewnia dwie dyrektywy, które można było zastosować przy tej funkcjonalności. Są to:
 \begin{itemize}
 \item ng-show bądź ng-hide - które ukrywają dany element poprzez style CSS
@@ -920,8 +919,22 @@ Poniższa tabela o numerze \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane
 \label{table:tableRenderNgIf}
 \end{table}
 
-\textcolor{red}{Po wprowadzeniu wszystkich elementów optymalizacyjnych, średni czas 
-wyniósł: }
+Porównianie wyników po wprowadzeniu elementów optymalizacyjnych przy
+wprowadzeniu paginacji do każdego badania, ilustruje poniższa
+tabela. 
+
+\begin{table} [H]
+\begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
+\hline
+& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+\hline
+przed optymalizacją& 16.45s& 24.22s& 50s\\ \hline  
+po optymalizacji (pierwsze pobranie)& 11.26s & 14.33s&  33.38s\\ \hline  
+po optymalizacji (cache)& 6.6s& 9.2s& 18.74s\\ \hline  
+\end{tabular}
+\caption{Czasy wyrysowanie 300 wierszy względem ilości wierszy przed i po optymalizacji}
+\label{table:summaryRender}
+\end{table}
 
 \newpage
 \section{Bezpieczeństwo aplikacji}  
@@ -953,89 +966,173 @@ który udostępnia tą samą funkcjonalność poprzez wykorzystanie klasy Prepar
 \section{Częściowy opis implementacji}
 
 \subsection{Struktura folderów}
-Folder o nazwie "src" zawiera pliki źródłowe projektu.
+Folder o nazwie \textit{src} zawiera pliki źródłowe projektu.
 Platforma Play opiera na strategii Konwencji ponad Konfigurację
 oraz na architekturze Model-Widok-Kontroler, 
 dlatego po stworzeniu nowego projektu, 
 otrzymujemy podstawowy kontroler i widok wraz z kilkoma plikami konfiguracyjnymi.
 W tej pracy postanowiono wykorzystać rady twórców narzędzia Play 
-a opis niektórych plików oraz podziału folderów znajduje się poniżej.
+odnośnie ułożenia struktury plików, których opis wraz z opisem niektórych plików znajduje się poniżej.
 
-\subsection{Pliki konfiguracyjne}
-
+\subsubsection{Pliki konfiguracyjne}
 Zbudowaniem całego projektu zajmuje się narzędzie Scala Build Tool \cite{sbt}.
 Zależności wymagane do skompilowania i uruchomienia projektu
-umieszczono w pliku "build.sbt" oraz w plikach folderu "project".
+umieszczono w pliku \textit{build.sbt} oraz w plikach folderu \textit{project}.
 
 Na tym samym poziomie znajduje plik arkusza kalkulacyjnego - 
-"input\verb!_!file.xlsx", w którym podano plik konfiguracyjny panele filtrów,
+\textit{input}\verb!_!\textit{file.xlsx}, w którym podano plik konfiguracyjny paneli filtrów,
 z przykładowymi wartościami.
 Pozostałe pliki odpowiedzialne za konfigurację aplikacji, znajdują
-się w folderze "conf". 
+się w folderze \textit{conf}. 
 Znajdziemy w nim:
 \begin{enumerate}[1)]
-\item application.conf - przechowujący między innymi:
+\item \textit{application.conf} - przechowujący między innymi:
 \begin{itemize}
 \item informacje o adresie bazy danych,
 \item nazwę i hasło użytkownika bazodanowego,
 \item nazwę tabeli z danymi z sekwencjonowania DNA,
 \item ustawienia ciasteczek,
 \end{itemize}
-\item generated.keystore - wygenerowany klucz do szyfrowania połączenia,
-\item routes - odwzorowanie adresu URL z żądania HTTP, na opdowiedni kontroler 
+\item \textit{generated.keystore} - wygenerowany klucz do szyfrowania połączenia,
+\item \textit{routes} - odwzorowanie adresu URL z żądania HTTP, na opdowiedni kontroler 
 i jego  metodę 
 \end{enumerate}
 
-W tej sekcji należy również wspomnieć o folderze "lib", zawierającym
+W tej sekcji należy również wspomnieć o folderze \textit{lib}, zawierającym
 sterownik JDBC do oprogramowania PostgreSQL.
 
 \newpage
 \subsubsection{Pliki napisane w języku Scala}
-Do folderu "app" trafiły pliki z rozszerzeniem .scala oraz pliki
+Do folderu \textit{app} trafiły pliki z rozszerzeniem \textit{.scala} oraz pliki
 odpowiedzialne za generowanie widoku przesyłanego jako plik HTML do
 przeglądarek klientów aplikacji.
 
-Folder "controllers" zawiera w sobie kontrolery aplikacji.
+Folder \textit{controllers} zawiera w sobie kontrolery aplikacji.
 W zaprojektowanym systemie stworzono następujące kontrolery:
 \begin{enumerate}[1)]
-\item Admin - odpowiadający za akcje administratorów,
-\item Application - odpowiadający za akcje użytkowników,
-\item Authorization - odpowiadający za autoryzację użytkowników,
-\item Upload - odpowiadający za załadowanie nowego pliku z definicją panelu filtrującego,
+\item \textit{Admin} - odpowiadający za akcje administratorów,
+\item \textit{Application} - odpowiadający za akcje użytkowników,
+\item \textit{Authorization} - odpowiadający za autoryzację użytkowników,
+\item \textit{Upload} - odpowiadający za załadowanie nowego pliku z definicją panelu filtrującego,
 \end{enumerate}
 
-Dalej, w folderze "models" znalazły się odwzorowania tabel bazodanowych,
-w postaci klas języka Scala a w katalogu "repository" umieszczone 
+Dalej, w folderze \textit{models} znalazły się odwzorowania tabel bazodanowych,
+w postaci klas języka Scala a w katalogu \textit{repository} umieszczone 
 zostały definicje repozytoriów - obiektów, które pośredniczą
 między warstwą łączącą się z bazą danych a warstwą aplikacji 
 wykorzystującą odwzorowane już struktury z bazy danych.
 Repozytoria zajmują się przedewszystkim odwzorwowywaniem tabel bazodanowych na 
-modele z folderu "models" ale również filtracją ich, łączeniem
+modele z folderu \textit{models} ale również filtracją ich, łączeniem
 czy też usuwaniem bądź edycją.
 
-W katalogu "views" umieszczone zostały widoki aplikacji. 
+W katalogu \textit{views} umieszczone zostały widoki aplikacji. 
 Warto przypomnieć wykorzystaniu narzędzia Angular 
 i podejścia jednej strony aplikacji. Pliki odpowiedzialne 
 za zmianę strony w przeglądarce internetowej są umieszczone 
 w oddzielnym folderze i będą opisane w następnej sekcji.
 
-Katalog "utils", zawiera pliki z wszelkimi narzędziowymi
-klasami. Znajdziemy tam folder "dtos" z definicjami obiektów,
+Katalog \textit{utils}, zawiera pliki z wszelkimi narzędziowymi
+klasami. Znajdziemy tam folder \textit{dtos} z definicjami obiektów,
 które są przesyłane między serwerem a klientem.
-Metody wykorzystywane podczas autoryzacji użytkowników zostały umieszczone w pliku "Secured" w podfolderze "security" a w "services" znajdziemy 
+Metody wykorzystywane podczas autoryzacji użytkowników zostały umieszczone w pliku \textit{Secured} w podfolderze \textit{security} a w \textit{services} znajdziemy 
 serwisy między innymi odpowiedzialne za zapis do pamięci podręcznej czy też
 do pobierania wartości zapisanych w plikach konfiguracyjnych.
  
 \newpage
-\subsection{Pliki części klienckiej}
+\subsubsection{Pliki części klienckiej}
 
-\textcolor{red}{
-Opis struktury całego projektu - foldery i co w nich się znajduje;
-po zdaniu o ciekawszych klasach narzędziowych
-\newline
-Opis autoryzacji(hash itp) - trait Secured - można napisać coś o https, wygenerowanym przez nich certyfikacie;
-za tym idzie opis sesji i ciastek
-}
+Pliki HTML, Javascript oraz kaskadowych arkuszy stylów umiejscowiono
+w folderze \textit{public}. 
+Katalog \textit{javascripts} zawiera w sobie biblioteki, wykorzystywane przez
+część kliencką oraz aplik \textit{app.js}, w którym łączone są wszystkie 
+zależności obiektów platformy Angular oraz konfiguracja powstałego programu.
+Dla ułatwienia pracy i przejżystości projektu, starano się wydzielić każdy element budujący stronę. Każdy taki komponent został umieszczony w podfolderze
+katalogu \textit{modules} razem ze swoim kontrolerem i plikiem HTML odpowiedzialnym 
+za jego strukturę.
+
+Wszystkie funkcje odpowiedzialne za generowanie
+żądań HTTPS aplikacji wraz z tymi odpowiedzialnymi
+za zapis do pamięci podręcznej przeglądarki zostały umieszczone w 
+katalogu \textit{services}, a elementy narzędziowe w \textit{utils}.
+
+\subsection{Opis implementacji autoryzacji i sesji}
+
+Zabezpieczenia aplikacji zostały zaimplementowane po obu stronach aplikacji.
+Obie części wykorzystują mechanizm sesji do rozróżnienia użytkowników
+i do sprawdzenia ich uprawnień.
+
+\paragraph{Część przeglądarkowa}
+Przed przedstwawieniem działania autoryzacji, należy opisać 
+sposób działania sesji w narzędziu Play. Jest to wymagane, ponieważ 
+sesja jest ściśle powiązana z zabezpieczeniami.
+Play do rozróżniania podłączonych klientów wykorzystuje  klucz sesji zapisany do
+ciasteczka HTTP pod domyślną nazwą "PLAY\verb!_!SESSION".   
+Wartością owego klucza jest wygenerowany dla każdego użytkownika pseudolosowy ciąg znaków. Przykład widoczny jest na rysunku numer \ref{fig:cookiespic}.
+ 
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{obrazy/aplikacja/cookies.png}
+\caption{Ciasteczka używane w aplikacji}
+\label{fig:cookiespic}
+\end{figure}
+\newpage
+
+Platforma Play umożliwia dodawanie dodatkowych ciasteczek do odpowiedzi serwera
+i ta funkcjonalność posłużyła do przekazywania informacji o roli użytkownika przy każdym zapytaniu HTTP wysyłanym po logowaniu.  
+
+Program napisany w języku JavaScript zajmuje się zabezpieczeniem
+dostępu do funkcjonalności systemu zależnie od roli użytkownika otrzymanej 
+poprzez ciasteczko. 
+Każda próba dostania się, na którąkolwiek stronę aplikacji przez niezalogowanego użytkownika skutkuje przekierowaniem do widoku logowania. 
+Dzieje się tak dzięki sprawdzaniu czy użytkownik jest zalogowany przy tworzeniu każdego kontrolera Angularowego i przed 
+wykonaniem jakichkolwiek dodatkowych połączeń z serwerem.
+
+Dzięki zastosowaniu mechanizmu sesji, aplikacja przeglądarkowa nie odstępuje niczym
+od standardów dzisiejszych rozwiązań. 
+Użytkownik ma możliwość odświeżania strony czy też wykorzystania przycisku "Wstecz" przeglądarki bez potrzeby ponownej autoryzacji. 
+
+\paragraph{Część serwera}
+Metody serwara udostępnione klientowi do autoryzacji
+znajdują się w klasie kontrolera \textit{Authorization}.
+Funkcja \textit{register} 
+sprawdza dostępność przesłanej nazwy użytkownika a następnie wywołuje 
+metodę z obiektu klasy \textit{UserRepository}.
+Następuje wygenerowanie "soli" i za pomocą implementacji funkcji mieszającej
+SHA-512 uzyskujemy skrót nieodwracalny, który zapisujemy do bazy danych wraz z "solą".
+
+By uzyskać dostęp do pozostałych funkjonalności użytkownik musi się zalogować.
+Umożliwia to metoda \textit{logIn}, która rozpoczyna ponowne wywołanie
+funkcji mieszającęj dla przesłanego hasła oraz zapisanej w bazie danych "soli". Pozytywny wynik logowania skutkuje w przesłaniu do przeglądarki
+odpowiedzi razem z ciasteczkiem \textit{authenticated}.
+Ciasteczko to ma ustawiony czas życia na pół godziny i jest ponownie 
+ustawiane na ten czas przy każdym odwołaniu do serwera.
+ 
+Nierozważnym byłoby zajmowanie się zabezpieczenim akcji 
+tylko poprzez przesyłanie dodatkowego ciasteczka. 
+Ataki hakerów mające na celu uzyskanie informacji o tożsamości i haseł
+klientów różnorakich aplikacji są na porządku dziennym a zmiana
+wartości ciasteczka jest bardzo łatwa.
+
+\newpage
+Za sprawdzenie czy dany użytkownik ma uprawnienia pozalające 
+na dostęp do żądanej funkcjonalności odpowiada
+cecha (ang. trait) \textit{Secured}.
+Klasy kontrolerów, które wykorzystują ową cechę mogą każdą
+swoją akcję poprzedzić odpowiednim sprawdzeniem uprawnień dostępu
+za pomocą następujących metod: 
+\begin{itemize}
+\item \textit{withAuth} - pozwala na dostęp przy poprawnym kluczu sesji,
+\item \textit{withUser} - pozwala na dostęp przy poprawnym kluczu sesji i roli użytkownika połączonej z sesją,
+\item \textit{withAdmin} - pozwala na dostęp przy poprawnym kluczu sesji i roli administratora połączonej z sesją,
+\end{itemize}
+
+By uzyskać nieuprawniony dostęp do metody zabezpieczonej cechą \textit{Secured},
+należy posiadać klucz sesji zalogowanego w tym samym momencie użytkownika 
+z odpowiednią rolą. 
+
+Najprostszą drogą do uzyskania tych danych jest podsłuchanie wysyłanych
+żądań HTTP. Utrudnić to ma za zadanie wprowadzenie HTTPS i zablokowanie wysyłania
+ciasteczek gdy serwer wykryje połączenie HTTP. 
+  
 \newpage
 \section{Wnioski i podsumowania}  
 
@@ -1134,9 +1231,13 @@ https://impala.apache.org/(Accessed: 20 August 2017)
 Bittorf, M. K. A. B. V., et al. - Impala: A modern, open-source SQL engine for Hadoop.
 Available at: http://web.eecs.umich.edu/~mozafari/fall2015/eecs584/papers/impala.pdf (Accessed: 20 August 2017)
 
+\bibitem{ecma}
+Ecma International - ECMAScript 2015
+Available at: https://www.ecma-international.org/ecma-262/6.0/ (Accessed: 20 August 2017)
+
 \bibitem{lodash}
 JS Foundation - Lodash
-https://lodash.com/ (Accessed: 20 August 2017)
+Available at: https://lodash.com/ (Accessed: 20 August 2017)
 
 \bibitem{nortonSec}
 Norton Cybersecurity Insigth Report 
@@ -1161,6 +1262,11 @@ World Wide Web Consortium - IndexedDB Available at: https://www.w3.org/TR/Indexe
 \bibitem{sbt}
 Lightbend Inc. - Scala Build Tool 
  Available at: http://www.scala-sbt.org/
+(Accessed: 24 August 2017).
+
+\bibitem{sha}
+Wikimedia Foundation - Secure Hash Algorithms 
+Available at: https://en.wikipedia.org/wiki/Secure\verb!_!Hash\verb!_!Algorithms
 (Accessed: 24 August 2017).
 \end{thebibliography}
 
