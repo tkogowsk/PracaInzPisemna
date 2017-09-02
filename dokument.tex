@@ -41,14 +41,14 @@
 \section*{Streszczenie}
 Wraz z rozwojem technologii umożliwiających tanie i efektywne
 pozyskiwanie danych z sekwencjonowania DNA, wzrosło zapotrzebowanie
-na stworzenie systemu umożliwiającego łatwy dostęp do danych pacjentów,
-w celu znalezienia genów odpowiedzialnych za ich choroby bądź w celu 
+na stworzenie systemu umożliwiającego łatwy dostęp do wyników pacjentów.
+Ma to na celu znalezienie genów odpowiedzialnych za ich choroby bądź w celu 
 określenia prawdopodobieństwa zachorowania w przyszłości. 
 
 Praca prezentuje interfejs do rozproszonej bazy danych posiadającej 
-dane z sekwencjonowania DNA. Aplikacja przeglądarkowa została opracowana
+informacje pozyskane z sekwencjonowania DNA. Aplikacja przeglądarkowa została opracowana
 w języku programowania Scala wraz z wykorzystaniem platformy programistycznej
-Play oraz platformy Angular. Opisany też jest schemat bazy danych 
+Play oraz platformy Angular. Opisany został też schemat bazy danych 
 stworzonej za pomocą systemu zarządzania relacyjną bazą danych PostgreSQL, która 
 przechowującej filtry oraz dane o użytkownikach. 
 Poza przypadkami użycia przedstawione zostały także 
@@ -81,13 +81,13 @@ Cały system został zaprojektowany jako łatwy do rozbudowy.
 \subsection{Motywacja}
 W dzisiejszych czasach genetyka jest jednym z najważniejszych działów medycyny.
 Umiejętność znajdowania natury gnębiących ludzkość chorób
-czy to dziedzicznych czy cywilizacyjnych jest jednym z celów obecnie pracujących badaczy. Wczesne wykrywania chorób u ludzi czy też określanie
-prawdopodobieństwa wystąpienia choroby u pacjena może ocalić
-wiele istnień.
+czy to dziedzicznych czy cywilizacyjnych jest jednym z celów obecnie pracujących badaczy. Wczesne wykrywanie chorób u ludzi czy też określenie prawdopodobieństwa 
+ich wystąpienia może ocalić wiele istnień. 
 
-Razem z rozwojem technologii umożliwiających tanie i efektywne
-pozyskiwanie danych z sekwencjonowania DNA, powstało wymaganie stworzenia
-systemów pozwalajacych na przechowywanie oraz analizowanie owych danych.
+Równocześnie z rozwojem technologii umożliwiających tanie i efektywne
+pozyskiwanie danych z sekwencjonowania DNA, wzrasta zapotrzebowanie 
+na system pozwalajacy na przechowywanie oraz analizowanie zebranych
+informacji.
 Na świecie istnieje wiele udostępnionych społeczności naukowej baz danych,
 z wariantami dziesiątek tysięcy pacjentów. Co za tym idzie powstało 
 wiele systemów starających się umożliwić wygodne i efektywne 
@@ -104,8 +104,8 @@ lekarzy oraz biologów tak by stworzyć system umożliwiający
 wspomaganie ich codziennej pracy.
   
 \subsection{Cel pracy} 
-Projekt o którym mowa w tej pracy inżynierskiej jest 
-interfejsem użytkownika do opisanej wcześniej 
+Celem tej pracy inżynierskiej jest stworzenie 
+interfejsu użytkownika do opisanej wcześniej 
 rozproszonej bazy danych.
 Myślą przewodnią projektowania systemu było stworzenie aplikacji 
 prezentującej dane z sekwencjonowania DNA użytkownikowi, którą będzie 
@@ -124,26 +124,25 @@ do tylko tych potrzebnych klientowi aplikacji.
 
 \newpage
 \section{Specyfika danych}  
-By lepiej zrozumieć osobliwość danych należy przedstawić pochodzenie i znaczenie danych uzyskanych z sekwencjonowania ludzkich genomów czyli ludzkiego materiału genetycznego.
+Celem zrozumienia osobliwości danych nalezy przedstawic ich pochodzenie 
+i znaczenie. Sekwencjonowane są one z z ludzkich genomów, czyli innymi słowy z ludzkiego materiału genetycznego. 
 
-Pełną nazwą DNA jest kwas deoksyrybonukleinowy. Jest to związek organiczny,
-który u człowieka zlokalizowany jest w jądrach komórkowych.
-Jego struktura odpowiada między innymi za kodowanie ludzkich białek,
-które w naszym organiźmie pełnią wiele ważnych funkcji takich jak
-na przykład transport tlenu między tkankami naszego ciała za co 
-odpowiedzialna jest między innymi hemoglobina.
+DNA (kwas deoksyrybonukleinowy) to związek organiczny zlokalizowany w jądrach komórkowych. 
+Struktura DNA odpowida między innymi za kodowanie białek pełniących w organiźmie wiele ważnych funkcji (np. transpot tlenu między tkankami za co 
+odpowiedzialna jest między innymi hemoglobina).
+
 Podstawowymi elementami budującymi nasz kod genetyczny są
 nukleotydy. Sposób w jaki są ustawione w sekwencji odpowiada
 za ostateczną budowę białka, których sumarycznie ludzkie DNA ma ich około 
 600 milionów. Cała ta sekwencja koduje 20-25 tysięcy białek.
 
 Określone miejsce w kodzie genetycznym, koduje określone białko
-i w tym miejscu można zaobserwować wiele wariantów to znaczy 
-genów, które różnią się co najmniej jednym nukleotydem.
+i w tym miejscu można zaobserwować wiele wariantów (genów), 
+które różnią się co najmniej jednym nukleotydem.
 
-I ta właśnie różnica może spowodować poważne 
-zakłócenia w funkcjonowaniu naszego organizmu.
-I te właśnie warianty są elementami, które starają się badać
+Powyższa różnica może spowodować poważne 
+zakłócenia w funkcjonowaniu naszego organizmu, a warianty
+są elementami, które starają się badać
 lekarze poprzez wyszukiwanie tych, które mogą powodować choroby
 czy też mutacje.
 Podczas budowy białka następuje transkrypcja, czyli przepisanie DNA na RNA
@@ -168,20 +167,19 @@ rodzajów użytkowników, którzy mają korzystać z oprogramowania tak by jak n
 
 Pierwszą grupą docelową są lekarze, którzy będą poszukiwali
 możliwych chorób powiązanych z wariantem pacjenta, aby wykryć niebezpieczeństwa
-i móc jak nawcześniej przeciwdziałać chorobom. 
-Na dane będą patrzeć w kontekście jednego badanego pacjenta i należy umożliwić Im łatwe 
-ich rozróżnienie genotypów. 
+i móc jak najwcześniej im przeciwdziałać. 
+Dane będą rozpatrywać w kontekście jednego pacjetnta i nalezy umożliwić łatwe rozróznienie genotypów
 
-Drugim typem są analitycy, którzy będą analizować dane i zadawać 
+Drugim grupą są analitycy, którzy będą analizować dane i zadawać 
 odwrotne pytania, czyli będą starać się znaleźć warianty, które mogą być odpowiedzialne
 za konkretną chorobę. 
 
 Inną istotną kwestią wziętą pod uwagę był typ i wielkość danych, jakie mają być wyświetlane klientom.
-W trakcie projektowania architektury jako dane przykładowe zostały wybrane dane dla przykładowego transkryptu dostępne w aplikacji ExAC instututu Broad \cite{exac} \cite{exacCite}. Dane te 
+W trakcie projektowania architektury jako dane przykładowe zostały wybrane wyniki przykładowego transkryptu dostępne w aplikacji ExAC instututu Broad \cite{exac} \cite{exacCite}. Dane te 
 podobnie jak te w rozproszonej bazie danych posiadały ponad 30 kolumn i oczywistym wydało się że obie grupy użytkowników będzie interesowała tylko część informacji o genotypie i należało by umożliwić im filtrację oraz zakrywanie niepotrzebnych danych. 
 Jedna próbki z docelowej bazy danych liczą sobie więcej niż 20000 wierszy co wymogło zaproponowanie 
-funkcjonalności umożliwiającen na poprawne i intuicyjne filtrowanie danych 
-tak by klient otrzymywał tylko interesujące go rekordy.
+funkcjonalności umożliwiającen na poprawne i intuicyjne ich filtrowanie filtrowanie 
+tak aby klient otrzymywał tylko interesujące go rekordy.
 
 \newpage
 \subsection{Wymagania funkcjonalne}
@@ -224,8 +222,9 @@ Aplikacja:
 \newpage
 \section{Istniejące rozwiązania}  
 
-Wymaganie posiadania aplikacji umożliwiającej analizę danych z genomów 
-jest powszechnie znane od dłuższego czasu. Przez co powstało wiele rozwiązań,
+Konieczność posiadania aplikacji umożliwiającej analizę danych z genomów 
+jest powszechnie znane od dłuższego czasu. W związku z powyższym 
+powstało wiele rozwiązań,
 komercyjnych i niekomercyjnych, które starają się sprostać wymaganiom wszystkich użytkowników. W tej sekcji przedstawione zostaną najpopularniejsze opcje.
 
 \paragraph{Ingenuity Variant Analysis} Jednym z wiodących rozwiązań jest aplikacja Ingenuity Variant Analysis \cite{ingenuity} firmy Qiagen. To zaawansowane narzędzie
@@ -269,15 +268,11 @@ ponieważ:
   \label{fig:broadpic}
 \end{figure}
 
-%\paragraph{Exac Harvard} W kontekście aplikacji ExAC, warto wspomnieć 
-%o pracy badaczy z uniersytetu Harvarda , którzy stworzyli do niej REST'owy interfejs.
-
-
 \newpage
 
 \paragraph{VCF-Miner}
 
-Od wielu lat dziesiątki instytucji postanowiło stworzyć własne aplikacje do przeglądania danych pochodzących z sekwencjonowania. Zatrzymać to zjawisko
+Od wielu lat dziesiątki instytucji próbowało stworzyć własne aplikacje do przeglądania danych pochodzących z sekwencjonowania. Zatrzymać to zjawisko
 starali się twórcy VCF-Miner'a \cite{miner} \cite{minerArt} poprzez 
 stworzenia aplikacji pozwalającej na pracę z próbkami w formacie VCF \cite{vcfformat}. Jest to format pliku tekstowego używanego do przechowywania
 danych z sekwencjonowania DNA. 
@@ -455,13 +450,12 @@ kradzieży hasła.
 
 \newpage  
 \subsection{Przeglądanie danych z sekwencjownowania DNA} \label{sssec:dnaPage}
-Po zalogowaniu się do aplikacji przed użytkownikiem pojawia się główna część aplikacji pozwalająca Mu 
-na dostęp do próbek oraz pracę z nimi. 
+Po zalogowaniu się do aplikacji przed użytkownikiem pojawia się główna część aplikacji pozwalająca na dostęp do próbek oraz pracę na nich. 
  
 \paragraph{Ekran dostępnych genomów}
 Każda próbka dostępna w bazie danych posiada indywidualny identyfikator pozwalający na 
 rozróżnienie jej od innych próbek. Owy identyfikator jest ciągiem znaków, który wyświetlany jest 
-alfabetycznie posortowanej liście. Użytkownik widzi tylko próbki udostępnione Mu przez administratora
+alfabetycznie posortowanej liście. Użytkownik widzi tylko próbki udostępnione przez administratora
 i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie w identyfikator próbki,
 co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA. 
 
@@ -572,7 +566,7 @@ wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym.
 \newpage
 
 Filtrowanie odbywa się zgodnie z kolejnością aktywnych filtrów, to znaczy najpierw filtrujemy
-dane używając pól pierwszego aktywnego filtru, następnie te dane filtrujemy korzystając z drugiego i tak dalej. Ilustruje to przykład z rysunku numer \ref{fig:countpic}. Pierwszy filtr o nazwie "Filter 11" redukuje listę wyświetlanych wierszy do 20224. Była by to liczba widocznych wierszy przy deaktywacji pozostałych filtrów. Filtr "Filter 11" razem z drugim filtrem o nazwie "Filter 12"
+dane używając pól pierwszego aktywnego filtru, następnie te dane filtrujemy korzystając z drugiego etc. Ilustruje to przykład z rysunku numer \ref{fig:countpic}. Pierwszy filtr o nazwie "Filter 11" redukuje listę wyświetlanych wierszy do 20224. Była by to liczba widocznych wierszy przy deaktywacji pozostałych filtrów. Filtr "Filter 11" razem z drugim filtrem o nazwie "Filter 12"
 redukuja liczbę rekordów do 7424
 
 Przycisk z etykietą "Count" umożliwia policzenie ilości wierszy zwróconych przy zadanych wartościach pól. Pozwala to na sprawdzenie rozmiaru danych przed właściwym pobraniem całego zbioru danych.
@@ -906,7 +900,7 @@ suwakiem widocznej tabelki uniemożliwiałyby efektywną pracę.
 
 \textcolor{red}{Opisać dirty-checking w angularze 2-3 zdania - powód takiego zachowania}
 
-Po zaimplementowaniu funkcjonalności ukrywania kolumn, ponowiono testy przy ukrytych 17 kolumnach. Angular zapewnia dwie dyrektywy, które można było zastosować przy tej funkcjonalności. Są to:
+Po zaimplementowaniu funkcjonalności ukrykwania kolumn, ponowiono testy przy ukrytych 17 kolumnach. Angular zapewnia dwie dyrektywy, które można było zastosować przy tej funkcjonalności. Są to:
 \begin{itemize}
 \item ng-show bądź ng-hide - które ukrywają dany element poprzez style CSS
 \item ng-if - która nie dodaje elementu do DOMu przeglądarki
@@ -933,7 +927,7 @@ wyniósł: }
 \section{Bezpieczeństwo aplikacji}  
 Badania przeprowadzone przez firmę Norton by Symantec \cite{nortonSec}
 pokazują jak dużym zjawiskiem jest współdzielenie przez ludzi haseł między różnymi serwisami, czy to
-skrzynką mejlową, serwisem społecznościowym czy też kontem bankowym.
+skrzynką poczty elektronicznej, serwisem społecznościowym czy też kontem bankowym.
 Użytkownicy ufają twórcom aplikacji, iż dołożą wszelkich starań w celu zabezpieczenia ich 
 danych. 
 
