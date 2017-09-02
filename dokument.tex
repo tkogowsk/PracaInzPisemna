@@ -950,7 +950,85 @@ który udostępnia tą samą funkcjonalność poprzez wykorzystanie klasy Prepar
 
 \newpage
 
-\section{Opis implementacji}
+\section{Częściowy opis implementacji}
+
+\subsection{Struktura folderów}
+Folder o nazwie "src" zawiera pliki źródłowe projektu.
+Platforma Play opiera na strategii Konwencji ponad Konfigurację
+oraz na architekturze Model-Widok-Kontroler, 
+dlatego po stworzeniu nowego projektu, 
+otrzymujemy podstawowy kontroler i widok wraz z kilkoma plikami konfiguracyjnymi.
+W tej pracy postanowiono wykorzystać rady twórców narzędzia Play 
+a opis niektórych plików oraz podziału folderów znajduje się poniżej.
+
+\subsection{Pliki konfiguracyjne}
+
+Zbudowaniem całego projektu zajmuje się narzędzie Scala Build Tool \cite{sbt}.
+Zależności wymagane do skompilowania i uruchomienia projektu
+umieszczono w pliku "build.sbt" oraz w plikach folderu "project".
+
+Na tym samym poziomie znajduje plik arkusza kalkulacyjnego - 
+"input\verb!_!file.xlsx", w którym podano plik konfiguracyjny panele filtrów,
+z przykładowymi wartościami.
+Pozostałe pliki odpowiedzialne za konfigurację aplikacji, znajdują
+się w folderze "conf". 
+Znajdziemy w nim:
+\begin{enumerate}[1)]
+\item application.conf - przechowujący między innymi:
+\begin{itemize}
+\item informacje o adresie bazy danych,
+\item nazwę i hasło użytkownika bazodanowego,
+\item nazwę tabeli z danymi z sekwencjonowania DNA,
+\item ustawienia ciasteczek,
+\end{itemize}
+\item generated.keystore - wygenerowany klucz do szyfrowania połączenia,
+\item routes - odwzorowanie adresu URL z żądania HTTP, na opdowiedni kontroler 
+i jego  metodę 
+\end{enumerate}
+
+W tej sekcji należy również wspomnieć o folderze "lib", zawierającym
+sterownik JDBC do oprogramowania PostgreSQL.
+
+\newpage
+\subsubsection{Pliki napisane w języku Scala}
+Do folderu "app" trafiły pliki z rozszerzeniem .scala oraz pliki
+odpowiedzialne za generowanie widoku przesyłanego jako plik HTML do
+przeglądarek klientów aplikacji.
+
+Folder "controllers" zawiera w sobie kontrolery aplikacji.
+W zaprojektowanym systemie stworzono następujące kontrolery:
+\begin{enumerate}[1)]
+\item Admin - odpowiadający za akcje administratorów,
+\item Application - odpowiadający za akcje użytkowników,
+\item Authorization - odpowiadający za autoryzację użytkowników,
+\item Upload - odpowiadający za załadowanie nowego pliku z definicją panelu filtrującego,
+\end{enumerate}
+
+Dalej, w folderze "models" znalazły się odwzorowania tabel bazodanowych,
+w postaci klas języka Scala a w katalogu "repository" umieszczone 
+zostały definicje repozytoriów - obiektów, które pośredniczą
+między warstwą łączącą się z bazą danych a warstwą aplikacji 
+wykorzystującą odwzorowane już struktury z bazy danych.
+Repozytoria zajmują się przedewszystkim odwzorwowywaniem tabel bazodanowych na 
+modele z folderu "models" ale również filtracją ich, łączeniem
+czy też usuwaniem bądź edycją.
+
+W katalogu "views" umieszczone zostały widoki aplikacji. 
+Warto przypomnieć wykorzystaniu narzędzia Angular 
+i podejścia jednej strony aplikacji. Pliki odpowiedzialne 
+za zmianę strony w przeglądarce internetowej są umieszczone 
+w oddzielnym folderze i będą opisane w następnej sekcji.
+
+Katalog "utils", zawiera pliki z wszelkimi narzędziowymi
+klasami. Znajdziemy tam folder "dtos" z definicjami obiektów,
+które są przesyłane między serwerem a klientem.
+Metody wykorzystywane podczas autoryzacji użytkowników zostały umieszczone w pliku "Secured" w podfolderze "security" a w "services" znajdziemy 
+serwisy między innymi odpowiedzialne za zapis do pamięci podręcznej czy też
+do pobierania wartości zapisanych w plikach konfiguracyjnych.
+ 
+\newpage
+\subsection{Pliki części klienckiej}
+
 \textcolor{red}{
 Opis struktury całego projektu - foldery i co w nich się znajduje;
 po zdaniu o ciekawszych klasach narzędziowych
@@ -1080,6 +1158,10 @@ Raphael A. Silva - pgModeler Available at: https://pgmodeler.com.br/
 World Wide Web Consortium - IndexedDB Available at: https://www.w3.org/TR/IndexedDB/
 (Accessed: 24 August 2017).
 
+\bibitem{sbt}
+Lightbend Inc. - Scala Build Tool 
+ Available at: http://www.scala-sbt.org/
+(Accessed: 24 August 2017).
 \end{thebibliography}
 
 \newpage

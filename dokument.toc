@@ -57,7 +57,11 @@
 \contentsline {paragraph}{Czas dodawania element\IeC {\'o}w do DOMu przegl\IeC {\k a}darki przez platform\IeC {\k e} Angular}{39}
 \contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{41}
 \contentsline {paragraph}{SQL injection}{41}
-\contentsline {section}{\numberline {10}Opis implementacji}{42}
-\contentsline {section}{\numberline {11}Wnioski i podsumowania}{43}
-\contentsline {section}{Literatura}{43}
-\contentsline {section}{Wykaz rysunk\IeC {\'o}w i tabel}{46}
+\contentsline {section}{\numberline {10}Cz\IeC {\k e}\IeC {\'s}ciowy opis implementacji}{42}
+\contentsline {subsection}{\numberline {10.1}Struktura folder\IeC {\'o}w}{42}
+\contentsline {subsection}{\numberline {10.2}Pliki konfiguracyjne}{42}
+\contentsline {subsubsection}{\numberline {10.2.1}Pliki napisane w j\IeC {\k e}zyku Scala}{43}
+\contentsline {subsection}{\numberline {10.3}Pliki cz\IeC {\k e}\IeC {\'s}ci klienckiej}{44}
+\contentsline {section}{\numberline {11}Wnioski i podsumowania}{45}
+\contentsline {section}{Literatura}{45}
+\contentsline {section}{Wykaz rysunk\IeC {\'o}w i tabel}{48}
