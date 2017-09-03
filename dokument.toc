@@ -1,71 +1,71 @@
 \contentsline {section}{\numberline {1}Wst\IeC {\k e}p}{6}
 \contentsline {subsection}{\numberline {1.1}Motywacja}{6}
 \contentsline {subsection}{\numberline {1.2}Cel pracy}{6}
-\contentsline {section}{\numberline {2}Specyfika danych}{7}
-\contentsline {section}{\numberline {3}Wymagania funkcjonalne i niefunkcjonalne}{8}
-\contentsline {subsection}{\numberline {3.1}Wymagania funkcjonalne}{9}
-\contentsline {subsection}{\numberline {3.2}Wymagania niefunkcjonalne}{10}
-\contentsline {section}{\numberline {4}Istniej\IeC {\k a}ce rozwi\IeC {\k a}zania}{11}
-\contentsline {paragraph}{Ingenuity Variant Analysis}{11}
-\contentsline {paragraph}{ExAC Browser}{12}
-\contentsline {paragraph}{VCF-Miner}{13}
-\contentsline {section}{\numberline {5}Wyb\IeC {\'o}r technologi}{15}
-\contentsline {subsection}{\numberline {5.1}J\IeC {\k e}zyk programowania Scala}{15}
-\contentsline {subsection}{\numberline {5.2}System zarz\IeC {\k a}dzania baz\IeC {\k a} danych}{15}
-\contentsline {subsubsection}{\numberline {5.2.1}MySQL}{16}
-\contentsline {paragraph}{Zalety}{16}
-\contentsline {paragraph}{Wady}{16}
-\contentsline {subsubsection}{\numberline {5.2.2}SQLite}{16}
-\contentsline {paragraph}{Zalety}{16}
-\contentsline {paragraph}{Wady}{16}
-\contentsline {subsubsection}{\numberline {5.2.3}PostgreSQL}{16}
-\contentsline {paragraph}{Zalety}{16}
+\contentsline {section}{\numberline {2}Specyfika danych}{8}
+\contentsline {section}{\numberline {3}Wymagania funkcjonalne i niefunkcjonalne}{9}
+\contentsline {subsection}{\numberline {3.1}Wymagania funkcjonalne}{10}
+\contentsline {subsection}{\numberline {3.2}Wymagania niefunkcjonalne}{11}
+\contentsline {section}{\numberline {4}Istniej\IeC {\k a}ce rozwi\IeC {\k a}zania}{12}
+\contentsline {paragraph}{Ingenuity Variant Analysis}{12}
+\contentsline {paragraph}{ExAC Browser}{13}
+\contentsline {paragraph}{VCF-Miner}{14}
+\contentsline {section}{\numberline {5}Wyb\IeC {\'o}r technologi}{16}
+\contentsline {subsection}{\numberline {5.1}J\IeC {\k e}zyk programowania Scala}{16}
+\contentsline {subsection}{\numberline {5.2}System zarz\IeC {\k a}dzania baz\IeC {\k a} danych}{16}
+\contentsline {subsubsection}{\numberline {5.2.1}MySQL}{17}
+\contentsline {paragraph}{Zalety}{17}
 \contentsline {paragraph}{Wady}{17}
-\contentsline {subsubsection}{\numberline {5.2.4}Uzasadnienie wyboru PostgreSQL}{17}
-\contentsline {subsection}{\numberline {5.3}Slick}{17}
-\contentsline {subsection}{\numberline {5.4}JDBC}{17}
-\contentsline {subsection}{\numberline {5.5}Aplikacja przegl\IeC {\k a}darkowa}{18}
-\contentsline {paragraph}{Zalety aplikacji internetowych}{18}
-\contentsline {paragraph}{Platforma programistyczna Play}{18}
-\contentsline {paragraph}{Platforma programistyczna Angular}{18}
-\contentsline {paragraph}{ECMASCRIPT 6}{19}
-\contentsline {paragraph}{Lodash}{19}
-\contentsline {section}{\numberline {6}Przypadki u\IeC {\.z}ycia}{20}
-\contentsline {subsection}{\numberline {6.1}Autoryzacja}{20}
-\contentsline {subsubsection}{\numberline {6.1.1}Role}{20}
-\contentsline {subsubsection}{\numberline {6.1.2}Rejestracja i logowanie u\IeC {\.z}ytkownika}{20}
-\contentsline {subsection}{\numberline {6.2}Przegl\IeC {\k a}danie danych z sekwencjownowania DNA}{21}
-\contentsline {paragraph}{Ekran dost\IeC {\k e}pnych genom\IeC {\'o}w}{21}
-\contentsline {paragraph}{Tabela z danymi z sekwencjonowania DNA}{22}
-\contentsline {paragraph}{Ustawianie widoczno\IeC {\'s}ci kolumn}{24}
-\contentsline {paragraph}{Filtrowanie danych}{25}
-\contentsline {subsection}{\numberline {6.3}Panel administratora}{29}
-\contentsline {paragraph}{Zarz\IeC {\k a}dzanie filtrami}{30}
-\contentsline {paragraph}{Zarz\IeC {\k a}dzanie widoczno\IeC {\'s}ci\IeC {\k a} pr\IeC {\'o}bek dla u\IeC {\.z}ytkownik\IeC {\'o}w}{31}
-\contentsline {section}{\numberline {7}Schemat bazy danych}{32}
-\contentsline {paragraph}{Dane o u\IeC {\.z}ytkowniku}{33}
-\contentsline {paragraph}{Dane z sekwencjonowania DNA}{33}
-\contentsline {paragraph}{Sztuczne identyfikatory pr\IeC {\'o}bek}{33}
-\contentsline {paragraph}{Dost\IeC {\k e}p do pr\IeC {\'o}bek}{33}
-\contentsline {paragraph}{Lista kolumn}{34}
-\contentsline {paragraph}{Widoczno\IeC {\'s}\IeC {\'c} kolumn}{34}
-\contentsline {paragraph}{Przechowywanie schematu filtr\IeC {\'o}w}{35}
-\contentsline {paragraph}{Zapisywanie warto\IeC {\'s}ci filtr\IeC {\'o}w dla u\IeC {\.z}ytkownika}{35}
-\contentsline {section}{\numberline {8}Wydajno\IeC {\'s}\IeC {\'c} aplikacji}{36}
-\contentsline {paragraph}{Rozmiar przesy\IeC {\l }anych danych}{37}
-\contentsline {paragraph}{Czas trwania \IeC {\.z}\IeC {\k a}dania HTTP}{38}
-\contentsline {paragraph}{Czas generowania modelu w cz\IeC {\k e}\IeC {\'s}ci klienckiej}{39}
-\contentsline {paragraph}{Czas dodawania element\IeC {\'o}w do DOMu przegl\IeC {\k a}darki przez platform\IeC {\k e} Angular}{39}
-\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{41}
-\contentsline {paragraph}{SQL injection}{41}
-\contentsline {section}{\numberline {10}Cz\IeC {\k e}\IeC {\'s}ciowy opis implementacji}{42}
-\contentsline {subsection}{\numberline {10.1}Struktura folder\IeC {\'o}w}{42}
-\contentsline {subsubsection}{\numberline {10.1.1}Pliki konfiguracyjne}{42}
-\contentsline {subsubsection}{\numberline {10.1.2}Pliki napisane w j\IeC {\k e}zyku Scala}{43}
-\contentsline {subsubsection}{\numberline {10.1.3}Pliki cz\IeC {\k e}\IeC {\'s}ci klienckiej}{44}
-\contentsline {subsection}{\numberline {10.2}Opis implementacji autoryzacji i sesji}{44}
-\contentsline {paragraph}{Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} przegl\IeC {\k a}darkowa}{44}
-\contentsline {paragraph}{Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} serwera}{45}
-\contentsline {section}{\numberline {11}Wnioski i podsumowania}{47}
-\contentsline {section}{Literatura}{47}
-\contentsline {section}{Wykaz rysunk\IeC {\'o}w i tabel}{51}
+\contentsline {subsubsection}{\numberline {5.2.2}SQLite}{17}
+\contentsline {paragraph}{Zalety}{17}
+\contentsline {paragraph}{Wady}{17}
+\contentsline {subsubsection}{\numberline {5.2.3}PostgreSQL}{17}
+\contentsline {paragraph}{Zalety}{17}
+\contentsline {paragraph}{Wady}{18}
+\contentsline {subsubsection}{\numberline {5.2.4}Uzasadnienie wyboru PostgreSQL}{18}
+\contentsline {subsection}{\numberline {5.3}Slick}{18}
+\contentsline {subsection}{\numberline {5.4}JDBC}{18}
+\contentsline {subsection}{\numberline {5.5}Aplikacja przegl\IeC {\k a}darkowa}{19}
+\contentsline {paragraph}{Zalety aplikacji internetowych}{19}
+\contentsline {paragraph}{Platforma programistyczna Play}{19}
+\contentsline {paragraph}{Platforma programistyczna Angular}{19}
+\contentsline {paragraph}{ECMASCRIPT 6}{20}
+\contentsline {paragraph}{Lodash}{20}
+\contentsline {section}{\numberline {6}Przypadki u\IeC {\.z}ycia}{21}
+\contentsline {subsection}{\numberline {6.1}Autoryzacja}{21}
+\contentsline {subsubsection}{\numberline {6.1.1}Role}{21}
+\contentsline {subsubsection}{\numberline {6.1.2}Rejestracja i logowanie u\IeC {\.z}ytkownika}{21}
+\contentsline {subsection}{\numberline {6.2}Przegl\IeC {\k a}danie danych z sekwencjownowania DNA}{22}
+\contentsline {paragraph}{Ekran dost\IeC {\k e}pnych genom\IeC {\'o}w}{22}
+\contentsline {paragraph}{Tabela z danymi z sekwencjonowania DNA}{23}
+\contentsline {paragraph}{Ustawianie widoczno\IeC {\'s}ci kolumn}{25}
+\contentsline {paragraph}{Filtrowanie danych}{26}
+\contentsline {subsection}{\numberline {6.3}Panel administratora}{31}
+\contentsline {paragraph}{Zarz\IeC {\k a}dzanie filtrami}{32}
+\contentsline {paragraph}{Zarz\IeC {\k a}dzanie widoczno\IeC {\'s}ci\IeC {\k a} pr\IeC {\'o}bek dla u\IeC {\.z}ytkownik\IeC {\'o}w}{33}
+\contentsline {section}{\numberline {7}Schemat bazy danych}{34}
+\contentsline {paragraph}{Dane o u\IeC {\.z}ytkowniku}{35}
+\contentsline {paragraph}{Dane z sekwencjonowania DNA}{35}
+\contentsline {paragraph}{Sztuczne identyfikatory pr\IeC {\'o}bek}{35}
+\contentsline {paragraph}{Dost\IeC {\k e}p do pr\IeC {\'o}bek}{35}
+\contentsline {paragraph}{Lista kolumn}{36}
+\contentsline {paragraph}{Widoczno\IeC {\'s}\IeC {\'c} kolumn}{36}
+\contentsline {paragraph}{Przechowywanie schematu filtr\IeC {\'o}w}{37}
+\contentsline {paragraph}{Zapisywanie warto\IeC {\'s}ci filtr\IeC {\'o}w dla u\IeC {\.z}ytkownika}{37}
+\contentsline {section}{\numberline {8}Wydajno\IeC {\'s}\IeC {\'c} aplikacji}{38}
+\contentsline {paragraph}{Rozmiar przesy\IeC {\l }anych danych}{39}
+\contentsline {paragraph}{Czas trwania \IeC {\.z}\IeC {\k a}dania HTTP}{40}
+\contentsline {paragraph}{Czas generowania modelu w cz\IeC {\k e}\IeC {\'s}ci klienckiej}{41}
+\contentsline {paragraph}{Czas dodawania element\IeC {\'o}w do DOMu przegl\IeC {\k a}darki przez platform\IeC {\k e} Angular}{41}
+\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{43}
+\contentsline {paragraph}{SQL injection}{43}
+\contentsline {section}{\numberline {10}Cz\IeC {\k e}\IeC {\'s}ciowy opis implementacji}{44}
+\contentsline {subsection}{\numberline {10.1}Struktura folder\IeC {\'o}w}{44}
+\contentsline {subsubsection}{\numberline {10.1.1}Pliki konfiguracyjne}{44}
+\contentsline {subsubsection}{\numberline {10.1.2}Pliki napisane w j\IeC {\k e}zyku Scala}{45}
+\contentsline {subsubsection}{\numberline {10.1.3}Pliki cz\IeC {\k e}\IeC {\'s}ci klienckiej}{46}
+\contentsline {subsection}{\numberline {10.2}Opis implementacji autoryzacji i sesji}{46}
+\contentsline {paragraph}{Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} przegl\IeC {\k a}darkowa}{46}
+\contentsline {paragraph}{Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} serwera}{47}
+\contentsline {section}{\numberline {11}Wnioski i podsumowania}{49}
+\contentsline {section}{Literatura}{49}
+\contentsline {section}{Wykaz rysunk\IeC {\'o}w i tabel}{53}

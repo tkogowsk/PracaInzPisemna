@@ -116,7 +116,7 @@ by rozwijanie go poprzez dodawanie nowych funkcjonalności było
 prowadzone niskim kosztem.
 
 Podczas projektowania aplikacji należało zwrócić uwagę na
-ilość i rodzaj danych co wymusiło zaprojektowanie specyficznego systemu
+liczbę i rodzaj danych co wymusiło zaprojektowanie specyficznego systemu
 filtrującego, w celu umożliwienia ograniczenia widocznych danych
 do tylko tych potrzebnych klientowi aplikacji.
 
@@ -191,7 +191,7 @@ Po zakończeniu analizy zostały określone następujące funkcjonalności. Apli
  \item pozwala na wprowadzenie wcześniej zdefiniowanych filtrów z panelu administratora,
  \item wyświetla dane z sekwencjonowania DNA dla konkretnej próbki,
  \item filtruje dane po stronie serwera i wysła je klientowi,
- \item zlicza ilość danych przy zadanych filtrach i informuje klienta o wyniku,
+ \item zlicza dane przy zadanych filtrach i informuje klienta o wyniku,
  \item umożliwia zmianę wartości filtrów,
  \item pozwala na wyłączenie z filtracji dowolnej części filtrów,
  \item zapisuje wartości filtrów oddzielnie dla każdego użytkownika,
@@ -391,7 +391,7 @@ Biorąc pod uwagę wymagania klientów oraz różnorodność używanych przez ni
 oraz jednocześnie będący łatwy w utrzymaniu i rozwijaniu.
 
 \paragraph{Zalety aplikacji internetowych}
-Łatwość w dostępie do internetu i ilość urządzeń pozwalających na 
+Łatwość w dostępie do internetu i liczba urządzeń pozwalających na 
 korzystanie z przeglądarek internetowych pozwoliły 
 na rozwój aplikacji internetowych oraz ich rozpowrzechnienie.
 Łatwość w rozbudowie, zarządzaniu i 
@@ -492,7 +492,7 @@ Wykonane testy wykazały, że największy narzut czasowy na ładowanie się stro
 element to znaczy rysowanie tabeli przez przeglądarkę. 
 
 Wada ta została zniwelowana poprzez wprowadzenie paginacji zwanej też stronicowaniem.
-Maksymalna ilość pokazywanych wierszy została ograniczona do 300 i wprowadzono dodatkowy 
+Maksymalna liczba pokazywanych wierszy została ograniczona do 300 i wprowadzono dodatkowy 
 element widoczny w lewym dolnym rogu rysunku numer \ref{fig:table1pic}, który umożliwia 
 użytkownikowi poruszanie się po kolejnych stronach tabelki zmniejszając narzut 
 pamięci operacyjnej wymaganej do wygenerowania całości tabeli.  
@@ -501,7 +501,7 @@ pamięci operacyjnej wymaganej do wygenerowania całości tabeli.
 Ważną funkcjonalnością z punktu widzenia użytkownika jest możliwość filtracji pobranych już wierszy
 z bazy danych. W celu zwiększenia możliwości wyszukiwania, każda kolumna posiada oddzielne pole 
 filtrujące, umożliwiając na zawężanie zbioru danych po każdej kolumnie. Element odpowiadający
-za stronicowanie poprawnie zmniejsza ilość dostępnych stron przy dynamicznym zmniejszaniu się
+za stronicowanie poprawnie zmniejsza liczbę dostępnych stron przy dynamicznym zmniejszaniu się
 wyświetlanych danych.
 Dodatkową opcją działającą po stronie przeglądarki jest 
 funkcjonalność sortowania rosnąco bądź malejąco jednej kolumny. Służy do tego strzałka po
@@ -552,25 +552,49 @@ Dodatkową możliwością jest pole mające wartość domyślną ustaloną przez
 Wartość każdego pola może być zapisane w bazie danych, zapis jest oddzielny, dla każdego 
 użytkownika, każdego filtru oraz każdej próbki.
 Grupa pól tworzy właściwy "filtr", który może być wyłączony z filtracji dzięki
-przyciskowi wyboru z etykietą "Inactive". Wizualnie filtr jest wyciemniony jak na przykładzie.
+przyciskowi wyboru umiejscowionego po prawej stronie nazwy. Wizualnie filtr jest wyciemniony jak na przykładzie.
 Grupa filtrów tworzą tak zwany panel, które są oddzielnymi bytami w bazie danych, o własnych nazwach i filtrach.
 W górnej części panelu widoczne są przyciski z nazwami paneli. Aktywny panel
 wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym. 
 
 \begin{figure}
   \centering
-  \includegraphics{obrazy/aplikacja/filters.png}
+  \includegraphics[height=0.95\textheight]{obrazy/aplikacja/filters.png}
   \caption{Filtry}
   \label{fig:filterspic}
 \end{figure}
 
 \newpage
 
-Filtrowanie odbywa się zgodnie z kolejnością aktywnych filtrów, to znaczy najpierw filtrujemy
-dane używając pól pierwszego aktywnego filtru, następnie te dane filtrujemy korzystając z drugiego etc. Ilustruje to przykład z rysunku numer \ref{fig:countpic}. Pierwszy filtr o nazwie "Filter 11" redukuje listę wyświetlanych wierszy do 20224. Była by to liczba widocznych wierszy przy deaktywacji pozostałych filtrów. Filtr "Filter 11" razem z drugim filtrem o nazwie "Filter 12"
-redukuja liczbę rekordów do 7424
+Filtrowanie odbywa się zgodnie z kolejnością aktywnych filtrów, to znaczy najpierw filtrujemy dane używając pól pierwszego aktywnego filtru, następnie te dane filtrujemy korzystając z drugiego etc. Ilustruje to przykład z rysunku numer \ref{fig:filterDiagrampic}, a tabela numer \ref{table:filterDiagramTable} 
+przedstawia rozmiar danych, który zostałby pobrany dla każdego filtru. 
 
-Przycisk z etykietą "Count" umożliwia policzenie ilości wierszy zwróconych przy zadanych wartościach pól. Pozwala to na sprawdzenie rozmiaru danych przed właściwym pobraniem całego zbioru danych.
+Przypadek 1 na diagramie ilustruje sytuację gdy tylko jeden filtr jest aktywny.
+Wynikiem filtracji jest wtedy 3840, czyli tyle ile ograniczają warunki Filtru numer 3.
+Przypadek 2 przedstawia zdarzenie gdy włączone są dwa filtry : "Filtr 1" oraz "Filtr 2". Następuje filtracja danych względem najwyższego filtru, a następnie ostatniego,
+z pominięciem wszystkich filtrów pomiędzy nimi.
+Dane są ograniczone w tym przypadku do 3584.
+Ostatnia rubryka na diagramia ilustruje moment gdy wszystkie filtry są aktywne.
+W takiej sytuacji najpierw filtruje się dane względem warunków "Filtru 1",
+następnie "Filtru 2" i na końcu "Filtru 3". W ten sposób ograniczamy 
+liczba pobranych rekordów do 768.
+ 
+\begin{center}
+\begin{table} [H]
+\begin{tabular}{| p{4cm }| p{2.7cm} | p{2.7cm} | p{2.7cm}|}
+\hline
+& Filtr 1 &  Filtr 2 & Filtr 3\\ 
+\hline
+Wyniki zliczania danych dla każdego przykładowego filtru & 19712 & 1792 & 3840\\ \hline  
+\end{tabular}
+
+\caption{Wyniki zliczania danych dla każdego przykładowego filtru}
+\label{table:filterDiagramTable}
+\end{table}
+\end{center} 
+
+Przycisk z etykietą "Count" umożliwia policzenie ilości wierszy zwróconych przy zadanych wartościach pól. Pozwala to na sprawdzenie rozmiaru danych przed właściwym pobraniem całego zbioru danych. Efekt takiego działania jest widoczny na rysunku
+numer \ref{fig:countpic}.
 
 Można również pobrać wszystkie dane wybranej próbki za pomocą guzika z napisem "Get all".
 
@@ -578,14 +602,22 @@ Za ustalanie struktury filtrów odpowiadają administratorzy i w podrozdziale im
 opisane zostanie zarządzanie filtrami.
 
 
+\newgeometry{left=1cm,bottom=3cm, right=2cm, top=1cm}
+\setlength{\footskip}{0pt}
 \begin{figure}
-  \centering
-  \includegraphics{obrazy/aplikacja/count.png}
+  \includegraphics[width=1\linewidth]{obrazy/aplikacja/filterDiagram.png}
+  \caption{Diagram działania filtrów}
+  \label{fig:filterDiagrampic}
+\end{figure}
+\restoregeometry
+
+\begin{figure}[H]
+\centering
+  \includegraphics[height=0.95\textheight]{obrazy/aplikacja/count.png}
   \caption{Wynik zliczania danych}
   \label{fig:countpic}
 \end{figure}
 
-\newpage
 \subsection{Panel administratora}
 Użytkownik o roli administratora może wejść do oddzielnej strony aplikacji (rysunek \ref{fig:adminpic}). Administratorowi prezentowana jest lista zarejestrowanych użytkowników wraz z ich rolami. Każdy element list jest hiperłączem prowadzącym
 do strony poświęconej konkretnemu użytkownikowi i jego uprawnieniom.
@@ -725,9 +757,6 @@ domyślne wartości zadeklarowane przez administratora.
 
 \paragraph{Zapisywanie wartości filtrów dla użytkownika} 
 Ostatnią zaprojektowaną tabelą jest tabela "user\verb!_!smp\verb!_!tab",
-\textcolor{red}{
- zmienić nazwę, niezgodna z nazewnictwem reszty tabel
-}
 Funkcjonalność zapisania wartości dla każdego pola filtru, oddzielnie dla każdej próbki
 jest zrealizowana poprzez przechowywanie identyfikatora panelu, filtru i pola elementu filtracji,
 razen z identyfikatorem próbki i wybraną wartością. 
@@ -739,10 +768,10 @@ Dane używane podczas implementacji do sprawdzenia działania aplikacji pochodzi
 z Instututu Broad.
 Do testów wybrano transkrypt ENST00000407236 \cite{testData},
 którego dane były dostępne w pliku CSV. Rozmiar danych wynosił 530 wierszy, każdy posiadający 37 atrybutów. Plik został załadowany do lokalnej bazy danych, do tabeli 
-"transcript". Należy zaznaczyć, iż spodziewana ilość wierszy dla jednej próbki wynosi około 20000.
+"transcript". Należy zaznaczyć, iż spodziewana liczba wierszy dla jednej próbki wynosi około 20000.
  W celu sprawdzenia zachowania się aplikacji 
 dla większych rozmiarów danych, postanowiono kilkakrotnie zmultiplikować
-ilość wierszy i zapisać je jako oddzielne próbki.
+liczba wierszy i zapisać je jako oddzielne próbki.
 
 Zaobserwowano dzięki temu brak płynności przy przewijaniu tabeli, tak zwane "zacinanie się" strony przeglądarki oraz nieakceptowalne wydłużenie się 
 czasu oczekiwania na wyrysowanie się wszystkich elementów. 
@@ -1124,6 +1153,9 @@ za pomocą następujących metod:
 \item \textit{withUser} - pozwala na dostęp przy poprawnym kluczu sesji i roli użytkownika połączonej z sesją,
 \item \textit{withAdmin} - pozwala na dostęp przy poprawnym kluczu sesji i roli administratora połączonej z sesją,
 \end{itemize}
+
+Dzięki tej technice, dodawanie nowych ról przez co zabezpieczanie
+kolejnych funkcjonalności ogranicza się do dodania jednej metody.
 
 By uzyskać nieuprawniony dostęp do metody zabezpieczonej cechą \textit{Secured},
 należy posiadać klucz sesji zalogowanego w tym samym momencie użytkownika 
