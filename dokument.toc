@@ -35,7 +35,7 @@
 \contentsline {subsection}{\numberline {6.1}Autoryzacja}{22}
 \contentsline {subsubsection}{\numberline {6.1.1}Role}{22}
 \contentsline {subsubsection}{\numberline {6.1.2}Rejestracja i logowanie u\IeC {\.z}ytkownika}{22}
-\contentsline {subsection}{\numberline {6.2}Przegl\IeC {\k a}danie danych z sekwencjownowania DNA}{23}
+\contentsline {subsection}{\numberline {6.2}Przegl\IeC {\k a}danie danych z sekwencjonowania DNA}{23}
 \contentsline {paragraph}{Ekran dost\IeC {\k e}pnych genom\IeC {\'o}w}{23}
 \contentsline {paragraph}{Tabela z danymi z sekwencjonowania DNA}{24}
 \contentsline {paragraph}{Ustawianie widoczno\IeC {\'s}ci kolumn}{26}
@@ -56,7 +56,7 @@
 \contentsline {paragraph}{Rozmiar przesy\IeC {\l }anych danych}{40}
 \contentsline {paragraph}{Czas trwania \IeC {\.z}\IeC {\k a}dania HTTP}{41}
 \contentsline {paragraph}{Czas generowania modelu w cz\IeC {\k e}\IeC {\'s}ci klienckiej}{42}
-\contentsline {paragraph}{Czas dodawania element\IeC {\'o}w do DOMu przegl\IeC {\k a}darki przez platform\IeC {\k e} Angular}{42}
+\contentsline {paragraph}{Czas dodawania element\IeC {\'o}w do DOM-u przegl\IeC {\k a}darki przez platform\IeC {\k e} Angular}{42}
 \contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{44}
 \contentsline {paragraph}{SQL injection}{44}
 \contentsline {section}{\numberline {10}Cz\IeC {\k e}\IeC {\'s}ciowy opis implementacji}{45}

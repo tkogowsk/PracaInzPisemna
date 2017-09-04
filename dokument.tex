@@ -441,53 +441,50 @@ dodatkowych funkcjonalności języka JavaScript w standardzie ECMAScript 2015 \c
 \subsection{Autoryzacja} 
 \subsubsection{Role}
 Administratorem nazywana jest osoba mająca dostęp do bazy danych aplikacji, ustalająca
-widoczne dla użytkowników próbki oraz zarządzająca strukturą filtrów. 
-Jednocześnie administrator ma takie same możliwości jak zwykły użytkownik, którymi są dostęp do określonych próbek, możliwość ich oglądania, filtrowania i  ukrywania kolumn. 
-Każdy użytkownik jest rozróżnialny w aplikacji dlatego wymagana jest wcześniejsza rejestracja.
- 
+widoczne dla użytkowników próbki oraz zarządzająca strukturą filtrów.
+Jednocześnie administrator ma takie same możliwości jak zwykły użytkownik, którymi są dostęp do określonych próbek, możliwość ich oglądania, filtrowania i ukrywania kolumn.
+Każdy użytkownik jest rozróżnialny w aplikacji dlatego, wymagana jest wcześniejsza rejestracja.
+
 \subsubsection{Rejestracja i logowanie użytkownika}
-Poniższy rysunek pokazuje widok startowy aplikacji. W celu przejścia do 
-pozostałych funkcjonalności, użytkownik musi się zalogować lub zarejestrować, jeśli nie ma jeszcze 
-konta w aplikacji. Wskazane jest użycie szyfrowanego połączenia HTTPS, żeby uniknąć 
+Poniższy rysunek pokazuje widok startowy aplikacji. W celu przejścia do pozostałych funkcjonalności użytkownik musi się zalogować lub zarejestrować, jeśli nie ma jeszcze
+konta w aplikacji. Wskazane jest użycie szyfrowanego połączenia HTTPS, żeby uniknąć
 kradzieży hasła.
 
 \begin{figure}[h!]
-  \includegraphics[width=\linewidth]{obrazy/aplikacja/login.png}
-  \caption{Okno logowania i rejestracji}
-  \label{fig:loginpic}
-\end{figure}
-
-\newpage  
-\subsection{Przeglądanie danych z sekwencjownowania DNA} \label{sssec:dnaPage}
-Po zalogowaniu się do aplikacji przed użytkownikiem pojawia się główna część aplikacji pozwalająca na dostęp do próbek oraz pracę na nich. 
- 
-\paragraph{Ekran dostępnych genomów}
-Każda próbka  (odpowiadajaca wynikom jednego pacjenta),  dostępna w bazie danych posiada indywidualny identyfikator pozwalający na 
-rozróżnienie jej od innych próbek. Owy identyfikator jest ciągiem znaków, który wyświetlany jest 
-alfabetycznie posortowanej liście. Użytkownik widzi tylko próbki udostępnione przez administratora
-i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie w identyfikator próbki,
-co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA. 
-
-
-\begin{figure}[h!]
-  \includegraphics[width=\linewidth]{obrazy/aplikacja/sample_list.png}
-  \caption{Lista próbek}
-  \label{fig:sample_listpic}
+\includegraphics[width=\linewidth]{obrazy/aplikacja/login.png}
+\caption{Okno logowania i rejestracji}
+\label{fig:loginpic}
 \end{figure}
 
 \newpage
-\paragraph{Tabela z danymi z sekwencjonowania DNA} 
-Przechodzą na stronę z danymi dla konkretnej próbki, użytkownikowi prezentowane są 
+\subsection{Przeglądanie danych z sekwencjonowania DNA} \label{sssec:dnaPage}
+Po zalogowaniu się do aplikacji przed użytkownikiem pojawia się główna część aplikacji pozwalająca na dostęp do próbek oraz pracę na nich.
+
+\paragraph{Ekran dostępnych genomów}
+Każda próbka (odpowiadająca wynikom jednego pacjenta), dostępna w bazie danych posiada indywidualny identyfikator pozwalający na
+rozróżnienie jej od innych próbek. Ów identyfikator jest ciągiem znaków, który wyświetlany jest
+alfabetycznie posortowanej liście. Użytkownik widzi tylko próbki udostępnione przez administratora
+i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie w identyfikator próbki,
+co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA.
+
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{obrazy/aplikacja/sample_list.png}
+\caption{Lista próbek}
+\label{fig:sample_listpic}
+\end{figure}
+
+\newpage
+\paragraph{Tabela z danymi z sekwencjonowania DNA}
+Przechodzą na stronę z danymi dla konkretnej próbki, użytkownikowi prezentowane są
 dane w postaci tabelarycznej (Rysunek numer \ref{fig:table1pic}).
 
 \begin{figure}[h!]
-  \includegraphics[width=\linewidth]{obrazy/aplikacja/table1.png}
-  \caption{Tabela z danymi z sekwencjonowania DNA}
-  \label{fig:table1pic}
+\includegraphics[width=\linewidth]{obrazy/aplikacja/table1.png}
+\caption{Tabela z danymi z sekwencjonowania DNA}
+\label{fig:table1pic}
 \end{figure}
 
-Po zakończeniu implementacji wyświetlania tabeli z danymi z sekwencjonowania DNA,
-zauważono problemy z wydajnością.
+Po zakończeniu implementacji wyświetlania tabeli z danymi z sekwencjonowania DNA zauważono problemy z wydajnością.
 Długi czas tworzenia się elementów HTML tabeli i łatwo zauważalne zawieszanie się przeglądarki
 były elementami nie do przyjęcia dla codziennej pracy użytkownika.
 Pod obserwację wzięto:
@@ -495,150 +492,148 @@ Pod obserwację wzięto:
 \item czas odpowiedzi serwera na zapytanie HTTP,
 \item czas wygenerowania i wykonania zapytania SQL,
 \item czas wygenerowania przez przeglądarkę elementów HTML tabeli,
-\end{itemize} 
-Wykonane testy wykazały, że największy narzut czasowy na ładowanie się strony, miał ostatni 
-element to znaczy rysowanie tabeli przez przeglądarkę. 
+\end{itemize}
+Wykonane testy wykazały, że największy narzut czasowy na ładowanie się strony, miał ostatni
+element, to znaczy rysowanie tabeli przez przeglądarkę.
 
 Wada ta została zniwelowana poprzez wprowadzenie paginacji zwanej też stronicowaniem.
-Maksymalna liczba pokazywanych wierszy została ograniczona do 300 i wprowadzono dodatkowy 
-element widoczny w lewym dolnym rogu rysunku numer \ref{fig:table1pic}, który umożliwia 
-użytkownikowi poruszanie się po kolejnych stronach tabelki zmniejszając narzut 
-pamięci operacyjnej wymaganej do wygenerowania całości tabeli.  
+Maksymalna liczba pokazywanych wierszy została ograniczona do 300 i wprowadzono dodatkowy
+element widoczny w lewym dolnym rogu rysunku numer \ref{fig:table1pic}, który umożliwia
+użytkownikowi poruszanie się po kolejnych stronach tabelki, zmniejszając narzut
+pamięci operacyjnej wymaganej do wygenerowania całości tabeli.
 \newline
 
 Ważną funkcjonalnością z punktu widzenia użytkownika jest możliwość filtracji pobranych już wierszy
-z bazy danych. W celu zwiększenia możliwości wyszukiwania, każda kolumna posiada oddzielne pole 
+z bazy danych. W celu zwiększenia możliwości wyszukiwania, każda kolumna posiada oddzielne pole
 filtrujące, umożliwiając na zawężanie zbioru danych po każdej kolumnie. Element odpowiadający
 za stronicowanie poprawnie zmniejsza liczbę dostępnych stron przy dynamicznym zmniejszaniu się
 wyświetlanych danych.
-Dodatkową opcją działającą po stronie przeglądarki jest 
+Dodatkową opcją działającą po stronie przeglądarki jest
 funkcjonalność sortowania rosnąco bądź malejąco jednej kolumny. Służy do tego strzałka po
 lewej stronie od nazwy kolumny, kliknięcie w ikonkę bądź nazwę kolumny zmienia sortowanie.
 
 \begin{figure}[h]
 \centering
-  \includegraphics{obrazy/aplikacja/sortingAndSearch.png}
-  \caption{Sortowanie i filtrowanie pobranych już danych}
-  \label{fig:sortingAndSearchpic}
+\includegraphics{obrazy/aplikacja/sortingAndSearch.png}
+\caption{Sortowanie i filtrowanie pobranych już danych}
+\label{fig:sortingAndSearchpic}
 \end{figure}
 
 \newpage
 \paragraph{Ustawianie widoczności kolumn}
-Przejżystość danych i dostęp tylko do potrzebnych informacji jest kluczową wartością dla użytkowników.
-Mnogość kolumn, porowadząca do przedstawianie wielu informacji niepotrzebnych 
-wszystkim użytkownikom uniemożliwia osiągnięcie tego efektu. Wychodząc naprzeciw tym oczekiwaniom 
+Przejrzystość danych i dostęp tylko do potrzebnych informacji jest kluczową wartością dla użytkowników.
+Mnogość kolumn, prowadząca do przedstawianie wielu informacji niepotrzebnych
+wszystkim użytkownikom uniemożliwia osiągnięcie tego efektu. Wychodząc naprzeciw tym oczekiwaniom,
 zaimlementowano opcję umożliwiającą klientom aplikacji ukrywanie dowolnej kolumny.
 Po kliknięciu w specjalny guzik umiejscowiony po prawej stronie elmentu stronicującego, wyskakuje okienko z listą kolumn,
-które użytkownik może odznaczyć co spowoduje zniknięcie z tabeli. Selekcja może być zapisana 
+które użytkownik może odznaczyć, co spowoduje zniknięcie z tabeli. Selekcja może być zapisana
 w bazie danych tak by przy ponownym wejściu na tą stronę aplikacji, użytkownik nie musiał
 kolejny raz ukrywać nieinteresujących go kolumn. Po rejestracji użytkownik ma widoczne wszystkie
 kolumny i musi sam je odznaczyć.
 
 \begin{figure}[h]
-  \includegraphics[width=\linewidth]{obrazy/aplikacja/visible_columns.png}
-  \caption{Widoczne kolumny}
-  \label{fig:visible_columnspic}
+\includegraphics[width=\linewidth]{obrazy/aplikacja/visible_columns.png}
+\caption{Widoczne kolumny}
+\label{fig:visible_columnspic}
 \end{figure}
 
 \newpage
 \paragraph{Filtrowanie danych}
 Rysunek numer \ref{fig:filterspic} przedstawia moduł filtrujący dane, znajdujący się w
 lewej części strony aplikacji.
-Podstawowym elementem tworzącym filtr jest tak zwane "pole", odnosi się ono do jednej kolumny
-bazodanowej, z którą łączy ją jedna z poniższych relacji: 
+Podstawowym elementem tworzącym filtr jest tak zwane „pole”, odnosi się ono do jednej kolumny
+bazodanowej, z którą łączy ją jedna z poniższych relacji:
 
 \begin{itemize}
-\item mniejsze (less),
-\item większe (greater),
-\item mniejsze równe (less than),
-\item większe równe (greater than),
-\item równe (equals),
-\end{itemize} 
+\item mniejsze („less”),
+\item większe („greater”),
+\item mniejsze równe („less than”),
+\item większe równe („greater than”),
+\item równe („equals”),
+\end{itemize}
 
-Użytkownik wprowadza własną wartość do pola bądź wybiera ją z listy rozwijanej.   
-Dodatkową możliwością jest pole mające wartość domyślną ustaloną przez administratora. 
-Wartość każdego pola może być zapisane w bazie danych, zapis jest oddzielny, dla każdego 
+Użytkownik wprowadza własną wartość do pola bądź wybiera ją z listy rozwijanej.
+Dodatkową możliwością jest pole mające wartość domyślną ustaloną przez administratora.
+Wartość każdego pola może być zapisane w bazie danych, zapis jest oddzielny, dla każdego
 użytkownika, każdego filtru oraz każdej próbki.
-Grupa pól tworzy właściwy "filtr", który może być wyłączony z filtracji dzięki
+Grupa pól tworzy właściwy „filtr”, który może być wyłączony z filtracji dzięki
 przyciskowi wyboru umiejscowionego po prawej stronie nazwy. Wizualnie filtr jest wyciemniony jak na przykładzie.
-Grupa filtrów tworzą tak zwany panel, które są oddzielnymi bytami w bazie danych, o własnych nazwach i filtrach.
+Grupa filtrów tworzy tak zwany panele, które są oddzielnymi bytami w bazie danych, o własnych nazwach i filtrach.
 W górnej części panelu widoczne są przyciski z nazwami paneli. Aktywny panel
-wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym. 
+wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym.
 
 \begin{figure}
-  \centering
-  \includegraphics[height=0.95\textheight]{obrazy/aplikacja/filters.png}
-  \caption{Filtry}
-  \label{fig:filterspic}
+\centering
+\includegraphics[height=0.95\textheight]{obrazy/aplikacja/filters.png}
+\caption{Filtry}
+\label{fig:filterspic}
 \end{figure}
 
 \newpage
 
-Filtrowanie odbywa się zgodnie z kolejnością aktywnych filtrów, to znaczy najpierw filtrujemy dane używając pól pierwszego aktywnego filtru, następnie te dane filtrujemy korzystając z drugiego etc. Ilustruje to przykład z rysunku numer \ref{fig:filterDiagrampic}, a tabela numer \ref{table:filterDiagramTable} 
-przedstawia rozmiar danych, który zostałby pobrany dla każdego filtru. 
+Filtrowanie odbywa się zgodnie z kolejnością aktywnych filtrów, to znaczy najpierw filtrujemy dane, używając pól pierwszego aktywnego filtru, następnie te dane filtrujemy, korzystając z drugiego etc. Ilustruje to przykład z rysunku numer \ref{fig:filterDiagrampic}, a tabela numer \ref{table:filterDiagramTable}
+przedstawia rozmiar danych, który zostałby pobrany dla każdego filtru.
 
-Przypadek 1 na diagramie ilustruje sytuację gdy tylko jeden filtr jest aktywny.
+Przypadek 1 na diagramie ilustruje sytuację, gdy tylko jeden filtr jest aktywny.
 Wynikiem filtracji jest wtedy 3840, czyli tyle ile ograniczają warunki Filtru numer 3.
-Przypadek 2 przedstawia zdarzenie gdy włączone są dwa filtry : "Filtr 1" oraz "Filtr 2". Następuje filtracja danych względem najwyższego filtru, a następnie ostatniego,
+Przypadek 2 przedstawia zdarzenie, gdy włączone są dwa filtry: „Filtr 1” oraz „Filtr 2”. Następuje filtracja danych względem najwyższego filtru, a następnie ostatniego,
 z pominięciem wszystkich filtrów pomiędzy nimi.
 Dane są ograniczone w tym przypadku do 3584.
-Ostatnia rubryka na diagramia ilustruje moment gdy wszystkie filtry są aktywne.
-W takiej sytuacji najpierw filtruje się dane względem warunków "Filtru 1",
-następnie "Filtru 2" i na końcu "Filtru 3". W ten sposób ograniczamy 
+Ostatnia rubryka na diagramie ilustruje moment, gdy wszystkie filtry są aktywne.
+W takiej sytuacji najpierw filtruje się dane względem warunków „Filtr 1”,
+następnie „Filtru 2” i na końcu „Filtru 3”. W ten sposób ograniczamy
 liczba pobranych rekordów do 768.
- 
+
 \begin{center}
 \begin{table} [H]
 \begin{tabular}{| p{4cm }| p{2.7cm} | p{2.7cm} | p{2.7cm}|}
 \hline
-& Filtr 1 &  Filtr 2 & Filtr 3\\ 
+& Filtr 1 & Filtr 2 & Filtr 3\\
 \hline
-Wyniki zliczania danych dla każdego przykładowego filtru & 19712 & 1792 & 3840\\ \hline  
+Wyniki zliczania danych dla każdego przykładowego filtru & 19712 & 1792 & 3840\\ \hline
 \end{tabular}
 
 \caption{Wyniki zliczania danych dla każdego przykładowego filtru}
 \label{table:filterDiagramTable}
 \end{table}
-\end{center} 
+\end{center}
 
-Przycisk z etykietą "Count" umożliwia policzenie ilości wierszy zwróconych przy zadanych wartościach pól. Pozwala to na sprawdzenie rozmiaru danych przed właściwym pobraniem całego zbioru danych. Efekt takiego działania jest widoczny na rysunku
+Przycisk z etykietą „Count” umożliwia policzenie ilości wierszy zwróconych przy zadanych wartościach pól. Pozwala to na sprawdzenie rozmiaru danych przed właściwym pobraniem całego zbioru danych. Efekt takiego działania jest widoczny na rysunku
 numer \ref{fig:countpic}.
 
-Można również pobrać wszystkie dane wybranej próbki za pomocą guzika z napisem "Get all".
+Można również pobrać wszystkie dane wybranej próbki za pomocą guzika z napisem „Get all”.
 
 Za ustalanie struktury filtrów odpowiadają administratorzy i w podrozdziale im poświęconym
 opisane zostanie zarządzanie filtrami.
 
-
 \newgeometry{left=1cm,bottom=3cm, right=2cm, top=1cm}
 \setlength{\footskip}{0pt}
 \begin{figure}
-  \includegraphics[width=1\linewidth]{obrazy/aplikacja/filterDiagram.png}
-  \caption{Diagram działania filtrów}
-  \label{fig:filterDiagrampic}
+\includegraphics[width=1\linewidth]{obrazy/aplikacja/filterDiagram.png}
+\caption{Diagram działania filtrów}
+\label{fig:filterDiagrampic}
 \end{figure}
 \restoregeometry
 
 \begin{figure}[H]
 \centering
-  \includegraphics[height=0.95\textheight]{obrazy/aplikacja/count.png}
-  \caption{Wynik zliczania danych}
-  \label{fig:countpic}
+\includegraphics[height=0.95\textheight]{obrazy/aplikacja/count.png}
+\caption{Wynik zliczania danych}
+\label{fig:countpic}
 \end{figure}
 
 \subsection{Panel administratora}
 Użytkownik o roli administratora może wejść do oddzielnej strony aplikacji (rysunek \ref{fig:adminpic}). Administratorowi prezentowana jest lista zarejestrowanych użytkowników wraz z ich rolami. Każdy element list jest hiperłączem prowadzącym
 do strony poświęconej konkretnemu użytkownikowi i jego uprawnieniom.
 
-Przycisk o etykiecie "Upload" służy administratorowi do zmiany struktury 
+Przycisk o etykiecie „Upload” służy administratorowi do zmiany struktury
 filtrów, o czym będzie mowa w następnym paragrafie.
 
-
 \begin{figure}[h]
-  \centering
-  \includegraphics[width=\textwidth]{obrazy/aplikacja/admin.png}
-  \caption{Część panelu administratora z listą użytkowników}
-  \label{fig:adminpic}
+\centering
+\includegraphics[width=\textwidth]{obrazy/aplikacja/admin.png}
+\caption{Część panelu administratora z listą użytkowników.}
+\label{fig:adminpic}
 \end{figure}
 
 \newpage
@@ -648,189 +643,186 @@ Zmiana struktury filtrów odbywa się z panelu administratora poprzez wysłanie
 z przeglądarki na serwer plik arkusza kalkulacyjnego o ustalonym formacie. Przykładowe dane są widoczne na rysunku \ref{fig:input_filepic}.
 W pierwszej kolumnie podaje się nazwę panelu, do której przypisywany
 jest filtr o nazwie podanej w drugiej kolumnie. W trzeciej kolumnie należy podać nazwę kolumny, do której
-odnosić się będzie pole filtru a następnie relację między wprowadzaną wartością a kolumną.
-Opcjonalnie może być podana domyślna wartość pola oraz kilka wartości odzielone przecinkami, między którymi użytkownik będzie mógł wybierać w aplikacji. Nazwy kolumn oraz relacje zostały są dostępne pod
-listą rozwijaną w arkuszu w celu ułatwienia pracy administratora. 
-Załadowanie pliku usuwa wcześniejsze filtry oraz zapisane wartości użytkowników. 
- 
+odnosić się będzie pole filtru, a następnie relację między wprowadzaną wartością a kolumną.
+Opcjonalnie może być podana domyślna wartość pola oraz kilka wartości oddzielone przecinkami, między którymi użytkownik będzie mógł wybierać w aplikacji. Nazwy kolumn oraz relacje są dostępne pod
+listą rozwijaną w arkuszu w celu ułatwienia pracy administratora.
+Załadowanie pliku usuwa wcześniejsze filtry oraz zapisane wartości użytkowników.
+
 \begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{obrazy/aplikacja/input_file.png}
-  \caption{Przykładowa zawartość pliku konfiguracyjnego dla filtrów}
-  \label{fig:input_filepic}
+\centering
+\includegraphics[width=\textwidth]{obrazy/aplikacja/input_file.png}
+\caption{Przykładowa zawartość pliku konfiguracyjnego dla filtrów}
+\label{fig:input_filepic}
 \end{figure}
 
 \newpage
 \paragraph{Zarządzanie widocznością próbek dla użytkowników}
-Po wybraniu użytkownika z listy widocznej na rysuknu numer \ref{fig:adminpic}, 
-administratorowi ukazuje się lista wszystkich dostępnych próbek (rysunek numer \ref{fig:user_priviligespic}). Administrator zaznacza w przyciskach wyboru, które próbki będą dostępne 
-do wglądu wybranemu użytkownikowi. By zatwierdzić wybór należy kliknąć w 
-przycisk z etykietą "Save".
-Po zarejestrowaniu się do aplikacji, użytkownik nie jest przypisany do żadnej próbki. 
- 
+Po wybraniu użytkownika z listy widocznej na rysunku numer \ref{fig:adminpic},
+administratorowi ukazuje się lista wszystkich dostępnych próbek (rysunek numer \ref{fig:user_priviligespic}). Administrator zaznacza w przyciskach wyboru, które próbki będą dostępne
+do wglądu wybranemu użytkownikowi. By zatwierdzić wybór, należy kliknąć
+przycisk z etykietą „Save”.
+Po zarejestrowaniu się do aplikacji, użytkownik nie jest przypisany do żadnej próbki.
+
 \begin{figure}[h]
-  \centering
-  \includegraphics[width=\textwidth]{obrazy/aplikacja/user_priviliges.png}
-  \caption{Panel dostępności próbek dla użytkownika}
-  \label{fig:user_priviligespic}
+\centering
+\includegraphics[width=\textwidth]{obrazy/aplikacja/user_priviliges.png}
+\caption{Panel dostępności próbek dla użytkownika}
+\label{fig:user_priviligespic}
 \end{figure}
 
 \newpage
 \newgeometry{left=0.5cm,bottom=0.5cm, right=0.5cm, top=0.5cm}
 \section{Schemat bazy danych}
 \begin{figure}[h!]
-  \includegraphics[width=\textwidth, height=0.9\textheight]{obrazy/aplikacja/database.png}
-  \caption{Schamat bazy danych}
-  \label{fig:bazadanych}
+\includegraphics[width=\textwidth, height=0.9\textheight]{obrazy/aplikacja/database.png}
+\caption{Schamat bazy danych}
+\label{fig:bazadanych}
 \end{figure}
 
 \restoregeometry
 \newpage
 
-Przed rozpoczęciem implementacji aplikacji przeglądarkowej zaprojektowano strukturę 
+Przed rozpoczęciem implementacji aplikacji przeglądarkowej zaprojektowano strukturę
 relacyjnej bazy danych. Na rysunku nr \ref{fig:bazadanych} przedstawiono schemat stworzony
 w narzędziu pgModeler \cite{pgModeler}. Dzięki temu darmowemu narzędziu wygenerowany został
-skrypt tworzący bazę danych.  
-
-\paragraph{Dane o użytkowniku} Tabela "user" zawiera rekordy o użytkownikach. 
+skrypt tworzący bazę danych.
+\paragraph{Dane o użytkowniku} Tabela „user” zawiera rekordy o użytkownikach.
 Są to:
 \begin{enumerate}[1)]
-\item nazwy jakie wybrali przy rejestracji i jakimi posługują się w aplikacji ("name"),
-\item role jaką przydzielili im administratorzy systemu ("role"),
-\item „sól”  użytą do wygenerowania skrótu i potrzebną do autoryzacji ("salt"),
-\item wynik funkcji skrótu z ich hasła ("hash"),
+\item nazwy, jakie wybrali przy rejestracji i jakimi posługują się w aplikacji („name”),
+\item role, jaką przydzielili im administratorzy systemu („role”),
+\item „sól” użytą do wygenerowania skrótu i potrzebną do autoryzacji („salt”),
+\item wynik funkcji skrótu z ich hasła („hash”),
 \end{enumerate}
 
 \paragraph{Dane z sekwencjonowania DNA} Podczas trwania okresu implementacji systemu,
-przykładowe dane z serwisu Exac zostały załadowane do oddzielnej tabeli bazodanowej o nazwie "transcript". Mimo, iż owa tabela znajdowała się w tej samej bazie danych co 
-dane o filtrach czy użytkownikach, aplikacja łączyła się oddzielnym połączeniem. 
-Dodatkowo do pobierania danych wykorzystywała interfejs JDBC, tak by jak najlepiej
+przykładowe dane z serwisu Exac zostały załadowane do oddzielnej tabeli bazodanowej o nazwie "transcript”. Mimo iż owa tabela znajdowała się w tej samej bazie danych co
+dane o filtrach czy użytkownikach, aplikacja łączyła się oddzielnym połączeniem.
+Dodatkowo do pobierania danych wykorzystywała interfejs JDBC, tak by, jak najlepiej
 symulować produkcyjne połączenie aplikacji, czyli połączenie do rozproszonej bazy danych.
 
 \paragraph{Sztuczne identyfikatory próbek} Do implementacji strony
-prezentującej dane użytkownikowi (podrozdział \ref{sssec:dnaPage}) planowano użyć 
-funkcjonalności platformy Angular, umożliwiającej przekazywanie parametrów 
+prezentującej dane użytkownikowi (podrozdział \ref{sssec:dnaPage}) planowano użyć
+funkcjonalności platformy Angular, umożliwiającej przekazywanie parametrów
 poprzez część adresu URL. Rozróżnianie próbek odbywa się względem ich nazw, które
-są dowolnymi ciągami znaków. Biorąc pod uwagę konieczność zabezpieczenia aplikacji przed 
+są dowolnymi ciągami znaków. Biorąc pod uwagę konieczność zabezpieczenia aplikacji przed
 znakami specjalnymi, które mogłyby się pojawić w nazwie oraz potrzebę
 użycia identyfikatora próbki jako klucza obcego w części tabel systemu, postanowiono
-dodać dodatkową liczbową kolumnę ("fake\verb!_!id"), której wykorzystanie ułatwiło implementację systemu.
+dodać dodatkową liczbową kolumnę („fake\verb!_!id”), której wykorzystanie ułatwiło implementację systemu.
 
-\paragraph{Dostęp do próbek} W tabela "privilege" przechowywane są informacje o 
-dostępie użytkownika do danej próbki. Brak rekordu wiążącego użytkownika z 
+\paragraph{Dostęp do próbek} W tabeli „privilege” przechowywane są informacje o
+dostępie użytkownika do danej próbki. Brak rekordu wiążącego użytkownika z
 daną próbką jest w aplikacji rozumiany jako brak dostępu do danej próbki,
-przez co po zarejestrowaniu się użytkownika, nie ma On dostępu do żadnej próbki,
+przez co po zarejestrowaniu się użytkownika, nie ma On dostępu do żadnej próbki.
 
-\paragraph{Lista kolumn} System był projektowany z myślą by ograniczyć w przyszłości konieczność zmian 
+\paragraph{Lista kolumn} System był projektowany z myślą, by ograniczyć w przyszłości konieczność zmian
 w kodzie aplikacji i by był konfigurowalny z jednego pliku dostępnego administratorowi.
-Z tym przeświadczeniem została dodana tabela "variant\verb!_!column", która będzie zawierać
-informacje o kolumnach tabeli z danymi DNA. Poza nazwami tych kolumn, które będą 
+Z tym przeświadczeniem została dodana tabela „variant\verb!_!column”, która będzie zawierać
+informacje o kolumnach tabeli z danymi DNA. Poza nazwami tych kolumn, które będą
 wykorzystywane do generowania zapytać pobierających dane, w tej encji znajdują
-się nazwy wyświetlające się użytkownikowi aplikacji ("fe\verb!_!name") oraz informacje o typach
+się nazwy wyświetlające się użytkownikowi aplikacji („fe\verb!_!name”) oraz informacje o typach
 tych kolumn, służące do sprawdzania poprawności danych wejściowych od klientów.
 
 \paragraph{Widoczność kolumn} Za składowanie informacji o widocznych kolumnach na
 stronie prezentującej użytkownikowi dane o sekwencjonowaniu, odpowiada tabela \newline
-"user\verb!_!visible\verb!_!variant\verb!_!column". Zapisane w niej są:
+„user\verb!_!visible\verb!_!variant\verb!_!column”. Zapisane w niej są:
 \begin{enumerate}[1)]
 \item identyfikator użytkownika ("user\verb!_!id"),
 \item identyfikator kolumny wariantu ("variant\verb!_!column\verb!_!id"),
 \item dana typu boolowskiego ("visible") informująca o widoczności kolumny w następujący sposób:
 \begin{itemize}
-\item prawda - kolumna jest widoczna,
-\item fałsz - kolumna nie jest widoczna,
+\item prawda — kolumna jest widoczna,
+\item fałsz — kolumna nie jest widoczna,
 \end{itemize}
-\end{enumerate} 
+\end{enumerate}
 
 \newpage
-\paragraph{Przechowywanie schematu filtrów} W trakcie analizy wymagań i projektowaniu systemu wydzielono trzy odzielne obiekty tworzące moduł filtrujące dane, to znaczy panele, filtry i pola.
+\paragraph{Przechowywanie schematu filtrów} W trakcie analizy wymagań i projektowaniu systemu wydzielono trzy oddzielne obiekty tworzące moduł filtrujące dane, to znaczy panele, filtry i pola.
 Ułatwiło to zaprojektowanie odpowiednich encji bazodanowych.
 
-Tabela odpowiadająca panelowi ("tab") poza identyfikatorem ("id") przechowuje również unikalną nazwę ("name") widoczną w górnej części panelu filtrującego. 
-Podobnie skonstruowana jest encja odpowiadająca jednemu filtrowi ("filter") z tą różnicą, 
-iż nazwa ("name") nie jest unikalna. 
+Tabela odpowiadająca panelowi („tab”) poza identyfikatorem („id”) przechowuje również unikalną nazwę („name”) widoczną w górnej części panelu filtrującego.
+Podobnie skonstruowana jest encja odpowiadająca jednemu filtrowi („filter”) z tą różnicą,
+iż nazwa („name”) nie jest unikalna.
 
-Encja będąca odpowiednikiem jednego pola ("field") również została dodana do schematu bazy danych,
-z następującymi kolumnami: 
+Encja będąca odpowiednikiem jednego pola („field”) również została dodana do schematu bazy danych,
+z następującymi kolumnami:
 \begin{enumerate}[1)]
-\item identyfikator ("id"),
-\item identyfikator kolumny wariantu ("variant\verb!_!column\verb!_!id"), powiązanej z polem,
+\item identyfikator („id”),
+\item identyfikator kolumny wariantu („variant\verb!_!column\verb!_!id”), powiązanej z polem,
 \item relacja między polem a kolumną wariantu,
 \item opcjonalne wartości ukazywane użytkownikowi pod listą rozwijaną,
 \end{enumerate}
 
-Za łączenie wszystkich trzech wymienionych encji, odpowiada tabela 
-"tab\verb!_!field\verb!_!filter", posiadająca identyfikatory każdej z encji oraz
+Za łączenie wszystkich trzech wymienionych encji, odpowiada tabela
+„tab\verb!_!field\verb!_!filter”, posiadająca identyfikatory każdej z encji oraz
 domyślne wartości zadeklarowane przez administratora.
 
-\paragraph{Zapisywanie wartości filtrów dla użytkownika} 
-Ostatnią zaprojektowaną tabelą jest tabela "user\verb!_!smp\verb!_!tab",
+\paragraph{Zapisywanie wartości filtrów dla użytkownika}
+Ostatnią zaprojektowaną tabelą jest tabela „user\verb!_!smp\verb!_!tab”,
 Funkcjonalność zapisania wartości dla każdego pola filtru, oddzielnie dla każdej próbki
 jest zrealizowana poprzez przechowywanie identyfikatora panelu, filtru i pola elementu filtracji,
-razen z identyfikatorem próbki i wybraną wartością. 
+razen z identyfikatorem próbki i wybraną wartością.
 
 \newpage
-\section{Wydajność aplikacji}  
+\section{Wydajność aplikacji}
 
 Dane używane podczas implementacji do sprawdzenia działania aplikacji pochodziły
-z Instututu Broad.
+z Instytutu Broad.
 Do testów wybrano transkrypt ENST00000407236 \cite{testData},
-którego dane były dostępne w pliku CSV. Rozmiar danych wynosił 530 wierszy, każdy posiadający 37 atrybutów. Plik został załadowany do lokalnej bazy danych, do tabeli 
-"transcript". Należy zaznaczyć, iż spodziewana liczba wierszy dla jednej próbki wynosi około 20000.
- W celu sprawdzenia zachowania się aplikacji 
+którego dane były dostępne w pliku CSV. Rozmiar danych wynosił 530 wierszy, każdy posiadający 37 atrybutów. Plik został załadowany do lokalnej bazy danych, do tabeli
+„transcript”. Należy zaznaczyć, iż spodziewana liczba wierszy dla jednej próbki wynosi około 20000.
+W celu sprawdzenia zachowania się aplikacji
 dla większych rozmiarów danych, postanowiono kilkakrotnie zmultiplikować
 liczba wierszy i zapisać je jako oddzielne próbki.
 
-Zaobserwowano dzięki temu brak płynności przy przewijaniu tabeli, tak zwane "zacinanie się" strony przeglądarki oraz nieakceptowalne wydłużenie się 
-czasu oczekiwania na wyrysowanie się wszystkich elementów. 
-W celu znalezienia przyczyny i poprawienia sprawności 
+Zaobserwowano dzięki temu brak płynności przy przewijaniu tabeli, tak zwane „zacinanie się” strony przeglądarki oraz nieakceptowalne wydłużenie się
+czasu oczekiwania na wyrysowanie się wszystkich elementów.
+W celu znalezienia przyczyny i poprawienia sprawności
 wytypowano następujące elementy działania aplikacji podejrzewane o duże narzuty czasowe:
 
 \begin{itemize}
 \item rozmiar przesyłanych danych
 \item czas trwania żądania HTTP
 \item czas generowania modelu w części klienckiej
-\item czas dodawania elementów do DOMu przeglądarki przez platformę Angular
-\end{itemize} 
+\item czas dodawania elementów do DOM-u przeglądarki przez platformę Angular
+\end{itemize}
 
-Środowisko testowe stanowił komputer typu laptop z 
-procesorem firmy Intel model i3-3110M wraz z 8 Gb pamięci operacyjnej.
-Wirtualna maszyna Javy, z której korzystała aplikacja posiadała stertę
-o wielkości 512 Mb z możliwością dynamicznego zwiększenia do maksymalnie 2 Gb.
-Przeglądarkami na których testowano aplikacje była przeglądarka 
+Środowisko testowe stanowił komputer typu laptop z
+procesorem firmy Intel model i3-3110M wraz z 8 GB pamięci operacyjnej.
+Wirtualna maszyna Javy, z której korzystała aplikacja, posiadała stertę
+o wielkości 512 MB z możliwością dynamicznego zwiększenia do maksymalnie 2 GB.
+Przeglądarkami, na których testowano aplikacje była przeglądarka
 Google Chrome w wersji 60.0.3112.113 oraz Mozilla Firefox w wersji 55.0.2.
-Każdy przypadek był mierzony pięć razy.  
-
+Każdy przypadek był mierzony pięć razy.
 \newpage
 \paragraph{Rozmiar przesyłanych danych}
 Rozmiar przesyłanych danych został jako pierwszy poddany analizie i
-ewentualnej optymalizacji, ponieważ może znacząco wpływać na pozostałe 
+ewentualnej optymalizacji, ponieważ może znacząco wpływać na pozostałe
 obiekty badań.
 
-W tabeli numer \ref{table:requestSizeNoOpt} przedstawiono rozmiar 
+W tabeli numer \ref{table:requestSizeNoOpt} przedstawiono rozmiar
 odpowiedzi HTTP względem rozmiaru wybranej próbki DNA.
 
 \begin{center}
 \begin{table} [H]
 \begin{tabular}{| p{4cm} | p{2.7cm} | p{2.7cm} | p{2.7cm}|}
 \hline
-& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+& 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-rozmiar odpowiedzi HTTP& 3.5MB&37.3MB& 93.6MB\\ \hline  
+rozmiar odpowiedzi HTTP& 3.5MB&37.3MB& 93.6MB\\ \hline
 \end{tabular}
 
 \caption{Rozmiar odpowiedzi HTTP względem rozmiaru wybranej próbki DNA}
 \label{table:requestSizeNoOpt}
 \end{table}
-\end{center} 
+\end{center}
 
 Dane wysyłane z serwera były to dane tekstowe w formacie JSON.
-Wysyłanymi model danych stanowiła lista obiektów DataRowDTO, 
-który odpowiadał jednemu wierszowi tabeli i gdzie każdy z nich zawierał listę obiektów DataCellDTO (pole o nazwie "row"). Zawartość tych obiektów stanowiła nazwa 
-odpowiadającej kolumny wiersza ("columnName") oraz wartość ("value").
+Wysyłanymi model danych stanowiła lista obiektów DataRowDTO,
+który odpowiadał jednemu wierszowi tabeli i gdzie każdy z nich zawierał listę obiektów DataCellDTO (pole o nazwie „row”). Zawartość tych obiektów stanowiła nazwa
+odpowiadającej kolumny wiersza („columnName”) oraz wartość („value”).
 
-Dla zmniejszenia długości przesyłanego ciągu znaków, 
-zmieniono logikę po stronie JavaScript'owej tak by 
+Dla zmniejszenia długości przesyłanego ciągu znaków zmieniono logikę po stronie JavaScript'owej tak by
 można było wysyłać liczbowy identyfikator kolumny zamiast jej nazwy
 oraz zmieniono nazwy pól obiektów w następujący sposób:
 
@@ -843,55 +835,56 @@ Zmiany rozmiaru wysyłanych danych prezentuje tabela numer \ref{table:requestSiz
 \begin{table} [H]
 \begin{tabular}{| p{4cm} | p{2.7cm} | p{2.7cm} | p{2.7cm}|}
 \hline
-& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+& 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-rozmiar odpowiedzi HTTP& 1.3MB&13.8MB& 34.2MB\\ \hline  
+rozmiar odpowiedzi HTTP& 1.3MB&13.8MB& 34.2MB\\ \hline
 \end{tabular}
 \caption{Rozmiar odpowiedzi HTTP względem rozmiaru wybranej próbki DNA po optymalizacji przesyłanego modelu}
 \label{table:requestSizeOpt}
 \end{table}
 
 \newpage
-\paragraph{Czas  trwania żądania HTTP}
+\paragraph{Czas trwania żądania HTTP}
 Poniżej w tabeli numer \ref{table:httpRequestTime} przedstawiany jest średni czas trwania całego żądania HTTP.
-\begin{table}[H] 
+\begin{table}[H]
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
-& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+& 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-czas trwania żądania HTTP& 5.66s & 9.54s & 19.21s \\ \hline  
-czas przetwarzania danych na serwerze& 4856ms& 7882ms& 17379ms\\ \hline  
+czas trwania żądania HTTP& 5.66s & 9.54s & 19.21s \\ \hline
+czas przetwarzania danych na serwerze& 4856ms& 7882ms& 17379ms\\ \hline
 \end{tabular}
-\caption{Czasy trwania żądania HTTP  oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych. }
+\caption{Czasy trwania żądania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych. }
 \label{table:httpRequestTime}
 \end{table}
 Warto zwrócić uwagę jak dużą częścią całego żądania stanowił czas przetwarzania danych. Oprócz pobrania danych z bazy danych, serwer również przygotowywał
 powstałe obiekty do wysłania. Przekształcał je do formatu JSON, przed wysłaniem
 klientowi.
-Jak łatwo się domyślić, lokalna baza danych oraz przedewszystkim lokalny serwer będzie miał zdecydowanie lepsze wyniki od produkcyjnego serwera i należało 
+Jak łatwo się domyślić, lokalna baza danych oraz przede wszystkim lokalny serwer będzie miał zdecydowanie lepsze wyniki od produkcyjnego serwera i należało
 zająć się ograniczeniem czasu pracy serwera aplikacyjnego.
 W tym celu wykorzystano mechanizm pamięci podręcznej (z ang. cache).
-Oprogramowanie z którego skorzystano nazywa się Ehcache \cite{cache} i 
+Oprogramowanie, z którego skorzystano, nosi nazwę Ehcache \cite{cache} i
 zostało wybrane, ponieważ jest wspierane przez oprogramowanie Play
 i jednocześnie jest najczęściej wykorzystywaną implementacją pamięci podręcznej
-dla aplikacji w języku Java.  
+dla aplikacji w języku Java.
 
-Tabela \ref{table:httpRequestTimeCache} przedstawia średni czas trwania 
+Tabela \ref{table:httpRequestTimeCache} przedstawia średni czas trwania
 całego żądania HTTP oraz czas przetwarzania danych pobranych z bazy danych
 (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu
 mechanizmu pamięci podręcznej.
 \begin{table} [H]
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
-& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+& 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-czas trwania żądania HTTP& 0.615ms & 2.55s& 4.57s \\ \hline  
-czas przetwarzania danych& 147ms& 126ms& 163ms\\ \hline  
+czas trwania żądania HTTP& 0.615ms & 2.55s& 4.57s \\ \hline
+czas przetwarzania danych& 147ms& 126ms& 163ms\\ \hline
 \end{tabular}
-\caption{Czasy trwania żądania HTTP  oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu mechanizmu pamięci podręcznej}
-
+\caption{Czasy trwania żądania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu mechanizmu pamięci podręcznej}
 \label{table:httpRequestTimeCache}
 \end{table}
+
+
 
 \paragraph{Czas generowania modelu w części klienckiej} Pobrany obiekt typu JSON
 po zakończeniu zapytania HTTP był przekształcany do innej formy między innymi
@@ -900,103 +893,103 @@ funkcje biblioteki Lodash. Poniżej w tabeli numer \ref{table:lodashTime} przeds
 \begin{table} [H]
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
-&  1.3MB&13.8MB& 34.2MB\\ 
+& 1.3MB&13.8MB& 34.2MB\\
 \hline
-przekształcenia modelu w przeglądarce& 105ms & 991ms& 2052ms\\ \hline  
+przekształcenia modelu w przeglądarce& 105ms & 991ms& 2052ms\\ \hline
 \end{tabular}
 \caption{Czasy przekształceń w przeglądarce klienckiej względem rozmiaru obiektu}
 \label{table:lodashTime}
 \end{table}
-Osiągnięte wyniki testów uznano za zadowalające i nie postanowiono 
+Osiągnięte wyniki testów uznano za zadowalające i nie postanowiono
 próbować optymalizować czasu wykonania owych operacji.
 
-\paragraph{Czas dodawania elementów do DOMu przeglądarki przez platformę Angular}
+\paragraph{Czas dodawania elementów do DOM-u przeglądarki przez platformę Angular}
 Doświadczenie z oprogramowaniem Angular wskazywało, iż ten element może być odpowiedzialny za główny narzut czasowy przy generowanie się tabeli.
-Zdecydowano się wprowadzić element stronicujący prezentowane dane oraz 
-zmierzyć czas potrzebny na wygenerowanie się elementów zależnie od ilości 
-wizualnie dostępnych wierszy. W tabeli numer \ref{table:tableRender} przedstawione są 
+Zdecydowano się wprowadzić element stronicujący prezentowane dane oraz
+zmierzyć czas potrzebny na wygenerowanie się elementów zależnie od ilości
+wizualnie dostępnych wierszy. W tabeli numer \ref{table:tableRender} przedstawione są
 wyniki.
 
 \begin{table} [H]
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
-& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+& 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-300 wierszy& 3806ms & 4329ms& 5783ms\\ \hline  
-1000 wierszy& 11.82s & 13.05s& 16.07s\\ \hline  
-5000 wierszy& 35403ms & ~4min& >5min\\ \hline  
+300 wierszy& 3806ms & 4329ms& 5783ms\\ \hline
+1000 wierszy& 11.82s & 13.05s& 16.07s\\ \hline
+5000 wierszy& 35403ms & ~4min& >5min\\ \hline
 \end{tabular}
-\caption{Czasy dodawania elementów do DOMu HTML przez platformę Angular}
+\caption{Czasy dodawania elementów do DOM-u HTML przez platformę Angular}
 \label{table:tableRender}
 \end{table}
 \newpage
 
 Powyższe wyniki najlepiej prezentują skalę problemu. Ostatecznie zaimplementowano
-stronicowanie z 300 wierszami, duży wpływ na tą decyzję miał również fakt, iż
+stronicowanie z 300 wierszami, duży wpływ na tę decyzję miał również fakt, iż
 przy 1000 widocznych wierszach straty wydajności i brak płynności przy przewijaniu
 suwakiem widocznej tabelki uniemożliwiałyby efektywną pracę.
 
-Po zaimplementowaniu funkcjonalności ukrykwania kolumn, ponowiono testy przy ukrytych 17 kolumnach. Angular zapewnia dwie dyrektywy, które można było zastosować przy tej funkcjonalności. Są to:
+Po zaimplementowaniu funkcjonalności ukrykwania kolumn ponowiono testy przy ukrytych 17 kolumnach. Angular zapewnia dwie dyrektywy, które można było zastosować przy tej funkcjonalności. Są to:
 \begin{itemize}
 \item ng-show bądź ng-hide - które ukrywają dany element poprzez style CSS
-\item ng-if - która nie dodaje elementu do DOMu przeglądarki
+\item ng-if - która nie dodaje elementu do DOM-u przeglądarki
 \end{itemize}
 
 Poniższa tabela o numerze \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane z dyrektywą ng-if przy ukrytych 17 kolumnach.
 \begin{table} [H]
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
-& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+& 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-300 wierszy& 3739ms& 4744ms& 5100ms\\ \hline  
-1000 wierszy& 10.86s & 15.69s& 18.93s\\ \hline  
-5000 wierszy& 19.61s& ~3min& >5min\\ \hline  
+300 wierszy& 3739ms& 4744ms& 5100ms\\ \hline
+1000 wierszy& 10.86s & 15.69s& 18.93s\\ \hline
+5000 wierszy& 19.61s& ~3min& >5min\\ \hline
 \end{tabular}
-\caption{Czasy dodawania elementów do DOMu HTML przez platformę Angular}
+\caption{Czasy dodawania elementów do DOM-u HTML przez platformę Angular}
 \label{table:tableRenderNgIf}
 \end{table}
 
-Porównianie wyników po wprowadzeniu elementów optymalizacyjnych przy
+Porównanie wyników po wprowadzeniu elementów optymalizacyjnych przy
 wprowadzeniu paginacji do każdego badania, ilustruje poniższa
-tabela. 
+tabela.
 
 \begin{table} [H]
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
-& 1920 wierszy &  20224 wierszy & 51200 wierszy\\ 
+& 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-przed optymalizacją& 16.45s& 24.22s& 50s\\ \hline  
-po optymalizacji (pierwsze pobranie)& 11.26s & 14.33s&  33.38s\\ \hline  
-po optymalizacji (cache)& 6.6s& 9.2s& 18.74s\\ \hline  
+przed optymalizacją& 16.45s& 24.22s& 50s\\ \hline
+po optymalizacji (pierwsze pobranie)& 11.26s & 14.33s& 33.38s\\ \hline
+po optymalizacji (cache)& 6.6s& 9.2s& 18.74s\\ \hline
 \end{tabular}
 \caption{Czasy wyrysowanie 300 wierszy względem ilości wierszy przed i po optymalizacji}
 \label{table:summaryRender}
 \end{table}
 
 \newpage
-\section{Bezpieczeństwo aplikacji}  
+\section{Bezpieczeństwo aplikacji}
 Badania przeprowadzone przez firmę Norton by Symantec \cite{nortonSec}
-pokazują jak dużym zjawiskiem jest współdzielenie przez ludzi haseł między różnymi serwisami, czy to
+pokazują jak dużym zjawiskiem, jest współdzielenie przez ludzi haseł między różnymi serwisami, czy to
 skrzynką poczty elektronicznej, serwisem społecznościowym czy też kontem bankowym.
-Użytkownicy ufają twórcom aplikacji, iż dołożą wszelkich starań w celu zabezpieczenia ich 
-danych. 
+Użytkownicy ufają twórcom aplikacji, iż dołożą wszelkich starań w celu zabezpieczenia ich
+danych.
 
-Do zapewnienia bezpieczeństwa haseł zostało zaimplementowane co następuje:
+Do zapewnienia bezpieczeństwa haseł zostało zaimplementowane, co następuje:
 \begin{itemize}
 \item{połączenia klienta z serwerem} - aplikacja została przygotowana do obsługi protokołu HTTPS,
 zapewniającym szyfrowane połączenie i ochronę danych autoryzacyjnych
-\item{przechowywanie hasła - baza danych przechowuje hasło przekształcone za pomocą funkcji mieszającej SHA-512, dla zwiększenia bezpieczeństwa wykorzystuje się wygenerowaną „sól” 
+\item{przechowywanie hasła — baza danych przechowuje hasło przekształcone za pomocą funkcji mieszającej SHA-512, dla zwiększenia bezpieczeństwa wykorzystuje się wygenerowaną „sól”
 }
 \end{itemize}
 Opis implementacji tych funkcjonalności zostanie opisany w następnym rozdziale.
 
 \paragraph{SQL injection} Z kolei opublikowany w 2017 roku raport OWASP \cite{owasp}
-informuje iż najwięcej ataków na aplikacje internetowe odbywa się poprzez tak zwane SQL injection (z ang.). 
-Opracowany system generował dynamicznie zapytania SQL przez co mógł być narażony na te niebezpieczeństwa i został odpowiednio zabezpieczony.
-Przed tymi zagrożeniami czychającymi na relacyjną bazę danych PostgreSQL chroni aplikację oprogramowanie Slick, które dynamicznie sprawdza typowanie i upewniając się, iż wprowadzone parametry
+informuje, iż najwięcej ataków na aplikacje internetowe odbywa się poprzez tak zwane SQL injection (z ang.).
+Opracowany system generował dynamicznie zapytania SQL przez co, mógł być narażony na te niebezpieczeństwa i został odpowiednio zabezpieczony.
+Przed tymi zagrożeniami czyhającymi na relacyjną bazę danych PostgreSQL chroni aplikację oprogramowanie Slick, które dynamicznie sprawdza typowanie i upewniając się, iż wprowadzone parametry
 zostaną wcześniej przekształcone na odpowiednie typy.
 Baza danych z danymi z sekwencjonowania DNA łączy się z serwerem za pomocą interfejsu JDBC,
-który udostępnia tą samą funkcjonalność poprzez wykorzystanie klasy PreparedStatement \cite{preparedStatement}.
+który udostępnia tę samą funkcjonalność poprzez wykorzystanie klasy PreparedStatement \cite{preparedStatement}.
 
 \newpage
 
@@ -1005,22 +998,22 @@ który udostępnia tą samą funkcjonalność poprzez wykorzystanie klasy Prepar
 \subsection{Struktura folderów}
 Folder o nazwie \textit{src} zawiera pliki źródłowe projektu.
 Platforma Play opiera na strategii Konwencji ponad Konfigurację
-oraz na architekturze Model-Widok-Kontroler, 
-dlatego po stworzeniu nowego projektu, 
+oraz na architekturze Model-Widok-Kontroler,
+dlatego po stworzeniu nowego projektu,
 otrzymujemy podstawowy kontroler i widok wraz z kilkoma plikami konfiguracyjnymi.
-W tej pracy postanowiono wykorzystać rady twórców narzędzia Play 
-odnośnie ułożenia struktury plików, których opis wraz z opisem niektórych plików znajduje się poniżej.
+W tej pracy postanowiono wykorzystać rady twórców narzędzia Play
+odnośnie do ułożenia struktury plików, których opis wraz z opisem niektórych plików znajduje się poniżej.
 
 \subsubsection{Pliki konfiguracyjne}
 Zbudowaniem całego projektu zajmuje się narzędzie Scala Build Tool \cite{sbt}.
 Zależności wymagane do skompilowania i uruchomienia projektu
 umieszczono w pliku \textit{build.sbt} oraz w plikach folderu \textit{project}.
 
-Na tym samym poziomie znajduje plik arkusza kalkulacyjnego - 
+Na tym samym poziomie znajduje plik arkusza kalkulacyjnego -
 \textit{input}\verb!_!\textit{file.xlsx}, w którym podano plik konfiguracyjny paneli filtrów,
 z przykładowymi wartościami.
 Pozostałe pliki odpowiedzialne za konfigurację aplikacji, znajdują
-się w folderze \textit{conf}. 
+się w folderze \textit{conf}.
 Znajdziemy w nim:
 \begin{enumerate}[1)]
 \item \textit{application.conf} - przechowujący między innymi:
@@ -1031,8 +1024,8 @@ Znajdziemy w nim:
 \item ustawienia ciasteczek,
 \end{itemize}
 \item \textit{generated.keystore} - wygenerowany klucz do szyfrowania połączenia,
-\item \textit{routes} - odwzorowanie adresu URL z żądania HTTP, na opdowiedni kontroler 
-i jego  metodę 
+\item \textit{routes} - odwzorowanie adresu URL z żądania HTTP, na odpowiedni kontroler
+i jego metodę
 \end{enumerate}
 
 W tej sekcji należy również wspomnieć o folderze \textit{lib}, zawierającym
@@ -1054,42 +1047,42 @@ W zaprojektowanym systemie stworzono następujące kontrolery:
 \end{enumerate}
 
 Dalej, w folderze \textit{models} znalazły się odwzorowania tabel bazodanowych,
-w postaci klas języka Scala a w katalogu \textit{repository} umieszczone 
+w postaci klas języka Scala a w katalogu \textit{repository} umieszczone
 zostały definicje repozytoriów - obiektów, które pośredniczą
-między warstwą łączącą się z bazą danych a warstwą aplikacji 
+między warstwą łączącą się z bazą danych a warstwą aplikacji
 wykorzystującą odwzorowane już struktury z bazy danych.
-Repozytoria zajmują się przedewszystkim odwzorwowywaniem tabel bazodanowych na 
+Repozytoria zajmują się przede wszystkim odwzorowywaniem tabel bazodanowych na
 modele z folderu \textit{models} ale również filtracją ich, łączeniem
 czy też usuwaniem bądź edycją.
 
-W katalogu \textit{views} umieszczone zostały widoki aplikacji. 
-Warto przypomnieć wykorzystaniu narzędzia Angular 
-i podejścia jednej strony aplikacji. Pliki odpowiedzialne 
-za zmianę strony w przeglądarce internetowej są umieszczone 
+W katalogu \textit{views} umieszczone zostały widoki aplikacji.
+Warto przypomnieć wykorzystaniu narzędzia Angular
+i podejścia jednej strony aplikacji. Pliki odpowiedzialne
+za zmianę strony w przeglądarce internetowej są umieszczone
 w oddzielnym folderze i będą opisane w następnej sekcji.
 
-Katalog \textit{utils}, zawiera pliki z wszelkimi narzędziowymi
+Katalog \textit{utils} zawiera pliki z wszelkimi narzędziowymi
 klasami. Znajdziemy tam folder \textit{dtos} z definicjami obiektów,
 które są przesyłane między serwerem a klientem.
-Metody wykorzystywane podczas autoryzacji użytkowników zostały umieszczone w pliku \textit{Secured} w podfolderze \textit{security} a w \textit{services} znajdziemy 
+Metody wykorzystywane podczas autoryzacji użytkowników zostały umieszczone w pliku \textit{Secured} w podfolderze \textit{security} a w \textit{services} znajdziemy
 serwisy między innymi odpowiedzialne za zapis do pamięci podręcznej czy też
 do pobierania wartości zapisanych w plikach konfiguracyjnych.
- 
+
 \newpage
 \subsubsection{Pliki części klienckiej}
 
-Pliki HTML, Javascript oraz kaskadowych arkuszy stylów umiejscowiono
-w folderze \textit{public}. 
+Pliki HTML, JavaScript oraz kaskadowych arkuszy stylów umiejscowiono
+w folderze \textit{public}.
 Katalog \textit{javascripts} zawiera w sobie biblioteki, wykorzystywane przez
-część kliencką oraz aplik \textit{app.js}, w którym łączone są wszystkie 
+część kliencką oraz aplik \textit{app.js}, w którym łączone są wszystkie
 zależności obiektów platformy Angular oraz konfiguracja powstałego programu.
-Dla ułatwienia pracy i przejżystości projektu, starano się wydzielić każdy element budujący stronę. Każdy taki komponent został umieszczony w podfolderze
-katalogu \textit{modules} razem ze swoim kontrolerem i plikiem HTML odpowiedzialnym 
+Dla ułatwienia pracy i przejżystości projektu starano się wydzielić każdy element budujący stronę. Każdy taki komponent został umieszczony w podfolderze
+katalogu \textit{modules} razem ze swoim kontrolerem i plikiem HTML odpowiedzialnym
 za jego strukturę.
 
 Wszystkie funkcje odpowiedzialne za generowanie
 żądań HTTPS aplikacji wraz z tymi odpowiedzialnymi
-za zapis do pamięci podręcznej przeglądarki zostały umieszczone w 
+za zapis do pamięci podręcznej przeglądarki zostały umieszczone w
 katalogu \textit{services}, a elementy narzędziowe w \textit{utils}.
 
 \subsection{Opis implementacji autoryzacji i sesji}
@@ -1099,13 +1092,13 @@ Obie części wykorzystują mechanizm sesji do rozróżnienia użytkowników
 i do sprawdzenia ich uprawnień.
 
 \paragraph{Część przeglądarkowa}
-Przed przedstwawieniem działania autoryzacji, należy opisać 
-sposób działania sesji w narzędziu Play. Jest to wymagane, ponieważ 
+Przed przedstawieniem działania autoryzacji, należy opisać
+sposób działania sesji w narzędziu Play. Jest to wymagane, ponieważ
 sesja jest ściśle powiązana z zabezpieczeniami.
-Play do rozróżniania podłączonych klientów wykorzystuje  klucz sesji zapisany do
-ciasteczka HTTP pod domyślną nazwą "PLAY\verb!_!SESSION".   
+Play do rozróżniania podłączonych klientów wykorzystuje klucz sesji zapisany do
+ciasteczka HTTP pod domyślną nazwą „PLAY\verb!_!SESSION”.
 Wartością owego klucza jest wygenerowany dla każdego użytkownika pseudolosowy ciąg znaków. Przykład widoczny jest na rysunku numer \ref{fig:cookiespic}.
- 
+
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{obrazy/aplikacja/cookies.png}
 \caption{Ciasteczka używane w aplikacji}
@@ -1114,87 +1107,87 @@ Wartością owego klucza jest wygenerowany dla każdego użytkownika pseudolosow
 \newpage
 
 Platforma Play umożliwia dodawanie dodatkowych ciasteczek do odpowiedzi serwera
-i ta funkcjonalność posłużyła do przekazywania informacji o roli użytkownika przy każdym zapytaniu HTTP wysyłanym po logowaniu.  
+i ta funkcjonalność posłużyła do przekazywania informacji o roli użytkownika przy każdym zapytaniu HTTP wysyłanym po logowaniu.
 
 Program napisany w języku JavaScript zajmuje się zabezpieczeniem
-dostępu do funkcjonalności systemu zależnie od roli użytkownika otrzymanej 
-poprzez ciasteczko. 
-Każda próba dostania się, na którąkolwiek stronę aplikacji przez niezalogowanego użytkownika skutkuje przekierowaniem do widoku logowania. 
-Dzieje się tak dzięki sprawdzaniu czy użytkownik jest zalogowany przy tworzeniu każdego kontrolera Angularowego i przed 
+dostępu do funkcjonalności systemu zależnie od roli użytkownika otrzymanej
+poprzez ciasteczko.
+Każda próba dostania się, na którąkolwiek stronę aplikacji przez niezalogowanego użytkownika skutkuje przekierowaniem do widoku logowania.
+Dzieje się tak dzięki sprawdzaniu, czy użytkownik jest zalogowany przy tworzeniu każdego kontrolera Angular'owego i przed
 wykonaniem jakichkolwiek dodatkowych połączeń z serwerem.
 
-Dzięki zastosowaniu mechanizmu sesji, aplikacja przeglądarkowa nie odstępuje niczym
-od standardów dzisiejszych rozwiązań. 
-Użytkownik ma możliwość odświeżania strony czy też wykorzystania przycisku "Wstecz" przeglądarki bez potrzeby ponownej autoryzacji. 
+Dzięki zastosowaniu mechanizmu sesji aplikacja przeglądarkowa nie odstępuje niczym
+od standardów dzisiejszych rozwiązań.
+Użytkownik ma możliwość odświeżania strony czy też wykorzystania przycisku „Wstecz” przeglądarki bez potrzeby ponownej autoryzacji.
 
 \paragraph{Część serwera}
-Metody serwara udostępnione klientowi do autoryzacji
+Metody serwera udostępnione klientowi do autoryzacji
 znajdują się w klasie kontrolera \textit{Authorization}.
-Funkcja \textit{register} 
-sprawdza dostępność przesłanej nazwy użytkownika a następnie wywołuje 
+Funkcja \textit{register}
+sprawdza dostępność przesłanej nazwy użytkownika a następnie wywołuje
 metodę z obiektu klasy \textit{UserRepository}.
 Następuje wygenerowanie „soli” i za pomocą implementacji funkcji mieszającej
 SHA-512 uzyskujemy skrót nieodwracalny, który zapisujemy do bazy danych wraz z "solą".
 
-By uzyskać dostęp do pozostałych funkjonalności użytkownik musi się zalogować.
+By uzyskać dostęp do pozostałych funkjonalności, użytkownik musi się zalogować.
 Umożliwia to metoda \textit{logIn}, która rozpoczyna ponowne wywołanie
-funkcji mieszającęj dla przesłanego hasła oraz zapisanej w bazie danych „soli”. Pozytywny wynik logowania skutkuje w przesłaniu do przeglądarki
+funkcji mieszającej dla przesłanego hasła oraz zapisanej w bazie danych „soli”. Pozytywny wynik logowania skutkuje w przesłaniu do przeglądarki
 odpowiedzi razem z ciasteczkiem \textit{authenticated}.
-Ciasteczko to ma ustawiony czas życia na pół godziny i jest ponownie 
+Ciasteczko to ma ustawiony czas życia na pół godziny i jest ponownie
 ustawiane na ten czas przy każdym odwołaniu do serwera.
- 
-Nierozważnym byłoby zajmowanie się zabezpieczenim akcji 
-tylko poprzez przesyłanie dodatkowego ciasteczka. 
+
+Nierozważnym byłoby zajmowanie się zabezpieczeniem akcji
+tylko poprzez przesyłanie dodatkowego ciasteczka.
 Ataki hakerów mające na celu uzyskanie informacji o tożsamości i haseł
 klientów różnorakich aplikacji są na porządku dziennym a zmiana
-wartości ciasteczka jest bardzo łatwa.
+wartości ciasteczka, jest bardzo łatwa.
 
 \newpage
-Za sprawdzenie czy dany użytkownik ma uprawnienia pozalające 
-na dostęp do żądanej funkcjonalności odpowiada
+Za sprawdzenie, czy dany użytkownik ma uprawnienia pozwalające
+na dostęp do żądanej funkcjonalności, odpowiada
 cecha (ang. trait) \textit{Secured}.
-Klasy kontrolerów, które wykorzystują ową cechę mogą każdą
+Klasy kontrolerów, które wykorzystują ową cechę, mogą każdą
 swoją akcję poprzedzić odpowiednim sprawdzeniem uprawnień dostępu
-za pomocą następujących metod: 
+za pomocą następujących metod:
 \begin{itemize}
 \item \textit{withAuth} - pozwala na dostęp przy poprawnym kluczu sesji,
 \item \textit{withUser} - pozwala na dostęp przy poprawnym kluczu sesji i roli użytkownika połączonej z sesją,
 \item \textit{withAdmin} - pozwala na dostęp przy poprawnym kluczu sesji i roli administratora połączonej z sesją,
 \end{itemize}
 
-Dzięki tej technice, dodawanie nowych ról przez co zabezpieczanie
+Dzięki tej technice, dodawanie nowych ról, przez co zabezpieczanie
 kolejnych funkcjonalności ogranicza się do dodania jednej metody.
 
 By uzyskać nieuprawniony dostęp do metody zabezpieczonej cechą \textit{Secured},
-należy posiadać klucz sesji zalogowanego w tym samym momencie użytkownika 
-z odpowiednią rolą. 
+należy posiadać klucz sesji zalogowanego w tym samym momencie użytkownika
+z odpowiednią rolą.
 
 Najprostszą drogą do uzyskania tych danych jest podsłuchanie wysyłanych
 żądań HTTP. Utrudnić to ma za zadanie wprowadzenie HTTPS i zablokowanie wysyłania
-ciasteczek gdy serwer wykryje połączenie HTTP. 
-  
-\newpage
-\section{Wnioski i podsumowania}  
+ciasteczek, gdy serwer wykryje połączenie HTTP.
 
-Zaimplementowany system spełnia założenia projektu - aplikacja
-umożliwia dostę po próbek DNA na żądanie, pozwala na filtracje danych
-i zapisywanie wartości w filtrach. 
-System umożliwia rozróżnianie różnych typów użytkowników 
+\newpage
+\section{Wnioski i podsumowania}
+
+Zaimplementowany system spełnia założenia projektu — aplikacja
+umożliwia dostęp po próbek DNA na żądanie, pozwala na filtracje danych
+i zapisywanie wartości w filtrach.
+System umożliwia rozróżnianie różnych typów użytkowników
 i ograniczenie dostępów do danych bądź funkcjonalności zależnie od ich
 roli.
 Dodatkowo dba o bezpieczeństwo
 tożsamości wszystkich użytkowników i przechowywanie ich haseł.
 Co więcej, udało się stworzyć
-architekturę pozwalającą na łatwą rozbudowę 
-i dodawanie nowych funkcjonalności. 
+architekturę pozwalającą na łatwą rozbudowę
+i dodawanie nowych funkcjonalności.
 
 Postarano się na zoptymalizowanie czasu odpowiedzi na zapytanie HTTPS,
-jednak prawdziewe testy, które odbędą się w Zakładzie Genetyki Medycznej Instytutu Matki i Dziecka w Warszawie odpowiedzą na pytanie czy 
+jednak prawdziwe testy, które odbędą się w Zakładzie Genetyki Medycznej Instytutu Matki i Dziecka w Warszawie odpowiedzą na pytanie, czy
 nie będzie potrzeby dalszych modyfikacji. Poza zmniejszeniem
 rozmiaru przesyłanych danych możliwe jest wykorzystanie pamięci podręcznej
-przeglądarki czy też bazy danych, które pojawiają się w przeglądarkach  \cite{w3cDatabase}.
+przeglądarki czy też bazy danych, które pojawiają się w przeglądarkach \cite{w3cDatabase}.
 
-Rejestracja domeny, na której uruchominy będzie serwer,
+Rejestracja domeny, na której uruchomiony będzie serwer,
 w urzędzie certyfikacji jest najważniejszym elementem,
 od którego należy rozpocząć prace w następnym etapie rozwoju systemu.
 
