@@ -69,5 +69,4 @@
 \contentsline {paragraph}{Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} serwera}{47}
 \contentsline {section}{\numberline {11}Wnioski i podsumowania}{49}
 \contentsline {section}{Literatura}{49}
-\contentsline {section}{\numberline {12}Opis zawarto\IeC {\'s}\IeC {\'c} CD}{53}
 \contentsline {section}{Wykaz rysunk\IeC {\'o}w i tabel}{54}

@@ -40,15 +40,14 @@
 \newpage 
 \section*{Streszczenie}
 
-
 Wraz z rozwojem technologii umożliwiających tanie i efektywne
 pozyskiwanie danych z sekwencjonowania DNA, wzrosło zapotrzebowanie
 na stworzenie systemu umożliwiającego analizę wariantów genetycznych wykrytych u pacjentów oraz ich korelację z chorobą.
 
-Praca prezentuje interfejs do rozproszonej bazy danych posiadającej
+Praca prezentuje interfejs do rozproszonej bazy danych, posiadającej
 informacje pozyskane z sekwencjonowania DNA. Aplikacja przeglądarkowa została opracowana
 w języku programowania Scala wraz z wykorzystaniem platformy programistycznej
-Play oraz platformy Angular. Opisany został też schemat bazy danych
+Play oraz platformy Angular. Opisany został też schemat bazy danych,
 stworzonej za pomocą systemu zarządzania relacyjną bazą danych PostgreSQL, która
 przechowuje filtry oraz dane o użytkownikach.
 Poza przypadkami użycia przedstawione zostały także
@@ -66,7 +65,7 @@ Cały system został zaprojektowany łatwy do rozbudowy.
 \item PostgreSQL,
 \item Angular,
 \end{itemize}
-\newpage 
+\newpage
 \section*{Abstract}
 
 \newpage
@@ -74,12 +73,11 @@ Cały system został zaprojektowany łatwy do rozbudowy.
 \includepdf[pages=1]{obrazy/oswiadczenie.pdf}
 \newpage
 \tableofcontents
- 
+
 \newpage
-\section{Wstęp}  
+\section{Wstęp}
 
 \subsection{Motywacja}
-
 
 W dzisiejszych czasach genetyka jest jednym z najważniejszych działów medycyny.
 Dzięki rozwojowi metod sekwencjonowania stała się możliwa skuteczna diagnostyczna wielu chorób o podłożu genetycznym.
@@ -101,8 +99,8 @@ powstał projekt mający na celu połączyć najnowsze technologie i
 praktyki dotyczące rozproszonych baz danych wraz z wiedzą naukową
 lekarzy oraz biologów, tak by stworzyć system umożliwiający
 wspomaganie ich codziennej pracy.
-  
-\subsection{Cel pracy} 
+
+\subsection{Cel pracy}
 
 Celem pracy inżynierskiej jest opracowanie
 interfejsu użytkownika do wspomnianej wcześniej
@@ -121,7 +119,7 @@ liczbę i rodzaj danych, co wymusiło zaprojektowanie specyficznego systemu
 filtrującego, w celu umożliwienia ograniczenia widocznych danych
 do tylko tych potrzebnych klientowi aplikacji.
 
-\subsection{Zawartość rozdziałów} 
+\subsection{Zawartość rozdziałów}
 Drugi rozdział pracy stara się przybliżyć specyfikę danych.
 Odbywa się to poprzez wyjaśnienie biologicznych aspektów pracy, to jest
 wyjaśnienia pochodzenia danych oraz terminologii używanej w pracy inżynierskiej.
@@ -143,7 +141,7 @@ opisuje implementację części funkcjonalności oraz strukturę folderów proje
 Na końcu zawarto wnioski i podsumowania.
 
 \newpage
-\section{Specyfika danych}  
+\section{Specyfika danych}
 Celem zrozumienia specyfiki danych należy przedstawić ich pochodzenie
 i znaczenie.
 
@@ -165,9 +163,8 @@ zakłócenia w funkcjonowaniu naszego organizmu, a warianty
 są elementami, które starają się badać
 lekarze poprzez wyszukiwanie tych, które mogą powodować choroby
 czy też mutacje.
-Białko powstaje w procesie trakrypcji \cite{transkrypcja}, czyli przepisanie DNA na RNA
-i wynik tej operacji konkretnego wariantu.
-
+Białko powstaje w procesie trakrypcji \cite{transkrypcja}, czyli przepisanie DNA na RNA.
+Na potrzeby tej pracy, słowa „gen” i „transkrypt” będą używane zamiennie.
 Jeden wiersz w bazie danych zawiera dokładne informacje na temat danego wariantu DNA, w tym dane o:
 
 \begin{itemize}
@@ -176,72 +173,71 @@ Jeden wiersz w bazie danych zawiera dokładne informacje na temat danego wariant
 \item referencyjnej wartości nukleotydu,
 \item wartości nukleotydu, na którą zmienił wariant,
 \item częstości występowania tego wariantu,
-\item genie, transkrypcie i eksonie, w którym znajduje się wariant
+\item genie i eksonie, w którym znajduje się wariant
 \item efekcie białkowym
 \item wynikach algorytmów predykcyjnych, np. SIFT, Polyphen2, MutationTaster itd.
 \item częstości występowania w kontrolnych bazach danych, np. gnomad ExAC, 1000 genomes itd.
 \item patogenności wariantu, z baz ClinVar, HGMD
 \item powiązaniu danego genu z chorobą (OMIM)
-
 \end{itemize}
 
 Potencjalna liczba kolumn może dochodzić do kilkuset
-i nie jest z góry ograniczona, dlatego system został zaprojektowany, by być niezależnym od modelu bazy danych wariantów.
+i nie jest z góry ograniczona, dlatego system został zaprojektowany tak, by być niezależnym od modelu bazy danych wariantów.
 \newpage
-\section{Wymagania funkcjonalne i niefunkcjonalne}  
+\section{Wymagania funkcjonalne i niefunkcjonalne}
 
-Określenie funkcjonalności dostępnych w budowanej aplikacji, rozpoczęto od określenia 
+Określenie funkcjonalności dostępnych w budowanej aplikacji, rozpoczęto od określenia
 rodzajów użytkowników, którzy mają korzystać z oprogramowania tak by jak najlepiej dostosować system do ich potrzeb i przyśpieszyć ich pracę.
 
-Grupą docelową są analitycy (przede wszystkim diagnosci laboratoryjni), którzy będą poszukiwali możliwych chorób powiązanych z wariantem pacjenta, aby wykryć niebezpieczeństwa i móc jak najwcześniej postawić diagnozę. 
-Dane będą rozpatrywać w kontekście jednego pacjetnta i nalezy umożliwić łatwe rozróznienie genotypów.
+Grupą docelową są analitycy (przede wszystkim diagności laboratoryjni), którzy będą poszukiwali możliwych chorób powiązanych z wariantem pacjenta, aby wykryć niebezpieczeństwa i móc jak najwcześniej postawić diagnozę.
+Dane będą rozpatrywać w kontekście jednego pacjenta i należy umożliwić łatwe rozróżnienie genotypów.
 
 Inną istotną kwestią wziętą pod uwagę był typ i wielkość danych, jakie mają być wyświetlane użytkownikom.
-W trakcie projektowania architektury jako dane przykładowe zostala pobrana lista wariantow dla jednego transkryptu dostępne w aplikacji ExAC instututu Broad \cite{exac} \cite{exacCite}. Dane te 
-podobnie jak te w rozproszonej bazie danych posiadały ponad 30 kolumn i oczywistym wydało się że różnymch użytkowników będzie interesowała tylko część informacji o genotypie i należało by umożliwić im filtrację oraz zakrywanie niepotrzebnych kolumn. 
-Jedna próbka z docelowej bazy danych liczy sobie więcej niż 20000 wierszy co wymogło zaproponowania 
-funkcjonalności umożliwiające na poprawne i intuicyjne ich filtrowanie 
-tak aby użytkownik otrzymywał tylko interesujące go rekordy.
+W trakcie projektowania architektury jako dane przykładowe została pobrana lista wariantów dla jednego transkryptu dostępne w aplikacji ExAC instututu Broad \cite{exac} \cite{exacCite}. Dane te
+podobnie jak te w rozproszonej bazie danych posiadały kilkadziesiąt kolumn i oczywistym wydało się, że różnych użytkowników będzie interesowała tylko część informacji o genotypie i należałoby umożliwić im filtrację oraz zakrywanie niepotrzebnych kolumn.
+Jedna próbka z docelowej bazy danych liczy sobie więcej niż 20000 wierszy, co wymogło zaproponowania
+funkcjonalności umożliwiające na poprawne i intuicyjne ich filtrowanie
+tak, aby użytkownik otrzymywał tylko interesujące go rekordy.
 
 \subsection{Wymagania funkcjonalne}
 Zostały określone następujące funkcjonalności. Aplikacja:
 
- \begin{enumerate}[1)]
- \item rejestruje użytkowników,
- \item autoryzuje użytkowników,
- \item umożliwia wybór próbki do analizy,
- \item pozwala na wprowadzenie wcześniej zdefiniowanych filtrów z panelu administratora,
- \item wyświetla dane z sekwencjonowania DNA dla konkretnej próbki,
- \item filtruje dane po stronie serwera i wysyła je użytkownikowi,
- \item zlicza dane przy zadanych filtrach i informuje użytkownika o wyniku,
- \item umożliwia zmianę wartości filtrów,
- \item pozwala na wyłączenie z filtracji dowolnej części filtrów,
- \item zapisuje wartości filtrów oddzielnie dla każdego użytkownika,
- \item sortuje dane po stronie użytkownika,
- \item filtruje dane po stronie użytkownika,
- \item udostępnia administratorowi możliwość zmiany dostępu do próbek 
- każdego użytkownika,
- \item daje możliwość zakrycia na stronie aplikacji części danych,	
- \end{enumerate}
- 
+\begin{enumerate}[1)]
+\item rejestruje użytkowników,
+\item autoryzuje użytkowników,
+\item umożliwia wybór próbki do analizy,
+\item pozwala na wprowadzenie wcześniej zdefiniowanych filtrów z panelu administratora,
+\item wyświetla dane z sekwencjonowania DNA dla konkretnej próbki,
+\item filtruje dane po stronie serwera i wysyła je użytkownikowi,
+\item zlicza dane przy zadanych filtrach i informuje użytkownika o wyniku,
+\item umożliwia zmianę wartości filtrów,
+\item pozwala na wyłączenie z filtracji dowolnej części filtrów,
+\item zapisuje wartości filtrów oddzielnie dla każdego użytkownika,
+\item sortuje dane po stronie użytkownika,
+\item filtruje dane po stronie użytkownika,
+\item udostępnia administratorowi możliwość zmiany dostępu do próbek
+każdego użytkownika,
+\item daje możliwość zakrycia na stronie aplikacji części danych,
+\end{enumerate}
+
 Funkcjonalność umożliwiająca wprowadzanie wcześniej zdefiniowanych filtrów spowodowała stworzenie
-specjalnej klasy użytkowników, to jest administratorów, którzy będą zarządzali strukturą filtrów poprzez wprowadzenie odpowiedniego pliku z specjalnie przygotowanego panelu administracyjnego
+specjalnej klasy użytkowników, to jest administratorów, którzy będą zarządzali strukturą filtrów poprzez wprowadzenie odpowiedniego pliku ze specjalnie przygotowanego panelu administracyjnego
 oraz będą zarządzać dostępem do próbek dla użytkowników.
 
 \subsection{Wymagania niefunkcjonalne}
 Aplikacja:
- \begin{enumerate}[1)]
-  \item szyfruje wysyłane dane między klientem a serwerem za pomocą protokołu HTTPS,
-  \item wykorzystuje funkcję SHA-512\cite{sha} do zabezpieczenia hasła użytkownika,
-  \item korzysta z „soli” przy wyliczaniu funkcji skrótu,
-  \item wykorzystuje darmowe oprogramowanie,
- \end{enumerate}
+\begin{enumerate}[1)]
+\item szyfruje wysyłane dane między klientem a serwerem za pomocą protokołu HTTPS,
+\item wykorzystuje funkcję SHA-512 \cite{sha} do zabezpieczenia hasła użytkownika,
+\item korzysta z „soli” przy wyliczaniu funkcji skrótu,
+\item wykorzystuje darmowe oprogramowanie,
+\end{enumerate}
 
 \newpage
-\section{Istniejące rozwiązania}  
+\section{Istniejące rozwiązania}
 
-Konieczność posiadania aplikacji umożliwiającej analizę danych z genomów 
-jest powszechnie znane od dłuższego czasu. W związku z powyższym 
+Konieczność posiadania aplikacji umożliwiającej analizę danych z genomów
+jest powszechnie znana od dłuższego czasu. W związku z powyższym
 powstało wiele rozwiązań,
 komercyjnych i niekomercyjnych, które starają się sprostać wymaganiom wszystkich użytkowników. W tej sekcji przedstawione zostaną najpopularniejsze opcje.
 
@@ -252,27 +248,27 @@ poza wyświetlaniem danych wariantów, umożliwia między innymi:
 \item zaawansowane filtrowanie,
 \item eksporty wyników do plików,
 \item udostępnienie swojego raportu innemu użytkownikowi,
-\end{itemize} 
-  
-Jest to jednak oprogramowanie komercyjne, co wykluczyło go z dalszych 
+\end{itemize}
+
+Jest to jednak oprogramowanie komercyjne, co wykluczyło go z dalszych
 rozważań.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{obrazy/exac/ingenuity.jpg}
-  \caption{Ingenuity Variant Analysis \cite{ingenuity}}
-  \label{fig:ingenuitypic}
+\caption{Ingenuity Variant Analysis \cite{ingenuity}}
+\label{fig:ingenuitypic}
 \end{figure}
 \newpage
 
 \paragraph{ExAC Browser} ExAC Browser \cite{exac} \cite{exacCite} jest aplikacją, tworzoną przez koalicję badaczy i informatyków, w celu
 udostępnienia danych kodujących białka szerszemu gronu badaczy.
 Dokonują tego poprzez harmonizację i agregację danych z wielu projektów.
-Jednymi z najmocniejszych zalet aplikacji jest prezentują dane w postaci tabel, wykresów oraz umożliwianie eksportu danych.
+Jednymi z najmocniejszych zalet aplikacji jest prezentacja danych w postaci tabel, wykresów oraz umożliwianie eksportu danych.
 Mimo iż jest to wolne oprogramowanie, nie zdecydowano się na jego wykorzystanie, ponieważ:
 \begin{enumerate}[1)]
 \item podczas rozważań oprogramowanie było dopiero w wersji beta,
 \item brakowało funkcjonalności filtrowania danych transkryptu,
-\item brakowało rozróżnienia użytkowników a to powodowało:
+\item brakowało rozróżnienia użytkowników, a to powodowało:
 \begin{itemize}
 \item brak możliwości personalizacji aplikacji dla użytkownika,
 \item brak kontroli nad dostępami do próbek,
@@ -282,7 +278,7 @@ Mimo iż jest to wolne oprogramowanie, nie zdecydowano się na jego wykorzystani
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{obrazy/exac/broad.png}
 \caption{Zrzut ekranu z aplikacji ExAC Browser \cite{exac}. Strona przestawia listę wariantów dla wybranego genu.}
-  \label{fig:broadpic}
+\label{fig:broadpic}
 \end{figure}
 
 \newpage
@@ -311,13 +307,13 @@ musi ponownie ukrywać bądź odsłaniać interesujące go kolumny,
 \item brak ograniczanie dostępu do próbek — każdy użytkownik ma dostęp
 do wszystkich próbek,
 \end{enumerate}
+\newpage
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{obrazy/exac/miner.png}
-  \caption{Zrzut ekranu z aplikacji VCF-Miner \cite{miner}. Strona przestawia listę wariantów dla wybranego genu oraz moduł filtrujący.}
-  \label{fig:minerpic}
+\caption{Zrzut ekranu z aplikacji VCF-Miner \cite{miner}. Strona przestawia listę wariantów dla wybranego genu oraz moduł filtrujący.}
+\label{fig:minerpic}
 \end{figure}
-
 
 \newpage
 \section{Wybór technologi}
@@ -342,6 +338,7 @@ wymagało wybrania odpowiedniego systemu zarządzania bazą danych.
 Model bazodanowy został zaprojektowany w modelu opartym na relacyjnej organizacji danych, przez co wybór ograniczył się do
 darmowych technologii realizujących relacyjne bazy danych.
 
+\newpage
 Biorąc pod uwagę powyższe kryteria, można porównać najpopularniejsze systemami, są nimi\cite{porownanieBaz}:
 \begin{itemize}
 \item MqSQL,
@@ -386,19 +383,19 @@ Biorąc pod uwagę powyższe kryteria, można porównać najpopularniejsze syste
 
 \subsubsection{Uzasadnienie wyboru PostgreSQL}
 Po analizie ostateczny wybór systemem padł na PostgreSQL.
-To otwarte i darmowe oprogramowanie posiada bardzo dużą społeczność, której wiedza jest łatwo dostępna w internecie 
-i posiada wiele narzędzi i bibliotek przeznaczonych do pracy z owym systemem. 
-Istotny wpływ na decyzje miała również łatwość integracji PostgreSQL na inne systemy.  
+To otwarte i darmowe oprogramowanie posiada bardzo dużą społeczność, której wiedza jest łatwo dostępna w internecie
+i posiada wiele narzędzi i bibliotek przeznaczonych do pracy z owym systemem.
+Istotny wpływ na decyzje miała również łatwość integracji PostgreSQL na inne systemy.
 
-\subsection{Slick}  
-Pracę z bazą danych po stronie serwera aplikacyjnego 
+\subsection{Slick}
+Pracę z bazą danych po stronie serwera aplikacyjnego
 znacznie ułatwia oprogramowanie pozwalające na odwzorowanie obiektowo-relacyjne tabel bazodanowych na obiekty języka programowania.
 Dzięki tej technice programista może traktować obiekty bazodanowe jak elementy kolekcji czy pola obiektów.
 
-Takim narzędziem jest stworzone przez firmę Lightbend, Inc. 
+Takim narzędziem jest stworzone przez firmę Lightbend, Inc.
 oprogramowanie Slick\cite{slick} pozwalające na pełną kontrolę nad bazą danych oraz pisanie klasycznych zapytań SQL.
 
-\subsection{JDBC}  
+\subsection{JDBC}
 Baza danych zawierająca dane o sekwencjonowaniu DNA jest kolumnowo zorientowaną bazą danych opartą na systemie Apache Kudu \cite{kudu}. W przeciwieństwie do tradycyjnych systemów bazodanowych gdzie dane składowane są poziomo, czyli wierszami, w kolumnowych systemach dane przechowywane są pionowo — kolumnami.
 Kudu zajmuje się składowaniem danych, za wykonywanie zapytań SQL
 odpowiada całkowicie zintegrowane z Kudu oprogramowanie Impala \cite{impala} \cite{impalaArt} udostępniająca interfejs JDBC.
@@ -448,7 +445,7 @@ dodatkowych funkcjonalności języka JavaScript w standardzie ECMAScript 2015 \c
 \newpage
 
 \section{Przypadki użycia}
-\subsection{Autoryzacja} 
+\subsection{Autoryzacja}
 \subsubsection{Role}
 Administratorem nazywana jest osoba mająca dostęp do bazy danych aplikacji, ustalająca
 widoczne dla użytkowników próbki oraz zarządzająca strukturą filtrów.
@@ -474,7 +471,7 @@ Po zalogowaniu się do aplikacji przed użytkownikiem pojawia się główna czę
 Każda próbka (odpowiadająca wynikom jednego pacjenta), dostępna w bazie danych posiada indywidualny identyfikator pozwalający na
 rozróżnienie jej od innych próbek. Ów identyfikator jest ciągiem znaków, który wyświetlany jest
 alfabetycznie posortowanej liście. Użytkownik widzi tylko próbki udostępnione przez administratora
-i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie w identyfikator próbki,
+i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie identyfikator próbki,
 co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA.
 
 \begin{figure}[h!]
@@ -503,7 +500,7 @@ Pod obserwację wzięto:
 \item czas wygenerowania i wykonania zapytania SQL,
 \item czas wygenerowania przez przeglądarkę elementów HTML tabeli,
 \end{itemize}
-Wykonane testy wykazały, że największy narzut czasowy na ładowanie się strony, miał ostatni
+Wykonane testy wykazały, że duży narzut czasowy na ładowanie się strony, miał ostatni
 element, to znaczy rysowanie tabeli przez przeglądarkę.
 
 Wada ta została zniwelowana poprzez wprowadzenie paginacji zwanej też stronicowaniem.
@@ -575,7 +572,7 @@ wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym.
 \begin{figure}
 \centering
 \includegraphics[height=0.95\textheight]{obrazy/aplikacja/filters.png}
-\caption{Filtry}
+\caption{Widok modułu filtrującego.}
 \label{fig:filterspic}
 \end{figure}
 
@@ -586,7 +583,7 @@ przedstawia rozmiar danych, który zostałby pobrany dla każdego filtru.
 
 Przypadek 1 na diagramie ilustruje sytuację, gdy tylko jeden filtr jest aktywny.
 Wynikiem filtracji jest wtedy 3840, czyli tyle ile ograniczają warunki Filtru numer 3.
-Przypadek 2 przedstawia zdarzenie, gdy włączone są dwa filtry: „Filtr 1” oraz „Filtr 2”. Następuje filtracja danych względem najwyższego filtru, a następnie ostatniego,
+Przypadek 2 przedstawia zdarzenie, gdy włączone są dwa filtry: „Filtr 1” oraz „Filtr 3”. Następuje filtracja danych względem najwyższego filtru, a następnie ostatniego,
 z pominięciem wszystkich filtrów pomiędzy nimi.
 Dane są ograniczone w tym przypadku do 3584.
 Ostatnia rubryka na diagramie ilustruje moment, gdy wszystkie filtry są aktywne.
@@ -650,7 +647,7 @@ filtrów, o czym będzie mowa w następnym paragrafie.
 \paragraph{Zarządzanie filtrami}
 
 Zmiana struktury filtrów odbywa się z panelu administratora poprzez wysłanie
-z przeglądarki na serwer plik arkusza kalkulacyjnego o ustalonym formacie. Przykładowe dane są widoczne na rysunku \ref{fig:input_filepic}.
+z przeglądarki na serwer pliku arkusza kalkulacyjnego o ustalonym formacie. Przykładowe dane są widoczne na rysunku \ref{fig:input_filepic}.
 W pierwszej kolumnie podaje się nazwę panelu, do której przypisywany
 jest filtr o nazwie podanej w drugiej kolumnie. W trzeciej kolumnie należy podać nazwę kolumny, do której
 odnosić się będzie pole filtru, a następnie relację między wprowadzaną wartością a kolumną.
@@ -791,10 +788,10 @@ W celu znalezienia przyczyny i poprawienia sprawności
 wytypowano następujące elementy działania aplikacji podejrzewane o duże narzuty czasowe:
 
 \begin{itemize}
-\item rozmiar przesyłanych danych
-\item czas trwania żądania HTTP
-\item czas generowania modelu w części klienckiej
-\item czas dodawania elementów do DOM-u przeglądarki przez platformę Angular
+\item rozmiar przesyłanych danych,
+\item czas odpowiedzi na żądanie HTTP,
+\item czas generowania modelu w części klienckiej,
+\item czas dodawania elementów do DOM-u przeglądarki przez platformę Angular,
 \end{itemize}
 
 Środowisko testowe stanowił komputer typu laptop z
@@ -862,7 +859,7 @@ Poniżej w tabeli numer \ref{table:httpRequestTime} przedstawiany jest średni c
 & 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
 czas trwania żądania HTTP& 5.66s & 9.54s & 19.21s \\ \hline
-czas przetwarzania danych na serwerze& 4856ms& 7882ms& 17379ms\\ \hline
+czas przetwarzania danych na serwerze& 4.85s& 7.88s& 17.37s\\ \hline
 \end{tabular}
 \caption{Czasy trwania żądania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych. }
 \label{table:httpRequestTime}
@@ -887,10 +884,10 @@ mechanizmu pamięci podręcznej.
 \hline
 & 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-czas trwania żądania HTTP& 0.615ms & 2.55s& 4.57s \\ \hline
-czas przetwarzania danych& 147ms& 126ms& 163ms\\ \hline
+czas trwania żądania HTTP& 0.61s & 2.55s& 4.57s \\ \hline
+czas przetwarzania danych& 0.14s& 0.12s& 0.16s\\ \hline
 \end{tabular}
-\caption{Czasy trwania żądania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu mechanizmu pamięci podręcznej}
+\caption{Czasy trwania żądania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu mechanizmu pamięci podręcznej.}
 \label{table:httpRequestTimeCache}
 \end{table}
 
@@ -905,7 +902,7 @@ funkcje biblioteki Lodash. Poniżej w tabeli numer \ref{table:lodashTime} przeds
 \hline
 & 1.3MB&13.8MB& 34.2MB\\
 \hline
-przekształcenia modelu w przeglądarce& 105ms & 991ms& 2052ms\\ \hline
+przekształcenia modelu w przeglądarce& 0.11s & 0.29s& 0.91s\\ \hline
 \end{tabular}
 \caption{Czasy przekształceń w przeglądarce klienckiej względem rozmiaru obiektu}
 \label{table:lodashTime}
@@ -925,9 +922,9 @@ wyniki.
 \hline
 & 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-300 wierszy& 3806ms & 4329ms& 5783ms\\ \hline
+300 wierszy& 3.81s & 4.33s& 5.78s\\ \hline
 1000 wierszy& 11.82s & 13.05s& 16.07s\\ \hline
-5000 wierszy& 35403ms & ~4min& >5min\\ \hline
+5000 wierszy& 35.4s & \textasciitilde 4min& >5min\\ \hline
 \end{tabular}
 \caption{Czasy dodawania elementów do DOM-u HTML przez platformę Angular}
 \label{table:tableRender}
@@ -951,9 +948,9 @@ Poniższa tabela o numerze \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane
 \hline
 & 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-300 wierszy& 3739ms& 4744ms& 5100ms\\ \hline
+300 wierszy& 3.73s& 4.74s& 5.1s\\ \hline
 1000 wierszy& 10.86s & 15.69s& 18.93s\\ \hline
-5000 wierszy& 19.61s& ~3min& >5min\\ \hline
+5000 wierszy& 19.61s& \textasciitilde 3min& >5min\\ \hline
 \end{tabular}
 \caption{Czasy dodawania elementów do DOM-u HTML przez platformę Angular}
 \label{table:tableRenderNgIf}
@@ -991,6 +988,7 @@ zapewniającym szyfrowane połączenie i ochronę danych autoryzacyjnych
 \item{przechowywanie hasła — baza danych przechowuje hasło przekształcone za pomocą funkcji mieszającej SHA-512, dla zwiększenia bezpieczeństwa wykorzystuje się wygenerowaną „sól”
 }
 \end{itemize}
+
 Opis implementacji tych funkcjonalności zostanie opisany w następnym rozdziale.
 
 \paragraph{SQL injection} Z kolei opublikowany w 2017 roku raport OWASP \cite{owasp}
@@ -1134,7 +1132,7 @@ Użytkownik ma możliwość odświeżania strony czy też wykorzystania przycisk
 Metody serwera udostępnione klientowi do autoryzacji
 znajdują się w klasie kontrolera \textit{Authorization}.
 Funkcja \textit{register}
-sprawdza dostępność przesłanej nazwy użytkownika a następnie wywołuje
+sprawdza dostępność przesłanej nazwy użytkownika, a następnie wywołuje
 metodę z obiektu klasy \textit{UserRepository}.
 Następuje wygenerowanie „soli” i za pomocą implementacji funkcji mieszającej
 SHA-512 uzyskujemy skrót nieodwracalny, który zapisujemy do bazy danych wraz z "solą".
@@ -1180,7 +1178,7 @@ ciasteczek, gdy serwer wykryje połączenie HTTP.
 \section{Wnioski i podsumowania}
 
 Zaimplementowany system spełnia założenia projektu — aplikacja
-umożliwia dostęp po próbek DNA na żądanie, pozwala na filtracje danych
+umożliwia dostęp do próbek DNA na żądanie, pozwala na filtracje danych
 i zapisywanie wartości w filtrach.
 System umożliwia rozróżnianie różnych typów użytkowników
 i ograniczenie dostępów do danych bądź funkcjonalności zależnie od ich
@@ -1212,133 +1210,132 @@ aplikacji. Przykładami takich usprawnień mogłyby być:
 \addcontentsline{toc}{section}{Literatura}
 \newpage
 
-
 \begin{thebibliography}{99}
 
 \bibitem{dna}
-Wikimedia Foundation, Inc.  - DNA
+Wikimedia Foundation, Inc. — DNA
 Available at: https://en.wikipedia.org/wiki/DNA (Accessed: 10 August 2017).
 
 \bibitem{geneticCode}
-Wikimedia Foundation, Inc.  - Genetic code
+Wikimedia Foundation, Inc. — Genetic code
 Available at: https://en.wikipedia.org/wiki/Genetic\verb!_!code (Accessed: 10 August 2017).
 
 \bibitem{nukleotydy}
-Wikimedia Foundation, Inc.  - Nucleotide
+Wikimedia Foundation, Inc. — Nucleotide
 Available at: https://en.wikipedia.org/wiki/Nucleotide (Accessed: 10 August 2017).
 
 \bibitem{transkrypcja}
-Wikimedia Foundation, Inc.  - Transcription
+Wikimedia Foundation, Inc. — Transcription
 Available at: https://en.wikipedia.org/wiki/https://en.wikipedia.org/wiki/Transcription\verb!_!(biology) (Accessed: 10 August 2017).
 
 \bibitem{ingenuity}
-QIAGEN - Ingenuity Variant Analysis
+QIAGEN — Ingenuity Variant Analysis
 Available at: https://www.qiagenbioinformatics.com/products/ingenuity-variant-analysis/ (Accessed: 10 August 2017).
 
 \bibitem{jezykScala}
-École Polytechnique Fédérale - Scala documentation,
+École Polytechnique Fédérale — Scala documentation,
 Available at: http://docs.scala-lang.org/ (Accessed: 10 August 2017).
 
 \bibitem{spark}
-The Apache Software Foundation - Apache Spark Available at: https://spark.apache.org/ (Accessed: 10 August 2017).
+The Apache Software Foundation — Apache Spark Available at: https://spark.apache.org/ (Accessed: 10 August 2017).
 
 \bibitem{exac}
-Exac Browser Data - Exome Aggregation Consortium  
+Exac Browser Data — Exome Aggregation Consortium
 Available at: http://exac.broadinstitute.org/ (Accessed: 10 August 2017).
 
-\bibitem{testData}
-Exac Browser Data - Exome Aggregation Consortium  
-Available at: http://exac.broadinstitute.org/transcript/ENST00000407236 (Accessed: 10 August 2017).
-
 \bibitem{exacCite}
-Lek, Monkol, et al. - Analysis of protein-coding genetic variation in 60,706 humans
+Lek, Monkol, et al.— Analysis of protein-coding genetic variation in 60,706 humans
 Available at: http://www.nature.com/nature/journal/v536/n7616/full/nature19057.html
 (Accessed: 10 August 2017).
 
+\bibitem{testData}
+Exac Browser Data — Exome Aggregation Consortium
+Available at: http://exac.broadinstitute.org/transcript/ENST00000407236 (Accessed: 10 August 2017).
+
 \bibitem{miner}
-Steven N. Hart, Patrick Duffy et al. - VCF-Miner 
+Steven N. Hart, Patrick Duffy et al.— VCF-Miner
 Available at: https://github.com/Steven-N-Hart/vcf-miner (Accessed: 10 August 2017).
 
 \bibitem{minerArt}
-Steven N. Hart, Patrick Duffy et al. - VCF-Miner: GUI-based application for mining variants and annotations stored in VCF files 
+Steven N. Hart, Patrick Duffy et al.— VCF-Miner: GUI-based application for mining variants and annotations stored in VCF files
 Available at: https://academic.oup.com/bib/article-lookup/doi/10.1093/bib/bbv051 (Accessed: 10 August 2017).
 
 \bibitem{vcfformat}
-IGSR  - VCF (Variant Call Format) version 4.0
+IGSR — VCF (Variant Call Format) version 4.0
 Available at: http://www.internationalgenome.org/wiki/Analysis/vcf4.0/ (Accessed: 10 August 2017).
 
 \bibitem{cache}
-Terracotta, Inc. - Ehcache 
+Terracotta, Inc.— Ehcache
 Available at: http://www.ehcache.org/ (Accessed: 10 August 2017).
 
 \bibitem{porownanieBaz}
-Hostovita sp. z o.o. - Porównanie relacyjnych SZBD: SQLite, MySQL, PostgreSQL
+Hostovita sp. z o.o. —Porównanie relacyjnych SZBD: SQLite, MySQL, PostgreSQL
 Available at:
 https://hostovita.pl/blog/porownanie-relacyjnych-systemow-zarzadzania-bazami-danych-sqlite-mysql-postgresql/ (Accessed: 10 August 2017).
 
 \bibitem{slick}
-Lightbend, Inc - Slick documentation. Available at:
+Lightbend, Inc — Slick documentation. Available at:
 http://slick.lightbend.com/docs/ (Accessed: 10 August 2017).
 
 \bibitem{kudu}
-The Apache Software Foundation - Apache Kudu Available at:
+The Apache Software Foundation — Apache Kudu Available at:
 https://kudu.apache.org/ (Accessed: 20 August 2017)
 
 \bibitem{impala}
-The Apache Software Foundation - Apache Impala Available at:
+The Apache Software Foundation — Apache Impala Available at:
 https://impala.apache.org/(Accessed: 20 August 2017)
 
 \bibitem{impalaArt}
-Bittorf, M. K. A. B. V., et al. - Impala: A modern, open-source SQL engine for Hadoop.
+Bittorf, M. K. A. B. V., et al.— Impala: A modern, open-source SQL engine for Hadoop.
 Available at: http://web.eecs.umich.edu/~mozafari/fall2015/eecs584/papers/impala.pdf (Accessed: 20 August 2017)
 
 \bibitem{ecma}
-Ecma International - ECMAScript 2015
+Ecma International — ECMAScript 2015
 Available at: https://www.ecma-international.org/ecma-262/6.0/ (Accessed: 20 August 2017)
 
 \bibitem{lodash}
-JS Foundation - Lodash
+JS Foundation — Lodash
 Available at: https://lodash.com/ (Accessed: 20 August 2017)
 
 \bibitem{nortonSec}
-Norton Cybersecurity Insigth Report 
+Norton Cybersecurity Insigth Report
 Available at: https://us.norton.com/norton-cybersecurity-insights-report-global (Accessed: 20 August 2017).
 
 \bibitem{owasp}
-OWASP Top 10 Application Security Risks - 2017 Available at: 
+OWASP Top 10 Application Security Risks 2017 Available at:
 https://www.owasp.org/index.php/Top\verb!_!10\verb!_!2017-Top\verb!_!10 (Accessed: 20 August 2017).
 
 \bibitem{preparedStatement}
-Oracle - Java™ Platform Standard Ed. 8 documentation
+Oracle— Java™ Platform Standard Ed. 8 documentation
 https://docs.oracle.com/javase/8/docs/api/java/sql/PreparedStatement.html (Accessed: 20 August 2017).
 
 \bibitem{pgModeler}
-Raphael A. Silva - pgModeler Available at: https://pgmodeler.com.br/
+Raphael A. Silva — pgModeler Available at: https://pgmodeler.com.br/
 (Accessed: 24 August 2017).
 
 \bibitem{w3cDatabase}
-World Wide Web Consortium - IndexedDB Available at: https://www.w3.org/TR/IndexedDB/
+World Wide Web Consortium — IndexedDB Available at: https://www.w3.org/TR/IndexedDB/
 (Accessed: 24 August 2017).
 
 \bibitem{sbt}
-Lightbend Inc. - Scala Build Tool 
- Available at: http://www.scala-sbt.org/
+Lightbend Inc. — Scala Build Tool
+Available at: http://www.scala-sbt.org/
 (Accessed: 24 August 2017).
 
 \bibitem{sha}
-Wikimedia Foundation, Inc.  - Secure Hash Algorithms 
+Wikimedia Foundation, Inc. — Secure Hash Algorithms
 Available at: https://en.wikipedia.org/wiki/Secure\verb!_!Hash\verb!_!Algorithms
 (Accessed: 24 August 2017).
 \end{thebibliography}
 
 \newpage
-\section{Opis zawartość CD}
+\section*{Opis zawartości CD}
 
 Na płycie CD znajduje się, co następuje:
 \begin{enumerate}[1)]
 \item katalog \textit{src} z plikami źródłowymi projektu,
 \item plik \textit{dokument.pdf} z pisemną pracą dyplomową,
-\item plik \textit{Instrukcja uruchomienia aplikacji z przykładowymi danymi} z instrukcja instalacji systemu wraz z bazą danych,
+\item plik \textit{Instrukcja uruchomienia aplikacji z przykładowymi danymi} z instrukcją instalacji systemu wraz z bazą danych,
 \item skrypt \textit{createDatabase.sql} tworzący tabele bazodanowe,
 \item skrypt \textit{inz}\verb!_!\textit{data.sql} tworzący tabele bazodanowe i wypełniający je przykładowymi danymi,
 \end{enumerate}
