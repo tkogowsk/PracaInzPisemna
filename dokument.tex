@@ -681,7 +681,7 @@ Po zarejestrowaniu się do aplikacji, użytkownik nie jest przypisany do żadnej
 \newgeometry{left=0.5cm,bottom=0.5cm, right=0.5cm, top=0.5cm}
 \section{Schemat bazy danych}
 \begin{figure}[h!]
-\includegraphics[width=\textwidth, height=0.9\textheight]{obrazy/aplikacja/database.png}
+\includegraphics[width=\textwidth, height=0.9\textheight]{obrazy/aplikacja/database2.png}
 \caption{Schamat bazy danych}
 \label{fig:bazadanych}
 \end{figure}
@@ -938,8 +938,8 @@ suwakiem widocznej tabelki uniemożliwiałyby efektywną pracę.
 
 Po zaimplementowaniu funkcjonalności ukrykwania kolumn ponowiono testy przy ukrytych 17 kolumnach. Angular zapewnia dwie dyrektywy, które można było zastosować przy tej funkcjonalności. Są to:
 \begin{itemize}
-\item ng-show bądź ng-hide - które ukrywają dany element poprzez style CSS
-\item ng-if - która nie dodaje elementu do DOM-u przeglądarki
+\item ng-show bądź ng-hide — które ukrywają dany element poprzez style CSS
+\item ng-if — która nie dodaje elementu do DOM-u przeglądarki
 \end{itemize}
 
 Poniższa tabela o numerze \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane z dyrektywą ng-if przy ukrytych 17 kolumnach.
@@ -983,7 +983,7 @@ danych.
 
 Do zapewnienia bezpieczeństwa haseł zostało zaimplementowane, co następuje:
 \begin{itemize}
-\item{połączenia klienta z serwerem} - aplikacja została przygotowana do obsługi protokołu HTTPS,
+\item{połączenia klienta z serwerem} — aplikacja została przygotowana do obsługi protokołu HTTPS,
 zapewniającym szyfrowane połączenie i ochronę danych autoryzacyjnych
 \item{przechowywanie hasła — baza danych przechowuje hasło przekształcone za pomocą funkcji mieszającej SHA-512, dla zwiększenia bezpieczeństwa wykorzystuje się wygenerowaną „sól”
 }
@@ -1017,22 +1017,22 @@ Zbudowaniem całego projektu zajmuje się narzędzie Scala Build Tool \cite{sbt}
 Zależności wymagane do skompilowania i uruchomienia projektu
 umieszczono w pliku \textit{build.sbt} oraz w plikach folderu \textit{project}.
 
-Na tym samym poziomie znajduje plik arkusza kalkulacyjnego -
+Na tym samym poziomie znajduje plik arkusza kalkulacyjnego —
 \textit{input}\verb!_!\textit{file.xlsx}, w którym podano plik konfiguracyjny paneli filtrów,
 z przykładowymi wartościami.
 Pozostałe pliki odpowiedzialne za konfigurację aplikacji, znajdują
 się w folderze \textit{conf}.
 Znajdziemy w nim:
 \begin{enumerate}[1)]
-\item \textit{application.conf} - przechowujący między innymi:
+\item \textit{application.conf} — przechowujący między innymi:
 \begin{itemize}
 \item informacje o adresie bazy danych,
 \item nazwę i hasło użytkownika bazodanowego,
 \item nazwę tabeli z danymi z sekwencjonowania DNA,
 \item ustawienia ciasteczek,
 \end{itemize}
-\item \textit{generated.keystore} - wygenerowany klucz do szyfrowania połączenia,
-\item \textit{routes} - odwzorowanie adresu URL z żądania HTTP, na odpowiedni kontroler
+\item \textit{generated.keystore} — wygenerowany klucz do szyfrowania połączenia,
+\item \textit{routes} — odwzorowanie adresu URL z żądania HTTP, na odpowiedni kontroler
 i jego metodę
 \end{enumerate}
 
@@ -1048,15 +1048,15 @@ przeglądarek klientów aplikacji.
 Folder \textit{controllers} zawiera w sobie kontrolery aplikacji.
 W zaprojektowanym systemie stworzono następujące kontrolery:
 \begin{enumerate}[1)]
-\item \textit{Admin} - odpowiadający za akcje administratorów,
-\item \textit{Application} - odpowiadający za akcje użytkowników,
-\item \textit{Authorization} - odpowiadający za autoryzację użytkowników,
-\item \textit{Upload} - odpowiadający za załadowanie nowego pliku z definicją panelu filtrującego,
+\item \textit{Admin} — odpowiadający za akcje administratorów,
+\item \textit{Application} — odpowiadający za akcje użytkowników,
+\item \textit{Authorization} — odpowiadający za autoryzację użytkowników,
+\item \textit{Upload} — odpowiadający za załadowanie nowego pliku z definicją panelu filtrującego,
 \end{enumerate}
 
 Dalej, w folderze \textit{models} znalazły się odwzorowania tabel bazodanowych,
 w postaci klas języka Scala a w katalogu \textit{repository} umieszczone
-zostały definicje repozytoriów - obiektów, które pośredniczą
+zostały definicje repozytoriów — obiektów, które pośredniczą
 między warstwą łączącą się z bazą danych a warstwą aplikacji
 wykorzystującą odwzorowane już struktury z bazy danych.
 Repozytoria zajmują się przede wszystkim odwzorowywaniem tabel bazodanowych na
@@ -1158,9 +1158,9 @@ Klasy kontrolerów, które wykorzystują ową cechę, mogą każdą
 swoją akcję poprzedzić odpowiednim sprawdzeniem uprawnień dostępu
 za pomocą następujących metod:
 \begin{itemize}
-\item \textit{withAuth} - pozwala na dostęp przy poprawnym kluczu sesji,
-\item \textit{withUser} - pozwala na dostęp przy poprawnym kluczu sesji i roli użytkownika połączonej z sesją,
-\item \textit{withAdmin} - pozwala na dostęp przy poprawnym kluczu sesji i roli administratora połączonej z sesją,
+\item \textit{withAuth} — pozwala na dostęp przy poprawnym kluczu sesji,
+\item \textit{withUser} — pozwala na dostęp przy poprawnym kluczu sesji i roli użytkownika połączonej z sesją,
+\item \textit{withAdmin} — pozwala na dostęp przy poprawnym kluczu sesji i roli administratora połączonej z sesją,
 \end{itemize}
 
 Dzięki tej technice, dodawanie nowych ról, przez co zabezpieczanie
