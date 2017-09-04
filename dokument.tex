@@ -39,23 +39,23 @@
 \pagenumbering{arabic}
 \newpage 
 \section*{Streszczenie}
+
+
 Wraz z rozwojem technologii umożliwiających tanie i efektywne
 pozyskiwanie danych z sekwencjonowania DNA, wzrosło zapotrzebowanie
-na stworzenie systemu umożliwiającego łatwy dostęp do wyników pacjentów.
-Ma to na celu znalezienie genów odpowiedzialnych za ich choroby bądź w celu 
-określenia prawdopodobieństwa zachorowania w przyszłości. 
+na stworzenie systemu umożliwiającego analizę wariantów genetycznych wykrytych u pacjentów oraz ich korelację z chorobą.
 
-Praca prezentuje interfejs do rozproszonej bazy danych posiadającej 
+Praca prezentuje interfejs do rozproszonej bazy danych posiadającej
 informacje pozyskane z sekwencjonowania DNA. Aplikacja przeglądarkowa została opracowana
 w języku programowania Scala wraz z wykorzystaniem platformy programistycznej
-Play oraz platformy Angular. Opisany został też schemat bazy danych 
-stworzonej za pomocą systemu zarządzania relacyjną bazą danych PostgreSQL, która 
-przechowującej filtry oraz dane o użytkownikach. 
-Poza przypadkami użycia przedstawione zostały także 
-elementy, które umożliwiły zmniejszenia czasu odpowiedzi serwera 
-aplikacyjnego na żądanie HTTP oraz sposób zabezpieczenia 
-haseł użytkowników razem z sposobem zarządzania sesją. 
-Cały system został zaprojektowany jako łatwy do rozbudowy.
+Play oraz platformy Angular. Opisany został też schemat bazy danych
+stworzonej za pomocą systemu zarządzania relacyjną bazą danych PostgreSQL, która
+przechowuje filtry oraz dane o użytkownikach.
+Poza przypadkami użycia przedstawione zostały także
+elementy, które umożliwiły redukcję czasu odpowiedzi serwera
+aplikacyjnego na żądanie HTTP oraz sposób zabezpieczenia
+haseł użytkowników razem ze sposobem zarządzania sesją.
+Cały system został zaprojektowany łatwy do rozbudowy.
 
 \textbf{Słowa kluczowe:}
 \begin{itemize}
@@ -79,124 +79,134 @@ Cały system został zaprojektowany jako łatwy do rozbudowy.
 \section{Wstęp}  
 
 \subsection{Motywacja}
+
+
 W dzisiejszych czasach genetyka jest jednym z najważniejszych działów medycyny.
-Umiejętność znajdowania natury gnębiących ludzkość chorób
-czy to dziedzicznych czy cywilizacyjnych jest jednym z celów obecnie pracujących badaczy. Wczesne wykrywanie chorób u ludzi czy też określenie prawdopodobieństwa 
-ich wystąpienia może ocalić wiele istnień. 
+Dzięki rozwojowi metod sekwencjonowania stała się możliwa skuteczna diagnostyczna wielu chorób o podłożu genetycznym.
 
-Równocześnie z rozwojem technologii umożliwiających tanie i efektywne
-pozyskiwanie danych z sekwencjonowania DNA, wzrasta zapotrzebowanie 
-na system pozwalajacy na przechowywanie oraz analizowanie zebranych
+Równocześnie z rozwojem technologii sekwencjonowania DNA, wzrasta zapotrzebowanie
+na systemy pozwalające na przechowywanie oraz analizowanie zebranych
 informacji.
-Na świecie istnieje wiele udostępnionych społeczności naukowej baz danych,
-z wariantami dziesiątek tysięcy pacjentów. Co za tym idzie powstało 
-wiele systemów starających się umożliwić wygodne i efektywne 
+Na świecie istnieje wiele publicznie dostępnych baz danych,
+z wariantami dziesiątek tysięcy pacjentów. Powstało również
+wiele systemów starających się umożliwić wygodne i efektywne
 przeglądanie oraz analizowanie list wariantów i adnotacji.
-Jednak nie udało się stworzyć uniwersalnego narzędzia pozwalającego
-wszystkim lekarzom na efektywniejsze i szybsze znajdowanie
-genów odpowiedzialnych za choroby czy też mutacje.
+Jednak do tej pory nie opracowano darmowego i uniwersalnego narzędzia pozwalającego
+na efektywne i szybkie znajdowanie
+wariantów odpowiedzialnych za choroby czy też, które spełniałoby oczekiwania potencjalnych użytkowników takiego systemu.
 
-Dlatego na Wydziale Elektroniki i Technik Informacyjnych 
+Dlatego na Wydziale Elektroniki i Technik Informacyjnych
 oraz w Zakładzie Genetyki Medycznej Instytutu Matki i Dziecka w Warszawie
-powstał projekt mający na celu połączyć najnowsze technologie i 
+powstał projekt mający na celu połączyć najnowsze technologie i
 praktyki dotyczące rozproszonych baz danych wraz z wiedzą naukową
-lekarzy oraz biologów tak by stworzyć system umożliwiający 
+lekarzy oraz biologów, tak by stworzyć system umożliwiający
 wspomaganie ich codziennej pracy.
   
 \subsection{Cel pracy} 
-Celem tej pracy inżynierskiej jest stworzenie 
-interfejsu użytkownika do opisanej wcześniej 
+
+Celem pracy inżynierskiej jest opracowanie
+interfejsu użytkownika do wspomnianej wcześniej
 rozproszonej bazy danych.
-Myślą przewodnią projektowania systemu było stworzenie aplikacji 
-prezentującej dane z sekwencjonowania DNA użytkownikowi, którą będzie 
+Myślą przewodnią projektowania systemu było stworzenie aplikacji
+prezentującej dane z sekwencjonowania DNA,
+w postaci zaadnotowanej listy wariantów użytkownikowi, którą będzie
 można spersonalizować i będzie łatwo konfigurowalna.
-Chciano także ograniczyć pracę administratora systemu do
-całkowitego minimum i zaimplementować tak strukturę projektu
-by rozwijanie go poprzez dodawanie nowych funkcjonalności było
+W celu ograniczenia pracy administratora systemu do
+całkowitego minimum zaimplementowano tak strukturę projektu
+tak, aby rozwijanie go poprzez dodawanie nowych funkcjonalności było
 prowadzone niskim kosztem.
 
 Podczas projektowania aplikacji należało zwrócić uwagę na
-liczbę i rodzaj danych co wymusiło zaprojektowanie specyficznego systemu
+liczbę i rodzaj danych, co wymusiło zaprojektowanie specyficznego systemu
 filtrującego, w celu umożliwienia ograniczenia widocznych danych
 do tylko tych potrzebnych klientowi aplikacji.
 
+\subsection{Zawartość rozdziałów} 
+Drugi rozdział pracy stara się przybliżyć specyfikę danych. 
+Odbywa się to poprzez 
+
+Następny rozdział zawiera 
+
 \newpage
 \section{Specyfika danych}  
-Celem zrozumienia osobliwości danych nalezy przedstawic ich pochodzenie 
-i znaczenie. Sekwencjonowane są one z z ludzkich genomów, czyli innymi słowy z ludzkiego materiału genetycznego. 
+Celem zrozumienia specyfiki danych należy przedstawić ich pochodzenie
+i znaczenie.
 
-DNA (kwas deoksyrybonukleinowy) to związek organiczny zlokalizowany w jądrach komórkowych. 
-Struktura DNA odpowida między innymi za kodowanie białek pełniących w organiźmie wiele ważnych funkcji (np. transpot tlenu między tkankami za co 
+DNA (kwas deoksyrybonukleinowy) \cite{dna} to związek organiczny zlokalizowany w jądrach komórkowych.
+Struktura DNA odpowiada między innymi za kodowanie białek \cite{geneticCode} pełniących w organizmie wiele ważnych funkcji (np. transport tlenu między tkankami, za co
 odpowiedzialna jest między innymi hemoglobina).
 
 Podstawowymi elementami budującymi nasz kod genetyczny są
-nukleotydy. Sposób w jaki są ustawione w sekwencji odpowiada
-za ostateczną budowę białka, których sumarycznie ludzkie DNA ma ich około 
-600 milionów. Cała ta sekwencja koduje 20-25 tysięcy białek.
+nukleotydy \cite{nukleotydy}. Sposób, w jaki są ustawione w sekwencji, odpowiada
+za ostateczną budowę białka. Genom ludzki ma w przybliżeniu 3 miliardy
+nukleotydów, z których około 50 milionów zajmuje się właściwym kodowaniem
+25 tysięcy białek.
 
-Określone miejsce w kodzie genetycznym, koduje określone białko
-i w tym miejscu można zaobserwować wiele wariantów (genów), 
-które różnią się co najmniej jednym nukleotydem.
+Warianty DNA to wszelkie różnice pomiędzy genomem osoby badanej,
+a publicznie dostępnym genomem referencyjnym.
 
-Powyższa różnica może spowodować poważne 
+Powyższa różnica może spowodować poważne
 zakłócenia w funkcjonowaniu naszego organizmu, a warianty
 są elementami, które starają się badać
 lekarze poprzez wyszukiwanie tych, które mogą powodować choroby
 czy też mutacje.
-Podczas budowy białka następuje transkrypcja, czyli przepisanie DNA na RNA
-i wynik tej operacji konkretnego wariantu - tak zwany transkrypt był elementem bazy danych używanej przy implementacji systemu.
- 
-Jeden wiersz w bazie danych (zwana również próbką) stanowi między innymi informacje o:
+Białko powstaje w procesie trakrypcji \cite{transkrypcja}, czyli przepisanie DNA na RNA
+i wynik tej operacji konkretnego wariantu.
+
+Jeden wiersz w bazie danych zawiera dokładne informacje na temat danego wariantu DNA, w tym dane o:
+
 \begin{itemize}
 \item chromosomie owego wariantu,
-\item pozycji, na której się różni dany wariant,
+\item pozycji na chromosomie, na której się różni dany wariant,
 \item referencyjnej wartości nukleotydu,
 \item wartości nukleotydu, na którą zmienił wariant,
 \item częstości występowania tego wariantu,
+\item genie, transkrypcie i eksonie, w którym znajduje się wariant
+\item efekcie białkowym
+\item wynikach algorytmów predykcyjnych, np. SIFT, Polyphen2, MutationTaster itd.
+\item częstości występowania w kontrolnych bazach danych, np. gnomad ExAC, 1000 genomes itd.
+\item patogenności wariantu, z baz ClinVar, HGMD
+\item powiązaniu danego genu z chorobą (OMIM)
+
 \end{itemize}
 
-
-
+Potencjalna liczba kolumn może dochodzić do kilkuset
+i nie jest z góry ograniczona, dlatego system został zaprojektowany, by być niezależnym od modelu bazy danych wariantów.
 \newpage
 \section{Wymagania funkcjonalne i niefunkcjonalne}  
 
 Określenie funkcjonalności dostępnych w budowanej aplikacji, rozpoczęto od określenia 
 rodzajów użytkowników, którzy mają korzystać z oprogramowania tak by jak najlepiej dostosować system do ich potrzeb i przyśpieszyć ich pracę.
 
-Pierwszą grupą docelową są lekarze, którzy będą poszukiwali
-możliwych chorób powiązanych z wariantem pacjenta, aby wykryć niebezpieczeństwa
-i móc jak najwcześniej im przeciwdziałać. 
-Dane będą rozpatrywać w kontekście jednego pacjetnta i nalezy umożliwić łatwe rozróznienie genotypów
+Pierwszą grupą docelową są analitycy (przede wszystkim diagnosci laboratoryjni), którzy będą poszukiwali możliwych chorób powiązanych z wariantem pacjenta, aby wykryć niebezpieczeństwa i móc jak najwcześniej postawić diagnozę. 
+Dane będą rozpatrywać w kontekście jednego pacjetnta i nalezy umożliwić łatwe rozróznienie genotypów.
 
-Drugim grupą są analitycy, którzy będą analizować dane i zadawać 
-odwrotne pytania, czyli będą starać się znaleźć warianty, które mogą być odpowiedzialne
-za konkretną chorobę. 
+Analitycy (diagnosci laboratoryjni), którzy będą starać się znaleźć warianty, które mogą być odpowiedzialne za konkretną chorobę. 
 
-Inną istotną kwestią wziętą pod uwagę był typ i wielkość danych, jakie mają być wyświetlane klientom.
-W trakcie projektowania architektury jako dane przykładowe zostały wybrane wyniki przykładowego transkryptu dostępne w aplikacji ExAC instututu Broad \cite{exac} \cite{exacCite}. Dane te 
-podobnie jak te w rozproszonej bazie danych posiadały ponad 30 kolumn i oczywistym wydało się że obie grupy użytkowników będzie interesowała tylko część informacji o genotypie i należało by umożliwić im filtrację oraz zakrywanie niepotrzebnych danych. 
-Jedna próbki z docelowej bazy danych liczą sobie więcej niż 20000 wierszy co wymogło zaproponowanie 
-funkcjonalności umożliwiającen na poprawne i intuicyjne ich filtrowanie filtrowanie 
-tak aby klient otrzymywał tylko interesujące go rekordy.
+Inną istotną kwestią wziętą pod uwagę był typ i wielkość danych, jakie mają być wyświetlane użytkownikom.
+W trakcie projektowania architektury jako dane przykładowe zostala pobrana lista wariantow dla jednego transkryptu dostępne w aplikacji ExAC instututu Broad \cite{exac} \cite{exacCite}. Dane te 
+podobnie jak te w rozproszonej bazie danych posiadały ponad 30 kolumn i oczywistym wydało się że obie grupy użytkowników będzie interesowała tylko część informacji o genotypie i należało by umożliwić im filtrację oraz zakrywanie niepotrzebnych kolumn. 
+Jedna próbka z docelowej bazy danych liczy sobie więcej niż 20000 wierszy co wymogło zaproponowania 
+funkcjonalności umożliwiające na poprawne i intuicyjne ich filtrowanie 
+tak aby użytkownik otrzymywał tylko interesujące go rekordy.
 
 \newpage
 \subsection{Wymagania funkcjonalne}
-Po zakończeniu analizy zostały określone następujące funkcjonalności. Aplikacja:
+Zostały określone następujące funkcjonalności. Aplikacja:
 
  \begin{enumerate}[1)]
- \item ma wygodny, prosty interfejs użytkownika,
  \item rejestruje użytkowników,
  \item autoryzuje użytkowników,
  \item umożliwia wybór próbki do analizy,
  \item pozwala na wprowadzenie wcześniej zdefiniowanych filtrów z panelu administratora,
  \item wyświetla dane z sekwencjonowania DNA dla konkretnej próbki,
- \item filtruje dane po stronie serwera i wysła je klientowi,
- \item zlicza dane przy zadanych filtrach i informuje klienta o wyniku,
+ \item filtruje dane po stronie serwera i wysyła je użytkownikowi,
+ \item zlicza dane przy zadanych filtrach i informuje użytkownika o wyniku,
  \item umożliwia zmianę wartości filtrów,
  \item pozwala na wyłączenie z filtracji dowolnej części filtrów,
  \item zapisuje wartości filtrów oddzielnie dla każdego użytkownika,
- \item sortuje dane po stronie klienta,
- \item filtruje dane po stronie klienta,
+ \item sortuje dane po stronie użytkownika,
+ \item filtruje dane po stronie użytkownika,
  \item udostępnia administratorowi możliwość zmiany dostępu do próbek 
  każdego użytkownika,
  \item daje możliwość zakrycia na stronie aplikacji części danych,	
@@ -204,7 +214,7 @@ Po zakończeniu analizy zostały określone następujące funkcjonalności. Apli
  
 \newpage
 
-Funkcjonalności umożliwiająca wprowadzanie wcześniej zdefiniowanych filtrów spowodowała stworzenie
+Funkcjonalność umożliwiająca wprowadzanie wcześniej zdefiniowanych filtrów spowodowała stworzenie
 specjalnej klasy użytkowników, to jest administratorów, którzy będą zarządzali strukturą filtrów poprzez wprowadzenie odpowiedniego pliku z specjalnie przygotowanego panelu administracyjnego
 oraz będą zarządzać dostępem do próbek dla użytkowników.
 
@@ -213,7 +223,7 @@ Aplikacja:
  \begin{enumerate}[1)]
   \item szyfruje wysyłane dane między klientem a serwerem za pomocą protokołu HTTPS,
   \item wykorzystuje funkcję SHA-512\cite{sha} do zabezpieczenia hasła użytkownika,
-  \item korzysta z "soli" przy wyliczaniu funkcji skrótu,
+  \item korzysta z „soli” przy wyliczaniu funkcji skrótu,
   \item wykorzystuje darmowe oprogramowanie,
  \end{enumerate}
 
@@ -225,7 +235,7 @@ jest powszechnie znane od dłuższego czasu. W związku z powyższym
 powstało wiele rozwiązań,
 komercyjnych i niekomercyjnych, które starają się sprostać wymaganiom wszystkich użytkowników. W tej sekcji przedstawione zostaną najpopularniejsze opcje.
 
-\paragraph{Ingenuity Variant Analysis} Jednym z wiodących rozwiązań jest aplikacja Ingenuity Variant Analysis \cite{ingenuity} firmy Qiagen. To zaawansowane narzędzie
+\paragraph{Ingenuity Variant Analysis} Jednym z przodujących rozwiązań jest aplikacja Ingenuity Variant Analysis \cite{ingenuity} firmy Qiagen. To zaawansowane narzędzie
 poza wyświetlaniem danych wariantów, umożliwia między innymi:
 
 \begin{itemize}
@@ -234,7 +244,7 @@ poza wyświetlaniem danych wariantów, umożliwia między innymi:
 \item udostępnienie swojego raportu innemu użytkownikowi,
 \end{itemize} 
   
-Jest to jednak oprogramowanie komercyjne co wykluczyło go z dalszych 
+Jest to jednak oprogramowanie komercyjne, co wykluczyło go z dalszych 
 rozważań.
 
 \begin{figure}[h]
@@ -245,13 +255,12 @@ rozważań.
 \newpage
 
 \paragraph{ExAC Browser} ExAC Browser \cite{exac} \cite{exacCite} jest aplikacją, tworzoną przez koalicję badaczy i informatyków, w celu
-udostępnienia danych kodujących białka szerszemu gronu badaczy. 
+udostępnienia danych kodujących białka szerszemu gronu badaczy.
 Dokonują tego poprzez harmonizację i agregację danych z wielu projektów.
-Jednymi z najmocniejszych zalet aplikacji jest prezentuja dane w postaci tabel, wykresów oraz umożliwianie eksportu danych.
-Mimo iż jest to wolne oprogramowanie, nie zdecydowano się na jego wykorzystanie
-ponieważ:
+Jednymi z najmocniejszych zalet aplikacji jest prezentują dane w postaci tabel, wykresów oraz umożliwianie eksportu danych.
+Mimo iż jest to wolne oprogramowanie, nie zdecydowano się na jego wykorzystanie, ponieważ:
 \begin{enumerate}[1)]
-\item podczas rozważań oprogramowanie było dopiero w wersji beta, 
+\item podczas rozważań oprogramowanie było dopiero w wersji beta,
 \item brakowało funkcjonalności filtrowania danych transkryptu,
 \item brakowało rozróżnienia użytkowników a to powodowało:
 \begin{itemize}
@@ -262,7 +271,7 @@ ponieważ:
 
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{obrazy/exac/broad.png}
-  \caption{Broad}
+\caption{Zrzut ekranu z aplikacji ExAC Browser \cite{exac}. Strona przestawia listę wariantów dla wybranego genu.}
   \label{fig:broadpic}
 \end{figure}
 
@@ -271,32 +280,31 @@ ponieważ:
 \paragraph{VCF-Miner}
 
 Od wielu lat dziesiątki instytucji próbowało stworzyć własne aplikacje do przeglądania danych pochodzących z sekwencjonowania. Zatrzymać to zjawisko
-starali się twórcy VCF-Miner'a \cite{miner} \cite{minerArt} poprzez 
+starali się twórcy VCF-Miner'a \cite{miner} \cite{minerArt} poprzez
 stworzenia aplikacji pozwalającej na pracę z próbkami w formacie VCF \cite{vcfformat}. Jest to format pliku tekstowego używanego do przechowywania
-danych z sekwencjonowania DNA. 
+danych z sekwencjonowania DNA.
 
 VCF-Miner'owi mimo swoich wielu zalet takich jak na przykład możliwość
-załadowania własnego pliku VCF, braku kilku istotnych z 
-punktu widzenia naszych użytkowników funkcjonalności, które zostały 
-zostały zaimplementowane w aplikacji, której dotyczy ta praca inżynierska.
+załadowania własnego pliku VCF, braku kilku istotnych z
+punktu widzenia naszych użytkowników funkcjonalności, które zostały zaimplementowane w aplikacji, której dotyczy ta praca inżynierska.
 Są nimi:
 \begin{enumerate}[1)]
-\item brak predefiniowanych filtrów, 
-\item trudna w obsłudze filtracja danych, to znaczy: 
+\item brak predefiniowanych filtrów,
+\item trudna w obsłudze filtracja danych, to znaczy:
 \begin{itemize}
-\item brak możliwości fitracji pobranych już danych,   
+\item brak możliwości filtracji pobranych już danych po stronie przeglądarki,
 \item brak możliwości wyłączenia jednego filtru bez usuwania go w całości,
 \item możliwość usunięcia tylko ostatniego w kolejce filtru,
 \end{itemize}
-\item brak zapisu ukrytych kolumn - użytkownik przy każdej próbce
+\item brak zapisu ukrytych kolumn — użytkownik przy każdej próbce
 musi ponownie ukrywać bądź odsłaniać interesujące go kolumny,
-\item brak ograniczanie dostępu do próbek - każdy użytkownik ma dostęp
+\item brak ograniczanie dostępu do próbek — każdy użytkownik ma dostęp
 do wszystkich próbek,
 \end{enumerate}
 
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{obrazy/exac/miner.png}
-  \caption{Miner}
+  \caption{Zrzut ekranu z aplikacji VCF-Miner \cite{miner}. Strona przestawia listę wariantów dla wybranego genu oraz moduł filtrujący.}
   \label{fig:minerpic}
 \end{figure}
 
@@ -304,32 +312,31 @@ do wszystkich próbek,
 \newpage
 \section{Wybór technologi}
 
-Platforma klastrowego przetwarzania danych - Apache Spark\cite{spark}, z którą współpracować będzie aplikacja, została stworzona oraz udostępnia interfejs programistyczny w języku Scala.
+Platforma klastrowego przetwarzania danych — Apache Spark\cite{spark}, z którą współpracować będzie aplikacja, została stworzona oraz udostępnia interfejs programistyczny w języku Scala.
 Naturalnym przez to wydało się wybranie tego języka programowania do stworzenia przeglądarki danych.
 
-  
 \subsection{Język programowania Scala}
 W aplikacji użyto języka Scala w wersji 2.11.7 \cite{jezykScala}. Jest to język programowania powstały w 2001 roku pod kierownictwem Martina Odersky'ego w Lozannie.
-Działa na Wirtualnej Maszynie Javy a do 2012 roku wspierała platformę .NET opracowaną przez firmę Microsoft. 
+Działa na Wirtualnej Maszynie Javy a do 2012 roku wspierała platformę .NET opracowaną przez firmę Microsoft.
 
-Język ten nadaje się równie dobrze do krótkich, zwartych skryptów  wywoływanych podobnie do skryptów języka Python jak i do tworzenia wydajnych, ogromnych, bezpiecznych systemów sieciowych.
-Jest językiem łączącym cechy języków funkcyjnych oraz obiektowych. 
+Język ten nadaje się równie dobrze do krótkich, zwartych skryptów wywoływanych podobnie do skryptów języka Python, jak i do tworzenia wydajnych, ogromnych, bezpiecznych systemów sieciowych.
+Jest językiem łączącym cechy języków funkcyjnych oraz obiektowych.
 Nie jest jednak obligatoryjny funkcyjny styl programowania, do którego nie jest przyzwyczajona większość programistów.
 
- Scala w swoim założeniu nawiązuje do minimalizmu składni Lispa to znaczy że nie opiera się na składni ale na funkcjach bibliotecznych. Nazwa ma podkreślić skalowalność języka, dzieje się tak dzięki możliwości tworzenia dodatkowych typów i struktur wyglądających jak nowa składnia języka.
-Zaletą języka jest również to że dzięki kompatybilności z językiem Java mamy możliwość wykorzystania każdej lini kodu napisanej w owym języku.
+Scala w swoim założeniu, nawiązuje do minimalizmu składni Lispa, to znaczy, że nie opiera się na składni, ale na funkcjach bibliotecznych. Nazwa ma podkreślić skalowalność języka, dzieje się tak dzięki możliwości tworzenia dodatkowych typów i struktur wyglądających jak nowa składnia języka.
+Zaletą języka jest również to, że dzięki kompatybilności z językiem Java mamy możliwość wykorzystania każdej linii kodu napisanej w owym języku.
 
-\subsection{System zarządzania bazą danych}  
-Zadanie stworzenia bazy danych przechowującej informacje konfiguracyjne, dane użytkowników oraz o użytkownikach było dużą częścią tworzenia systemu i
-wymagało wybrania odpowiedniego systemu zarządania bazą danych.
+\subsection{System zarządzania bazą danych}
+Zadanie opracowania bazy danych przechowującej informacje konfiguracyjne, dane użytkowników oraz o użytkownikach było dużą częścią tworzenia systemu i
+wymagało wybrania odpowiedniego systemu zarządzania bazą danych.
 Model bazodanowy został zaprojektowany w modelu opartym na relacyjnej organizacji danych, przez co wybór ograniczył się do
 darmowych technologii realizujących relacyjne bazy danych.
 
-Biorąc pod uwagę powyższe kryteria, można porównać najpopularniejsze systemami, są nimi\cite{porownanieBaz}: 
- \begin{itemize}
-  \item MqSQL,
-  \item SQLite,
-  \item PostgreSQL,
+Biorąc pod uwagę powyższe kryteria, można porównać najpopularniejsze systemami, są nimi\cite{porownanieBaz}:
+\begin{itemize}
+\item MqSQL,
+\item SQLite,
+\item PostgreSQL,
 \end{itemize}
 
 \subsubsection{MySQL}
@@ -382,53 +389,54 @@ Takim narzędziem jest stworzone przez firmę Lightbend, Inc.
 oprogramowanie Slick\cite{slick} pozwalające na pełną kontrolę nad bazą danych oraz pisanie klasycznych zapytań SQL.
 
 \subsection{JDBC}  
-Baza danych zawierająca dane o sekwencjonowaniu DNA jest kolumnowo zorientowaną bazą danych opartą na systemie Apache Kudu \cite{kudu}. W przeciwieńswie do tradycyjnych systemów bazodanowych gdzie dane składowane są poziomo czyli wierszami, w kolumnowych systemach dane przechowywane są pionowo - kolumnami.
-Kudu zajmuje się składowaniem danych, za wykonywanie zapytań SQL 
+Baza danych zawierająca dane o sekwencjonowaniu DNA jest kolumnowo zorientowaną bazą danych opartą na systemie Apache Kudu \cite{kudu}. W przeciwieństwie do tradycyjnych systemów bazodanowych gdzie dane składowane są poziomo, czyli wierszami, w kolumnowych systemach dane przechowywane są pionowo — kolumnami.
+Kudu zajmuje się składowaniem danych, za wykonywanie zapytań SQL
 odpowiada całkowicie zintegrowane z Kudu oprogramowanie Impala \cite{impala} \cite{impalaArt} udostępniająca interfejs JDBC.
 
 \subsection{Aplikacja przeglądarkowa}
-Biorąc pod uwagę wymagania klientów oraz różnorodność używanych przez nich urządzeń należało wybrać odpowiedni rodzaj aplikacji klienckiej pozwalający na spełnienie wszystkich wymagań funkcjonalnych naszych użytkowników 
+Biorąc pod uwagę wymagania klientów oraz różnorodność używanych przez nich urządzeń należało wybrać odpowiedni rodzaj aplikacji klienckiej pozwalający na spełnienie wszystkich wymagań funkcjonalnych naszych użytkowników
 oraz jednocześnie będący łatwy w utrzymaniu i rozwijaniu.
 
 \paragraph{Zalety aplikacji internetowych}
-Łatwość w dostępie do internetu i liczba urządzeń pozwalających na 
-korzystanie z przeglądarek internetowych pozwoliły 
-na rozwój aplikacji internetowych oraz ich rozpowrzechnienie.
-Łatwość w rozbudowie, zarządzaniu i 
-niskie ceny wynajmowania serwera aplikacyjnego spowodowały 
-powstanie grupy platform programistycznych wspomagających ich budowę. 
+Łatwość w dostępie do internetu i liczba urządzeń pozwalających na
+korzystanie z przeglądarek internetowych pozwoliły
+na rozwój aplikacji internetowych oraz ich rozpowszechnienie.
+Łatwość w rozbudowie, zarządzaniu i
+niskie ceny wynajmowania serwera aplikacyjnego spowodowały
+powstanie grupy platform programistycznych wspomagających ich budowę.
 
-Narzędzia typu Ruby on Rails czy Spring Boot 
-zdejmują z programisty obowiązek konfiguracji serwera 
-HTTP od podstaw i umożliwiają rozpoczęcie pracy  
+Narzędzia typu Ruby on Rails czy Spring Boot
+zdejmują z programisty obowiązek konfiguracji serwera
+HTTP od podstaw i umożliwiają rozpoczęcie pracy
 nad stronami aplikacji po kilku minutach.
 
 \paragraph{Platforma programistyczna Play}
-Platforma Play, stworzona w języku Scala jest środowiskiem 
-do tworzenia aplikacji internetowych, 
+Platforma Play, stworzona w języku Scala jest środowiskiem
+do tworzenia aplikacji internetowych,
 która na celu ma przyśpieszyć pracę programisty dzięki:
 \begin{itemize}
 \item strategii Konwencji Ponad Konfigurację,
 \item przeładowywania i ponownej kompilacji plików po edycji,
 \item wykorzystaniu wzorca Model-Widok-Kontroler,
 \item wykorzystaniu technologii REST,
-\end{itemize} 
-  
+\end{itemize}
+
 \paragraph{Platforma programistyczna Angular}
-Angular jest opracowaną przez Google biblioteką wspomagającą tworzenie 
-aplikacji przeglądarkowych na jednej stronie. Jej głównymi zaletami jest :
+Angular jest opracowaną przez Google biblioteką wspomagającą tworzenie
+aplikacji przeglądarkowych na jednej stronie. Jej głównymi zaletami jest:
 \begin{itemize}
-\item odzielenie warstwy klienckiej od warstwy serwerowej,
+\item oddzielenie warstwy klienckiej od warstwy serwerowej,
 \item oddzielenie manipulacji modelu dokumentu HTML od logiki aplikacji,
 \item wykorzystaniu wzorca Model-Widok-Kontroler,
-\end{itemize} 
+\end{itemize}
 
 \paragraph{ECMASCRIPT 6} Część przeglądarkowa została napisana z wykorzystaniem
-dodatkowych funkcjonalności języka Javascript w standardzie ECMAScript 2015 \cite{ecma}. 
-  
-\paragraph{Lodash} Biblioteka Lodash \cite{lodash} jest zbiorem wielu użytecznych funkcji ułatwiających pracę z typami dostępnymi w języku Javascript. 
-  
+dodatkowych funkcjonalności języka JavaScript w standardzie ECMAScript 2015 \cite{ecma}.
+
+\paragraph{Lodash} Biblioteka Lodash \cite{lodash} jest zbiorem wielu użytecznych funkcji ułatwiających pracę z typami dostępnymi w języku JavaScript.
+
 \newpage
+
 \section{Przypadki użycia}
 \subsection{Autoryzacja} 
 \subsubsection{Role}
@@ -454,7 +462,7 @@ kradzieży hasła.
 Po zalogowaniu się do aplikacji przed użytkownikiem pojawia się główna część aplikacji pozwalająca na dostęp do próbek oraz pracę na nich. 
  
 \paragraph{Ekran dostępnych genomów}
-Każda próbka dostępna w bazie danych posiada indywidualny identyfikator pozwalający na 
+Każda próbka  (odpowiadajaca wynikom jednego pacjenta),  dostępna w bazie danych posiada indywidualny identyfikator pozwalający na 
 rozróżnienie jej od innych próbek. Owy identyfikator jest ciągiem znaków, który wyświetlany jest 
 alfabetycznie posortowanej liście. Użytkownik widzi tylko próbki udostępnione przez administratora
 i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie w identyfikator próbki,
@@ -689,7 +697,7 @@ Są to:
 \begin{enumerate}[1)]
 \item nazwy jakie wybrali przy rejestracji i jakimi posługują się w aplikacji ("name"),
 \item role jaką przydzielili im administratorzy systemu ("role"),
-\item sól użytą do wygenerowania skrótu i potrzebną do autoryzacji ("salt"),
+\item „sól”  użytą do wygenerowania skrótu i potrzebną do autoryzacji ("salt"),
 \item wynik funkcji skrótu z ich hasła ("hash"),
 \end{enumerate}
 
@@ -977,7 +985,7 @@ Do zapewnienia bezpieczeństwa haseł zostało zaimplementowane co następuje:
 \begin{itemize}
 \item{połączenia klienta z serwerem} - aplikacja została przygotowana do obsługi protokołu HTTPS,
 zapewniającym szyfrowane połączenie i ochronę danych autoryzacyjnych
-\item{przechowywanie hasła - baza danych przechowuje hasło przekształcone za pomocą funkcji mieszającej SHA-512, dla zwiększenia bezpieczeństwa wykorzystuje się wygenerowaną sól 
+\item{przechowywanie hasła - baza danych przechowuje hasło przekształcone za pomocą funkcji mieszającej SHA-512, dla zwiększenia bezpieczeństwa wykorzystuje się wygenerowaną „sól” 
 }
 \end{itemize}
 Opis implementacji tych funkcjonalności zostanie opisany w następnym rozdziale.
@@ -1125,12 +1133,12 @@ znajdują się w klasie kontrolera \textit{Authorization}.
 Funkcja \textit{register} 
 sprawdza dostępność przesłanej nazwy użytkownika a następnie wywołuje 
 metodę z obiektu klasy \textit{UserRepository}.
-Następuje wygenerowanie "soli" i za pomocą implementacji funkcji mieszającej
+Następuje wygenerowanie „soli” i za pomocą implementacji funkcji mieszającej
 SHA-512 uzyskujemy skrót nieodwracalny, który zapisujemy do bazy danych wraz z "solą".
 
 By uzyskać dostęp do pozostałych funkjonalności użytkownik musi się zalogować.
 Umożliwia to metoda \textit{logIn}, która rozpoczyna ponowne wywołanie
-funkcji mieszającęj dla przesłanego hasła oraz zapisanej w bazie danych "soli". Pozytywny wynik logowania skutkuje w przesłaniu do przeglądarki
+funkcji mieszającęj dla przesłanego hasła oraz zapisanej w bazie danych „soli”. Pozytywny wynik logowania skutkuje w przesłaniu do przeglądarki
 odpowiedzi razem z ciasteczkiem \textit{authenticated}.
 Ciasteczko to ma ustawiony czas życia na pół godziny i jest ponownie 
 ustawiane na ten czas przy każdym odwołaniu do serwera.
@@ -1200,7 +1208,25 @@ aplikacji. Przykładami takich usprawnień mogłyby być:
 
 \addcontentsline{toc}{section}{Literatura}
 \newpage
+
+
 \begin{thebibliography}{99}
+
+\bibitem{dna}
+Wikimedia Foundation, Inc.  - DNA
+Available at: https://en.wikipedia.org/wiki/DNA (Accessed: 10 August 2017).
+
+\bibitem{geneticCode}
+Wikimedia Foundation, Inc.  - Genetic code
+Available at: https://en.wikipedia.org/wiki/Genetic\verb!_!code (Accessed: 10 August 2017).
+
+\bibitem{nukleotydy}
+Wikimedia Foundation, Inc.  - Nucleotide
+Available at: https://en.wikipedia.org/wiki/Nucleotide (Accessed: 10 August 2017).
+
+\bibitem{transkrypcja}
+Wikimedia Foundation, Inc.  - Transcription
+Available at: https://en.wikipedia.org/wiki/https://en.wikipedia.org/wiki/Transcription\verb!_!(biology) (Accessed: 10 August 2017).
 
 \bibitem{ingenuity}
 QIAGEN - Ingenuity Variant Analysis
@@ -1297,10 +1323,14 @@ Lightbend Inc. - Scala Build Tool
 (Accessed: 24 August 2017).
 
 \bibitem{sha}
-Wikimedia Foundation - Secure Hash Algorithms 
+Wikimedia Foundation, Inc.  - Secure Hash Algorithms 
 Available at: https://en.wikipedia.org/wiki/Secure\verb!_!Hash\verb!_!Algorithms
 (Accessed: 24 August 2017).
 \end{thebibliography}
+
+\newpage
+\section*{Opis zawartość CD}
+
 
 \newpage
 \section*{Wykaz rysunków i tabel}
