@@ -1,9 +1,9 @@
-\contentsline {table}{\numberline {1}{\ignorespaces Wyniki zliczania danych dla ka\IeC {\.z}dego przyk\IeC {\l }adowego filtru\relax }}{29}
-\contentsline {table}{\numberline {2}{\ignorespaces Rozmiar odpowiedzi HTTP wzgl\IeC {\k e}dem rozmiaru wybranej pr\IeC {\'o}bki DNA\relax }}{40}
-\contentsline {table}{\numberline {3}{\ignorespaces Rozmiar odpowiedzi HTTP wzgl\IeC {\k e}dem rozmiaru wybranej pr\IeC {\'o}bki DNA po optymalizacji przesy\IeC {\l }anego modelu\relax }}{40}
-\contentsline {table}{\numberline {4}{\ignorespaces Czasy trwania \IeC {\.z}\IeC {\k a}dania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas po\IeC {\l }\IeC {\k a}czenia z baz\IeC {\k a} danych) wzgl\IeC {\k e}dem rozmiaru danych. \relax }}{41}
-\contentsline {table}{\numberline {5}{\ignorespaces Czasy trwania \IeC {\.z}\IeC {\k a}dania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas po\IeC {\l }\IeC {\k a}czenia z baz\IeC {\k a} danych) wzgl\IeC {\k e}dem rozmiaru danych po zaimplementowaniu mechanizmu pami\IeC {\k e}ci podr\IeC {\k e}cznej\relax }}{41}
-\contentsline {table}{\numberline {6}{\ignorespaces Czasy przekszta\IeC {\l }ce\IeC {\'n} w przegl\IeC {\k a}darce klienckiej wzgl\IeC {\k e}dem rozmiaru obiektu\relax }}{42}
-\contentsline {table}{\numberline {7}{\ignorespaces Czasy dodawania element\IeC {\'o}w do DOM-u HTML przez platform\IeC {\k e} Angular\relax }}{42}
-\contentsline {table}{\numberline {8}{\ignorespaces Czasy dodawania element\IeC {\'o}w do DOM-u HTML przez platform\IeC {\k e} Angular\relax }}{43}
-\contentsline {table}{\numberline {9}{\ignorespaces Czasy wyrysowanie 300 wierszy wzgl\IeC {\k e}dem ilo\IeC {\'s}ci wierszy przed i po optymalizacji\relax }}{43}
+\contentsline {table}{\numberline {1}{\ignorespaces Wyniki zliczania danych dla ka\IeC {\.z}dego przyk\IeC {\l }adowego filtru\relax }}{28}
+\contentsline {table}{\numberline {2}{\ignorespaces Rozmiar odpowiedzi HTTP wzgl\IeC {\k e}dem rozmiaru wybranej pr\IeC {\'o}bki DNA\relax }}{39}
+\contentsline {table}{\numberline {3}{\ignorespaces Rozmiar odpowiedzi HTTP wzgl\IeC {\k e}dem rozmiaru wybranej pr\IeC {\'o}bki DNA po optymalizacji przesy\IeC {\l }anego modelu\relax }}{39}
+\contentsline {table}{\numberline {4}{\ignorespaces Czasy trwania \IeC {\.z}\IeC {\k a}dania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas po\IeC {\l }\IeC {\k a}czenia z baz\IeC {\k a} danych) wzgl\IeC {\k e}dem rozmiaru danych. \relax }}{40}
+\contentsline {table}{\numberline {5}{\ignorespaces Czasy trwania \IeC {\.z}\IeC {\k a}dania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas po\IeC {\l }\IeC {\k a}czenia z baz\IeC {\k a} danych) wzgl\IeC {\k e}dem rozmiaru danych po zaimplementowaniu mechanizmu pami\IeC {\k e}ci podr\IeC {\k e}cznej\relax }}{40}
+\contentsline {table}{\numberline {6}{\ignorespaces Czasy przekszta\IeC {\l }ce\IeC {\'n} w przegl\IeC {\k a}darce klienckiej wzgl\IeC {\k e}dem rozmiaru obiektu\relax }}{41}
+\contentsline {table}{\numberline {7}{\ignorespaces Czasy dodawania element\IeC {\'o}w do DOM-u HTML przez platform\IeC {\k e} Angular\relax }}{41}
+\contentsline {table}{\numberline {8}{\ignorespaces Czasy dodawania element\IeC {\'o}w do DOM-u HTML przez platform\IeC {\k e} Angular\relax }}{42}
+\contentsline {table}{\numberline {9}{\ignorespaces Czasy wyrysowanie 300 wierszy wzgl\IeC {\k e}dem ilo\IeC {\'s}ci wierszy przed i po optymalizacji\relax }}{42}

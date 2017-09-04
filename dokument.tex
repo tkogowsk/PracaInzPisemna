@@ -122,10 +122,25 @@ filtrującego, w celu umożliwienia ograniczenia widocznych danych
 do tylko tych potrzebnych klientowi aplikacji.
 
 \subsection{Zawartość rozdziałów} 
-Drugi rozdział pracy stara się przybliżyć specyfikę danych. 
-Odbywa się to poprzez 
+Drugi rozdział pracy stara się przybliżyć specyfikę danych.
+Odbywa się to poprzez wyjaśnienie biologicznych aspektów pracy, to jest
+wyjaśnienia pochodzenia danych oraz terminologii używanej w pracy inżynierskiej.
+Następny rozdział przedstawia grupę docelowych użytkowników oraz zawiera zebrane wymagania funkcjonalne i niefunkcjonalne aplikacji.
+W czwartym rozdziale przedstawione są istniejące rozwiązania problemu, wraz
+z argumentacją, dlaczego nie zostały wykorzystane.
+Następnie opisane zostaną technologie użyte do implementacji systemu oraz te odrzucone w czasie projektowania.
 
-Następny rozdział zawiera 
+W szóstym rozdziale opisane zostały zaimplementowane funkcjonalności
+wraz z ilustracjami ich użycia. Kolejny rozdział skupia się
+na prezentacji zaprojektowanej bazy danych i wyjaśnienia
+jej schematu. Ósmy rozdział opisuje optymalizację działania głównej
+części aplikacji poprzez wyjaśnienia aspektów spowalniających
+odpowiedź serwera oraz wydłużających czas rysowania się elementów w
+przeglądarce.
+W dziewiątym rozdziale opisane zostały elementy odpowiedzialne za
+bezpieczeństwo aplikacji i jej użytkowników, a dziesiąty rozdział,
+opisuje implementację części funkcjonalności oraz strukturę folderów projektu.
+Na końcu zawarto wnioski i podsumowania.
 
 \newpage
 \section{Specyfika danych}  
@@ -178,19 +193,16 @@ i nie jest z góry ograniczona, dlatego system został zaprojektowany, by być n
 Określenie funkcjonalności dostępnych w budowanej aplikacji, rozpoczęto od określenia 
 rodzajów użytkowników, którzy mają korzystać z oprogramowania tak by jak najlepiej dostosować system do ich potrzeb i przyśpieszyć ich pracę.
 
-Pierwszą grupą docelową są analitycy (przede wszystkim diagnosci laboratoryjni), którzy będą poszukiwali możliwych chorób powiązanych z wariantem pacjenta, aby wykryć niebezpieczeństwa i móc jak najwcześniej postawić diagnozę. 
+Grupą docelową są analitycy (przede wszystkim diagnosci laboratoryjni), którzy będą poszukiwali możliwych chorób powiązanych z wariantem pacjenta, aby wykryć niebezpieczeństwa i móc jak najwcześniej postawić diagnozę. 
 Dane będą rozpatrywać w kontekście jednego pacjetnta i nalezy umożliwić łatwe rozróznienie genotypów.
-
-Analitycy (diagnosci laboratoryjni), którzy będą starać się znaleźć warianty, które mogą być odpowiedzialne za konkretną chorobę. 
 
 Inną istotną kwestią wziętą pod uwagę był typ i wielkość danych, jakie mają być wyświetlane użytkownikom.
 W trakcie projektowania architektury jako dane przykładowe zostala pobrana lista wariantow dla jednego transkryptu dostępne w aplikacji ExAC instututu Broad \cite{exac} \cite{exacCite}. Dane te 
-podobnie jak te w rozproszonej bazie danych posiadały ponad 30 kolumn i oczywistym wydało się że obie grupy użytkowników będzie interesowała tylko część informacji o genotypie i należało by umożliwić im filtrację oraz zakrywanie niepotrzebnych kolumn. 
+podobnie jak te w rozproszonej bazie danych posiadały ponad 30 kolumn i oczywistym wydało się że różnymch użytkowników będzie interesowała tylko część informacji o genotypie i należało by umożliwić im filtrację oraz zakrywanie niepotrzebnych kolumn. 
 Jedna próbka z docelowej bazy danych liczy sobie więcej niż 20000 wierszy co wymogło zaproponowania 
 funkcjonalności umożliwiające na poprawne i intuicyjne ich filtrowanie 
 tak aby użytkownik otrzymywał tylko interesujące go rekordy.
 
-\newpage
 \subsection{Wymagania funkcjonalne}
 Zostały określone następujące funkcjonalności. Aplikacja:
 
@@ -212,8 +224,6 @@ Zostały określone następujące funkcjonalności. Aplikacja:
  \item daje możliwość zakrycia na stronie aplikacji części danych,	
  \end{enumerate}
  
-\newpage
-
 Funkcjonalność umożliwiająca wprowadzanie wcześniej zdefiniowanych filtrów spowodowała stworzenie
 specjalnej klasy użytkowników, to jest administratorów, którzy będą zarządzali strukturą filtrów poprzez wprowadzenie odpowiedniego pliku z specjalnie przygotowanego panelu administracyjnego
 oraz będą zarządzać dostępem do próbek dla użytkowników.
@@ -1322,8 +1332,16 @@ Available at: https://en.wikipedia.org/wiki/Secure\verb!_!Hash\verb!_!Algorithms
 \end{thebibliography}
 
 \newpage
-\section*{Opis zawartość CD}
+\section{Opis zawartość CD}
 
+Na płycie CD znajduje się, co następuje:
+\begin{enumerate}[1)]
+\item katalog \textit{src} z plikami źródłowymi projektu,
+\item plik \textit{dokument.pdf} z pisemną pracą dyplomową,
+\item plik \textit{Instrukcja uruchomienia aplikacji z przykładowymi danymi} z instrukcja instalacji systemu wraz z bazą danych,
+\item skrypt \textit{createDatabase.sql} tworzący tabele bazodanowe,
+\item skrypt \textit{inz}\verb!_!\textit{data.sql} tworzący tabele bazodanowe i wypełniający je przykładowymi danymi,
+\end{enumerate}
 
 \newpage
 \section*{Wykaz rysunków i tabel}
