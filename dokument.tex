@@ -460,7 +460,7 @@ kradzieży hasła.
 
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{obrazy/aplikacja/login.png}
-\caption{Okno logowania i rejestracji}
+\caption{Widok komponentu odpowiedzialnego za autoryzację użytkownika aplikacji}
 \label{fig:loginpic}
 \end{figure}
 
@@ -477,7 +477,7 @@ co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA
 
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{obrazy/aplikacja/sample_list.png}
-\caption{Lista dostępnych użytkownikowi próbek}
+\caption{Lista próbek udostępnionych użytkownikowi do analizy}
 \label{fig:sample_listpic}
 \end{figure}
 
@@ -488,7 +488,7 @@ dane w postaci tabelarycznej (Rysunek \ref{fig:table1pic}).
 
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{obrazy/aplikacja/table1.png}
-\caption{Tabela z danymi z sekwencjonowania DNA}
+\caption{Tabela z danymi z sekwencjonowania DNA wraz z komponentami odpowiedzialnymi za sortowanie, filtrację oraz stronicowanie danych po stronie przeglądarki}
 \label{fig:table1pic}
 \end{figure}
 
@@ -523,7 +523,7 @@ lewej stronie od nazwy kolumny, kliknięcie w ikonkę bądź nazwę kolumny zmie
 \begin{figure}[h]
 \centering
 \includegraphics{obrazy/aplikacja/sortingAndSearch.png}
-\caption{Sortowanie i filtrowanie pobranych danych po stronie przeglądarki}
+\caption{Komponent odpowiedzialny za sortowanie i filtrowanie danych po stronie przeglądarki}
 \label{fig:sortingAndSearchpic}
 \end{figure}
 
@@ -541,7 +541,7 @@ kolumny i musi sam je odznaczyć.
 
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{obrazy/aplikacja/visible_columns.png}
-\caption{Okno z listą widocznych kolumn tabeli z przyciskami wyboru, zapisu i zamknięcia okna}
+\caption{Lista widocznych kolumn tabeli z przyciskami wyboru, zapisu oraz zamknięcia okna}
 \label{fig:visible_columnspic}
 \end{figure}
 
@@ -566,14 +566,14 @@ Wartość każdego pola może być zapisane w bazie danych, zapis jest oddzielny
 użytkownika, każdego filtru oraz każdej próbki.
 Grupa pól tworzy właściwy „filtr”, który może być wyłączony z filtracji dzięki
 przyciskowi wyboru umiejscowionego po prawej stronie nazwy. Wizualnie filtr jest wyciemniony jak na przykładzie.
-Grupa filtrów tworzy tak zwany panele, które są oddzielnymi bytami w bazie danych, o własnych nazwach i filtrach.
-W górnej części panelu widoczne są przyciski z nazwami paneli. Aktywny panel
+Grupa filtrów tworzy tak zwane zakładki, które są oddzielnymi bytami w bazie danych, o własnych nazwach i filtrach.
+W górnej części panelu widoczne są przyciski z nazwami zakładek. Aktywna zakładka
 wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym.
 
 \begin{figure}
 \centering
 \includegraphics[height=0.95\textheight]{obrazy/aplikacja/filters.png}
-\caption{Zrzut widoku paneli filtrujących}
+\caption{Moduł filtrujący dane z sekwencjonowania DNA po stronie serwera aplikacyjnego}
 \label{fig:filterspic}
 \end{figure}
 
@@ -598,10 +598,10 @@ liczba pobranych rekordów do 768.
 \hline
 & Filtr 1 & Filtr 2 & Filtr 3\\
 \hline
-Wyniki zliczania danych dla każdego przykładowego filtru & 19712 & 1792 & 3840\\ \hline
+Liczba danych & 19712 & 1792 & 3840\\ \hline
 \end{tabular}
 
-\caption{Wyniki zliczania danych dla każdego przykładowego filtru}
+\caption{Wyniki zliczania danych dla poszczególnych filtrów z Rysunku \ref{fig:filterDiagrampic}}
 \label{table:filterDiagramTable}
 \end{table}
 \end{center}
@@ -617,15 +617,15 @@ opisane zostanie zarządzanie filtrami.
 \setlength{\footskip}{0pt}
 \begin{figure}
 \includegraphics[width=1\linewidth]{obrazy/aplikacja/filterDiagram.png}
-\caption{Diagram działania panelu filtrującego}
+\caption{Diagram prezentujący logikę filtracji modułu filtrującego}
 \label{fig:filterDiagrampic}
 \end{figure}
 \restoregeometry
 
 \begin{figure}[H]
 \centering
-\includegraphics[height=0.95\textheight]{obrazy/aplikacja/count.png}
-\caption{Komponent paneli filtrujących po zliczeniu danych}
+\includegraphics[height=0.9\textheight]{obrazy/aplikacja/count.png}
+\caption{Moduł filtrujący dane z sekwencjonowania DNA po stronie serwera aplikacyjnego po wciśnięciu przycisku „Count”}
 \label{fig:countpic}
 \end{figure}
 
@@ -639,7 +639,7 @@ filtrów, o czym będzie mowa w następnym paragrafie.
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{obrazy/aplikacja/admin.png}
-\caption{Panel administratora z listą użytkowników}
+\caption{Panel administratora z listą użytkowników i ich rolami}
 \label{fig:adminpic}
 \end{figure}
 
@@ -682,7 +682,7 @@ Po zarejestrowaniu się do aplikacji, użytkownik nie jest przypisany do żadnej
 \section{Schemat bazy danych}
 \begin{figure}[h!]
 \includegraphics[width=\textwidth, height=0.9\textheight]{obrazy/aplikacja/database2.png}
-\caption{Schamat bazy danych}
+\caption{Schemat zaprojektowanej bazy danych PostgreSQL}
 \label{fig:bazadanych}
 \end{figure}
 
@@ -744,10 +744,10 @@ stronie prezentującej użytkownikowi dane o sekwencjonowaniu, odpowiada tabela 
 \end{enumerate}
 
 \newpage
-\paragraph{Przechowywanie schematu filtrów} W trakcie analizy wymagań i projektowaniu systemu wydzielono trzy oddzielne obiekty tworzące moduł filtrujące dane, to znaczy panele, filtry i pola.
+\paragraph{Przechowywanie schematu filtrów} W trakcie analizy wymagań i projektowaniu systemu wydzielono trzy oddzielne obiekty tworzące moduł filtrujące dane, to znaczy zakładki, filtry i pola.
 Ułatwiło to zaprojektowanie odpowiednich encji bazodanowych.
 
-Tabela odpowiadająca panelowi („tab”) poza identyfikatorem („id”) przechowuje również unikalną nazwę („name”) widoczną w górnej części panelu filtrującego.
+Tabela odpowiadająca zakładce („tab”) poza identyfikatorem („id”) przechowuje również unikalną nazwę („name”) widoczną w górnej części panelu filtrującego.
 Podobnie skonstruowana jest encja odpowiadająca jednemu filtrowi („filter”) z tą różnicą,
 iż nazwa („name”) nie jest unikalna.
 
@@ -767,7 +767,7 @@ domyślne wartości zadeklarowane przez administratora.
 \paragraph{Zapisywanie wartości filtrów dla użytkownika}
 Ostatnią zaprojektowaną tabelą jest tabela „user\verb!_!smp\verb!_!tab”,
 Funkcjonalność zapisania wartości dla każdego pola filtru, oddzielnie dla każdej próbki
-jest zrealizowana poprzez przechowywanie identyfikatora panelu, filtru i pola elementu filtracji,
+jest zrealizowana poprzez przechowywanie identyfikatora zakładki, filtru i pola elementu filtracji,
 razen z identyfikatorem próbki i wybraną wartością.
 
 \newpage
@@ -819,7 +819,7 @@ odpowiedzi HTTP względem rozmiaru wybranej próbki DNA.
 rozmiar odpowiedzi HTTP& 3.5MB&37.3MB& 93.6MB\\ \hline
 \end{tabular}
 
-\caption{Rozmiar odpowiedzi HTTP względem rozmiaru wybranej próbki DNA}
+\caption{Rozmiar odpowiedzi HTTP względem rozmiaru przykładowej próbki DNA}
 \label{table:requestSizeNoOpt}
 \end{table}
 \end{center}
@@ -861,7 +861,7 @@ Poniżej w Tabeli \ref{table:httpRequestTime} przedstawiany jest średni czas tr
 czas trwania żądania HTTP& 5.66s & 9.54s & 19.21s \\ \hline
 czas przetwarzania danych na serwerze& 4.85s& 7.88s& 17.37s\\ \hline
 \end{tabular}
-\caption{Czasy trwania żądania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych. }
+\caption{Czasy trwania żądania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych }
 \label{table:httpRequestTime}
 \end{table}
 Warto zwrócić uwagę jak dużą częścią całego żądania stanowił czas przetwarzania danych. Oprócz pobrania danych z bazy danych, serwer również przygotowywał
@@ -887,11 +887,9 @@ mechanizmu pamięci podręcznej.
 czas trwania żądania HTTP& 0.61s & 2.55s& 4.57s \\ \hline
 czas przetwarzania danych& 0.14s& 0.12s& 0.16s\\ \hline
 \end{tabular}
-\caption{Czasy trwania żądania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu mechanizmu pamięci podręcznej.}
+\caption{Czasy trwania żądania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu mechanizmu pamięci podręcznej}
 \label{table:httpRequestTimeCache}
 \end{table}
-
-
 
 \paragraph{Czas generowania modelu w części klienckiej} Pobrany obiekt typu JSON
 po zakończeniu zapytania HTTP był przekształcany do innej formy między innymi
@@ -904,7 +902,7 @@ funkcje biblioteki Lodash. Poniżej w Tabeli \ref{table:lodashTime} przedstawion
 \hline
 przekształcenia modelu w przeglądarce& 0.11s & 0.29s& 0.91s\\ \hline
 \end{tabular}
-\caption{Czasy przekształceń w przeglądarce klienckiej względem rozmiaru obiektu}
+\caption{Czasy przekształceń odpowiedzi na żądanie HTTP w przeglądarce klienckiej względem rozmiaru obiektu}
 \label{table:lodashTime}
 \end{table}
 Osiągnięte wyniki testów uznano za zadowalające i nie postanowiono
@@ -926,7 +924,7 @@ wyniki.
 1000 wierszy& 11.82s & 13.05s& 16.07s\\ \hline
 5000 wierszy& 35.4s & \textasciitilde 4min& >5min\\ \hline
 \end{tabular}
-\caption{Czasy dodawania elementów do DOM-u HTML przez platformę AngularJS}
+\caption{Czasy dodawania elementów do DOM-u HTML przez platformę AngularJS względem liczby rysowanych wierszy oraz liczby wierszy z odpowiedzi na żądanie HTTP}
 \label{table:tableRender}
 \end{table}
 \newpage
@@ -952,7 +950,7 @@ Poniższa Tabela \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane z dyrekty
 1000 wierszy& 10.86s & 15.69s& 18.93s\\ \hline
 5000 wierszy& 19.61s& \textasciitilde 3min& >5min\\ \hline
 \end{tabular}
-\caption{Czasy dodawania elementów do DOM-u HTML przez platformę AngularJS}
+\caption{Czasy dodawania elementów do DOM-u HTML przez platformę AngularJS z zastosowaniem dyrektywy ng-if względem liczby rysowanych wierszy oraz liczby wierszy z odpowiedzi na żądanie HTTP}
 \label{table:tableRenderNgIf}
 \end{table}
 
@@ -969,7 +967,7 @@ przed optymalizacją& 16.45s& 24.22s& 50s\\ \hline
 po optymalizacji (pierwsze pobranie)& 11.26s & 14.33s& 33.38s\\ \hline
 po optymalizacji (cache)& 6.6s& 9.2s& 18.74s\\ \hline
 \end{tabular}
-\caption{Czasy wyrysowanie 300 wierszy względem ilości wierszy przed i po optymalizacji}
+\caption{Czasy wyrysowanie 300 wierszy względem ilości wierszy z odpowiedzi na żądanie HTTP przed i po optymalizacji}
 \label{table:summaryRender}
 \end{table}
 
@@ -1018,8 +1016,7 @@ Zależności wymagane do skompilowania i uruchomienia projektu
 umieszczono w pliku \textit{build.sbt} oraz w plikach folderu \textit{project}.
 
 Na tym samym poziomie znajduje plik arkusza kalkulacyjnego —
-\textit{input}\verb!_!\textit{file.xlsx}, w którym podano plik konfiguracyjny paneli filtrów,
-z przykładowymi wartościami.
+\textit{input}\verb!_!\textit{file.xlsx}, w którym podano przykładową konfigurację modułu filtrującego.
 Pozostałe pliki odpowiedzialne za konfigurację aplikacji, znajdują
 się w folderze \textit{conf}.
 Znajdziemy w nim:
@@ -1051,7 +1048,7 @@ W zaprojektowanym systemie stworzono następujące kontrolery:
 \item \textit{Admin} — odpowiadający za akcje administratorów,
 \item \textit{Application} — odpowiadający za akcje użytkowników,
 \item \textit{Authorization} — odpowiadający za autoryzację użytkowników,
-\item \textit{Upload} — odpowiadający za załadowanie nowego pliku z definicją panelu filtrującego,
+\item \textit{Upload} — odpowiadający za załadowanie nowego pliku z definicją modułu filtrującego,
 \end{enumerate}
 
 Dalej, w folderze \textit{models} znalazły się odwzorowania tabel bazodanowych,
@@ -1202,7 +1199,7 @@ od którego należy rozpocząć prace w następnym etapie rozwoju systemu.
 W tym samym czasie można również rozpocząć pracę nad kolejnymi funkcjonalnościami
 aplikacji. Przykładami takich usprawnień mogłyby być:
 \begin{itemize}
-\item umożliwienie tworzenie własnych paneli z filtrami,
+\item umożliwienie tworzenie własnych zakładek z filtrami,
 \item eksport przefiltrowanych danych do plików,
 \item dodanie wykresów ilustrujących dane,
 \end{itemize}
