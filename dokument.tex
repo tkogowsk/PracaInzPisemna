@@ -38,16 +38,17 @@
 \includepdf[pages=1]{pierwsza_strona/pierwsza_strona.pdf}
 \pagenumbering{arabic}
 \newpage 
+\newpage\null\thispagestyle{empty}\newpage
 \section*{Streszczenie}
 
 Wraz z rozwojem technologii umożliwiających tanie i efektywne
-pozyskiwanie danych z sekwencjonowania DNA, wzrosło zapotrzebowanie
+pozyskiwanie danych z sekwencjonowania DNA wzrosło zapotrzebowanie
 na stworzenie systemu umożliwiającego analizę wariantów genetycznych wykrytych u pacjentów oraz ich korelację z chorobą.
 
 Praca prezentuje interfejs do rozproszonej bazy danych, posiadającej
 informacje pozyskane z sekwencjonowania DNA. Aplikacja przeglądarkowa została opracowana
 w języku programowania Scala wraz z wykorzystaniem platformy programistycznej
-Play oraz platformy Angular. Opisany został też schemat bazy danych,
+Play oraz platformy AngularJS. Opisany został też schemat bazy danych,
 stworzonej za pomocą systemu zarządzania relacyjną bazą danych PostgreSQL, która
 przechowuje filtry oraz dane o użytkownikach.
 Poza przypadkami użycia przedstawione zostały także
@@ -63,11 +64,29 @@ Cały system został zaprojektowany łatwy do rozbudowy.
 \item medycyna,
 \item Play Framework,
 \item PostgreSQL,
-\item Angular,
+\item AngularJS,
 \end{itemize}
 \newpage
 \section*{Abstract}
 
+With the development of cheap and effective DNA sequencing methods
+a system for comprehensive analysis of genomic variant data became vital for many clinics and research facilities.
+
+The result of this thesis is a user interface to 
+data warehouse which stores genomic variant information. 
+The web application was developed in Scala programming language with
+Play and AngularJS frameworks. This essay also explains all 
+of the use cases, apllication security aspect and the optimization steps that have reduced server response time for HTTP requests. PostgreSQL database schema that was created to store user data and credentials is included here as well.
+
+\textbf{Keywords:}
+\begin{itemize}
+\item DNA,
+\item Scala,
+\item medicine,
+\item Play Framework,
+\item PostgreSQL,
+\item AngularJS,
+\end{itemize}
 \newpage
 %\section*{Oświadczenie o autorstwie pracy}
 \includepdf[pages=1]{obrazy/oswiadczenie.pdf}
@@ -146,11 +165,11 @@ Celem zrozumienia specyfiki danych należy przedstawić ich pochodzenie
 i znaczenie.
 
 DNA (kwas deoksyrybonukleinowy) \cite{dna} to związek organiczny zlokalizowany w jądrach komórkowych.
-Struktura DNA odpowiada między innymi za kodowanie białek \cite{geneticCode} pełniących w organizmie wiele ważnych funkcji (np. transport tlenu między tkankami, za co
+Struktura DNA odpowiada między innymi za kodowanie białek \cite{geneticCode} \cite{dnaStrucDiv}  pełniących w organizmie wiele ważnych funkcji (np. transport tlenu między tkankami, za co
 odpowiedzialna jest między innymi hemoglobina).
 
 Podstawowymi elementami budującymi nasz kod genetyczny są
-nukleotydy \cite{nukleotydy}. Sposób, w jaki są ustawione w sekwencji, odpowiada
+nukleotydy \cite{nukleotydy} \cite{nucleicAcids}. Sposób, w jaki są ustawione w sekwencji, odpowiada
 za ostateczną budowę białka. Genom ludzki ma w przybliżeniu 3 miliardy
 nukleotydów, z których około 50 milionów zajmuje się właściwym kodowaniem
 25 tysięcy białek.
@@ -250,17 +269,18 @@ poza wyświetlaniem danych wariantów, umożliwia między innymi:
 \item udostępnienie swojego raportu innemu użytkownikowi,
 \end{itemize}
 
-Jest to jednak oprogramowanie komercyjne, co wykluczyło go z dalszych
-rozważań.
-
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{obrazy/exac/ingenuity.jpg}
-\caption{Ingenuity Variant Analysis \cite{ingenuity}}
+\caption{Zrzut ekranu z aplikacji Ingenuity Variant Analysis. Strona przestawia listę wariantów dla różnych genów oraz moduł filtrujący}
+\source {https://i.ytimg.com/vi/icQdej79vUc/maxresdefault.jpg}
 \label{fig:ingenuitypic}
 \end{figure}
 \newpage
 
-\paragraph{ExAC Browser} ExAC Browser \cite{exac} \cite{exacCite} jest aplikacją, tworzoną przez koalicję badaczy i informatyków, w celu
+Jest to jednak oprogramowanie komercyjne, co wykluczyło go z dalszych
+rozważań.
+
+\paragraph{ExAC Browser} ExAC Browser jest aplikacją, tworzoną przez koalicję badaczy i informatyków, w celu
 udostępnienia danych kodujących białka szerszemu gronu badaczy.
 Dokonują tego poprzez harmonizację i agregację danych z wielu projektów.
 Jednymi z najmocniejszych zalet aplikacji jest prezentacja danych w postaci tabel, wykresów oraz umożliwianie eksportu danych.
@@ -277,7 +297,7 @@ Mimo iż jest to wolne oprogramowanie, nie zdecydowano się na jego wykorzystani
 
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{obrazy/exac/broad.png}
-\caption{Zrzut ekranu z aplikacji ExAC Browser \cite{exac}. Strona przestawia listę wariantów dla wybranego genu.}
+\caption{Zrzut ekranu z aplikacji ExAC Browser. Strona przestawia listę wariantów dla wybranego genu}
 \label{fig:broadpic}
 \end{figure}
 
@@ -311,7 +331,7 @@ do wszystkich próbek,
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{obrazy/exac/miner.png}
-\caption{Zrzut ekranu z aplikacji VCF-Miner \cite{miner}. Strona przestawia listę wariantów dla wybranego genu oraz moduł filtrujący.}
+\caption{Zrzut ekranu z aplikacji VCF-Miner. Strona przestawia listę wariantów dla wybranego genu oraz moduł filtrujący}
 \label{fig:minerpic}
 \end{figure}
 
@@ -428,8 +448,8 @@ która na celu ma przyśpieszyć pracę programisty dzięki:
 \item wykorzystaniu technologii REST,
 \end{itemize}
 
-\paragraph{Platforma programistyczna Angular}
-Angular jest opracowaną przez Google biblioteką wspomagającą tworzenie
+\paragraph{Platforma programistyczna AngularJS}
+AngularJS jest opracowaną przez Google biblioteką wspomagającą tworzenie
 aplikacji przeglądarkowych na jednej stronie. Jej głównymi zaletami jest:
 \begin{itemize}
 \item oddzielenie warstwy klienckiej od warstwy serwerowej,
@@ -476,7 +496,7 @@ co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA
 
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{obrazy/aplikacja/sample_list.png}
-\caption{Lista próbek}
+\caption{Lista dostępnych użytkownikowi próbek}
 \label{fig:sample_listpic}
 \end{figure}
 
@@ -522,7 +542,7 @@ lewej stronie od nazwy kolumny, kliknięcie w ikonkę bądź nazwę kolumny zmie
 \begin{figure}[h]
 \centering
 \includegraphics{obrazy/aplikacja/sortingAndSearch.png}
-\caption{Sortowanie i filtrowanie pobranych już danych}
+\caption{Sortowanie i filtrowanie pobranych danych po stronie przeglądarki}
 \label{fig:sortingAndSearchpic}
 \end{figure}
 
@@ -540,7 +560,7 @@ kolumny i musi sam je odznaczyć.
 
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{obrazy/aplikacja/visible_columns.png}
-\caption{Widoczne kolumny}
+\caption{Okno z listą widocznych kolumn tabeli z przyciskami wyboru, zapisu i zamknięcia okna}
 \label{fig:visible_columnspic}
 \end{figure}
 
@@ -572,7 +592,7 @@ wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym.
 \begin{figure}
 \centering
 \includegraphics[height=0.95\textheight]{obrazy/aplikacja/filters.png}
-\caption{Widok modułu filtrującego.}
+\caption{Zrzut widoku paneli filtrujących}
 \label{fig:filterspic}
 \end{figure}
 
@@ -617,7 +637,7 @@ opisane zostanie zarządzanie filtrami.
 \setlength{\footskip}{0pt}
 \begin{figure}
 \includegraphics[width=1\linewidth]{obrazy/aplikacja/filterDiagram.png}
-\caption{Diagram działania filtrów}
+\caption{Diagram działania panelu filtrującego}
 \label{fig:filterDiagrampic}
 \end{figure}
 \restoregeometry
@@ -625,7 +645,7 @@ opisane zostanie zarządzanie filtrami.
 \begin{figure}[H]
 \centering
 \includegraphics[height=0.95\textheight]{obrazy/aplikacja/count.png}
-\caption{Wynik zliczania danych}
+\caption{Komponent paneli filtrujących po zliczeniu danych}
 \label{fig:countpic}
 \end{figure}
 
@@ -639,7 +659,7 @@ filtrów, o czym będzie mowa w następnym paragrafie.
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{obrazy/aplikacja/admin.png}
-\caption{Część panelu administratora z listą użytkowników.}
+\caption{Panel administratora z listą użytkowników}
 \label{fig:adminpic}
 \end{figure}
 
@@ -658,7 +678,7 @@ Załadowanie pliku usuwa wcześniejsze filtry oraz zapisane wartości użytkowni
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{obrazy/aplikacja/input_file.png}
-\caption{Przykładowa zawartość pliku konfiguracyjnego dla filtrów}
+\caption{Przykładowa zawartość pliku konfiguracyjnego dla komponentu filtrującego}
 \label{fig:input_filepic}
 \end{figure}
 
@@ -673,7 +693,7 @@ Po zarejestrowaniu się do aplikacji, użytkownik nie jest przypisany do żadnej
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{obrazy/aplikacja/user_priviliges.png}
-\caption{Panel dostępności próbek dla użytkownika}
+\caption{Panel administratora, konfigurujący listę udostępnionych użytkownikowi próbek}
 \label{fig:user_priviligespic}
 \end{figure}
 
@@ -710,7 +730,7 @@ symulować produkcyjne połączenie aplikacji, czyli połączenie do rozproszone
 
 \paragraph{Sztuczne identyfikatory próbek} Do implementacji strony
 prezentującej dane użytkownikowi (podrozdział \ref{sssec:dnaPage}) planowano użyć
-funkcjonalności platformy Angular, umożliwiającej przekazywanie parametrów
+funkcjonalności platformy AngularJS, umożliwiającej przekazywanie parametrów
 poprzez część adresu URL. Rozróżnianie próbek odbywa się względem ich nazw, które
 są dowolnymi ciągami znaków. Biorąc pod uwagę konieczność zabezpieczenia aplikacji przed
 znakami specjalnymi, które mogłyby się pojawić w nazwie oraz potrzebę
@@ -791,7 +811,7 @@ wytypowano następujące elementy działania aplikacji podejrzewane o duże narz
 \item rozmiar przesyłanych danych,
 \item czas odpowiedzi na żądanie HTTP,
 \item czas generowania modelu w części klienckiej,
-\item czas dodawania elementów do DOM-u przeglądarki przez platformę Angular,
+\item czas dodawania elementów do DOM-u przeglądarki przez platformę AngularJS,
 \end{itemize}
 
 Środowisko testowe stanowił komputer typu laptop z
@@ -846,7 +866,7 @@ Zmiany rozmiaru wysyłanych danych prezentuje tabela numer \ref{table:requestSiz
 \hline
 rozmiar odpowiedzi HTTP& 1.3MB&13.8MB& 34.2MB\\ \hline
 \end{tabular}
-\caption{Rozmiar odpowiedzi HTTP względem rozmiaru wybranej próbki DNA po optymalizacji przesyłanego modelu}
+\caption{Rozmiar odpowiedzi HTTP względem rozmiaru wybranej próbki DNA, po optymalizacji przesyłanego modelu}
 \label{table:requestSizeOpt}
 \end{table}
 
@@ -910,8 +930,8 @@ przekształcenia modelu w przeglądarce& 0.11s & 0.29s& 0.91s\\ \hline
 Osiągnięte wyniki testów uznano za zadowalające i nie postanowiono
 próbować optymalizować czasu wykonania owych operacji.
 
-\paragraph{Czas dodawania elementów do DOM-u przeglądarki przez platformę Angular}
-Doświadczenie z oprogramowaniem Angular wskazywało, iż ten element może być odpowiedzialny za główny narzut czasowy przy generowanie się tabeli.
+\paragraph{Czas dodawania elementów do DOM-u przeglądarki przez platformę AngularJS}
+Doświadczenie z oprogramowaniem AngularJS wskazywało, iż ten element może być odpowiedzialny za główny narzut czasowy przy generowanie się tabeli.
 Zdecydowano się wprowadzić element stronicujący prezentowane dane oraz
 zmierzyć czas potrzebny na wygenerowanie się elementów zależnie od ilości
 wizualnie dostępnych wierszy. W tabeli numer \ref{table:tableRender} przedstawione są
@@ -926,7 +946,7 @@ wyniki.
 1000 wierszy& 11.82s & 13.05s& 16.07s\\ \hline
 5000 wierszy& 35.4s & \textasciitilde 4min& >5min\\ \hline
 \end{tabular}
-\caption{Czasy dodawania elementów do DOM-u HTML przez platformę Angular}
+\caption{Czasy dodawania elementów do DOM-u HTML przez platformę AngularJS}
 \label{table:tableRender}
 \end{table}
 \newpage
@@ -936,7 +956,7 @@ stronicowanie z 300 wierszami, duży wpływ na tę decyzję miał również fakt
 przy 1000 widocznych wierszach straty wydajności i brak płynności przy przewijaniu
 suwakiem widocznej tabelki uniemożliwiałyby efektywną pracę.
 
-Po zaimplementowaniu funkcjonalności ukrykwania kolumn ponowiono testy przy ukrytych 17 kolumnach. Angular zapewnia dwie dyrektywy, które można było zastosować przy tej funkcjonalności. Są to:
+Po zaimplementowaniu funkcjonalności ukrykwania kolumn ponowiono testy przy ukrytych 17 kolumnach. AngularJS zapewnia dwie dyrektywy, które można było zastosować przy tej funkcjonalności. Są to:
 \begin{itemize}
 \item ng-show bądź ng-hide — które ukrywają dany element poprzez style CSS
 \item ng-if — która nie dodaje elementu do DOM-u przeglądarki
@@ -952,7 +972,7 @@ Poniższa tabela o numerze \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane
 1000 wierszy& 10.86s & 15.69s& 18.93s\\ \hline
 5000 wierszy& 19.61s& \textasciitilde 3min& >5min\\ \hline
 \end{tabular}
-\caption{Czasy dodawania elementów do DOM-u HTML przez platformę Angular}
+\caption{Czasy dodawania elementów do DOM-u HTML przez platformę AngularJS}
 \label{table:tableRenderNgIf}
 \end{table}
 
@@ -1064,7 +1084,7 @@ modele z folderu \textit{models} ale również filtracją ich, łączeniem
 czy też usuwaniem bądź edycją.
 
 W katalogu \textit{views} umieszczone zostały widoki aplikacji.
-Warto przypomnieć wykorzystaniu narzędzia Angular
+Warto przypomnieć wykorzystaniu narzędzia AngularJS
 i podejścia jednej strony aplikacji. Pliki odpowiedzialne
 za zmianę strony w przeglądarce internetowej są umieszczone
 w oddzielnym folderze i będą opisane w następnej sekcji.
@@ -1083,7 +1103,7 @@ Pliki HTML, JavaScript oraz kaskadowych arkuszy stylów umiejscowiono
 w folderze \textit{public}.
 Katalog \textit{javascripts} zawiera w sobie biblioteki, wykorzystywane przez
 część kliencką oraz aplik \textit{app.js}, w którym łączone są wszystkie
-zależności obiektów platformy Angular oraz konfiguracja powstałego programu.
+zależności obiektów platformy AngularJS oraz konfiguracja powstałego programu.
 Dla ułatwienia pracy i przejżystości projektu starano się wydzielić każdy element budujący stronę. Każdy taki komponent został umieszczony w podfolderze
 katalogu \textit{modules} razem ze swoim kontrolerem i plikiem HTML odpowiedzialnym
 za jego strukturę.
@@ -1109,7 +1129,7 @@ Wartością owego klucza jest wygenerowany dla każdego użytkownika pseudolosow
 
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{obrazy/aplikacja/cookies.png}
-\caption{Ciasteczka używane w aplikacji}
+\caption{Zrzut z aplikacji Chrome DevTools listy ciasteczek używanych w aplikacji}
 \label{fig:cookiespic}
 \end{figure}
 \newpage
@@ -1121,7 +1141,7 @@ Program napisany w języku JavaScript zajmuje się zabezpieczeniem
 dostępu do funkcjonalności systemu zależnie od roli użytkownika otrzymanej
 poprzez ciasteczko.
 Każda próba dostania się, na którąkolwiek stronę aplikacji przez niezalogowanego użytkownika skutkuje przekierowaniem do widoku logowania.
-Dzieje się tak dzięki sprawdzaniu, czy użytkownik jest zalogowany przy tworzeniu każdego kontrolera Angular'owego i przed
+Dzieje się tak dzięki sprawdzaniu, czy użytkownik jest zalogowany przy tworzeniu każdego kontrolera AngularJS'owego i przed
 wykonaniem jakichkolwiek dodatkowych połączeń z serwerem.
 
 Dzięki zastosowaniu mechanizmu sesji aplikacja przeglądarkowa nie odstępuje niczym
@@ -1220,9 +1240,16 @@ Available at: https://en.wikipedia.org/wiki/DNA (Accessed: 10 August 2017).
 Wikimedia Foundation, Inc. — Genetic code
 Available at: https://en.wikipedia.org/wiki/Genetic\verb!_!code (Accessed: 10 August 2017).
 
+\bibitem{dnaStrucDiv}
+Irobalieva, R. N. et al. Structural diversity of supercoiled DNA. Nat. Commun. 6:8440 doi: 10.1038/ncomms9440 (2015) 
+Available at: https://www.nature.com/articles/ncomms9440 (Accessed: 5 August 2017).
+
 \bibitem{nukleotydy}
 Wikimedia Foundation, Inc. — Nucleotide
 Available at: https://en.wikipedia.org/wiki/Nucleotide (Accessed: 10 August 2017).
+
+\bibitem{nucleicAcids}
+Kerstin Quandt, Kornelie Frech et al.: new fast and versatile tools for detection of consensus matches in nucleotide sequence data, Nucleic Acids Research, Volume 23, Issue 23, 1 January 1995, Pages 4878–4884, Available at: https://doi.org/10.1093/nar/23.23.4878 (Accessed: 10 August 2017).
 
 \bibitem{transkrypcja}
 Wikimedia Foundation, Inc. — Transcription
@@ -1244,7 +1271,7 @@ Exac Browser Data — Exome Aggregation Consortium
 Available at: http://exac.broadinstitute.org/ (Accessed: 10 August 2017).
 
 \bibitem{exacCite}
-Lek, Monkol, et al.— Analysis of protein-coding genetic variation in 60,706 humans
+Lek, Monkol et al.— Analysis of protein-coding genetic variation in 60,706 humans
 Available at: http://www.nature.com/nature/journal/v536/n7616/full/nature19057.html
 (Accessed: 10 August 2017).
 
@@ -1286,7 +1313,7 @@ The Apache Software Foundation — Apache Impala Available at:
 https://impala.apache.org/(Accessed: 20 August 2017)
 
 \bibitem{impalaArt}
-Bittorf, M. K. A. B. V., et al.— Impala: A modern, open-source SQL engine for Hadoop.
+Victor Bittorf, Marcel Kornacker et al.— Impala: A modern, open-source SQL engine for Hadoop.
 Available at: http://web.eecs.umich.edu/~mozafari/fall2015/eecs584/papers/impala.pdf (Accessed: 20 August 2017)
 
 \bibitem{ecma}
