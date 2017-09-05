@@ -45,17 +45,15 @@ Wraz z rozwojem technologii umożliwiających tanie i efektywne
 pozyskiwanie danych z sekwencjonowania DNA wzrosło zapotrzebowanie
 na stworzenie systemu umożliwiającego analizę wariantów genetycznych wykrytych u pacjentów oraz ich korelację z chorobą.
 
-Praca prezentuje interfejs do rozproszonej bazy danych, posiadającej
-informacje pozyskane z sekwencjonowania DNA. Aplikacja przeglądarkowa została opracowana
+Praca prezentuje interfejs do rozproszonej bazy danych, zawierającej dane
+pozyskane z sekwencjonowania DNA. Aplikacja przeglądarkowa została opracowana
 w języku programowania Scala wraz z wykorzystaniem platformy programistycznej
-Play oraz platformy AngularJS. Opisany został też schemat bazy danych,
-stworzonej za pomocą systemu zarządzania relacyjną bazą danych PostgreSQL, która
-przechowuje filtry oraz dane o użytkownikach.
+Play oraz platformy AngularJS. W pracy opisany został schemat bazy danych PostgreSQL, która przechowuje filtry oraz dane o użytkownikach.
 Poza przypadkami użycia przedstawione zostały także
 elementy, które umożliwiły redukcję czasu odpowiedzi serwera
 aplikacyjnego na żądanie HTTP oraz sposób zabezpieczenia
 haseł użytkowników razem ze sposobem zarządzania sesją.
-Cały system został zaprojektowany łatwy do rozbudowy.
+Cały system został zaprojektowany jako łatwy do rozbudowy.
 
 \textbf{Słowa kluczowe:}
 \begin{itemize}
@@ -99,7 +97,8 @@ of the use cases, apllication security aspect and the optimization steps that ha
 \subsection{Motywacja}
 
 W dzisiejszych czasach genetyka jest jednym z najważniejszych działów medycyny.
-Dzięki rozwojowi metod sekwencjonowania stała się możliwa skuteczna diagnostyczna wielu chorób o podłożu genetycznym.
+Dzięki rozwojowi metod sekwencjonowania stała się możliwa skuteczna diagnostyka
+wielu chorób o podłożu genetycznym.
 
 Równocześnie z rozwojem technologii sekwencjonowania DNA, wzrasta zapotrzebowanie
 na systemy pozwalające na przechowywanie oraz analizowanie zebranych
@@ -110,7 +109,8 @@ wiele systemów starających się umożliwić wygodne i efektywne
 przeglądanie oraz analizowanie list wariantów i adnotacji.
 Jednak do tej pory nie opracowano darmowego i uniwersalnego narzędzia pozwalającego
 na efektywne i szybkie znajdowanie
-wariantów odpowiedzialnych za choroby czy też, które spełniałoby oczekiwania potencjalnych użytkowników takiego systemu.
+wariantów odpowiedzialnych za choroby czy też, które spełniałoby wszystkie
+oczekiwania potencjalnych użytkowników takiego systemu.
 
 Dlatego na Wydziale Elektroniki i Technik Informacyjnych
 oraz w Zakładzie Genetyki Medycznej Instytutu Matki i Dziecka w Warszawie
@@ -129,7 +129,7 @@ prezentującej dane z sekwencjonowania DNA,
 w postaci zaadnotowanej listy wariantów użytkownikowi, którą będzie
 można spersonalizować i będzie łatwo konfigurowalna.
 W celu ograniczenia pracy administratora systemu do
-całkowitego minimum zaimplementowano tak strukturę projektu
+całkowitego minimum zaimplementowano strukturę projektu
 tak, aby rozwijanie go poprzez dodawanie nowych funkcjonalności było
 prowadzone niskim kosztem.
 
@@ -155,13 +155,13 @@ części aplikacji poprzez wyjaśnienia aspektów spowalniających
 odpowiedź serwera oraz wydłużających czas rysowania się elementów w
 przeglądarce.
 W dziewiątym rozdziale opisane zostały elementy odpowiedzialne za
-bezpieczeństwo aplikacji i jej użytkowników, a dziesiąty rozdział,
+bezpieczeństwo aplikacji i jej użytkowników, a dziesiąty rozdział
 opisuje implementację części funkcjonalności oraz strukturę folderów projektu.
 Na końcu zawarto wnioski i podsumowania.
 
 \newpage
 \section{Specyfika danych}
-Celem zrozumienia specyfiki danych należy przedstawić ich pochodzenie
+W celu zrozumienia zrozumienia specyfiki danych należy przedstawić ich pochodzenie
 i znaczenie.
 
 DNA (kwas deoksyrybonukleinowy) \cite{dna} to związek organiczny zlokalizowany w jądrach komórkowych.
@@ -180,18 +180,17 @@ a publicznie dostępnym genomem referencyjnym.
 Powyższa różnica może spowodować poważne
 zakłócenia w funkcjonowaniu naszego organizmu, a warianty
 są elementami, które starają się badać
-lekarze poprzez wyszukiwanie tych, które mogą powodować choroby
-czy też mutacje.
-Białko powstaje w procesie trakrypcji \cite{transkrypcja}, czyli przepisanie DNA na RNA.
+lekarze poprzez wyszukiwanie tych, które mogą powodować choroby.
+Białko powstaje w procesie trakrypcji \cite{transkrypcja}, czyli przepisanie DNA na RNA oraz translacji, w której RNA zamieniane jest na ciąg aminokwasów.
 Na potrzeby tej pracy, słowa „gen” i „transkrypt” będą używane zamiennie.
-Jeden wiersz w bazie danych zawiera dokładne informacje na temat danego wariantu DNA, w tym dane o:
+Jeden wiersz w rozproszonej bazie danych, która stanowi główne źródło danych niniejszej aplikacji, zawiera dokładne informacje na temat danego wariantu DNA, w tym dane o:
 
 \begin{itemize}
 \item chromosomie owego wariantu,
-\item pozycji na chromosomie, na której się różni dany wariant,
+\item położeniu wariantu na chromosomie,
 \item referencyjnej wartości nukleotydu,
 \item wartości nukleotydu, na którą zmienił wariant,
-\item częstości występowania tego wariantu,
+\item częstości występowania tego wariantu w referencyjnych bazach danych,
 \item genie i eksonie, w którym znajduje się wariant
 \item efekcie białkowym
 \item wynikach algorytmów predykcyjnych, np. SIFT, Polyphen2, MutationTaster itd.
@@ -205,15 +204,14 @@ i nie jest z góry ograniczona, dlatego system został zaprojektowany tak, by by
 \newpage
 \section{Wymagania funkcjonalne i niefunkcjonalne}
 
-Określenie funkcjonalności dostępnych w budowanej aplikacji, rozpoczęto od określenia
-rodzajów użytkowników, którzy mają korzystać z oprogramowania tak by jak najlepiej dostosować system do ich potrzeb i przyśpieszyć ich pracę.
+Określenie funkcjonalności dostępnych w budowanej aplikacji, rozpoczęto od zdefiniowania rodzajów użytkowników, którzy mają korzystać z oprogramowania.
 
-Grupą docelową są analitycy (przede wszystkim diagności laboratoryjni), którzy będą poszukiwali możliwych chorób powiązanych z wariantem pacjenta, aby wykryć niebezpieczeństwa i móc jak najwcześniej postawić diagnozę.
-Dane będą rozpatrywać w kontekście jednego pacjenta i należy umożliwić łatwe rozróżnienie genotypów.
+Grupą docelową są analitycy (przede wszystkim diagności laboratoryjni), którzy będą poszukiwali wariantów odpowiedzialnych za chorobę pacjenta, aby wykryć niebezpieczeństwa i móc jak najwcześniej postawić diagnozę.
+Dane będą rozpatrywać w kontekście jednego pacjenta i należy umożliwić łatwe rozróżnienie genotypów, czyli wystąpień wariantów u poszczególnych pacjentów.
 
 Inną istotną kwestią wziętą pod uwagę był typ i wielkość danych, jakie mają być wyświetlane użytkownikom.
 W trakcie projektowania architektury jako dane przykładowe została pobrana lista wariantów dla jednego transkryptu dostępne w aplikacji ExAC instututu Broad \cite{exac} \cite{exacCite}. Dane te
-podobnie jak te w rozproszonej bazie danych posiadały kilkadziesiąt kolumn i oczywistym wydało się, że różnych użytkowników będzie interesowała tylko część informacji o genotypie i należałoby umożliwić im filtrację oraz zakrywanie niepotrzebnych kolumn.
+podobnie jak te w rozproszonej bazie danych posiadały kilkadziesiąt kolumn i oczywistym wydało się, że różnych użytkowników będzie interesowała tylko część informacji o wariantach i należałoby umożliwić im filtrację oraz zakrywanie niepotrzebnych kolumn.
 Jedna próbka z docelowej bazy danych liczy sobie więcej niż 20000 wierszy, co wymogło zaproponowania
 funkcjonalności umożliwiające na poprawne i intuicyjne ich filtrowanie
 tak, aby użytkownik otrzymywał tylko interesujące go rekordy.
@@ -226,8 +224,8 @@ Zostały określone następujące funkcjonalności. Aplikacja:
 \item autoryzuje użytkowników,
 \item umożliwia wybór próbki do analizy,
 \item pozwala na wprowadzenie wcześniej zdefiniowanych filtrów z panelu administratora,
-\item wyświetla dane z sekwencjonowania DNA dla konkretnej próbki,
-\item filtruje dane po stronie serwera i wysyła je użytkownikowi,
+\item wyświetla dane (listę wariantów w postaci tabeli) z sekwencjonowania DNA dla konkretnej próbki,
+\item filtruje dane po stronie serwera (na podstawie ustawionych przez użytkownika filtrów) i wysyła je użytkownikowi,
 \item zlicza dane przy zadanych filtrach i informuje użytkownika o wyniku,
 \item umożliwia zmianę wartości filtrów,
 \item pozwala na wyłączenie z filtracji dowolnej części filtrów,
@@ -293,26 +291,23 @@ Mimo iż jest to wolne oprogramowanie, nie zdecydowano się na jego wykorzystani
 \item brak możliwości personalizacji aplikacji dla użytkownika,
 \item brak kontroli nad dostępami do próbek,
 \end{itemize}
+\item ExAC browser jest przeznaczony przede wszystkim do prezentacji informacji o wariantach oraz ich czestości w populacji, jednak nie ma możliwosci przeglądania danych pojedynczych pacjentów,
 \end{enumerate}
 
-\begin{figure}[h]
-\includegraphics[width=\linewidth]{obrazy/exac/broad.png}
+\begin{figure}[H]
+\includegraphics[width=0.9\linewidth]{obrazy/exac/broad.png}
 \caption{Zrzut ekranu z aplikacji ExAC Browser. Strona przestawia listę wariantów dla wybranego genu}
 \label{fig:broadpic}
 \end{figure}
 
-\newpage
 
 \paragraph{VCF-Miner}
 
-Od wielu lat dziesiątki instytucji próbowało stworzyć własne aplikacje do przeglądania danych pochodzących z sekwencjonowania. Zatrzymać to zjawisko
-starali się twórcy VCF-Miner'a \cite{miner} \cite{minerArt} poprzez
-stworzenia aplikacji pozwalającej na pracę z próbkami w formacie VCF \cite{vcfformat}. Jest to format pliku tekstowego używanego do przechowywania
+Kolejną aplikacją jest VCF-Miner'a \cite{miner} \cite{minerArt} pozwalający na pracę z próbkami w formacie VCF \cite{vcfformat}. Jest to format pliku tekstowego używanego do przechowywania
 danych z sekwencjonowania DNA.
 
 VCF-Miner'owi mimo swoich wielu zalet takich jak na przykład możliwość
-załadowania własnego pliku VCF, braku kilku istotnych z
-punktu widzenia naszych użytkowników funkcjonalności, które zostały zaimplementowane w aplikacji, której dotyczy ta praca inżynierska.
+załadowania własnego pliku VCF, brakuje kilku istotnych funkcjonalności, które zostały zaimplementowane w aplikacji, której dotyczy ta praca inżynierska.
 Są nimi:
 \begin{enumerate}[1)]
 \item brak predefiniowanych filtrów,
@@ -327,7 +322,6 @@ musi ponownie ukrywać bądź odsłaniać interesujące go kolumny,
 \item brak ograniczanie dostępu do próbek — każdy użytkownik ma dostęp
 do wszystkich próbek,
 \end{enumerate}
-\newpage
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{obrazy/exac/miner.png}
@@ -424,19 +418,6 @@ odpowiada całkowicie zintegrowane z Kudu oprogramowanie Impala \cite{impala} \c
 Biorąc pod uwagę wymagania klientów oraz różnorodność używanych przez nich urządzeń należało wybrać odpowiedni rodzaj aplikacji klienckiej pozwalający na spełnienie wszystkich wymagań funkcjonalnych naszych użytkowników
 oraz jednocześnie będący łatwy w utrzymaniu i rozwijaniu.
 
-\paragraph{Zalety aplikacji internetowych}
-Łatwość w dostępie do internetu i liczba urządzeń pozwalających na
-korzystanie z przeglądarek internetowych pozwoliły
-na rozwój aplikacji internetowych oraz ich rozpowszechnienie.
-Łatwość w rozbudowie, zarządzaniu i
-niskie ceny wynajmowania serwera aplikacyjnego spowodowały
-powstanie grupy platform programistycznych wspomagających ich budowę.
-
-Narzędzia typu Ruby on Rails czy Spring Boot
-zdejmują z programisty obowiązek konfiguracji serwera
-HTTP od podstaw i umożliwiają rozpoczęcie pracy
-nad stronami aplikacji po kilku minutach.
-
 \paragraph{Platforma programistyczna Play}
 Platforma Play, stworzona w języku Scala jest środowiskiem
 do tworzenia aplikacji internetowych,
@@ -502,8 +483,8 @@ co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA
 
 \newpage
 \paragraph{Tabela z danymi z sekwencjonowania DNA}
-Przechodzą na stronę z danymi dla konkretnej próbki, użytkownikowi prezentowane są
-dane w postaci tabelarycznej (Rysunek numer \ref{fig:table1pic}).
+Przechodząc na stronę z danymi dla konkretnej próbki, użytkownikowi prezentowane są
+dane w postaci tabelarycznej (Rysunek \ref{fig:table1pic}).
 
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{obrazy/aplikacja/table1.png}
@@ -525,7 +506,7 @@ element, to znaczy rysowanie tabeli przez przeglądarkę.
 
 Wada ta została zniwelowana poprzez wprowadzenie paginacji zwanej też stronicowaniem.
 Maksymalna liczba pokazywanych wierszy została ograniczona do 300 i wprowadzono dodatkowy
-element widoczny w lewym dolnym rogu rysunku numer \ref{fig:table1pic}, który umożliwia
+element widoczny w lewym dolnym rogu Rysunku \ref{fig:table1pic}, który umożliwia
 użytkownikowi poruszanie się po kolejnych stronach tabelki, zmniejszając narzut
 pamięci operacyjnej wymaganej do wygenerowania całości tabeli.
 \newline
@@ -553,8 +534,8 @@ Mnogość kolumn, prowadząca do przedstawianie wielu informacji niepotrzebnych
 wszystkim użytkownikom uniemożliwia osiągnięcie tego efektu. Wychodząc naprzeciw tym oczekiwaniom,
 zaimlementowano opcję umożliwiającą klientom aplikacji ukrywanie dowolnej kolumny.
 Po kliknięciu w specjalny guzik umiejscowiony po prawej stronie elmentu stronicującego, wyskakuje okienko z listą kolumn,
-które użytkownik może odznaczyć, co spowoduje zniknięcie z tabeli. Selekcja może być zapisana
-w bazie danych tak by przy ponownym wejściu na tą stronę aplikacji, użytkownik nie musiał
+które użytkownik może odznaczyć, co spowoduje zniknięcie danej kolumny z tabeli. Wybór ukrytych kolumn może być zapisany
+w bazie danych tak by przy ponownym wejściu na tę stronę aplikacji, użytkownik nie musiał
 kolejny raz ukrywać nieinteresujących go kolumn. Po rejestracji użytkownik ma widoczne wszystkie
 kolumny i musi sam je odznaczyć.
 
@@ -566,7 +547,7 @@ kolumny i musi sam je odznaczyć.
 
 \newpage
 \paragraph{Filtrowanie danych}
-Rysunek numer \ref{fig:filterspic} przedstawia moduł filtrujący dane, znajdujący się w
+Rysunek \ref{fig:filterspic} przedstawia moduł filtrujący dane, znajdujący się w
 lewej części strony aplikacji.
 Podstawowym elementem tworzącym filtr jest tak zwane „pole”, odnosi się ono do jednej kolumny
 bazodanowej, z którą łączy ją jedna z poniższych relacji:
@@ -598,7 +579,7 @@ wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym.
 
 \newpage
 
-Filtrowanie odbywa się zgodnie z kolejnością aktywnych filtrów, to znaczy najpierw filtrujemy dane, używając pól pierwszego aktywnego filtru, następnie te dane filtrujemy, korzystając z drugiego etc. Ilustruje to przykład z rysunku numer \ref{fig:filterDiagrampic}, a tabela numer \ref{table:filterDiagramTable}
+Filtrowanie odbywa się zgodnie z kolejnością aktywnych filtrów, to znaczy najpierw filtrujemy dane, używając pól pierwszego aktywnego filtru, następnie te dane filtrujemy, korzystając z drugiego etc. Ilustruje to przykład z Rysunku \ref{fig:filterDiagrampic}, a Tabela \ref{table:filterDiagramTable}
 przedstawia rozmiar danych, który zostałby pobrany dla każdego filtru.
 
 Przypadek 1 na diagramie ilustruje sytuację, gdy tylko jeden filtr jest aktywny.
@@ -625,8 +606,7 @@ Wyniki zliczania danych dla każdego przykładowego filtru & 19712 & 1792 & 3840
 \end{table}
 \end{center}
 
-Przycisk z etykietą „Count” umożliwia policzenie ilości wierszy zwróconych przy zadanych wartościach pól. Pozwala to na sprawdzenie rozmiaru danych przed właściwym pobraniem całego zbioru danych. Efekt takiego działania jest widoczny na rysunku
-numer \ref{fig:countpic}.
+Przycisk z etykietą „Count” umożliwia policzenie ilości wierszy zwróconych przy zadanych wartościach pól. Pozwala to na sprawdzenie rozmiaru danych przed właściwym pobraniem całego zbioru danych. Efekt takiego działania jest widoczny na Rysunku \ref{fig:countpic}.
 
 Można również pobrać wszystkie dane wybranej próbki za pomocą guzika z napisem „Get all”.
 
@@ -650,7 +630,7 @@ opisane zostanie zarządzanie filtrami.
 \end{figure}
 
 \subsection{Panel administratora}
-Użytkownik o roli administratora może wejść do oddzielnej strony aplikacji (rysunek \ref{fig:adminpic}). Administratorowi prezentowana jest lista zarejestrowanych użytkowników wraz z ich rolami. Każdy element list jest hiperłączem prowadzącym
+Użytkownik o roli administratora może wejść do oddzielnej strony aplikacji (Rysunek \ref{fig:adminpic}). Administratorowi prezentowana jest lista zarejestrowanych użytkowników wraz z ich rolami. Każdy element list jest hiperłączem prowadzącym
 do strony poświęconej konkretnemu użytkownikowi i jego uprawnieniom.
 
 Przycisk o etykiecie „Upload” służy administratorowi do zmiany struktury
@@ -666,9 +646,9 @@ filtrów, o czym będzie mowa w następnym paragrafie.
 \newpage
 \paragraph{Zarządzanie filtrami}
 
-Zmiana struktury filtrów odbywa się z panelu administratora poprzez wysłanie
-z przeglądarki na serwer pliku arkusza kalkulacyjnego o ustalonym formacie. Przykładowe dane są widoczne na rysunku \ref{fig:input_filepic}.
-W pierwszej kolumnie podaje się nazwę panelu, do której przypisywany
+Zmiana struktury filtrów odbywa się z poziomu panelu administratora poprzez wysłanie
+z przeglądarki na serwer pliku arkusza kalkulacyjnego o ustalonym formacie. Przykładowe dane są widoczne na Rysunku \ref{fig:input_filepic}.
+W pierwszej kolumnie podaje się nazwę zakładki, do której przypisywany
 jest filtr o nazwie podanej w drugiej kolumnie. W trzeciej kolumnie należy podać nazwę kolumny, do której
 odnosić się będzie pole filtru, a następnie relację między wprowadzaną wartością a kolumną.
 Opcjonalnie może być podana domyślna wartość pola oraz kilka wartości oddzielone przecinkami, między którymi użytkownik będzie mógł wybierać w aplikacji. Nazwy kolumn oraz relacje są dostępne pod
@@ -684,8 +664,8 @@ Załadowanie pliku usuwa wcześniejsze filtry oraz zapisane wartości użytkowni
 
 \newpage
 \paragraph{Zarządzanie widocznością próbek dla użytkowników}
-Po wybraniu użytkownika z listy widocznej na rysunku numer \ref{fig:adminpic},
-administratorowi ukazuje się lista wszystkich dostępnych próbek (rysunek numer \ref{fig:user_priviligespic}). Administrator zaznacza w przyciskach wyboru, które próbki będą dostępne
+Po wybraniu użytkownika z listy widocznej na Rysunku \ref{fig:adminpic},
+administratorowi ukazuje się lista wszystkich dostępnych próbek (Rysunek \ref{fig:user_priviligespic}). Administrator zaznacza w przyciskach wyboru, które próbki będą dostępne
 do wglądu wybranemu użytkownikowi. By zatwierdzić wybór, należy kliknąć
 przycisk z etykietą „Save”.
 Po zarejestrowaniu się do aplikacji, użytkownik nie jest przypisany do żadnej próbki.
@@ -710,7 +690,7 @@ Po zarejestrowaniu się do aplikacji, użytkownik nie jest przypisany do żadnej
 \newpage
 
 Przed rozpoczęciem implementacji aplikacji przeglądarkowej zaprojektowano strukturę
-relacyjnej bazy danych. Na rysunku nr \ref{fig:bazadanych} przedstawiono schemat stworzony
+relacyjnej bazy danych. Na Rysunku \ref{fig:bazadanych} przedstawiono schemat stworzony
 w narzędziu pgModeler \cite{pgModeler}. Dzięki temu darmowemu narzędziu wygenerowany został
 skrypt tworzący bazę danych.
 \paragraph{Dane o użytkowniku} Tabela „user” zawiera rekordy o użytkownikach.
@@ -723,13 +703,13 @@ Są to:
 \end{enumerate}
 
 \paragraph{Dane z sekwencjonowania DNA} Podczas trwania okresu implementacji systemu,
-przykładowe dane z serwisu Exac zostały załadowane do oddzielnej tabeli bazodanowej o nazwie "transcript”. Mimo iż owa tabela znajdowała się w tej samej bazie danych co
+przykładowe dane z serwisu ExAC zostały załadowane do oddzielnej tabeli bazodanowej o nazwie "transcript”. Mimo iż owa tabela znajdowała się w tej samej bazie danych co
 dane o filtrach czy użytkownikach, aplikacja łączyła się oddzielnym połączeniem.
 Dodatkowo do pobierania danych wykorzystywała interfejs JDBC, tak by, jak najlepiej
 symulować produkcyjne połączenie aplikacji, czyli połączenie do rozproszonej bazy danych.
 
 \paragraph{Sztuczne identyfikatory próbek} Do implementacji strony
-prezentującej dane użytkownikowi (podrozdział \ref{sssec:dnaPage}) planowano użyć
+prezentującej dane użytkownikowi (podrozdział \ref{sssec:dnaPage}) użyto
 funkcjonalności platformy AngularJS, umożliwiającej przekazywanie parametrów
 poprzez część adresu URL. Rozróżnianie próbek odbywa się względem ich nazw, które
 są dowolnymi ciągami znaków. Biorąc pod uwagę konieczność zabezpieczenia aplikacji przed
@@ -796,7 +776,7 @@ razen z identyfikatorem próbki i wybraną wartością.
 Dane używane podczas implementacji do sprawdzenia działania aplikacji pochodziły
 z Instytutu Broad.
 Do testów wybrano transkrypt ENST00000407236 \cite{testData},
-którego dane były dostępne w pliku CSV. Rozmiar danych wynosił 530 wierszy, każdy posiadający 37 atrybutów. Plik został załadowany do lokalnej bazy danych, do tabeli
+którego dane były dostępne w pliku CSV (wyeksportowane z bazy danych ExAC). Rozmiar danych wynosił 530 wierszy, każdy posiadający 37 atrybutów. Plik został załadowany do lokalnej bazy danych, do tabeli
 „transcript”. Należy zaznaczyć, iż spodziewana liczba wierszy dla jednej próbki wynosi około 20000.
 W celu sprawdzenia zachowania się aplikacji
 dla większych rozmiarów danych, postanowiono kilkakrotnie zmultiplikować
@@ -827,7 +807,7 @@ Rozmiar przesyłanych danych został jako pierwszy poddany analizie i
 ewentualnej optymalizacji, ponieważ może znacząco wpływać na pozostałe
 obiekty badań.
 
-W tabeli numer \ref{table:requestSizeNoOpt} przedstawiono rozmiar
+W Tabeli \ref{table:requestSizeNoOpt} przedstawiono rozmiar
 odpowiedzi HTTP względem rozmiaru wybranej próbki DNA.
 
 \begin{center}
@@ -858,7 +838,7 @@ oraz zmieniono nazwy pól obiektów w następujący sposób:
 \item columnName -> id -> i
 \item value -> v
 \end{itemize}
-Zmiany rozmiaru wysyłanych danych prezentuje tabela numer \ref{table:requestSizeOpt}.
+Zmiany rozmiaru wysyłanych danych prezentuje Tabela \ref{table:requestSizeOpt}.
 \begin{table} [H]
 \begin{tabular}{| p{4cm} | p{2.7cm} | p{2.7cm} | p{2.7cm}|}
 \hline
@@ -872,7 +852,7 @@ rozmiar odpowiedzi HTTP& 1.3MB&13.8MB& 34.2MB\\ \hline
 
 \newpage
 \paragraph{Czas trwania żądania HTTP}
-Poniżej w tabeli numer \ref{table:httpRequestTime} przedstawiany jest średni czas trwania całego żądania HTTP.
+Poniżej w Tabeli \ref{table:httpRequestTime} przedstawiany jest średni czas trwania całego żądania HTTP.
 \begin{table}[H]
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
@@ -915,7 +895,7 @@ czas przetwarzania danych& 0.14s& 0.12s& 0.16s\\ \hline
 
 \paragraph{Czas generowania modelu w części klienckiej} Pobrany obiekt typu JSON
 po zakończeniu zapytania HTTP był przekształcany do innej formy między innymi
-funkcje biblioteki Lodash. Poniżej w tabeli numer \ref{table:lodashTime} przedstawione są pomiary czasu przekształceń względem rozmiaru obiektu.
+funkcje biblioteki Lodash. Poniżej w Tabeli \ref{table:lodashTime} przedstawione są pomiary czasu przekształceń względem rozmiaru obiektu.
 
 \begin{table} [H]
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
@@ -934,7 +914,7 @@ próbować optymalizować czasu wykonania owych operacji.
 Doświadczenie z oprogramowaniem AngularJS wskazywało, iż ten element może być odpowiedzialny za główny narzut czasowy przy generowanie się tabeli.
 Zdecydowano się wprowadzić element stronicujący prezentowane dane oraz
 zmierzyć czas potrzebny na wygenerowanie się elementów zależnie od ilości
-wizualnie dostępnych wierszy. W tabeli numer \ref{table:tableRender} przedstawione są
+wizualnie dostępnych wierszy. W Tabeli \ref{table:tableRender} przedstawione są
 wyniki.
 
 \begin{table} [H]
@@ -962,7 +942,7 @@ Po zaimplementowaniu funkcjonalności ukrykwania kolumn ponowiono testy przy ukr
 \item ng-if — która nie dodaje elementu do DOM-u przeglądarki
 \end{itemize}
 
-Poniższa tabela o numerze \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane z dyrektywą ng-if przy ukrytych 17 kolumnach.
+Poniższa Tabela \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane z dyrektywą ng-if przy ukrytych 17 kolumnach.
 \begin{table} [H]
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
@@ -976,7 +956,7 @@ Poniższa tabela o numerze \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane
 \label{table:tableRenderNgIf}
 \end{table}
 
-Porównanie wyników po wprowadzeniu elementów optymalizacyjnych przy
+Porównanie ostatecznych wyników (całkowity czas do wyświetlenia użytkownikowi) po wprowadzeniu elementów optymalizacyjnych przy
 wprowadzeniu paginacji do każdego badania, ilustruje poniższa
 tabela.
 
@@ -1125,7 +1105,7 @@ sposób działania sesji w narzędziu Play. Jest to wymagane, ponieważ
 sesja jest ściśle powiązana z zabezpieczeniami.
 Play do rozróżniania podłączonych klientów wykorzystuje klucz sesji zapisany do
 ciasteczka HTTP pod domyślną nazwą „PLAY\verb!_!SESSION”.
-Wartością owego klucza jest wygenerowany dla każdego użytkownika pseudolosowy ciąg znaków. Przykład widoczny jest na rysunku numer \ref{fig:cookiespic}.
+Wartością owego klucza jest wygenerowany dla każdego użytkownika pseudolosowy ciąg znaków. Przykład widoczny jest na Rysunku \ref{fig:cookiespic}.
 
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{obrazy/aplikacja/cookies.png}

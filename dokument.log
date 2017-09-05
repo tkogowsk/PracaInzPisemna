@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.27)  5 SEP 2017 22:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.27)  5 SEP 2017 23:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -832,51 +832,51 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 16.41594pt on input line 42.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 60.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 58.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 11.39996pt on input line 60.
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 62.
+(Font)              scaled to size 11.39996pt on input line 58.
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 60.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 62.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 60.
 
 [2{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [3]
 <obrazy/oswiadczenie.pdf, id=31, 597.31157pt x 844.83629pt>
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 92.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 90.
 (pdftex.def)             Requested size: 597.3101pt x 844.83423pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
  <use obrazy/oswiadczenie.pdf>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 92.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf used on input line 90.
 (pdftex.def)             Requested size: 597.3101pt x 844.83423pt.
 
 <obrazy/oswiadczenie.pdf, id=34, page=1, 597.31157pt x 844.83629pt>
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 92.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 90.
 (pdftex.def)             Requested size: 597.3101pt x 844.83423pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
  <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 92.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 90.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 92.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 90.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
  <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 92.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 90.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
 File: obrazy/oswiadczenie.pdf Graphic file (type pdf)
 
 <use obrazy/oswiadczenie.pdf, page 1>
-Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 92.
+Package pdftex.def Info: obrazy/oswiadczenie.pdf, page1 used on input line 90.
 (pdftex.def)             Requested size: 597.81139pt x 845.54323pt.
  [4 <./obrazy/oswiadczenie.pdf>]
 (./dokument.toc
@@ -906,11 +906,11 @@ LaTeX Font Info:    External font `plex10' loaded for size
 
  [6]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 13.67995pt on input line 99.
+(Font)              scaled to size 13.67995pt on input line 97.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 99.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 97.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 13.67995pt on input line 99.
+(Font)              scaled to size 13.67995pt on input line 97.
 
 Overfull \hbox (4.74991pt too wide) in paragraph at lines 136--140
 \T1/phv/m/n/12 nych, co wy-mu-si-ªo za-pro-jek-to-wa-nie spe-cy-ficz-ne-go sys-
@@ -922,91 +922,91 @@ te-mu fil-tru-j¡-ce-go, w ce-lu umo»-
 File: obrazy/exac/ingenuity.jpg Graphic file (type jpg)
 
 <use obrazy/exac/ingenuity.jpg>
-Package pdftex.def Info: obrazy/exac/ingenuity.jpg used on input line 273.
+Package pdftex.def Info: obrazy/exac/ingenuity.jpg used on input line 271.
 (pdftex.def)             Requested size: 418.25368pt x 248.86154pt.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 275.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 273.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 11.39996pt on input line 275.
+(Font)              scaled to size 11.39996pt on input line 273.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 275.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 273.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 9.49997pt on input line 275.
+(Font)              scaled to size 9.49997pt on input line 273.
  [13 <./obrazy/exac/ingenuity.jpg>]
 <obrazy/exac/broad.png, id=72, 1063.975pt x 560.0925pt>
 File: obrazy/exac/broad.png Graphic file (type png)
 
 <use obrazy/exac/broad.png>
-Package pdftex.def Info: obrazy/exac/broad.png used on input line 299.
-(pdftex.def)             Requested size: 418.25368pt x 220.17009pt.
- [14 <./obrazy/exac/broad.png>] [15]
-<obrazy/exac/miner.png, id=79, 1926.19624pt x 988.69376pt>
+Package pdftex.def Info: obrazy/exac/broad.png used on input line 298.
+(pdftex.def)             Requested size: 376.42575pt x 198.15479pt.
+ [14 <./obrazy/exac/broad.png>]
+<obrazy/exac/miner.png, id=76, 1926.19624pt x 988.69376pt>
 File: obrazy/exac/miner.png Graphic file (type png)
 
 <use obrazy/exac/miner.png>
-Package pdftex.def Info: obrazy/exac/miner.png used on input line 333.
+Package pdftex.def Info: obrazy/exac/miner.png used on input line 327.
 (pdftex.def)             Requested size: 418.25368pt x 214.6771pt.
- [16 <./obrazy/exac/miner.png>] [17] [18] [19]
-[20] [21] <obrazy/aplikacja/login.png, id=99, 769.87625pt x 226.8475pt>
+ [15 <./obrazy/exac/miner.png>] [16] [17] [18]
+[19] <obrazy/aplikacja/login.png, id=93, 769.87625pt x 226.8475pt>
 File: obrazy/aplikacja/login.png Graphic file (type png)
 
 <use obrazy/aplikacja/login.png>
-Package pdftex.def Info: obrazy/aplikacja/login.png used on input line 481.
+Package pdftex.def Info: obrazy/aplikacja/login.png used on input line 462.
 (pdftex.def)             Requested size: 418.25368pt x 123.24348pt.
- [22 <./obrazy/aplikacja/login.png>]
-<obrazy/aplikacja/sample_list.png, id=103, 576.1525pt x 409.53pt>
+ [20 <./obrazy/aplikacja/login.png>]
+<obrazy/aplikacja/sample_list.png, id=97, 475.7775pt x 392.46625pt>
 File: obrazy/aplikacja/sample_list.png Graphic file (type png)
 
 <use obrazy/aplikacja/sample_list.png>
-Package pdftex.def Info: obrazy/aplikacja/sample_list.png used on input line 49
-8.
-(pdftex.def)             Requested size: 418.25368pt x 297.30469pt.
- [23 <./obrazy/aplikacja/sample_list.png>] <obrazy/aplikacja/table1.png, id=107
+Package pdftex.def Info: obrazy/aplikacja/sample_list.png used on input line 47
+9.
+(pdftex.def)             Requested size: 418.25368pt x 345.03pt.
+ [21 <./obrazy/aplikacja/sample_list.png>] <obrazy/aplikacja/table1.png, id=101
 , 1625.07124pt x 880.28876pt>
 File: obrazy/aplikacja/table1.png Graphic file (type png)
 
 <use obrazy/aplikacja/table1.png>
-Package pdftex.def Info: obrazy/aplikacja/table1.png used on input line 509.
+Package pdftex.def Info: obrazy/aplikacja/table1.png used on input line 490.
 (pdftex.def)             Requested size: 418.25368pt x 226.55936pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 526--532
+Underfull \hbox (badness 10000) in paragraph at lines 507--513
 
  []
 
-[24 <./obrazy/aplikacja/table1.png>]
-<obrazy/aplikacja/sortingAndSearch.png, id=112, 239.89626pt x 147.55125pt>
+[22 <./obrazy/aplikacja/table1.png>]
+<obrazy/aplikacja/sortingAndSearch.png, id=105, 239.89626pt x 147.55125pt>
 File: obrazy/aplikacja/sortingAndSearch.png Graphic file (type png)
 
 <use obrazy/aplikacja/sortingAndSearch.png>
 Package pdftex.def Info: obrazy/aplikacja/sortingAndSearch.png used on input li
-ne 544.
+ne 525.
 (pdftex.def)             Requested size: 239.89566pt x 147.55087pt.
- [25 <./obrazy/aplikacja/sortingAndSearch.png>]
-<obrazy/aplikacja/visible_columns.png, id=116, 890.32625pt x 522.95375pt>
+ [23 <./obrazy/aplikacja/sortingAndSearch.png>]
+<obrazy/aplikacja/visible_columns.png, id=109, 890.32625pt x 522.95375pt>
 File: obrazy/aplikacja/visible_columns.png Graphic file (type png)
 
 <use obrazy/aplikacja/visible_columns.png>
 Package pdftex.def Info: obrazy/aplikacja/visible_columns.png used on input lin
-e 562.
+e 543.
 (pdftex.def)             Requested size: 418.25368pt x 245.6686pt.
- [26 <./obrazy/aplikacja/visible_columns.png>] <obrazy/aplikacja/filters.png, i
-d=120, 293.095pt x 621.32124pt>
+ [24 <./obrazy/aplikacja/visible_columns.png>] <obrazy/aplikacja/filters.png, i
+d=114, 293.095pt x 621.32124pt>
 File: obrazy/aplikacja/filters.png Graphic file (type png)
 
 <use obrazy/aplikacja/filters.png>
-Package pdftex.def Info: obrazy/aplikacja/filters.png used on input line 594.
+Package pdftex.def Info: obrazy/aplikacja/filters.png used on input line 575.
 (pdftex.def)             Requested size: 265.08894pt x 561.95187pt.
- [27] [28 <./obrazy/aplikacja/filters.png>]
-Underfull \hbox (badness 5008) in paragraph at lines 620--620
+ [25] [26 <./obrazy/aplikacja/filters.png>]
+Underfull \hbox (badness 5008) in paragraph at lines 601--601
 []\T1/phv/m/n/12 Wyniki zli-cza-nia da-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 620--620
+Underfull \hbox (badness 10000) in paragraph at lines 601--601
 \T1/phv/m/n/12 nych dla ka»-de-go
  []
 
-[29]
+[27]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1039,12 +1039,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 620--620
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- <obrazy/aplikacja/filterDiagram.png, id=130, 665.48625pt x 736.7525pt>
+ <obrazy/aplikacja/filterDiagram.png, id=124, 665.48625pt x 736.7525pt>
 File: obrazy/aplikacja/filterDiagram.png Graphic file (type png)
 
 <use obrazy/aplikacja/filterDiagram.png>
 Package pdftex.def Info: obrazy/aplikacja/filterDiagram.png used on input line 
-639.
+619.
 (pdftex.def)             Requested size: 512.14963pt x 567.03137pt.
 
 
@@ -1053,43 +1053,43 @@ Package Fancyhdr Warning: \footskip is too small (0.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30 <./obrazy/aplikacja/filterDiagram.png>]
-<obrazy/aplikacja/count.png, id=137, 293.095pt x 655.44875pt>
+[28 <./obrazy/aplikacja/filterDiagram.png>]
+<obrazy/aplikacja/count.png, id=130, 293.095pt x 655.44875pt>
 File: obrazy/aplikacja/count.png Graphic file (type png)
 
 <use obrazy/aplikacja/count.png>
-Package pdftex.def Info: obrazy/aplikacja/count.png used on input line 647.
+Package pdftex.def Info: obrazy/aplikacja/count.png used on input line 627.
 (pdftex.def)             Requested size: 251.28754pt x 561.95187pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [31
+ [29
 
 
  <./obrazy/aplikacja/count.png>]
-<obrazy/aplikacja/admin.png, id=141, 938.50626pt x 466.74374pt>
+<obrazy/aplikacja/admin.png, id=134, 938.50626pt x 466.74374pt>
 File: obrazy/aplikacja/admin.png Graphic file (type png)
 
 <use obrazy/aplikacja/admin.png>
-Package pdftex.def Info: obrazy/aplikacja/admin.png used on input line 661.
+Package pdftex.def Info: obrazy/aplikacja/admin.png used on input line 641.
 (pdftex.def)             Requested size: 418.25368pt x 208.00299pt.
- [32 <./obrazy/aplikacja/admin.png>]
-<obrazy/aplikacja/input_file.png, id=145, 612.2875pt x 244.915pt>
+ [30 <./obrazy/aplikacja/admin.png>]
+<obrazy/aplikacja/input_file.png, id=139, 612.2875pt x 244.915pt>
 File: obrazy/aplikacja/input_file.png Graphic file (type png)
 
 <use obrazy/aplikacja/input_file.png>
-Package pdftex.def Info: obrazy/aplikacja/input_file.png used on input line 680
+Package pdftex.def Info: obrazy/aplikacja/input_file.png used on input line 660
 .
 (pdftex.def)             Requested size: 418.25368pt x 167.30235pt.
- [33 <./obrazy/aplikacja/input_file.png>]
-<obrazy/aplikacja/user_priviliges.png, id=149, 946.53625pt x 589.20125pt>
+ [31 <./obrazy/aplikacja/input_file.png>]
+<obrazy/aplikacja/user_priviliges.png, id=143, 946.53625pt x 589.20125pt>
 File: obrazy/aplikacja/user_priviliges.png Graphic file (type png)
 
 <use obrazy/aplikacja/user_priviliges.png>
 Package pdftex.def Info: obrazy/aplikacja/user_priviliges.png used on input lin
-e 695.
+e 675.
 (pdftex.def)             Requested size: 418.25368pt x 260.35516pt.
- [34 <./obrazy/aplikacja/user_priviliges.png>]
+ [32 <./obrazy/aplikacja/user_priviliges.png>]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1122,308 +1122,302 @@ e 695.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- <obrazy/aplikacja/database2.png, id=153, 832.10875pt x 1824.8175pt>
+ <obrazy/aplikacja/database2.png, id=147, 832.10875pt x 1824.8175pt>
 File: obrazy/aplikacja/database2.png Graphic file (type png)
 
 <use obrazy/aplikacja/database2.png>
-Package pdftex.def Info: obrazy/aplikacja/database2.png used on input line 704.
+Package pdftex.def Info: obrazy/aplikacja/database2.png used on input line 684.
 
 (pdftex.def)             Requested size: 569.07689pt x 734.92609pt.
- [35
+ [33
 
  <./obrazy/aplikacja/database2.png>]
-Overfull \hbox (14.47435pt too wide) in paragraph at lines 712--716
+Overfull \hbox (14.47435pt too wide) in paragraph at lines 692--696
 []\T1/phv/m/n/12 Przed roz-po-cz¦-ciem im-ple-men-ta-cji apli-ka-cji prze-gl¡-d
 ar-ko-wej za-pro-jek-to-wa-no struk-
  []
 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 738.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 718.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (5.13704pt too wide) in paragraph at lines 731--739
+Overfull \hbox (5.13704pt too wide) in paragraph at lines 711--719
  \T1/phv/b/n/12 Sztucz-ne iden-ty-fi-ka-to-ry pró-bek[] \T1/phv/m/n/12 Do im-pl
 e-men-ta-cji stro-ny pre-zen-tu-j¡-cej da-ne u»yt-
  []
 
 
-Overfull \hbox (11.16113pt too wide) in paragraph at lines 745--752
+Overfull \hbox (11.16113pt too wide) in paragraph at lines 725--732
 \T1/phv/m/n/12 go ad-mi-ni-stra-to-ro-wi. Z tym prze-±wiad-cze-niem zo-sta-ªa d
 o-da-na ta-be-la ^^Rvariant[]\T1/cmtt/m/n/12 _\T1/phv/m/n/12 column^^Q,
  []
 
-[36
+[34
 
-] [37]
-Overfull \hbox (24.41577pt too wide) in paragraph at lines 783--786
+] [35]
+Overfull \hbox (24.41577pt too wide) in paragraph at lines 763--766
 []\T1/phv/m/n/12 Za ª¡-cze-nie wszyst-kich trzech wy-mie-nio-nych en-cji, od-po
 -wia-da ta-be-la ^^Rtab[]\T1/cmtt/m/n/12 _\T1/phv/m/n/12 field[]\T1/cmtt/m/n/12
  _\T1/phv/m/n/12 filter^^Q,
  []
 
-[38] [39]
-Underfull \hbox (badness 10000) in paragraph at lines 839--839
+[36] [37]
+Underfull \hbox (badness 10000) in paragraph at lines 819--819
 []\T1/phv/m/n/12 rozmiar od-po-wie-dzi
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 867--867
+Underfull \hbox (badness 10000) in paragraph at lines 847--847
 []\T1/phv/m/n/12 rozmiar od-po-wie-dzi
  []
 
-[40]
-Underfull \hbox (badness 5681) in paragraph at lines 882--882
+[38]
+Underfull \hbox (badness 5681) in paragraph at lines 862--862
 \T1/phv/m/n/12 nia da-nych na
  []
 
-[41]
-Underfull \hbox (badness 10000) in paragraph at lines 925--925
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 905--905
 []\T1/phv/m/n/12 przeksztaªcenia
  []
 
-[42]
-Overfull \hbox (2.24222pt too wide) in paragraph at lines 959--961
+[40]
+Overfull \hbox (2.24222pt too wide) in paragraph at lines 939--941
 []\T1/phv/m/n/12 Po za-im-ple-men-to-wa-niu funk-cjo-nal-no-±ci ukry-kwa-nia ko
 -lumn po-no-wio-no te-sty przy
  []
 
 
-Overfull \hbox (1.46727pt too wide) in paragraph at lines 979--982
-[]\T1/phv/m/n/12 Porównanie wy-ni-ków po wpro-wa-dze-niu ele-men-tów opty-ma-li
--za-cyj-nych przy wpro-
- []
-
-
-Underfull \hbox (badness 6493) in paragraph at lines 988--988
+Underfull \hbox (badness 6493) in paragraph at lines 968--968
 []\T1/phv/m/n/12 przed opty-ma-li-
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 989--989
+Underfull \hbox (badness 1147) in paragraph at lines 969--969
 []\T1/phv/m/n/12 po opty-ma-li-za-cji
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 990--990
+Underfull \hbox (badness 1147) in paragraph at lines 970--970
 []\T1/phv/m/n/12 po opty-ma-li-za-cji
  []
 
-[43] [44]
-Overfull \hbox (2.83376pt too wide) in paragraph at lines 1027--1034
+[41] [42]
+Overfull \hbox (2.83376pt too wide) in paragraph at lines 1007--1014
 \T1/phv/m/n/12 stra-te-gii Kon-wen-cji po-nad Kon-fi-gu-ra-cj¦ oraz na ar-chi-t
 ek-tu-rze Model-Widok-Kontroler,
  []
 
-[45] [46]
-Overfull \hbox (5.7644pt too wide) in paragraph at lines 1111--1115
+[43] [44]
+Overfull \hbox (5.7644pt too wide) in paragraph at lines 1091--1095
 \T1/phv/m/n/12 z ty-mi od-po-wie-dzial-ny-mi za za-pis do pa-mi¦-ci pod-r¦cz-ne
 j prze-gl¡-dar-ki zo-sta-ªy umiesz-
  []
 
-<obrazy/aplikacja/cookies.png, id=194, 643.40375pt x 163.61125pt>
+<obrazy/aplikacja/cookies.png, id=187, 643.40375pt x 163.61125pt>
 File: obrazy/aplikacja/cookies.png Graphic file (type png)
 
 <use obrazy/aplikacja/cookies.png>
-Package pdftex.def Info: obrazy/aplikacja/cookies.png used on input line 1131.
+Package pdftex.def Info: obrazy/aplikacja/cookies.png used on input line 1111.
 (pdftex.def)             Requested size: 418.25368pt x 106.36102pt.
- [47 <./obrazy/aplikacja/cookies.png>]
-[48] [49] [50]
-Underfull \hbox (badness 10000) in paragraph at lines 1236--1238
+ [45 <./obrazy/aplikacja/cookies.png>]
+[46] [47] [48]
+Underfull \hbox (badness 10000) in paragraph at lines 1216--1218
 []\T1/phv/m/n/12 Wikimedia Fo-un-da-tion, Inc. ^^V DNA Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1240--1242
+Underfull \hbox (badness 10000) in paragraph at lines 1220--1222
 []\T1/phv/m/n/12 Wikimedia Fo-un-da-tion, Inc. ^^V Ge-ne-tic co-de Ava-ila-ble 
 at:
  []
 
 
-Underfull \hbox (badness 3039) in paragraph at lines 1244--1246
+Underfull \hbox (badness 3039) in paragraph at lines 1224--1226
 []\T1/phv/m/n/12 Irobalieva, R. N. et al. Struc-tu-ral di-ver-si-ty of su-per-c
 o-iled DNA. Nat.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1244--1246
+Underfull \hbox (badness 10000) in paragraph at lines 1224--1226
 \T1/phv/m/n/12 Com-mun. 6:8440 doi: 10.1038/n-comms9440 (2015) Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1248--1250
+Underfull \hbox (badness 10000) in paragraph at lines 1228--1230
 []\T1/phv/m/n/12 Wikimedia Fo-un-da-tion, Inc. ^^V Nuc-le-oti-de Ava-ila-ble at
 :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1255--1257
+Underfull \hbox (badness 10000) in paragraph at lines 1235--1237
 []\T1/phv/m/n/12 Wikimedia Fo-un-da-tion, Inc. ^^V Trans-crip-tion Ava-ila-ble 
 at:
  []
 
 
-Overfull \hbox (4.91692pt too wide) in paragraph at lines 1255--1257
+Overfull \hbox (4.91692pt too wide) in paragraph at lines 1235--1237
 \T1/phv/m/n/12 https://en.wikipedia.org/wiki/https://en.wikipedia.org/wiki/Tran
 scription[]\T1/cmtt/m/n/12 _\T1/phv/m/n/12 (biology)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1259--1261
+Underfull \hbox (badness 10000) in paragraph at lines 1239--1241
 []\T1/phv/m/n/12 QIAGEN ^^V In-ge-nu-ity Va-riant Ana-ly-sis Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1259--1261
+Underfull \hbox (badness 10000) in paragraph at lines 1239--1241
 \T1/phv/m/n/12 https://www.qiagenbioinformatics.com/products/ingenuity-variant-
 analysis/
  []
 
 
-Underfull \hbox (badness 5681) in paragraph at lines 1263--1265
+Underfull \hbox (badness 5681) in paragraph at lines 1243--1245
 []\T1/phv/m/n/12 École Po-ly-tech-ni-que Fédéra-le ^^V Sca-la do-cu-men-ta-tion
 , Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1267--1268
+Underfull \hbox (badness 10000) in paragraph at lines 1247--1248
 []\T1/phv/m/n/12 The Apa-che So-ftwa-re Fo-un-da-tion ^^V Apa-che Spark Ava-ila
 -ble at:
  []
 
 
-Underfull \hbox (badness 4060) in paragraph at lines 1270--1272
+Underfull \hbox (badness 4060) in paragraph at lines 1250--1252
 []\T1/phv/m/n/12 Exac Brow-ser Da-ta ^^V Exo-me Ag-gre-ga-tion Con-sor-tium Ava
 -ila-ble at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1274--1277
+Underfull \hbox (badness 10000) in paragraph at lines 1254--1257
 []\T1/phv/m/n/12 Lek, Mon-kol et al.^^V Ana-ly-sis of protein-coding ge-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1274--1277
+Underfull \hbox (badness 10000) in paragraph at lines 1254--1257
 \T1/phv/m/n/12 ne-tic va-ria-tion in 60,706 hu-mans Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1274--1277
+Underfull \hbox (badness 10000) in paragraph at lines 1254--1257
 \T1/phv/m/n/12 http://www.nature.com/nature/journal/v536/n7616/full/nature19057
 .html (Ac-
  []
 
 
-Underfull \hbox (badness 4060) in paragraph at lines 1279--1281
+Underfull \hbox (badness 4060) in paragraph at lines 1259--1261
 []\T1/phv/m/n/12 Exac Brow-ser Da-ta ^^V Exo-me Ag-gre-ga-tion Con-sor-tium Ava
 -ila-ble at:
  []
 
-[51]
-Underfull \hbox (badness 10000) in paragraph at lines 1283--1285
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 1263--1265
 []\T1/phv/m/n/12 Steven N. Hart, Pa-trick Duf-fy et al.^^V VCF-Miner Ava-ila-bl
 e at:
  []
 
 
-Underfull \hbox (badness 1953) in paragraph at lines 1287--1289
+Underfull \hbox (badness 1953) in paragraph at lines 1267--1269
 []\T1/phv/m/n/12 Steven N. Hart, Pa-trick Duf-fy et al.^^V VCF-Miner: GUI-based
  ap-pli-ca-
  []
 
 
-Underfull \hbox (badness 1852) in paragraph at lines 1287--1289
+Underfull \hbox (badness 1852) in paragraph at lines 1267--1269
 \T1/phv/m/n/12 tion for mi-ning va-riants and an-no-ta-tions sto-red in VCF fi-
 les Ava-ila-ble
  []
 
 
-Underfull \hbox (badness 3895) in paragraph at lines 1287--1289
+Underfull \hbox (badness 3895) in paragraph at lines 1267--1269
 \T1/phv/m/n/12 at: https://academic.oup.com/bib/article-lookup/doi/10.1093/bib/
 bbv051 (Ac-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1293
+Underfull \hbox (badness 10000) in paragraph at lines 1271--1273
 []\T1/phv/m/n/12 IGSR ^^V VCF (Va-riant Call For-mat) ver-sion 4.0 Ava-ila-ble 
 at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1291--1293
+Underfull \hbox (badness 10000) in paragraph at lines 1271--1273
 \T1/phv/m/n/12 http://www.internationalgenome.org/wiki/Analysis/vcf4.0/ (Ac-ces
 -sed: 10
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 1299--1302
+Underfull \hbox (badness 1509) in paragraph at lines 1279--1282
 \T1/phv/m/n/12 zarzadzania-bazami-danych-sqlite-mysql-postgresql/ (Ac-ces-sed: 
 10 Au-gust
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1304--1306
+Underfull \hbox (badness 10000) in paragraph at lines 1284--1286
 []\T1/phv/m/n/12 Lightbend, Inc ^^V Slick do-cu-men-ta-tion. Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1308--1310
+Underfull \hbox (badness 10000) in paragraph at lines 1288--1290
 []\T1/phv/m/n/12 The Apa-che So-ftwa-re Fo-un-da-tion ^^V Apa-che Ku-du Ava-ila
 -ble at:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1312--1314
+Underfull \hbox (badness 10000) in paragraph at lines 1292--1294
 []\T1/phv/m/n/12 The Apa-che So-ftwa-re Fo-un-da-tion ^^V Apa-che Im-pa-la Ava-
 ila-ble at:
  []
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 1320--1322
+Underfull \hbox (badness 1048) in paragraph at lines 1300--1302
 []\T1/phv/m/n/12 Ecma In-ter-na-tio-nal ^^V EC-MA-Script 2015 Ava-ila-ble at: h
 ttps://www.ecma-
  []
 
-[52]
-Underfull \hbox (badness 10000) in paragraph at lines 1332--1334
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 1312--1314
 []\T1/phv/m/n/12 OWASP Top 10 Ap-pli-ca-tion Se-cu-ri-ty Ri-sks 2017 Ava-ila-bl
 e at:
  []
 
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 1336.
+(Font)              scaled to size 7.59998pt on input line 1316.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1336--1338
+Underfull \hbox (badness 10000) in paragraph at lines 1316--1318
 []\T1/phv/m/n/12 Oracle^^V Java$[]$ Plat-form Stan-dard Ed. 8 do-cu-men-ta-tion
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1336--1338
+Underfull \hbox (badness 10000) in paragraph at lines 1316--1318
 \T1/phv/m/n/12 https://docs.oracle.com/javase/8/docs/api/java/sql/PreparedState
 ment.html
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1344--1346
+Underfull \hbox (badness 10000) in paragraph at lines 1324--1326
 []\T1/phv/m/n/12 World Wi-de Web Con-sor-tium ^^V In-de-xedDB Ava-ila-ble at:
  []
 
 
-Underfull \hbox (badness 3838) in paragraph at lines 1353--1356
+Underfull \hbox (badness 3838) in paragraph at lines 1333--1336
 []\T1/phv/m/n/12 Wikimedia Fo-un-da-tion, Inc. ^^V Se-cu-re Hash Al-go-ri-thms 
 Ava-ila-ble at:
  []
 
-[53] [54] (./dokument.lof)
+[51] [52] (./dokument.lof)
 \tf@lof=\write4
 \openout4 = `dokument.lof'.
 
- (./dokument.lot [55])
+ (./dokument.lot [53])
 \tf@lot=\write5
 \openout5 = `dokument.lot'.
 
- [56] (./dokument.aux) ) 
+ [54] (./dokument.aux) ) 
 Here is how much of TeX's memory you used:
  7845 strings out of 493029
  113523 string characters out of 6136234
@@ -1439,10 +1433,10 @@ s/type1/public/cm-super/sftt1200.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
 c/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pf
 b>
-Output written on dokument.pdf (57 pages, 1465601 bytes).
+Output written on dokument.pdf (55 pages, 1463287 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 153 compressed objects within 2 object streams
+ 243 PDF objects out of 1000 (max. 8388607)
+ 149 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
