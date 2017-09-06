@@ -51,7 +51,7 @@ w języku programowania Scala wraz z wykorzystaniem platformy programistycznej
 Play oraz platformy AngularJS. W pracy opisany został schemat bazy danych PostgreSQL, która przechowuje filtry oraz dane o użytkownikach.
 Poza przypadkami użycia przedstawione zostały także
 elementy, które umożliwiły redukcję czasu odpowiedzi serwera
-aplikacyjnego na żądanie HTTP oraz sposób zabezpieczenia
+aplikacyjnego na żądanie HTTPS oraz sposób zabezpieczenia
 haseł użytkowników razem ze sposobem zarządzania sesją.
 Cały system został zaprojektowany jako łatwy do rozbudowy.
 
@@ -74,7 +74,7 @@ The result of this thesis is a user interface to
 data warehouse which stores genomic variant information. 
 The web application was developed in Scala programming language with
 Play and AngularJS frameworks. This essay also explains all 
-of the use cases, apllication security aspect and the optimization steps that have reduced server response time for HTTP requests. PostgreSQL database schema that was created to store user data and credentials is included here as well.
+of the use cases, apllication security aspect and the optimization steps that have reduced server response time for HTTPS requests. PostgreSQL database schema that was created to store user data and credentials is included here as well.
 
 \textbf{Keywords:}
 \begin{itemize}
@@ -97,7 +97,7 @@ of the use cases, apllication security aspect and the optimization steps that ha
 \subsection{Motywacja}
 
 W dzisiejszych czasach genetyka jest jednym z najważniejszych działów medycyny.
-Dzięki rozwojowi metod sekwencjonowania stała się możliwa skuteczna diagnostyka
+Dzięki rozwojowi metod sekwencjonowania, możliwa stała się skuteczna diagnostyka
 wielu chorób o podłożu genetycznym.
 
 Równocześnie z rozwojem technologii sekwencjonowania DNA, wzrasta zapotrzebowanie
@@ -146,7 +146,6 @@ Następny rozdział przedstawia grupę docelowych użytkowników oraz zawiera ze
 W czwartym rozdziale przedstawione są istniejące rozwiązania problemu, wraz
 z argumentacją, dlaczego nie zostały wykorzystane.
 Następnie opisane zostaną technologie użyte do implementacji systemu oraz te odrzucone w czasie projektowania.
-
 W szóstym rozdziale opisane zostały zaimplementowane funkcjonalności
 wraz z ilustracjami ich użycia. Kolejny rozdział skupia się
 na prezentacji zaprojektowanej bazy danych i wyjaśnienia
@@ -412,7 +411,7 @@ oprogramowanie Slick\cite{slick} pozwalające na pełną kontrolę nad bazą dan
 \subsection{JDBC}
 Baza danych zawierająca dane o sekwencjonowaniu DNA jest kolumnowo zorientowaną bazą danych opartą na systemie Apache Kudu \cite{kudu}. W przeciwieństwie do tradycyjnych systemów bazodanowych gdzie dane składowane są poziomo, czyli wierszami, w kolumnowych systemach dane przechowywane są pionowo — kolumnami.
 Kudu zajmuje się składowaniem danych, za wykonywanie zapytań SQL
-odpowiada całkowicie zintegrowane z Kudu oprogramowanie Impala \cite{impala} \cite{impalaArt} udostępniająca interfejs JDBC.
+odpowiada całkowicie zintegrowane z Kudu oprogramowanie Impala \cite{impala} \cite{impalaArt} udostępniające interfejs JDBC.
 
 \subsection{Aplikacja przeglądarkowa}
 Biorąc pod uwagę wymagania klientów oraz różnorodność używanych przez nich urządzeń należało wybrać odpowiedni rodzaj aplikacji klienckiej pozwalający na spełnienie wszystkich wymagań funkcjonalnych naszych użytkowników
@@ -472,7 +471,7 @@ Po zalogowaniu się do aplikacji przed użytkownikiem pojawia się główna czę
 Każda próbka (odpowiadająca wynikom jednego pacjenta), dostępna w bazie danych posiada indywidualny identyfikator pozwalający na
 rozróżnienie jej od innych próbek. Ów identyfikator jest ciągiem znaków, który wyświetlany jest
 alfabetycznie posortowanej liście. Użytkownik widzi tylko próbki udostępnione przez administratora
-i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie identyfikator próbki,
+i ma możliwość spojrzenia dokładniej w dane poprzez kliknięcie w identyfikator próbki,
 co przeniesie go do następnej strony prezentującej dane z sekwencjonowania DNA.
 
 \begin{figure}[h!]
@@ -497,7 +496,7 @@ Długi czas tworzenia się elementów HTML tabeli i łatwo zauważalne zawieszan
 były elementami nie do przyjęcia dla codziennej pracy użytkownika.
 Pod obserwację wzięto:
 \begin{itemize}
-\item czas odpowiedzi serwera na zapytanie HTTP,
+\item czas odpowiedzi serwera na zapytanie HTTPS,
 \item czas wygenerowania i wykonania zapytania SQL,
 \item czas wygenerowania przez przeglądarkę elementów HTML tabeli,
 \end{itemize}
@@ -530,8 +529,8 @@ lewej stronie od nazwy kolumny, kliknięcie w ikonkę bądź nazwę kolumny zmie
 \newpage
 \paragraph{Ustawianie widoczności kolumn}
 Przejrzystość danych i dostęp tylko do potrzebnych informacji jest kluczową wartością dla użytkowników.
-Mnogość kolumn, prowadząca do przedstawianie wielu informacji niepotrzebnych
-wszystkim użytkownikom uniemożliwia osiągnięcie tego efektu. Wychodząc naprzeciw tym oczekiwaniom,
+Mnogość kolumn, prowadząca do przedstawiania wielu informacji niepotrzebnych
+wszystkim użytkownikom, uniemożliwia osiągnięcie tego efektu. Wychodząc naprzeciw tym oczekiwaniom,
 zaimlementowano opcję umożliwiającą klientom aplikacji ukrywanie dowolnej kolumny.
 Po kliknięciu w specjalny guzik umiejscowiony po prawej stronie elmentu stronicującego, wyskakuje okienko z listą kolumn,
 które użytkownik może odznaczyć, co spowoduje zniknięcie danej kolumny z tabeli. Wybór ukrytych kolumn może być zapisany
@@ -565,7 +564,7 @@ Dodatkową możliwością jest pole mające wartość domyślną ustaloną przez
 Wartość każdego pola może być zapisane w bazie danych, zapis jest oddzielny, dla każdego
 użytkownika, każdego filtru oraz każdej próbki.
 Grupa pól tworzy właściwy „filtr”, który może być wyłączony z filtracji dzięki
-przyciskowi wyboru umiejscowionego po prawej stronie nazwy. Wizualnie filtr jest wyciemniony jak na przykładzie.
+przyciskowi wyboru umiejscowionego po prawej stronie nazwy. Wizualnie filtr jest wyciemniony jak na przykładzie z Rysunku \ref{fig:countpic}.
 Grupa filtrów tworzy tak zwane zakładki, które są oddzielnymi bytami w bazie danych, o własnych nazwach i filtrach.
 W górnej części panelu widoczne są przyciski z nazwami zakładek. Aktywna zakładka
 wyróżnia się od zielonym kolorem od nieaktywnych o kolorze szarym.
@@ -630,7 +629,7 @@ opisane zostanie zarządzanie filtrami.
 \end{figure}
 
 \subsection{Panel administratora}
-Użytkownik o roli administratora może wejść do oddzielnej strony aplikacji (Rysunek \ref{fig:adminpic}). Administratorowi prezentowana jest lista zarejestrowanych użytkowników wraz z ich rolami. Każdy element list jest hiperłączem prowadzącym
+Użytkownik o roli administratora może wejść do oddzielnej strony aplikacji (Rysunek \ref{fig:adminpic}). Administratorowi prezentowana jest lista zarejestrowanych użytkowników wraz z ich rolami. Każdy element listy jest hiperłączem prowadzącym
 do strony poświęconej konkretnemu użytkownikowi i jego uprawnieniom.
 
 Przycisk o etykiecie „Upload” służy administratorowi do zmiany struktury
@@ -760,15 +759,16 @@ z następującymi kolumnami:
 \item opcjonalne wartości ukazywane użytkownikowi pod listą rozwijaną,
 \end{enumerate}
 
-Za łączenie wszystkich trzech wymienionych encji, odpowiada tabela
+Za łączenie wszystkich trzech wymienionych encji, odpowiada tabela \newline
 „tab\verb!_!field\verb!_!filter”, posiadająca identyfikatory każdej z encji oraz
 domyślne wartości zadeklarowane przez administratora.
 
 \paragraph{Zapisywanie wartości filtrów dla użytkownika}
-Ostatnią zaprojektowaną tabelą jest tabela „user\verb!_!smp\verb!_!tab”,
+Ostatnią zaprojektowaną tabelą jest tabela 
+„user\verb!_!smp\verb!_!tab”,
 Funkcjonalność zapisania wartości dla każdego pola filtru, oddzielnie dla każdej próbki
 jest zrealizowana poprzez przechowywanie identyfikatora zakładki, filtru i pola elementu filtracji,
-razen z identyfikatorem próbki i wybraną wartością.
+razem z identyfikatorem próbki i wybraną wartością.
 
 \newpage
 \section{Wydajność aplikacji}
@@ -789,7 +789,7 @@ wytypowano następujące elementy działania aplikacji podejrzewane o duże narz
 
 \begin{itemize}
 \item rozmiar przesyłanych danych,
-\item czas odpowiedzi na żądanie HTTP,
+\item czas odpowiedzi na żądanie HTTPS,
 \item czas generowania modelu w części klienckiej,
 \item czas dodawania elementów do DOM-u przeglądarki przez platformę AngularJS,
 \end{itemize}
@@ -808,7 +808,7 @@ ewentualnej optymalizacji, ponieważ może znacząco wpływać na pozostałe
 obiekty badań.
 
 W Tabeli \ref{table:requestSizeNoOpt} przedstawiono rozmiar
-odpowiedzi HTTP względem rozmiaru wybranej próbki DNA.
+odpowiedzi HTTPS względem rozmiaru wybranej próbki DNA.
 
 \begin{center}
 \begin{table} [H]
@@ -816,17 +816,17 @@ odpowiedzi HTTP względem rozmiaru wybranej próbki DNA.
 \hline
 & 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-rozmiar odpowiedzi HTTP& 3.5MB&37.3MB& 93.6MB\\ \hline
+rozmiar odpowiedzi HTTPS& 3.5MB&37.3MB& 93.6MB\\ \hline
 \end{tabular}
 
-\caption{Rozmiar odpowiedzi HTTP względem rozmiaru przykładowej próbki DNA}
+\caption{Rozmiar odpowiedzi HTTPS względem rozmiaru przykładowej próbki DNA}
 \label{table:requestSizeNoOpt}
 \end{table}
 \end{center}
 
 Dane wysyłane z serwera były to dane tekstowe w formacie JSON.
-Wysyłanymi model danych stanowiła lista obiektów DataRowDTO,
-który odpowiadał jednemu wierszowi tabeli i gdzie każdy z nich zawierał listę obiektów DataCellDTO (pole o nazwie „row”). Zawartość tych obiektów stanowiła nazwa
+Wysyłanym modelem danych stanowiła lista obiektów \textit{DataRowDTO},
+który odpowiadał jednemu wierszowi tabeli i gdzie każdy z nich zawierał listę obiektów \textit{DataCellDTO} (pole o nazwie „row”). Zawartość tych obiektów stanowiła nazwa
 odpowiadającej kolumny wiersza („columnName”) oraz wartość („value”).
 
 Dla zmniejszenia długości przesyłanego ciągu znaków zmieniono logikę po stronie JavaScript'owej tak by
@@ -844,24 +844,24 @@ Zmiany rozmiaru wysyłanych danych prezentuje Tabela \ref{table:requestSizeOpt}.
 \hline
 & 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-rozmiar odpowiedzi HTTP& 1.3MB&13.8MB& 34.2MB\\ \hline
+rozmiar odpowiedzi HTTPS& 1.3MB&13.8MB& 34.2MB\\ \hline
 \end{tabular}
-\caption{Rozmiar odpowiedzi HTTP względem rozmiaru wybranej próbki DNA, po optymalizacji przesyłanego modelu}
+\caption{Rozmiar odpowiedzi HTTPS względem rozmiaru wybranej próbki DNA, po optymalizacji przesyłanego modelu}
 \label{table:requestSizeOpt}
 \end{table}
 
 \newpage
-\paragraph{Czas trwania żądania HTTP}
-Poniżej w Tabeli \ref{table:httpRequestTime} przedstawiany jest średni czas trwania całego żądania HTTP.
+\paragraph{Czas trwania żądania HTTPS}
+Poniżej w Tabeli \ref{table:httpRequestTime} przedstawiany jest średni czas trwania całego żądania HTTPS.
 \begin{table}[H]
 \begin{tabular}{| p{3cm} | p{3cm} | p{3cm} | p{3cm}|}
 \hline
 & 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-czas trwania żądania HTTP& 5.66s & 9.54s & 19.21s \\ \hline
+czas trwania żądania HTTPS& 5.66s & 9.54s & 19.21s \\ \hline
 czas przetwarzania danych na serwerze& 4.85s& 7.88s& 17.37s\\ \hline
 \end{tabular}
-\caption{Czasy trwania żądania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych }
+\caption{Czasy trwania żądania HTTPS oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych }
 \label{table:httpRequestTime}
 \end{table}
 Warto zwrócić uwagę jak dużą częścią całego żądania stanowił czas przetwarzania danych. Oprócz pobrania danych z bazy danych, serwer również przygotowywał
@@ -876,7 +876,7 @@ i jednocześnie jest najczęściej wykorzystywaną implementacją pamięci podr�
 dla aplikacji w języku Java.
 
 Tabela \ref{table:httpRequestTimeCache} przedstawia średni czas trwania
-całego żądania HTTP oraz czas przetwarzania danych pobranych z bazy danych
+całego żądania HTTPS oraz czas przetwarzania danych pobranych z bazy danych
 (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu
 mechanizmu pamięci podręcznej.
 \begin{table} [H]
@@ -884,15 +884,15 @@ mechanizmu pamięci podręcznej.
 \hline
 & 1920 wierszy & 20224 wierszy & 51200 wierszy\\
 \hline
-czas trwania żądania HTTP& 0.61s & 2.55s& 4.57s \\ \hline
+czas trwania żądania HTTPS& 0.61s & 2.55s& 4.57s \\ \hline
 czas przetwarzania danych& 0.14s& 0.12s& 0.16s\\ \hline
 \end{tabular}
-\caption{Czasy trwania żądania HTTP oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu mechanizmu pamięci podręcznej}
+\caption{Czasy trwania żądania HTTPS oraz czasy przetwarzania danych pobranych z bazy danych (w tym czas połączenia z bazą danych) względem rozmiaru danych po zaimplementowaniu mechanizmu pamięci podręcznej}
 \label{table:httpRequestTimeCache}
 \end{table}
 
 \paragraph{Czas generowania modelu w części klienckiej} Pobrany obiekt typu JSON
-po zakończeniu zapytania HTTP był przekształcany do innej formy między innymi
+po zakończeniu zapytania HTTPS był przekształcany do innej formy między innymi
 funkcje biblioteki Lodash. Poniżej w Tabeli \ref{table:lodashTime} przedstawione są pomiary czasu przekształceń względem rozmiaru obiektu.
 
 \begin{table} [H]
@@ -902,7 +902,7 @@ funkcje biblioteki Lodash. Poniżej w Tabeli \ref{table:lodashTime} przedstawion
 \hline
 przekształcenia modelu w przeglądarce& 0.11s & 0.29s& 0.91s\\ \hline
 \end{tabular}
-\caption{Czasy przekształceń odpowiedzi na żądanie HTTP w przeglądarce klienckiej względem rozmiaru obiektu}
+\caption{Czasy przekształceń odpowiedzi na żądanie HTTPS w przeglądarce klienckiej względem rozmiaru obiektu}
 \label{table:lodashTime}
 \end{table}
 Osiągnięte wyniki testów uznano za zadowalające i nie postanowiono
@@ -924,7 +924,7 @@ wyniki.
 1000 wierszy& 11.82s & 13.05s& 16.07s\\ \hline
 5000 wierszy& 35.4s & \textasciitilde 4min& >5min\\ \hline
 \end{tabular}
-\caption{Czasy dodawania elementów do DOM-u HTML przez platformę AngularJS względem liczby rysowanych wierszy oraz liczby wierszy z odpowiedzi na żądanie HTTP}
+\caption{Czasy dodawania elementów do DOM-u HTML przez platformę AngularJS względem liczby rysowanych wierszy oraz liczby wierszy z odpowiedzi na żądanie HTTPS}
 \label{table:tableRender}
 \end{table}
 \newpage
@@ -950,7 +950,7 @@ Poniższa Tabela \ref{table:tableRenderNgIf} ilustruje wyniki uzyskane z dyrekty
 1000 wierszy& 10.86s & 15.69s& 18.93s\\ \hline
 5000 wierszy& 19.61s& \textasciitilde 3min& >5min\\ \hline
 \end{tabular}
-\caption{Czasy dodawania elementów do DOM-u HTML przez platformę AngularJS z zastosowaniem dyrektywy ng-if względem liczby rysowanych wierszy oraz liczby wierszy z odpowiedzi na żądanie HTTP}
+\caption{Czasy dodawania elementów do DOM-u HTML przez platformę AngularJS z zastosowaniem dyrektywy ng-if względem liczby rysowanych wierszy oraz liczby wierszy z odpowiedzi na żądanie HTTPS}
 \label{table:tableRenderNgIf}
 \end{table}
 
@@ -967,7 +967,7 @@ przed optymalizacją& 16.45s& 24.22s& 50s\\ \hline
 po optymalizacji (pierwsze pobranie)& 11.26s & 14.33s& 33.38s\\ \hline
 po optymalizacji (cache)& 6.6s& 9.2s& 18.74s\\ \hline
 \end{tabular}
-\caption{Czasy wyrysowanie 300 wierszy względem ilości wierszy z odpowiedzi na żądanie HTTP przed i po optymalizacji}
+\caption{Czasy wyrysowanie 300 wierszy względem ilości wierszy z odpowiedzi na żądanie HTTPS przed i po optymalizacji}
 \label{table:summaryRender}
 \end{table}
 
@@ -1029,7 +1029,7 @@ Znajdziemy w nim:
 \item ustawienia ciasteczek,
 \end{itemize}
 \item \textit{generated.keystore} — wygenerowany klucz do szyfrowania połączenia,
-\item \textit{routes} — odwzorowanie adresu URL z żądania HTTP, na odpowiedni kontroler
+\item \textit{routes} — odwzorowanie adresu URL z żądania HTTPS, na odpowiedni kontroler
 i jego metodę
 \end{enumerate}
 
@@ -1079,7 +1079,7 @@ do pobierania wartości zapisanych w plikach konfiguracyjnych.
 Pliki HTML, JavaScript oraz kaskadowych arkuszy stylów umiejscowiono
 w folderze \textit{public}.
 Katalog \textit{javascripts} zawiera w sobie biblioteki, wykorzystywane przez
-część kliencką oraz aplik \textit{app.js}, w którym łączone są wszystkie
+część kliencką oraz plik \textit{app.js}, w którym łączone są wszystkie
 zależności obiektów platformy AngularJS oraz konfiguracja powstałego programu.
 Dla ułatwienia pracy i przejżystości projektu starano się wydzielić każdy element budujący stronę. Każdy taki komponent został umieszczony w podfolderze
 katalogu \textit{modules} razem ze swoim kontrolerem i plikiem HTML odpowiedzialnym
@@ -1101,7 +1101,7 @@ Przed przedstawieniem działania autoryzacji, należy opisać
 sposób działania sesji w narzędziu Play. Jest to wymagane, ponieważ
 sesja jest ściśle powiązana z zabezpieczeniami.
 Play do rozróżniania podłączonych klientów wykorzystuje klucz sesji zapisany do
-ciasteczka HTTP pod domyślną nazwą „PLAY\verb!_!SESSION”.
+ciasteczka pod domyślną nazwą „PLAY\verb!_!SESSION”.
 Wartością owego klucza jest wygenerowany dla każdego użytkownika pseudolosowy ciąg znaków. Przykład widoczny jest na Rysunku \ref{fig:cookiespic}.
 
 \begin{figure}[h]
@@ -1112,7 +1112,7 @@ Wartością owego klucza jest wygenerowany dla każdego użytkownika pseudolosow
 \newpage
 
 Platforma Play umożliwia dodawanie dodatkowych ciasteczek do odpowiedzi serwera
-i ta funkcjonalność posłużyła do przekazywania informacji o roli użytkownika przy każdym zapytaniu HTTP wysyłanym po logowaniu.
+i ta funkcjonalność posłużyła do przekazywania informacji o roli użytkownika przy każdym zapytaniu HTTPS wysyłanym po logowaniu.
 
 Program napisany w języku JavaScript zajmuje się zabezpieczeniem
 dostępu do funkcjonalności systemu zależnie od roli użytkownika otrzymanej
@@ -1168,8 +1168,8 @@ należy posiadać klucz sesji zalogowanego w tym samym momencie użytkownika
 z odpowiednią rolą.
 
 Najprostszą drogą do uzyskania tych danych jest podsłuchanie wysyłanych
-żądań HTTP. Utrudnić to ma za zadanie wprowadzenie HTTPS i zablokowanie wysyłania
-ciasteczek, gdy serwer wykryje połączenie HTTP.
+żądań HTTPS. Utrudnić to ma za zadanie wprowadzenie HTTPS i zablokowanie wysyłania
+ciasteczek, gdy serwer wykryje połączenie HTTPS.
 
 \newpage
 \section{Wnioski i podsumowania}
@@ -1199,7 +1199,7 @@ od którego należy rozpocząć prace w następnym etapie rozwoju systemu.
 W tym samym czasie można również rozpocząć pracę nad kolejnymi funkcjonalnościami
 aplikacji. Przykładami takich usprawnień mogłyby być:
 \begin{itemize}
-\item umożliwienie tworzenie własnych zakładek z filtrami,
+\item umożliwienie tworzenia własnych zakładek z filtrami,
 \item eksport przefiltrowanych danych do plików,
 \item dodanie wykresów ilustrujących dane,
 \end{itemize}

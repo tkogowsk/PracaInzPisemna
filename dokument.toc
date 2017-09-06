@@ -53,19 +53,19 @@
 \contentsline {paragraph}{Zapisywanie warto\IeC {\'s}ci filtr\IeC {\'o}w dla u\IeC {\.z}ytkownika}{36}
 \contentsline {section}{\numberline {8}Wydajno\IeC {\'s}\IeC {\'c} aplikacji}{37}
 \contentsline {paragraph}{Rozmiar przesy\IeC {\l }anych danych}{38}
-\contentsline {paragraph}{Czas trwania \IeC {\.z}\IeC {\k a}dania HTTP}{39}
+\contentsline {paragraph}{Czas trwania \IeC {\.z}\IeC {\k a}dania HTTPS}{39}
 \contentsline {paragraph}{Czas generowania modelu w cz\IeC {\k e}\IeC {\'s}ci klienckiej}{40}
 \contentsline {paragraph}{Czas dodawania element\IeC {\'o}w do DOM-u przegl\IeC {\k a}darki przez platform\IeC {\k e} AngularJS}{40}
-\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{42}
-\contentsline {paragraph}{SQL injection}{42}
-\contentsline {section}{\numberline {10}Cz\IeC {\k e}\IeC {\'s}ciowy opis implementacji}{43}
-\contentsline {subsection}{\numberline {10.1}Struktura folder\IeC {\'o}w}{43}
-\contentsline {subsubsection}{\numberline {10.1.1}Pliki konfiguracyjne}{43}
-\contentsline {subsubsection}{\numberline {10.1.2}Pliki napisane w j\IeC {\k e}zyku Scala}{44}
-\contentsline {subsubsection}{\numberline {10.1.3}Pliki cz\IeC {\k e}\IeC {\'s}ci klienckiej}{45}
-\contentsline {subsection}{\numberline {10.2}Opis implementacji autoryzacji i sesji}{45}
-\contentsline {paragraph}{Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} przegl\IeC {\k a}darkowa}{45}
-\contentsline {paragraph}{Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} serwera}{46}
-\contentsline {section}{\numberline {11}Wnioski i podsumowania}{48}
-\contentsline {section}{Literatura}{48}
-\contentsline {section}{Wykaz rysunk\IeC {\'o}w i tabel}{54}
+\contentsline {section}{\numberline {9}Bezpiecze\IeC {\'n}stwo aplikacji}{43}
+\contentsline {paragraph}{SQL injection}{43}
+\contentsline {section}{\numberline {10}Cz\IeC {\k e}\IeC {\'s}ciowy opis implementacji}{44}
+\contentsline {subsection}{\numberline {10.1}Struktura folder\IeC {\'o}w}{44}
+\contentsline {subsubsection}{\numberline {10.1.1}Pliki konfiguracyjne}{44}
+\contentsline {subsubsection}{\numberline {10.1.2}Pliki napisane w j\IeC {\k e}zyku Scala}{45}
+\contentsline {subsubsection}{\numberline {10.1.3}Pliki cz\IeC {\k e}\IeC {\'s}ci klienckiej}{46}
+\contentsline {subsection}{\numberline {10.2}Opis implementacji autoryzacji i sesji}{46}
+\contentsline {paragraph}{Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} przegl\IeC {\k a}darkowa}{46}
+\contentsline {paragraph}{Cz\IeC {\k e}\IeC {\'s}\IeC {\'c} serwera}{47}
+\contentsline {section}{\numberline {11}Wnioski i podsumowania}{49}
+\contentsline {section}{Literatura}{49}
+\contentsline {section}{Wykaz rysunk\IeC {\'o}w i tabel}{55}
